@@ -74,7 +74,14 @@ function getStaticPages() {
     if (route.includes("/client")) continue;
     if (route.includes("/cliente/")) continue;
     if (route.includes("/my-usage")) continue;
-    if (navTargets.has(route)) continue; // redirect
+    if (navTargets.has(route)) continue; // Navigate redirect
+    if (route === "/about") continue; // redirect via vercel.json → /sobre
+    if (route === "/maritime_freight") continue; // alias — canonical is /maritime-freight
+    if (route === "/landing-index") continue; // alias — not a real page
+    if (route === "/landing-about") continue; // alias — not a real page
+    if (route === "/landing-api") continue; // alias — not a real page
+    if (route === "/landing-privacy") continue; // alias — not a real page
+    if (route === "/landing-terms") continue; // alias — not a real page
     pages.push(route);
   }
 

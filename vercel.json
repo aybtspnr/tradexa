@@ -356,6 +356,70 @@
       "destination": "/ferramentas/comparador-portos.html"
     },
     {
+      "source": "/ferramentas/calculadora-acc-ace",
+      "destination": "/ferramentas/calculadora-acc-ace.html"
+    },
+    {
+      "source": "/ferramentas/precificacao-exportacao",
+      "destination": "/ferramentas/precificacao-exportacao.html"
+    },
+    {
+      "source": "/ferramentas/gerador-documentos",
+      "destination": "/ferramentas/gerador-documentos.html"
+    },
+    {
+      "source": "/ferramentas/conformidade-regulatoria",
+      "destination": "/ferramentas/conformidade-regulatoria.html"
+    },
+    {
+      "source": "/ferramentas/calculadora-drawback",
+      "destination": "/ferramentas/calculadora-drawback.html"
+    },
+    {
+      "source": "/ferramentas/calculadora-carbono",
+      "destination": "/ferramentas/calculadora-carbono.html"
+    },
+    {
+      "source": "/ferramentas/simulador-acordos-comerciais",
+      "destination": "/ferramentas/simulador-acordos-comerciais.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html"
+    },
+    {
+      "source": "/services/import-intelligence",
+      "destination": "/services/import-intelligence.html"
+    },
+    {
+      "source": "/services/export-intelligence",
+      "destination": "/services/export-intelligence.html"
+    },
+    {
+      "source": "/services/tools",
+      "destination": "/services/tools.html"
+    },
+    {
+      "source": "/services/market-analysis",
+      "destination": "/services/market-analysis.html"
+    },
+    {
+      "source": "/services/maps",
+      "destination": "/services/maps.html"
+    },
+    {
+      "source": "/services/alertas",
+      "destination": "/services/alertas.html"
+    },
+    {
+      "source": "/services/api",
+      "destination": "/services/api.html"
+    },
+    {
+      "source": "/precos",
+      "destination": "/precos.html"
+    },
+    {
       "source": "/rastreamento",
       "destination": "/rastreamento.html"
     },

@@ -5,10 +5,17 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Package, TrendingUp, Zap, BarChart3, BellRing, Map, Search, Database, MapPin, FileText, Shield, Bot, Globe, Scale, Target, Percent, Route, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/SiteLayout";
+import { useSeo } from "@/hooks/use-seo";
 
 const FEATURE_ICONS: Record<string, any> = { Database, Search, BarChart3, MapPin, BellRing, FileText, Bot, Globe, Scale, Target, Percent, Route, Truck, Shield };
 
-export default function GenericServicePage({ badge, title, description, ctaRoute, ctaText, features, seoTitle, seoParagraphs }: any) {
+export default function GenericServicePage({ badge, title, description, ctaRoute, ctaText, features, seoTitle, seoParagraphs, canonical }: any) {
+  useSeo({
+    title: `${title} | TRADEXA`,
+    description: description || "Serviços de inteligência comercial para importação e exportação.",
+    canonical: canonical || `https://www.tradexa.com.br${window.location.pathname}`,
+  });
+
   return (
     <SiteLayout>
       <section className="relative py-20 md:py-28 px-4 overflow-hidden">

@@ -325,6 +325,7 @@ function AnimatedRoutes() {
             ══════════════════════════════ */}
         <Route path="/" element={<AnimatedPage><HomePage /></AnimatedPage>} />
         <Route path="/pricing" element={<AnimatedPage><LandingVendas /></AnimatedPage>} />
+        <Route path="/precos" element={<AnimatedPage><LandingVendas /></AnimatedPage>} />
         <Route path="/login" element={<AnimatedPage><Login /></AnimatedPage>} />
         <Route path="/register" element={<AnimatedPage><Register /></AnimatedPage>} />
         <Route path="/forgot-password" element={<AnimatedPage><ForgotPassword /></AnimatedPage>} />
