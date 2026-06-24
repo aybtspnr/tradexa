@@ -694,6 +694,9 @@ const PAGES = [
   { route: "/services/maps", file: "services/maps.html", title: "Mapas e Rastreamento Logístico | TRADEXA", desc: "Mapas interativos de comércio exterior: Supply Chain Map ao vivo, mapa de importações, explorador global e rastreamento de cargas.", keywords: "mapas, rastreamento, logística, supply chain, navios, aviões, TRADEXA", ogTitle: "Mapas e Rastreamento Logístico | TRADEXA", ogDesc: "Mapas interativos e rastreamento ao vivo de navios, aviões e cargas para sua cadeia de suprimentos." },
   { route: "/services/alertas", file: "services/alertas.html", title: "Alertas de Comércio Exterior | TRADEXA", desc: "Configure alertas personalizados de tarifas, oportunidades de mercado e mudanças regulatórias no comércio exterior.", keywords: "alertas, tarifas, oportunidades, mercado, comércio exterior, TRADEXA", ogTitle: "Alertas de Comércio Exterior | TRADEXA", ogDesc: "Receba alertas personalizados de tarifas, oportunidades e mudanças no comércio exterior." },
   { route: "/services/api", file: "services/api.html", title: "API de Dados de Comércio Exterior | TRADEXA", desc: "API REST para integração de dados de comércio exterior em seus sistemas. NCM, tarifas, dados de importação e exportação.", keywords: "API, dados, comércio exterior, integração, REST, TRADEXA", ogTitle: "API de Dados de Comércio Exterior | TRADEXA", ogDesc: "API REST para integrar dados de comércio exterior nos seus sistemas. NCM, tarifas e dados de importação." },
+  { route: "/export-import-data", file: "export-import-data.html", title: "Export Import Data — Dados de Comércio Exterior | TRADEXA", desc: "Consulte dados de exportação e importação reais por NCM, país e período. Descubra exportadores e importadores com inteligência de mercado.", keywords: "export import data, comércio exterior, dados comex, NCM, exportadores, importadores, tradexa", ogTitle: "Export Import Data — Comércio Exterior | TRADEXA", ogDesc: "Dados reais de exportação e importação: consulte por NCM, país, estado e período. Descubra compradores e vendedores internacionais." },
+  { route: "/features", file: "features.html", title: "Funcionalidades — Recursos da Plataforma | TRADEXA", desc: "Conheça todas as funcionalidades da TRADEXA: classificação NCM com IA, tarifário global, diretório de importadores, supply chain map e inteligência comercial.", keywords: "funcionalidades, plataforma, recursos, NCM, IA, tarifas, importadores, tradexa", ogTitle: "Funcionalidades TRADEXA — Plataforma Completa de Comex", ogDesc: "Classificação NCM com IA, tarifas de 31 países, milhões de importadores e mapas logísticos ao vivo. Tudo em uma plataforma integrada." },
+  { route: "/contatar", file: "contatar.html", title: "Contratar — Planos e Assinatura | TRADEXA", desc: "Escolha o plano ideal para sua operação de comércio exterior. Do gratuito ao empresarial: classificação NCM, tarifas globais e inteligência de mercado.", keywords: "contratar, planos, assinatura, tradexa, comércio exterior, preços", ogTitle: "Contratar TRADEXA — Planos e Preços", ogDesc: "Comece grátis e escale quando precisar. Planos para importadores, exportadores e operadores logísticos com inteligência de mercado." },
 ];
 
 // ── Landing pages ──
@@ -1423,7 +1426,10 @@ const BLOG_POSTS = [
   { slug: "wms-armazenagem-inteligente", name: "WMS na Importação e Exportação: Armazenagem Inteligente", desc: "Guia completo de WMS para operações de comex: gestão de armazéns alfandegados, FIFO, cross-docking, integração ERP/Siscomex, RFID, redução de custos de armazenagem e demurrage em recintos alfandegados." },
   { slug: "rfid-iot-rastreamento-cargas", name: "RFID e IoT no Rastreamento de Cargas Internacionais", desc: "Guia completo de RFID e IoT no rastreamento de cargas: sensores de temperatura para cadeia do frio, lacres eletrônicos, integração AIS, geofencing, normas ISO/GS1, casos de uso farma e cold chain." },
   { slug: "ia-generativa-classificacao-ncm-documentacao", name: "IA Generativa na Classificação NCM e Documentação", desc: "Guia completo sobre IA generativa na classificação NCM: LLMs, machine learning, acurácia TRADEXA, interpretação de RGI, geração automática de documentos DU-E e LPCO, compliance e aspectos legais da IA no comex." },
-  { slug: "despachante-aduaneiro-digital", name: "Despachante Aduaneiro Digital: O Futuro da Assessoria", desc: "Guia completo sobre o despachante aduaneiro digital: impacto do NPI e DUIMP, novas competências, plataformas digitais, custos comparativos self-filing vs broker, OEA e futuro da profissão no comex brasileiro." }
+  { slug: "despachante-aduaneiro-digital", name: "Despachante Aduaneiro Digital: O Futuro da Assessoria", desc: "Guia completo sobre o despachante aduaneiro digital: impacto do NPI e DUIMP, novas competências, plataformas digitais, custos comparativos self-filing vs broker, OEA e futuro da profissão no comex brasileiro." },
+  { slug: "impacto-tarifas-trump-exportacoes", name: "Impacto das Tarifas de Trump nas Exportações Brasileiras", desc: "Análise do impacto das tarifas comerciais de Donald Trump sobre as exportações brasileiras para os EUA. Oportunidades, desafios e estratégias para exportadores." },
+  { slug: "o-que-mudou-comex-2026", name: "O Que Mudou no Comércio Exterior em 2026", desc: "Panorama das principais mudanças no comércio exterior brasileiro em 2026: reforma tributária, acordos comerciais, digitalização e novas regulamentações." },
+  { slug: "previsao-comex-q3-2026", name: "Previsões para o Comércio Exterior no 3º Trimestre de 2026", desc: "Projeções e análises para o comércio exterior brasileiro no terceiro trimestre de 2026: cenários, tendências de mercado e oportunidades para importadores e exportadores." },
 
 ];
 
@@ -1499,13 +1505,46 @@ function generateBreadcrumbSchema(route, pageTitle) {
 
 // ── SEO Content blocks for each page (loaded from JSON) ──
 const SEO_CONTENT = JSON.parse(fs.readFileSync(path.join(__dirname, "seo-content.json"), "utf-8"));
+
+function generateOrganizationSchema() {
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TRADEXA",
+    "url": "https://www.tradexa.com.br",
+    "logo": "https://www.tradexa.com.br/og-image.png",
+    "sameAs": [
+      "https://www.linkedin.com/company/tradexa"
+    ],
+    "description": "Plataforma de comércio exterior com classificação NCM com IA, tarifas de 31 países, rastreamento de cargas e inteligência de mercado."
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TRADEXA",
+    "url": "https://www.tradexa.com.br",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.tradexa.com.br/ai-search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  return `\n    <script type="application/ld+json">\n    ${JSON.stringify(orgSchema)}\n    </script>\n    <script type="application/ld+json">\n    ${JSON.stringify(websiteSchema)}\n    </script>`;
+}
+
 function buildHtml(title, desc, keywords, ogTitle, ogDesc, route, baseHtml, seoContent = "", extraSchema = "") {
   const fullTitle = title;
   const ogTitleFinal = ogTitle || title;
   const ogDescFinal = ogDesc || desc;
   const canonical = `${BASE_URL}${route}`;
   const breadcrumbSchema = generateBreadcrumbSchema(route, title);
-  const allSchema = breadcrumbSchema + extraSchema;
+  const organizationSchema = generateOrganizationSchema();
+  const allSchema = breadcrumbSchema + organizationSchema + extraSchema;
 
   return baseHtml
     // Convert Vite's blocking CSS link to non-blocking preload (with noscript fallback)
