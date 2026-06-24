@@ -204,7 +204,8 @@ export default function ImportersMap() {
   const [ncmFilter, setNcmFilter] = useState("");
 
   // ── Data ──
-  const [data, setData] = useState<TradeData | null>(null);
+  const [dataExport, setDataExport] = useState<TradeData | null>(null);
+  const [dataImport, setDataImport] = useState<TradeData | null>(null);
   const [loading, setLoading] = useState(false);
   const [loadingMap, setLoadingMap] = useState(true);
   const [error, setError] = useState("");
@@ -311,14 +312,23 @@ export default function ImportersMap() {
         }))
         .sort((a: StateTrade, b: StateTrade) => b.fobValue - a.fobValue);
 
-      // 3. Cities
+      // 3. Cities (comexstat /cities: no metricKG, heading/chapter filters only)
+      const citiesFilters = filters ? (() => {
+        // Convert to heading/chapter level for cities endpoint
+        const f = filters[0];
+        if (f.filter === "ncm" || f.filter === "subHeading") {
+          return [{ filter: "heading", values: [f.values[0].substring(0, 4)] }];
+        }
+        return filters;
+      })() : undefined;
+
       await new Promise(r => setTimeout(r, 600));
       const cityResult = await comexstat.queryCities({
         flow: tab,
         period: periodParam,
         details: ["city"],
-        metrics: ["metricFOB", "metricKG"],
-        filters,
+        metrics: ["metricFOB"],
+        filters: citiesFilters,
         limit: 100,
       });
 
@@ -337,7 +347,8 @@ export default function ImportersMap() {
         })
         .sort((a: CityTrade, b: CityTrade) => b.fobValue - a.fobValue);
 
-      setData({ countries, states, cities });
+      if (tab === "export") setDataExport({ countries, states, cities });
+      else setDataImport({ countries, states, cities });
       dataRef.current = { countries, states, cities };
       consume("search");
     } catch (err: any) {
@@ -345,7 +356,7 @@ export default function ImportersMap() {
     } finally {
       setLoading(false);
     }
-  }, [tab, periodParam, ncmFilter, consume]);
+  }, [periodParam, ncmFilter, consume]);
 
   useEffect(() => {
     fetchData();
@@ -463,16 +474,24 @@ export default function ImportersMap() {
     };
   }, []);
 
+  // ── Derived data ──
+  const currentData = tab === "export" ? dataExport : dataImport;
+  const topCountries = currentData?.countries.slice(0, 15) || [];
+  const topStates = currentData?.states.slice(0, 10) || [];
+  const topCities = currentData?.cities.slice(0, 20) || [];
+  const totalFobDisplay = currentData?.countries.reduce((s, c) => s + (c.fobValue || 0), 0) || 0;
+
   // ── Update map colors when data changes ──
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !data) return;
+    const d = currentData;
+    if (!map || !d) return;
 
-    const maxFob = data.countries.length > 0 ? data.countries[0].fobValue : 1;
+    const maxFob = d.countries.length > 0 ? d.countries[0].fobValue : 1;
 
     // Build a lookup: country name → FOB value
     const fobMap: Record<string, number> = {};
-    for (const c of data.countries) {
+    for (const c of d.countries) {
       // Store both the original name and common aliases
       fobMap[c.country] = c.fobValue;
       fobMap[c.country.toLowerCase()] = c.fobValue;
@@ -493,7 +512,7 @@ export default function ImportersMap() {
     // Build match expression for known countries using ISO2 code
     const colorExpression: any[] = ["match", ["get", "iso_a2"]];
     
-    for (const c of data.countries) {
+    for (const c of d.countries) {
       const color = getColor(c.fobValue);
       if (c.countryCode) {
         colorExpression.push(c.countryCode, color);
@@ -502,20 +521,7 @@ export default function ImportersMap() {
     colorExpression.push("#e2e8f0"); // default (no data)
 
     map.setPaintProperty("countries-fill", "fill-color", colorExpression);
-  }, [data]);
-
-  // ── Helpers ──
-  const periodLabel = useMemo(() => {
-    if (period.mode === "months") return `Últimos ${period.count} meses`;
-    if (period.mode === "full_year") return `${period.year}`;
-    return `${MONTHS_LABEL[(period.month || 1) - 1]}/${period.year}`;
-  }, [period]);
-
-  const currentData = data;
-  const topCountries = currentData?.countries.slice(0, 15) || [];
-  const topStates = currentData?.states.slice(0, 10) || [];
-  const topCities = currentData?.cities.slice(0, 20) || [];
-  const totalFobDisplay = currentData?.countries.reduce((s, c) => s + (c.fobValue || 0), 0) || 0;
+  }, [currentData]);
 
   // ── Find matching country name between GeoJSON and our data ──
   function findCountryName(geoName: string, countries: CountryTrade[]): string | null {
@@ -557,9 +563,9 @@ export default function ImportersMap() {
           </div>
 
           <div className="flex items-center gap-3">
-            {/* Period badge */}
+            {/* Tab badge */}
             <Badge variant="outline" className="text-[11px] font-bold text-slate-600 border-slate-200 bg-slate-50">
-              {periodLabel}
+              {tab === "export" ? "Exportação" : "Importação"}
             </Badge>
           </div>
         </div>
@@ -582,44 +588,6 @@ export default function ImportersMap() {
               )}>
               <TrendingDown className="h-3.5 w-3.5" /> Importação
             </button>
-          </div>
-
-          <span className="w-px h-6 bg-slate-200 shrink-0" />
-
-          {/* Period filter */}
-          <div className="flex items-center gap-1.5 shrink-0">
-            <label className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 whitespace-nowrap">Período</label>
-            <div className="flex gap-1">
-              {(availableYears.length > 0 ? availableYears : [2026, 2025, 2024]).slice(0, 3).map((y) => (
-                <button key={y} onClick={() => {
-                  if (period.mode === "full_year" && period.year === y) {
-                    setPeriod({ mode: "specific_month", year: y, month: 1 });
-                  } else {
-                    setPeriod({ mode: "full_year", year: y });
-                  }
-                }}
-                  className={cn("text-[11px] font-bold py-1.5 px-2.5 rounded border transition-all",
-                    (period.mode === "full_year" || period.mode === "specific_month") && period.year === y ? "bg-[#D80E16] text-white border-[#D80E16]" : "bg-white text-slate-500 border-slate-200 hover:border-slate-300"
-                  )}>{y}</button>
-              ))}
-            </div>
-            {period.mode === "full_year" && period.year && (
-              <button onClick={() => setPeriod({ mode: "specific_month", year: period.year!, month: 1 })}
-                className="text-[11px] text-slate-400 hover:text-slate-600 underline whitespace-nowrap">mês</button>
-            )}
-            {period.mode === "specific_month" && period.year && (
-              <div className="flex gap-1">
-                {MONTHS_LABEL.map((m, i) => (
-                  <button key={i} onClick={() => {
-                    if (period.month === i + 1) setPeriod({ mode: "full_year", year: period.year! });
-                    else setPeriod({ mode: "specific_month", year: period.year!, month: i + 1 });
-                  }}
-                    className={cn("text-[10px] font-bold py-1.5 px-2 rounded border transition-all",
-                      period.month === i + 1 ? "bg-[#D80E16] text-white border-[#D80E16]" : "bg-white text-slate-500 border-slate-200 hover:border-slate-300"
-                    )}>{m}</button>
-                ))}
-              </div>
-            )}
           </div>
 
           <span className="w-px h-6 bg-slate-200 shrink-0" />

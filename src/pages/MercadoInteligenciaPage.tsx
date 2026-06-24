@@ -40,7 +40,7 @@ import { MobileDataTable } from "@/components/intel/MobileDataTable";
 
 interface NcmItem { code: string; desc: string }
 interface TradeRow {
-  coNcm?: string; ncm?: string; metricFOB?: string; metricKg?: string;
+  coNcm?: string; ncm?: string; metricFOB?: string; metricKG?: string;
   country?: string; year?: string; monthNumber?: string; period?: string;
   sgUf?: string; bloco?: string; [k: string]: any;
 }
@@ -361,7 +361,7 @@ async function queryTrade(flow: string, ncms: string[], months: number, ufs: str
     allRows.push(...(r?.data?.list || []));
   }
   const totalFob = allRows.reduce((s, r) => s + Number(r.metricFOB || 0), 0);
-  const totalKg = allRows.reduce((s, r) => s + Number(r.metricKg || 0), 0);
+  const totalKg = allRows.reduce((s, r) => s + Number(r.metricKG || 0), 0);
   const out = {
     rows: allRows,
     summary: { totalFob, totalKg, ncmCount: new Set(allRows.map(r => r.coNcm)).size, countryCount: new Set(allRows.map(r => r.country)).size, rowCount: allRows.length },
@@ -372,7 +372,7 @@ async function queryTrade(flow: string, ncms: string[], months: number, ufs: str
 function exportCsv(rows: TradeRow[], flow: string) {
   const header = "NCM,Descrição,País,Valor FOB,Peso (kg)";
   const lines = rows.map(r =>
-    `"${r.coNcm || ""}","${(r.ncm || "").replace(/"/g, '""')}","${(r.country || "").replace(/"/g, '""')}",${r.metricFOB || 0},${r.metricKg || 0}`
+    `"${r.coNcm || ""}","${(r.ncm || "").replace(/"/g, '""')}","${(r.country || "").replace(/"/g, '""')}",${r.metricFOB || 0},${r.metricKG || 0}`
   );
   const blob = new Blob(["\ufeff" + [header, ...lines].join("\n")], { type: "text/csv;charset=utf-8" });
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `tradexa_${flow}_${Date.now()}.csv`;
@@ -1449,7 +1449,7 @@ export default function MercadoInteligenciaPage() {
                   if (!code) return;
                   const v = byNcm.get(code) || { fob: 0, kg: 0 };
                   v.fob += Number(r.metricFOB || 0);
-                  v.kg += Number(r.metricKg || 0);
+                  v.kg += Number(r.metricKG || 0);
                   byNcm.set(code, v);
                 });
                 const ncmList = [...byNcm.entries()].sort((a, b) => b[1].fob - a[1].fob);
@@ -2713,7 +2713,7 @@ function MonthlyChart({ data, flowType, monthlyData }: {
       if (!monthKey) return;
       const val = byMonth.get(monthKey) || { fob: 0, kg: 0 };
       val.fob += Number(r.metricFOB || 0);
-      val.kg += Number(r.metricKg || 0);
+      val.kg += Number(r.metricKG || 0);
       byMonth.set(monthKey, val);
     });
     return [...byMonth.entries()].sort(([a], [b]) => a.localeCompare(b)).slice(-12);

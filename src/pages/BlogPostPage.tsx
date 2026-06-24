@@ -1042,8 +1042,8 @@ export default function BlogPostPage() {
                   post.image ? "text-white" : "text-[#0F111A]"
                 }`}
               >
-                {post.title.length > 90
-                  ? post.title.substring(0, 87) + "..."
+                {post.title.length > 120
+                  ? post.title.substring(0, 117) + "..."
                   : post.title}
               </h1>
 

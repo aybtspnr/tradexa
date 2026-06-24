@@ -7,7 +7,7 @@ export interface TradeDataRow {
   country?: string;
   cod_pais?: string;
   metricFOB?: number | string;
-  metricKg?: number | string;
+  metricKG?: number | string;
 }
 
 interface Props {
@@ -47,7 +47,7 @@ export const MobileDataTable: React.FC<Props> = ({ data, fmtUSD, fmtKg, flowType
                   {fmtUSD(Number(r.metricFOB || 0))}
                 </td>
                 <td className="py-2.5 px-5 text-right text-slate-500">
-                  {fmtKg(Number(r.metricKg || 0))}
+                  {fmtKg(Number(r.metricKG || 0))}
                 </td>
               </tr>
             ))}
@@ -59,7 +59,7 @@ export const MobileDataTable: React.FC<Props> = ({ data, fmtUSD, fmtKg, flowType
       <div className="md:hidden divide-y divide-slate-100 max-h-[400px] overflow-y-auto">
         {rows.map((r, i) => {
           const fob = Number(r.metricFOB || 0);
-          const kg = Number(r.metricKg || 0);
+          const kg = Number(r.metricKG || 0);
           const ppk = kg > 0 ? fob / kg : 0;
           return (
             <div key={i} className="px-4 py-3 flex items-center gap-3">
