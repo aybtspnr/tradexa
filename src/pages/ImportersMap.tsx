@@ -209,6 +209,7 @@ export default function ImportersMap() {
   const [loadingMap, setLoadingMap] = useState(true);
   const [error, setError] = useState("");
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const dataRef = useRef<TradeData | null>(null);
 
   // ── Map refs ──
   const mapContainer = useRef<HTMLDivElement>(null);
@@ -337,6 +338,7 @@ export default function ImportersMap() {
         .sort((a: CityTrade, b: CityTrade) => b.fobValue - a.fobValue);
 
       setData({ countries, states, cities });
+      dataRef.current = { countries, states, cities };
       consume("search");
     } catch (err: any) {
       setError(err.message || "Erro ao carregar dados");
@@ -422,8 +424,9 @@ export default function ImportersMap() {
           const props = e.features[0].properties || {};
           // Try to match by ISO2 code first (more reliable than names)
           const iso2 = props.iso_a2;
-          if (iso2 && iso2 !== "-99" && data) {
-            const matched = data.countries.find(c => c.countryCode === iso2);
+          const clickData = dataRef.current;
+          if (iso2 && iso2 !== "-99" && clickData) {
+            const matched = clickData.countries.find(c => c.countryCode === iso2);
             if (matched) {
               setSelectedCountry(matched.country);
               return;
@@ -431,7 +434,7 @@ export default function ImportersMap() {
           }
           // Fallback: try name matching
           const name = props.name || props.sovereignt || props.ADMIN || "";
-          const matched = findCountryName(name, data?.countries || []);
+          const matched = findCountryName(name, clickData?.countries || []);
           setSelectedCountry(matched || name);
         }
       });
