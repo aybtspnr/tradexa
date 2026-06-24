@@ -147,7 +147,7 @@ function SiteFooter() {
               { label: "Alertas de Tarifas", href: "/tariff-alerts" },
               { label: "Diretório de Importadores", href: "/importadores" },
               { label: "Importadores Potenciais", href: "/potential-importers" },
-              { label: "Mapa de Importadores", href: "/importers-map" },
+              { label: "Mapa Comercial", href: "/importers-map" },
               { label: "Comparar Países", href: "/country-comparison" },
               { label: "Brasil ↔ EUA", href: "/us-trade" },
               { label: "Análise Avançada", href: "/trade-intelligence" },
@@ -226,6 +226,17 @@ function SiteFooter() {
 
 // ═══════════════ LAYOUT ═══════════════
 export function SiteLayout({ children, noFooter, noBreadcrumbs }: { children: ReactNode; noFooter?: boolean; noBreadcrumbs?: boolean }) {
+  // Tracking de páginas
+  useEffect(() => {
+    const page = window.location.pathname + window.location.search;
+    const referrer = document.referrer || '';
+    
+    // Envia beacon para o VPS (fire-and-forget, não bloqueia)
+    try {
+      const payload = new Blob([JSON.stringify({ page, referrer })], { type: 'application/json' });
+      navigator.sendBeacon('/api/track-page', payload);
+    } catch {}
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col text-[#0F111A]">

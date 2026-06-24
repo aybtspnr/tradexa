@@ -27,7 +27,7 @@ const ROUTE_LABELS: Record<string, string> = {
   "export-simulator": "Simulador de Exportação",
   "smart-rank": "Smart Rank",
   "tariff-alerts": "Alertas de Tarifas",
-  "importers-map": "Mapa de Importadores",
+  "importers-map": "Mapa Comercial",
   "seasonal-calendar": "Calendário Sazonal",
   "trade-intelligence": "Trade Intelligence",
   "us-trade": "Comércio EUA",

@@ -1,556 +1,855 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import {
-  Globe, MapPin, Search, Loader2, AlertTriangle, Users,
-  Building2, ArrowRight, ChevronDown, ChevronUp, X,
+  Globe, MapPin, Search, Loader2, AlertTriangle,
+  TrendingUp, TrendingDown, Download, X, ChevronDown, ChevronUp, ArrowLeft,
+  Ship, Warehouse, SlidersHorizontal,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 import { useSeo } from "@/hooks/use-seo";
 import { useUsage } from "@/hooks/use-usage";
+import { comexstat } from "@/services/comexstat";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
 
-/* ── Types ── */
-interface HsChapter {
-  hs_chapter: string;
-  description: string;
-  count: number;
-  categories: string[];
-}
+/* ═══════════════════════════════════════════
+   TYPES
+   ═══════════════════════════════════════════ */
 
-interface Importer {
-  id: string;
-  company: string;
+interface CountryTrade {
   country: string;
-  city?: string;
-  hs_code: string;
-  hs_description: string;
-  product_category?: string;
-  employees?: number;
-  turnover_usd?: number | null;
-  categories_traded?: number;
+  countryCode: string;
+  fobValue: number;
+  kgValue: number;
+  share: number;
 }
 
-/* ── Country Coordinates ── */
-const COUNTRY_COORDS: Record<string, [number, number]> = {
-  "United States": [37.0902, -95.7129],
-  "China": [35.8617, 104.1954],
-  "Germany": [51.1657, 10.4515],
-  "United Kingdom": [55.3781, -3.4360],
-  "France": [46.2276, 2.2137],
-  "Italy": [41.8719, 12.5674],
-  "Japan": [36.2048, 138.2529],
-  "Netherlands": [52.1326, 5.2913],
-  "South Korea": [35.9078, 127.7669],
-  "Canada": [56.1304, -106.3468],
-  "Belgium": [50.5039, 4.4699],
-  "India": [20.5937, 78.9629],
-  "Mexico": [23.6345, -102.5528],
-  "Spain": [40.4637, -3.7492],
-  "Switzerland": [46.8182, 8.2275],
-  "Australia": [-25.2744, 133.7751],
-  "Brazil": [-14.2350, -51.9253],
-  "Russia": [61.5240, 105.3188],
-  "Turkey": [38.9637, 35.2433],
-  "Türkiye": [38.9637, 35.2433],
-  "Austria": [47.5162, 14.5501],
-  "Poland": [51.9194, 19.1451],
-  "Sweden": [60.1282, 18.6435],
-  "Argentina": [-38.4161, -63.6167],
-  "Nigeria": [9.0820, 8.6753],
-  "Norway": [60.4720, 8.4689],
-  "Vietnam": [14.0583, 108.2772],
-  "Viet Nam": [14.0583, 108.2772],
-  "Denmark": [56.2639, 9.5018],
-  "South Africa": [-30.5595, 22.9375],
-  "Saudi Arabia": [23.8859, 45.0792],
-  "Singapore": [1.3521, 103.8198],
-  "UAE": [23.4241, 53.8478],
-  "United Arab Emirates": [23.4241, 53.8478],
-  "Finland": [61.9241, 25.7482],
-  "Thailand": [15.8700, 100.9925],
-  "Israel": [31.0461, 34.8516],
-  "Malaysia": [4.2105, 101.9758],
-  "Portugal": [39.3999, -8.2245],
-  "Czech Republic": [49.8175, 15.4730],
-  "Greece": [39.0742, 21.8243],
-  "Ireland": [53.4129, -8.2439],
-  "Romania": [45.9432, 24.9668],
-  "Hungary": [47.1625, 19.5033],
-  "Ukraine": [48.3794, 31.1656],
-  "New Zealand": [-40.9006, 174.8860],
-  "Chile": [-35.6751, -71.5430],
-  "Colombia": [4.5709, -74.2973],
-  "Peru": [-9.1900, -75.0152],
-  "Egypt": [26.8206, 30.8025],
-  "Kazakhstan": [48.0196, 66.9237],
-  "Morocco": [31.7917, -7.0926],
-  "Bangladesh": [23.6850, 90.3563],
-  "Philippines": [12.8797, 121.7740],
-  "Pakistan": [30.3753, 69.3451],
-  "Indonesia": [-0.7893, 113.9213],
-  "Ecuador": [-1.8312, -78.1834],
-  "Venezuela": [6.4238, -66.5897],
-  "Bolivia": [-16.2902, -63.5887],
-  "Paraguay": [-23.4425, -58.4438],
-  "Uruguay": [-32.5228, -55.7658],
-  "Guatemala": [15.7835, -90.2308],
-  "Costa Rica": [9.7489, -83.7534],
-  "Panama": [8.5380, -80.7821],
-  "Dominican Republic": [18.7357, -70.1627],
-  "Croatia": [45.1000, 15.2000],
-  "Bulgaria": [42.7339, 25.4858],
-  "Slovakia": [48.6690, 19.6990],
-  "Slovenia": [46.1512, 14.9955],
-  "Lithuania": [55.1694, 23.8813],
-  "Latvia": [56.8796, 24.6032],
-  "Estonia": [58.5953, 25.0136],
-  "Luxembourg": [49.8153, 6.1296],
-  "Cyprus": [35.1264, 33.4299],
-  "Malta": [35.9375, 14.3754],
-  "Belarus": [53.7098, 27.9534],
-  "Serbia": [44.0165, 21.0059],
-  "Sri Lanka": [7.8731, 80.7718],
-  "Myanmar": [21.9162, 95.9560],
-  "Kenya": [-0.0236, 37.9062],
-  "Ethiopia": [9.1450, 40.4897],
-  "Ghana": [7.9465, -1.0232],
-  "Tanzania": [-6.3690, 34.8888],
-  "Algeria": [28.0339, 1.6596],
-  "Tunisia": [33.8869, 9.5375],
-};
-
-const FLAG_MAP: Record<string, string> = {
-  "United States": "🇺🇸", "China": "🇨🇳", "Germany": "🇩🇪", "United Kingdom": "🇬🇧",
-  "France": "🇫🇷", "Italy": "🇮🇹", "Japan": "🇯🇵", "Netherlands": "🇳🇱",
-  "South Korea": "🇰🇷", "Canada": "🇨🇦", "Belgium": "🇧🇪", "India": "🇮🇳",
-  "Mexico": "🇲🇽", "Spain": "🇪🇸", "Switzerland": "🇨🇭", "Australia": "🇦🇺",
-  "Brazil": "🇧🇷", "Russia": "🇷🇺", "Turkey": "🇹🇷", "Türkiye": "🇹🇷",
-  "Austria": "🇦🇹", "Poland": "🇵🇱", "Sweden": "🇸🇪", "Argentina": "🇦🇷",
-  "Nigeria": "🇳🇬", "Norway": "🇳🇴", "Vietnam": "🇻🇳", "Viet Nam": "🇻🇳",
-  "Denmark": "🇩🇰", "South Africa": "🇿🇦", "Saudi Arabia": "🇸🇦", "Singapore": "🇸🇬",
-  "UAE": "🇦🇪", "United Arab Emirates": "🇦🇪", "Finland": "🇫🇮", "Thailand": "🇹🇭",
-  "Israel": "🇮🇱", "Malaysia": "🇲🇾", "Portugal": "🇵🇹", "Czech Republic": "🇨🇿",
-  "Greece": "🇬🇷", "Ireland": "🇮🇪", "Romania": "🇷🇴", "Hungary": "🇭🇺",
-  "Ukraine": "🇺🇦", "New Zealand": "🇳🇿", "Chile": "🇨🇱", "Colombia": "🇨🇴",
-  "Peru": "🇵🇪", "Egypt": "🇪🇬", "Kazakhstan": "🇰🇿", "Morocco": "🇲🇦",
-  "Bangladesh": "🇧🇩", "Philippines": "🇵🇭", "Pakistan": "🇵🇰", "Indonesia": "🇮🇩",
-  "Ecuador": "🇪🇨", "Venezuela": "🇻🇪", "Bolivia": "🇧🇴", "Paraguay": "🇵🇾",
-  "Uruguay": "🇺🇾", "Guatemala": "🇬🇹", "Costa Rica": "🇨🇷", "Panama": "🇵🇦",
-  "Dominican Republic": "🇩🇴", "Croatia": "🇭🇷", "Bulgaria": "🇧🇬",
-  "Slovakia": "🇸🇰", "Slovenia": "🇸🇮", "Lithuania": "🇱🇹", "Latvia": "🇱🇻",
-  "Estonia": "🇪🇪", "Luxembourg": "🇱🇺", "Cyprus": "🇨🇾", "Malta": "🇲🇹",
-  "Belarus": "🇧🇾", "Serbia": "🇷🇸", "Sri Lanka": "🇱🇰", "Myanmar": "🇲🇲",
-  "Kenya": "🇰🇪", "Ethiopia": "🇪🇹", "Ghana": "🇬🇭", "Tanzania": "🇹🇿",
-  "Algeria": "🇩🇿", "Tunisia": "🇹🇳",
-};
-
-function getFlag(country: string): string {
-  return FLAG_MAP[country] || "";
+interface StateTrade {
+  state: string;
+  fobValue: number;
+  kgValue: number;
+  share: number;
 }
 
-/* ── Component ── */
+interface CityTrade {
+  city: string;
+  uf: string;
+  fobValue: number;
+  kgValue: number;
+}
+
+interface TradeData {
+  countries: CountryTrade[];
+  states: StateTrade[];
+  cities: CityTrade[];
+}
+
+type TabType = "export" | "import";
+type PeriodMode = "months" | "full_year" | "specific_month";
+
+/* ═══════════════════════════════════════════
+   CONSTANTS
+   ═══════════════════════════════════════════ */
+
+const MONTHS_LABEL = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+
+// Country → ISO2 code for country name matching
+const COUNTRY_TO_ISO2: Record<string, string> = {
+  "China": "CN", "Estados Unidos": "US", "EUA": "US", "Estados Unidos da América": "US", "Argentina": "AR",
+  "Alemanha": "DE", "Países Baixos (Holanda)": "NL", "Países Baixos": "NL", "Holanda": "NL",
+  "Japão": "JP", "Coreia do Sul": "KR", "Coreia do Sul (República da Coreia)": "KR",
+  "França": "FR", "Itália": "IT", "Espanha": "ES", "Reino Unido": "GB",
+  "Bélgica": "BE", "México": "MX", "Chile": "CL", "Índia": "IN",
+  "Canadá": "CA", "Arábia Saudita": "SA", "Rússia": "RU", "Austrália": "AU",
+  "Indonésia": "ID", "Tailândia": "TH", "Vietnã": "VN", "Viet Nam": "VN",
+  "Singapura": "SG", "Malásia": "MY", "Suíça": "CH", "Suécia": "SE",
+  "Noruega": "NO", "Dinamarca": "DK", "Finlândia": "FI", "Polônia": "PL",
+  "Áustria": "AT", "Turquia": "TR", "Türkiye": "TR", "Egito": "EG",
+  "África do Sul": "ZA", "Nigéria": "NG", "Angola": "AO", "Argélia": "DZ",
+  "Marrocos": "MA", "Israel": "IL", "Emirados Árabes Unidos": "AE", "UAE": "AE",
+  "Catar": "QA", "Coveite (Kuweit)": "KW", "Kuwait": "KW", "Iraque": "IQ",
+  "Irã": "IR", "Paquistão": "PK", "Bangladesh": "BD", "Filipinas": "PH",
+  "Taiwan": "TW", "Taiwan (Formosa)": "TW", "Hong Kong": "HK",
+  "Peru": "PE", "Colômbia": "CO", "Equador": "EC", "Venezuela": "VE",
+  "Bolívia": "BO", "Paraguai": "PY", "Uruguai": "UY", "Guiana": "GY",
+  "Suriname": "SR", "Porto Rico": "PR",
+  "República Dominicana": "DO", "Panamá": "PA", "Costa Rica": "CR",
+  "Guatemala": "GT", "Honduras": "HN", "El Salvador": "SV", "Nicarágua": "NI",
+  "Trinidad e Tobago": "TT", "Cuba": "CU", "Jamaica": "JM", "Haiti": "HT",
+  "Nova Zelândia": "NZ", "Nova Zelândia (Aotearoa)": "NZ",
+  "Portugal": "PT", "Brasil": "BR", "Romênia": "RO", "Bulgária": "BG",
+  "Hungria": "HU", "Grécia": "GR", "Eslováquia": "SK", "Tcheca, República": "CZ",
+  "Croácia": "HR", "Eslovênia": "SI", "Lituânia": "LT", "Letônia": "LV",
+  "Estônia": "EE", "Irlanda": "IE", "Luxemburgo": "LU", "Malta": "MT",
+  "Chipre": "CY", "Islândia": "IS", "Albânia": "AL", "Macedônia": "MK",
+  "Bósnia-Herzegovina": "BA", "Sérvia": "RS", "Montenegro": "ME",
+  "Belarus": "BY", "Ucrânia": "UA", "Moldávia": "MD", "Geórgia": "GE",
+  "Armênia": "AM", "Azerbaijão": "AZ", "Cazaquistão": "KZ", "Uzbequistão": "UZ",
+  "Turcomenistão": "TM", "Quirguistão": "KG", "Tadjiquistão": "TJ",
+  "Mongólia": "MN", "Afeganistão": "AF", "Nepal": "NP", "Butão": "BT",
+  "Sri Lanka": "LK", "Mianmar": "MM", "Laos": "LA", "Camboja": "KH",
+  "Brunei": "BN", "Maldivas": "MV", "Palestina": "PS", "Jordânia": "JO",
+  "Líbano": "LB", "Síria": "SY", "Iêmen": "YE", "Omã": "OM",
+  "Barein": "BH", "Líbia": "LY", "Tunísia": "TN", "Sudão": "SD",
+  "Sudão do Sul": "SS", "Mauritânia": "MR", "Senegal": "SN", "Gâmbia": "GM",
+  "Guiné": "GN", "Guiné-Bissau": "GW", "Serra Leoa": "SL", "Libéria": "LR",
+  "Costa do Marfim": "CI", "Gana": "GH", "Togo": "TG", "Benin": "BJ",
+  "Níger": "NE", "Burkina Faso": "BF", "Mali": "ML",
+  "Camarões": "CM", "República Centro-Africana": "CF", "Chade": "TD",
+  "Congo, República Democrática": "CD", "Congo": "CG",
+  "Gabão": "GA", "Guiné Equatorial": "GQ", "São Tomé e Príncipe": "ST",
+  "Etiópia": "ET", "Eritreia": "ER", "Djibuti": "DJ", "Somália": "SO",
+  "Quênia": "KE", "Uganda": "UG", "Ruanda": "RW", "Burundi": "BI",
+  "Tanzânia": "TZ", "Moçambique": "MZ", "Zâmbia": "ZM", "Zimbábue": "ZW",
+  "Malavi": "MW", "Madagascar": "MG", "Maurício": "MU", "Comores": "KM",
+  "Seicheles": "SC", "Cabo Verde": "CV",
+  "Bahamas": "BS", "Barbados": "BB", "Dominica": "DM", "Granada": "GD",
+  "São Cristóvão e Névis": "KN", "Santa Lúcia": "LC", "São Vicente e Granadinas": "VC",
+  "Antígua e Barbuda": "AG", "Belize": "BZ", "Aruba": "AW", "Curaçao": "CW",
+  "Sint Maarten": "SX", "Cayman, Ilhas": "KY", "Bermudas": "BM",
+  "Virgens, Ilhas (Britânicas)": "VG", "Virgens, Ilhas (Americanas)": "VI",
+  "Turcas e Caicos, Ilhas": "TC", "Montserrat": "MS", "Anguilla": "AI",
+  "Falkland (Malvinas)": "FK",
+  "Papua Nova Guiné": "PG", "Fiji": "FJ", "Salomão, Ilhas": "SB",
+  "Vanuatu": "VU", "Samoa": "WS", "Samoa Americana": "AS",
+  "Tonga": "TO", "Tuvalu": "TV", "Kiribati": "KI", "Marshall, Ilhas": "MH",
+  "Palau": "PW", "Micronésia": "FM", "Nauru": "NR",
+  "Marianas do Norte, Ilhas": "MP", "Guam": "GU",
+  "Polinésia Francesa": "PF", "Nova Caledônia": "NC", "Mayotte": "YT",
+  "Reunião": "RE", "Guadalupe": "GP", "Martinica": "MQ", "Guiana Francesa": "GF",
+  "São Bartolomeu": "BL", "São Martinho, Ilha de (parte francesa)": "MF",
+  "Wallis e Futuna, Ilhas": "WF", "Toquelau": "TK", "Niue": "NU",
+  "Cook, Ilhas": "CK", "Christmas (Navidad), Ilha": "CX",
+  "Cocos (Keeling), Ilhas": "CC", "Norfolk, Ilha": "NF",
+  "Pitcairn": "PN", "Geórgia do Sul e Sandwich do Sul, Ilhas": "GS",
+  "Heard e ilhas mcdonald, Ilha": "HM", "Bouvet, Ilha": "BV",
+  "Svalbard e Jan Mayen": "SJ", "Faroe, Ilhas": "FO", "Aland, Ilhas": "AX",
+  "Gibraltar": "GI", "Mônaco": "MC", "Liechtenstein": "LI",
+  "San Marino": "SM", "Vaticano": "VA", "Andorra": "AD",
+  "Ilha de Man": "IM", "Guernsey": "GG",
+  "Território Britânico do Oceano Índico": "IO",
+  "Terras Austrais Francesas": "TF",
+  "Pacífico, Ilhas do (EUA)": "UM",
+  "Santa Helena": "SH",
+  "Coreia do Norte": "KP",
+  "Namíbia": "NA", "Botsuana": "BW", "Lesoto": "LS",
+  "Suazilândia": "SZ",
+  "Macau": "MO", "Timor Leste": "TL",
+  "Bonaire, Saint Eustatius e Saba": "BQ",
+  "Groenlândia": "GL",
+  "Antártica": "AQ",
+};
+
+// Map continent colors for legend
+const FOB_COLORS = [
+  { max: 100000000, color: "#fef2f2", label: "< $100M" },
+  { max: 500000000, color: "#fecaca", label: "$100M - $500M" },
+  { max: 1000000000, color: "#f87171", label: "$500M - $1B" },
+  { max: 5000000000, color: "#dc2626", label: "$1B - $5B" },
+  { max: 10000000000, color: "#b91c1c", label: "$5B - $10B" },
+  { max: Infinity, color: "#7f1d1d", label: "> $10B" },
+];
+
+function getColor(fob: number): string {
+  for (const c of FOB_COLORS) {
+    if (fob < c.max) return c.color;
+  }
+  return "#7f1d1d";
+}
+
+function getIntensity(fob: number, maxFob: number): number {
+  if (maxFob <= 0) return 0;
+  return Math.min(1, fob / maxFob);
+}
+
+function fmtFob(v: number): string {
+  if (v >= 1e9) return `$${(v / 1e9).toFixed(2)}B`;
+  if (v >= 1e6) return `$${(v / 1e6).toFixed(1)}M`;
+  if (v >= 1e3) return `$${(v / 1e3).toFixed(0)}K`;
+  return `$${v.toFixed(0)}`;
+}
+
+function fmtKg(v: number): string {
+  if (v >= 1e9) return `${(v / 1e9).toFixed(2)}B kg`;
+  if (v >= 1e6) return `${(v / 1e6).toFixed(1)}M kg`;
+  if (v >= 1e3) return `${(v / 1e3).toFixed(0)}K kg`;
+  return `${v.toFixed(0)} kg`;
+}
+
+/* ═══════════════════════════════════════════
+   COMPONENT
+   ═══════════════════════════════════════════ */
+
 export default function ImportersMap() {
   useSeo({
-    title: "Mapa de Importadores — Geolocalização de Empresas",
-    description: "Visualize importadores no mapa. Encontre empresas importadoras por localização geográfica e veja concentração de compradores por região.",
-    keywords: "mapa importadores, geolocalização importadores, prospecção comercial, tradexa",
+    title: "Mapa Comercial — Comércio Global do Brasil",
+    description: "Visualize países, estados e cidades que mais exportam e importam com o Brasil. Dados oficiais de comércio exterior com mapa interativo.",
+    keywords: "mapa comércio exterior, exportação Brasil, importação Brasil, comexstat, tradexa",
   });
 
   const { consume } = useUsage();
-  const [chapters, setChapters] = useState<HsChapter[]>([]);
-  const [selectedHs, setSelectedHs] = useState("");
-  const [countryGroups, setCountryGroups] = useState<Record<string, number>>({});
-  const [allImporters, setAllImporters] = useState<any[]>([]);
-  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
-  const [countryImporters, setCountryImporters] = useState<Importer[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [loadingMap, setLoadingMap] = useState(false);
-  const [loadingImporters, setLoadingImporters] = useState(false);
+
+  // ── Period state ──
+  const [period, setPeriod] = useState<{ mode: PeriodMode; year?: number; month?: number; count?: number }>({ mode: "full_year", year: 2026 });
+  const [availableYears, setAvailableYears] = useState<number[]>([]);
+
+  // ── Tab ──
+  const [tab, setTab] = useState<TabType>("export");
+
+  // ── NCM filter ──
+  const [ncmInput, setNcmInput] = useState("");
+  const [ncmFilter, setNcmFilter] = useState("");
+
+  // ── Data ──
+  const [data, setData] = useState<TradeData | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [loadingMap, setLoadingMap] = useState(true);
   const [error, setError] = useState("");
-  const [searchCountry, setSearchCountry] = useState("");
-  const [sidePanelOpen, setSidePanelOpen] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
 
-  const mapRef = useRef<HTMLDivElement>(null);
-  const leafletMapRef = useRef<L.Map | null>(null);
-  const markersRef = useRef<L.Marker[]>([]);
+  // ── Map refs ──
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<maplibregl.Map | null>(null);
+  const resizeTimer = useRef<ReturnType<typeof setTimeout>>(null);
 
-  /* ── Load chapters ── */
+  // ── Fetch available years ──
   useEffect(() => {
-    fetch("/api/vps/importadores/index")
-      .then(r => r.json())
-      .then((data: HsChapter[]) => {
-        setChapters(data);
-        if (data.length > 0) setSelectedHs(data[0].hs_chapter);
-        setLoading(false);
+    comexstat.getAvailableYears()
+      .then((res) => {
+        const years: number[] = [];
+        if (res?.data) {
+          const min = parseInt(res.data.min);
+          const max = parseInt(res.data.max);
+          for (let y = max; y >= min; y--) years.push(y);
+        }
+        setAvailableYears(years);
       })
-      .catch(() => {
-        setError("Erro ao carregar capítulos HS do VPS.");
-        setLoading(false);
-      });
+      .catch(() => {});
   }, []);
 
-  /* ── Load importers when HS changes ── */
-  useEffect(() => {
-    if (!selectedHs) return;
-    setLoadingMap(true);
-    setSelectedCountry(null);
-    setCountryImporters([]);
-    setSidePanelOpen(false);
-
-    // Fetch multiple pages to get good country coverage
-    const fetchPage = (page: number) =>
-      fetch(`/api/vps/importadores/chapter/${selectedHs}?page=${page}&per_page=200`)
-        .then(r => r.json())
-        .catch(() => ({ importers: [] }));
-
-    // Fetch 20 pages for better coverage (4,000 importers)
-    Promise.all([
-      fetchPage(1), fetchPage(2), fetchPage(3), fetchPage(4), fetchPage(5),
-      fetchPage(6), fetchPage(7), fetchPage(8), fetchPage(9), fetchPage(10),
-      fetchPage(11), fetchPage(12), fetchPage(13), fetchPage(14), fetchPage(15),
-      fetchPage(16), fetchPage(17), fetchPage(18), fetchPage(19), fetchPage(20),
-    ])
-      .then((results) => {
-        const allImporters: any[] = [];
-        results.forEach(r => {
-          if (r.importers) allImporters.push(...r.importers);
-        });
-
-        setAllImporters(allImporters);
-
-        // Group by country
-        const countryMap: Record<string, number> = {};
-        allImporters.forEach((imp: any) => {
-          const c = imp.country || "Desconhecido";
-          countryMap[c] = (countryMap[c] || 0) + 1;
-        });
-
-        setCountryGroups(countryMap);
-        setLoadingMap(false);
-      })
-      .catch(() => {
-        setLoadingMap(false);
-      });
-  }, [selectedHs]);
-
-  /* ── Build map ── */
-  useEffect(() => {
-    if (!mapRef.current || loadingMap) return;
-    if (leafletMapRef.current) {
-      leafletMapRef.current.remove();
-      leafletMapRef.current = null;
+  // ── Build period ──
+  const periodParam = useMemo(() => {
+    if (period.mode === "months") {
+      const now = new Date();
+      const end = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+      const start = new Date(now.getFullYear(), now.getMonth() - (period.count || 12) + 1, 1);
+      return { from: `${start.getFullYear()}-${String(start.getMonth() + 1).padStart(2, "0")}`, to: end };
     }
-    markersRef.current.forEach(m => m.remove());
-    markersRef.current = [];
+    if (period.mode === "full_year") {
+      return { from: `${period.year}-01`, to: `${period.year}-12` };
+    }
+    return { from: `${period.year}-${String(period.month || 1).padStart(2, "0")}`, to: `${period.year}-${String(period.month || 1).padStart(2, "0")}` };
+  }, [period]);
 
-    const map = L.map(mapRef.current, {
-      center: [20, 0],
+  // ── Fetch data ──
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    setError("");
+
+    try {
+      const filters = ncmFilter ? (() => {
+        const v = ncmFilter.trim();
+        let filterName = "ncm";
+        if (/^\d{2}$/.test(v)) filterName = "chapter";
+        else if (/^\d{4}$/.test(v)) filterName = "heading";
+        else if (/^\d{6}$/.test(v)) filterName = "subHeading";
+        return [{ filter: filterName, values: [v] }];
+      })() : undefined;
+
+      // 1. Countries
+      const countryResult = await comexstat.queryGeneral({
+        flow: tab,
+        monthDetail: false,
+        period: periodParam,
+        details: ["country"],
+        metrics: ["metricFOB", "metricKG"],
+        filters,
+        limit: 200,
+      });
+
+      const countryRaw = countryResult?.data?.list || [];
+      const totalFob = countryRaw.reduce((s: number, r: any) => s + Number(r.metricFOB || 0), 0);
+
+      const countries: CountryTrade[] = countryRaw
+        .filter((r: any) => r.country && (r.metricFOB || 0) > 0)
+        .map((r: any) => ({
+          country: r.country,
+          countryCode: COUNTRY_TO_ISO2[r.country] || "",
+          fobValue: Number(r.metricFOB) || 0,
+          kgValue: Number(r.metricKG) || 0,
+          share: totalFob > 0 ? Math.round((Number(r.metricFOB) / totalFob) * 1000) / 10 : 0,
+        }))
+        .sort((a: CountryTrade, b: CountryTrade) => b.fobValue - a.fobValue);
+
+      // 2. States
+      // Small delay between API calls to avoid rate limiting
+      await new Promise(r => setTimeout(r, 600));
+      const stateResult = await comexstat.queryGeneral({
+        flow: tab,
+        monthDetail: false,
+        period: periodParam,
+        details: ["state"],
+        metrics: ["metricFOB", "metricKG"],
+        filters,
+        limit: 27,
+      });
+
+      const stateRaw = stateResult?.data?.list || [];
+      const totalStateFob = stateRaw.reduce((s: number, r: any) => s + Number(r.metricFOB || 0), 0);
+
+      const states: StateTrade[] = stateRaw
+        .filter((r: any) => r.state && (r.metricFOB || 0) > 0)
+        .map((r: any) => ({
+          state: r.state,
+          fobValue: Number(r.metricFOB) || 0,
+          kgValue: Number(r.metricKG) || 0,
+          share: totalStateFob > 0 ? Math.round((Number(r.metricFOB) / totalStateFob) * 1000) / 10 : 0,
+        }))
+        .sort((a: StateTrade, b: StateTrade) => b.fobValue - a.fobValue);
+
+      // 3. Cities
+      await new Promise(r => setTimeout(r, 600));
+      const cityResult = await comexstat.queryCities({
+        flow: tab,
+        period: periodParam,
+        details: ["city"],
+        metrics: ["metricFOB", "metricKG"],
+        filters,
+        limit: 100,
+      });
+
+      const cityData = cityResult?.data?.list || [];
+      const cities: CityTrade[] = cityData
+        .filter((r: any) => r.noMunMinsgUf && (r.metricFOB || 0) > 0)
+        .map((r: any) => {
+          // Parse "Cidade - UF" format
+          const parts = r.noMunMinsgUf.split(" - ");
+          return {
+            city: parts[0] || r.noMunMinsgUf,
+            uf: parts[1] || "",
+            fobValue: r.metricFOB || 0,
+            kgValue: r.metricKG || 0,
+          };
+        })
+        .sort((a: CityTrade, b: CityTrade) => b.fobValue - a.fobValue);
+
+      setData({ countries, states, cities });
+      consume("search");
+    } catch (err: any) {
+      setError(err.message || "Erro ao carregar dados");
+    } finally {
+      setLoading(false);
+    }
+  }, [tab, periodParam, ncmFilter, consume]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  // ── Init MapLibre map ──
+  useEffect(() => {
+    if (!mapContainer.current || mapRef.current) return;
+
+    const map = new maplibregl.Map({
+      container: mapContainer.current,
+      style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
+      center: [-30, -15],
       zoom: 2,
-      zoomControl: true,
+      minZoom: 1.5,
+      maxZoom: 8,
       attributionControl: false,
     });
 
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution: "© OpenStreetMap, © CARTO",
-      subdomains: "abcd",
-      maxZoom: 19,
-    }).addTo(map);
+    map.addControl(new maplibregl.NavigationControl(), "bottom-right");
+    map.doubleClickZoom.disable();
 
-    // Add country markers
-    const countries = Object.keys(countryGroups);
-    let markerCount = 0;
-
-    countries.forEach((country) => {
-      const coords = COUNTRY_COORDS[country];
-      if (!coords) return;
-
-      const count = countryGroups[country];
-      const flag = getFlag(country);
-
-      // Dot size based on count
-      const size = Math.min(Math.max(12, Math.sqrt(count) * 2), 40);
-      const opacity = Math.min(0.7 + count / 500, 0.95);
-
-      const icon = L.divIcon({
-        className: "custom-dot",
-        html: `
-          <div style="
-            width: ${size}px; height: ${size}px;
-            background: linear-gradient(135deg, #D80E16 0%, #b00c12 100%);
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 2px 8px rgba(216,14,22,0.4);
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer;
-            transition: transform 0.2s;
-          " onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
-            <span style="font-size: ${size * 0.5}px;">${flag}</span>
-          </div>
-        `,
-        iconSize: [size, size],
-        iconAnchor: [size / 2, size / 2],
+    map.on("load", () => {
+      // Add countries source from local GeoJSON
+      map.addSource("countries", {
+        type: "geojson",
+        data: "/data/countries.geojson",
       });
 
-      const marker = L.marker(coords, { icon })
-        .addTo(map)
-        .bindTooltip(`${flag} ${country}<br/><strong>${count.toLocaleString("pt-BR")} importadores</strong>`, {
-          direction: "top",
-          offset: [0, -size / 2],
-          className: "bg-slate-800 text-white px-3 py-2 rounded-lg text-xs font-bold shadow-lg",
-        });
-
-      marker.on("click", () => {
-        handleCountryClick(country);
+      // Add fill layer (will be updated with data)
+      map.addLayer({
+        id: "countries-fill",
+        type: "fill",
+        source: "countries",
+        paint: {
+          "fill-color": "#e2e8f0",
+          "fill-opacity": 0.85,
+          "fill-outline-color": "#ffffff",
+        },
       });
 
-      markersRef.current.push(marker);
-      markerCount++;
+      // Add hover outline layer
+      map.addLayer({
+        id: "countries-hover",
+        type: "line",
+        source: "countries",
+        paint: {
+          "line-color": "#D80E16",
+          "line-width": 2.5,
+          "line-opacity": 0,
+        },
+      });
+
+      // Hover effect
+      let hoveredId: string | number | null = null;
+      map.on("mousemove", "countries-fill", (e) => {
+        if (e.features && e.features.length > 0) {
+          const id = e.features[0].id || e.features[0].properties?.iso_a3 || e.features[0].properties?.iso_a2 || "";
+          if (hoveredId !== id) {
+            map.setPaintProperty("countries-hover", "line-opacity", 1);
+            map.setFilter("countries-hover", ["==", ["get", "iso_a3"], id]);
+            map.getCanvas().style.cursor = "pointer";
+            hoveredId = id;
+          }
+        }
+      });
+      map.on("mouseleave", "countries-fill", () => {
+        map.setPaintProperty("countries-hover", "line-opacity", 0);
+        map.getCanvas().style.cursor = "";
+        hoveredId = null;
+      });
+
+      // Click
+      map.on("click", "countries-fill", (e) => {
+        if (e.features && e.features.length > 0) {
+          const props = e.features[0].properties || {};
+          // Try to match by ISO2 code first (more reliable than names)
+          const iso2 = props.iso_a2;
+          if (iso2 && iso2 !== "-99" && data) {
+            const matched = data.countries.find(c => c.countryCode === iso2);
+            if (matched) {
+              setSelectedCountry(matched.country);
+              return;
+            }
+          }
+          // Fallback: try name matching
+          const name = props.name || props.sovereignt || props.ADMIN || "";
+          const matched = findCountryName(name, data?.countries || []);
+          setSelectedCountry(matched || name);
+        }
+      });
+
+      setLoadingMap(false);
     });
 
-    leafletMapRef.current = map;
+    map.on("error", () => {
+      setLoadingMap(false);
+    });
 
-    // Fit bounds if we have markers
-    if (markerCount > 0) {
-      const group = new L.featureGroup(markersRef.current);
-      map.fitBounds(group.getBounds().pad(0.1));
-    }
+    mapRef.current = map;
+
+    // Resize handler
+    const handleResize = () => {
+      if (resizeTimer.current) clearTimeout(resizeTimer.current);
+      resizeTimer.current = setTimeout(() => map.resize(), 300);
+    };
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      if (leafletMapRef.current) {
-        leafletMapRef.current.remove();
-        leafletMapRef.current = null;
-      }
+      window.removeEventListener("resize", handleResize);
+      if (resizeTimer.current) clearTimeout(resizeTimer.current);
+      map.remove();
+      mapRef.current = null;
     };
-  }, [countryGroups, loadingMap]);
+  }, []);
 
-  /* ── Load country importers (filter from already loaded data) ── */
-  const handleCountryClick = useCallback((country: string) => {
-    consume("importer_view"); // track async, don't block UI
-    setSelectedCountry(country);
-    setLoadingImporters(true);
-    setSidePanelOpen(true);
+  // ── Update map colors when data changes ──
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !data) return;
 
-    // Filter from already loaded data instead of making new HTTP request
-    const imps = allImporters
-      .filter((imp: any) => (imp.country || "").toLowerCase() === country.toLowerCase())
-      .map((imp: any) => ({
-        id: imp.id || String(Math.random()),
-        company: imp.company || imp.name || "N/A",
-        country: imp.country,
-        city: imp.city,
-        hs_code: imp.hs_code || selectedHs,
-        hs_description: chapters.find(c => c.hs_chapter === selectedHs)?.description || "",
-        product_category: imp.product_category,
-        employees: imp.employees,
-        turnover_usd: imp.turnover_usd,
-        categories_traded: imp.categories_traded,
-      }));
+    const maxFob = data.countries.length > 0 ? data.countries[0].fobValue : 1;
 
-    setCountryImporters(imps);
-    setLoadingImporters(false);
-  }, [allImporters, selectedHs, chapters]);
+    // Build a lookup: country name → FOB value
+    const fobMap: Record<string, number> = {};
+    for (const c of data.countries) {
+      // Store both the original name and common aliases
+      fobMap[c.country] = c.fobValue;
+      fobMap[c.country.toLowerCase()] = c.fobValue;
+      // Store by ISO2 if available
+      if (c.countryCode) fobMap[c.countryCode] = c.fobValue;
+    }
 
-  /* ── Filtered countries ── */
-  const filteredCountries = useMemo(() => {
-    const entries = Object.entries(countryGroups);
-    if (!searchCountry) return entries;
-    return entries.filter(([country]) =>
-      country.toLowerCase().includes(searchCountry.toLowerCase())
-    );
-  }, [countryGroups, searchCountry]);
+    // Use expressions for each country
+    // MapLibre fill-color using match expression on iso_a3 or name
+    const layer = map.getLayer("countries-fill");
+    if (!layer) return;
 
-  const totalCountries = Object.keys(countryGroups).length;
-  const totalImporters = Object.values(countryGroups).reduce((a, b) => a + b, 0);
+    // We need to match country properties to our data
+    // The GeoJSON has properties: name, iso_a3, iso_a2, etc.
+    // We'll use a case expression to match country names
+    
+    // Simplify: just color all countries with a default, then use data-driven expressions
+    // Build match expression for known countries using ISO2 code
+    const colorExpression: any[] = ["match", ["get", "iso_a2"]];
+    
+    for (const c of data.countries) {
+      const color = getColor(c.fobValue);
+      if (c.countryCode) {
+        colorExpression.push(c.countryCode, color);
+      }
+    }
+    colorExpression.push("#e2e8f0"); // default (no data)
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-6 h-6 animate-spin text-slate-600" />
-        <span className="ml-2 text-slate-600">Carregando...</span>
-      </div>
-    );
+    map.setPaintProperty("countries-fill", "fill-color", colorExpression);
+  }, [data]);
+
+  // ── Helpers ──
+  const periodLabel = useMemo(() => {
+    if (period.mode === "months") return `Últimos ${period.count} meses`;
+    if (period.mode === "full_year") return `${period.year}`;
+    return `${MONTHS_LABEL[(period.month || 1) - 1]}/${period.year}`;
+  }, [period]);
+
+  const currentData = data;
+  const topCountries = currentData?.countries.slice(0, 15) || [];
+  const topStates = currentData?.states.slice(0, 10) || [];
+  const topCities = currentData?.cities.slice(0, 20) || [];
+  const totalFobDisplay = currentData?.countries.reduce((s, c) => s + (c.fobValue || 0), 0) || 0;
+
+  // ── Find matching country name between GeoJSON and our data ──
+  function findCountryName(geoName: string, countries: CountryTrade[]): string | null {
+    if (!geoName) return null;
+    const lower = geoName.toLowerCase();
+    // Direct match
+    for (const c of countries) {
+      if (c.country.toLowerCase() === lower) return c.country;
+    }
+    // Partial match
+    for (const c of countries) {
+      if (lower.includes(c.country.toLowerCase().slice(0, 6)) || c.country.toLowerCase().includes(lower.slice(0, 6))) return c.country;
+    }
+    return null;
   }
 
-  return (
-    <div className="space-y-4">
-      {error && (
-        <div className="p-3 rounded-xl bg-red-50 border border-red-200 flex items-center gap-2 text-sm text-red-800">
-          <AlertTriangle className="w-4 h-4" /> {error}
-        </div>
-      )}
+  const selectedCountryData = useMemo(() => {
+    if (!selectedCountry || !currentData) return null;
+    return currentData.countries.find(c => c.country === selectedCountry) || null;
+  }, [selectedCountry, currentData]);
 
-      {/* ── KPIs + Link to Directory ── */}
-      <div className="flex flex-col md:flex-row gap-4 items-start">
-        <div className="flex-1 flex items-center gap-3">
-          <div className="rounded-xl bg-white border border-slate-200 p-3 text-center min-w-[100px]">
-            <p className="text-[10px] font-bold text-slate-600 uppercase">Países</p>
-            <p className="text-xl font-black text-slate-800 mt-1">{totalCountries}</p>
+  /* ═══════════════════════════════════════════
+     RENDER
+     ═══════════════════════════════════════════ */
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+      {/* ═══ HEADER ═══ */}
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-200/70 shadow-sm">
+        <div className="max-w-full mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D80E16] to-[#b80c12] flex items-center justify-center shadow-md">
+              <Globe className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h1 className="text-base font-black text-slate-800">Mapa Comercial</h1>
+              <p className="text-[11px] text-slate-500">Comércio exterior do Brasil por país, estado e cidade</p>
+            </div>
           </div>
-          <div className="rounded-xl bg-white border border-slate-200 p-3 text-center min-w-[100px]">
-            <p className="text-[10px] font-bold text-slate-600 uppercase">Importadores</p>
+
+          <div className="flex items-center gap-3">
+            {/* Period badge */}
+            <Badge variant="outline" className="text-[11px] font-bold text-slate-600 border-slate-200 bg-slate-50">
+              {periodLabel}
+            </Badge>
+          </div>
+        </div>
+      </header>
+
+      {/* ═══ FILTER BAR ═══ */}
+      <div className="sticky top-16 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div className="max-w-full mx-auto px-4 md:px-6 py-3 flex items-center gap-3 flex-wrap">
+          {/* Tab toggle */}
+          <div className="flex shrink-0 bg-slate-100 rounded-lg p-0.5">
+            <button onClick={() => setTab("export")}
+              className={cn("flex items-center gap-1.5 text-xs font-semibold py-2 px-3.5 rounded-md transition-all whitespace-nowrap",
+                tab === "export" ? "bg-white text-[#D80E16] shadow-sm" : "text-slate-500 hover:text-slate-700"
+              )}>
+              <TrendingUp className="h-3.5 w-3.5" /> Exportação
+            </button>
+            <button onClick={() => setTab("import")}
+              className={cn("flex items-center gap-1.5 text-xs font-semibold py-2 px-3.5 rounded-md transition-all whitespace-nowrap",
+                tab === "import" ? "bg-white text-[#D80E16] shadow-sm" : "text-slate-500 hover:text-slate-700"
+              )}>
+              <TrendingDown className="h-3.5 w-3.5" /> Importação
+            </button>
+          </div>
+
+          <span className="w-px h-6 bg-slate-200 shrink-0" />
+
+          {/* Period filter */}
+          <div className="flex items-center gap-1.5 shrink-0">
+            <label className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 whitespace-nowrap">Período</label>
+            <div className="flex gap-1">
+              {(availableYears.length > 0 ? availableYears : [2026, 2025, 2024]).slice(0, 3).map((y) => (
+                <button key={y} onClick={() => {
+                  if (period.mode === "full_year" && period.year === y) {
+                    setPeriod({ mode: "specific_month", year: y, month: 1 });
+                  } else {
+                    setPeriod({ mode: "full_year", year: y });
+                  }
+                }}
+                  className={cn("text-[11px] font-bold py-1.5 px-2.5 rounded border transition-all",
+                    (period.mode === "full_year" || period.mode === "specific_month") && period.year === y ? "bg-[#D80E16] text-white border-[#D80E16]" : "bg-white text-slate-500 border-slate-200 hover:border-slate-300"
+                  )}>{y}</button>
+              ))}
+            </div>
+            {period.mode === "full_year" && period.year && (
+              <button onClick={() => setPeriod({ mode: "specific_month", year: period.year!, month: 1 })}
+                className="text-[11px] text-slate-400 hover:text-slate-600 underline whitespace-nowrap">mês</button>
+            )}
+            {period.mode === "specific_month" && period.year && (
+              <div className="flex gap-1">
+                {MONTHS_LABEL.map((m, i) => (
+                  <button key={i} onClick={() => {
+                    if (period.month === i + 1) setPeriod({ mode: "full_year", year: period.year! });
+                    else setPeriod({ mode: "specific_month", year: period.year!, month: i + 1 });
+                  }}
+                    className={cn("text-[10px] font-bold py-1.5 px-2 rounded border transition-all",
+                      period.month === i + 1 ? "bg-[#D80E16] text-white border-[#D80E16]" : "bg-white text-slate-500 border-slate-200 hover:border-slate-300"
+                    )}>{m}</button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <span className="w-px h-6 bg-slate-200 shrink-0" />
+
+          {/* NCM filter */}
+          <div className="flex items-center gap-1.5 shrink-0">
+            <label className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 whitespace-nowrap">NCM</label>
+            <div className="relative flex items-center gap-1.5">
+              <Input value={ncmInput} onChange={e => setNcmInput(e.target.value)}
+                placeholder="Ex: 84 (capítulo)"
+                className="w-28 h-8 text-xs px-2.5 rounded-md border-slate-200"
+                onKeyDown={e => { if (e.key === "Enter" && ncmInput.length >= 2) setNcmFilter(ncmInput); }}
+              />
+              {ncmInput.length >= 2 && (
+                <button onClick={() => setNcmFilter(ncmInput)}
+                  className="text-[11px] font-bold text-[#D80E16] hover:text-[#b80c12]">
+                  OK
+                </button>
+              )}
+              {ncmFilter && (
+                <button onClick={() => { setNcmFilter(""); setNcmInput(""); }}
+                  className="text-[11px] text-slate-400 hover:text-red-500 flex items-center gap-1 ml-1">
+                  <X className="w-3 h-3" /> {ncmFilter}
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Refresh */}
+          <div className="ml-auto flex items-center gap-2">
+            <Button onClick={fetchData} disabled={loading}
+              className="h-8 bg-[#D80E16] hover:bg-[#b80c12] text-white text-xs gap-1.5 rounded-lg px-3.5">
+              {loading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Search className="h-3.5 w-3.5" />}
+              {loading ? "Carregando..." : "Atualizar"}
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* ═══ CONTENT ═══ */}
+      <div className="max-w-full mx-auto p-4 md:p-6 space-y-6">
+        {error && (
+          <div className="p-3 rounded-xl bg-red-50 border border-red-200 flex items-center gap-2 text-sm text-red-800">
+            <AlertTriangle className="w-4 h-4 shrink-0" /> {error}
+          </div>
+        )}
+
+        {/* KPIs */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
+            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">FOB Total</p>
+            <p className="text-xl font-black text-slate-800 mt-1">{loading ? "..." : fmtFob(totalFobDisplay)}</p>
+          </div>
+          <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
+            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Países</p>
+            <p className="text-xl font-black text-slate-800 mt-1">{loading ? "..." : currentData?.countries.length || 0}</p>
+          </div>
+          <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
+            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Principal Destino</p>
+            <p className="text-xl font-black text-slate-800 mt-1 truncate">
+              {loading ? "..." : topCountries[0]?.country || "—"}
+            </p>
+          </div>
+          <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
+            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Participação</p>
             <p className="text-xl font-black text-slate-800 mt-1">
-              {loadingMap ? "..." : totalImporters.toLocaleString("pt-BR")}
+              {loading ? "..." : topCountries[0] ? `${topCountries[0].share}%` : "—"}
             </p>
           </div>
         </div>
 
-        <a
-          href="/importadores"
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#D80E16] text-white font-bold text-sm
-                     hover:bg-[#b80c12] transition-all shadow-md hover:shadow-lg"
-        >
-          <Building2 className="w-4 h-4" />
-          Ver diretório completo
-          <ArrowRight className="w-4 h-4" />
-        </a>
-      </div>
+        {/* ═══ MAP + SIDE PANEL ═══ */}
+        <div className="relative rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm" style={{ height: "520px" }}>
+          {/* Map */}
+          <div ref={mapContainer} className="w-full h-full" />
 
-      {/* ── Map + Side Panel ── */}
-      <div className="relative rounded-2xl border border-slate-200 bg-white overflow-hidden" style={{ height: "600px" }}>
-        {/* Map */}
-        <div ref={mapRef} className="w-full h-full" />
+          {loadingMap && (
+            <div className="absolute inset-0 bg-white/80 flex items-center justify-center z-10">
+              <Loader2 className="w-8 h-8 animate-spin text-[#D80E16]" />
+              <span className="ml-3 text-sm font-medium text-slate-700">Carregando mapa...</span>
+            </div>
+          )}
 
-        {loadingMap && (
-          <div className="absolute inset-0 bg-white/80 flex items-center justify-center z-10">
-            <Loader2 className="w-8 h-8 animate-spin text-[#D80E16]" />
-            <span className="ml-3 text-sm font-medium text-slate-700">Mapeando importadores...</span>
-          </div>
-        )}
-
-        {/* Country filter overlay */}
-        <div className="absolute top-4 left-4 z-[400] w-64">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-600" />
-            <input
-              value={searchCountry}
-              onChange={(e) => setSearchCountry(e.target.value)}
-              placeholder="Filtrar país no mapa..."
-              className="w-full rounded-xl border border-slate-200 bg-white/95 backdrop-blur pl-10 pr-4 py-2.5 text-sm
-                         focus:outline-none focus:ring-2 focus:ring-[#D80E16]/20 focus:border-[#D80E16] shadow-lg"
-            />
-          </div>
-          {searchCountry && filteredCountries.length > 0 && (
-            <div className="mt-2 bg-white/95 backdrop-blur rounded-xl border border-slate-200 shadow-lg max-h-48 overflow-y-auto">
-              {filteredCountries.slice(0, 8).map(([country, count]) => (
-                <button
-                  key={country}
-                  onClick={() => {
-                    handleCountryClick(country);
-                    setSearchCountry("");
-                  }}
-                  className="w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-slate-50 text-sm"
-                >
-                  <span>{getFlag(country)}</span>
-                  <span className="font-medium text-slate-700">{country}</span>
-                  <span className="ml-auto text-xs text-slate-500">{count}</span>
-                </button>
+          {/* Legend */}
+          <div className="absolute bottom-4 left-4 z-[400] bg-white/95 backdrop-blur rounded-xl border border-slate-200 shadow-lg p-3">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-2">FOB</p>
+            <div className="space-y-1">
+              {FOB_COLORS.map((c) => (
+                <div key={c.label} className="flex items-center gap-2">
+                  <div className="w-4 h-3 rounded border border-slate-200" style={{ backgroundColor: c.color }} />
+                  <span className="text-[10px] text-slate-600">{c.label}</span>
+                </div>
               ))}
+            </div>
+          </div>
+
+          {/* Loading overlay for data */}
+          {loading && (
+            <div className="absolute top-4 right-4 z-[400] bg-white/90 backdrop-blur rounded-xl border border-slate-200 shadow-lg px-4 py-2 flex items-center gap-2">
+              <Loader2 className="w-4 h-4 animate-spin text-[#D80E16]" />
+              <span className="text-xs font-medium text-slate-600">Atualizando dados...</span>
+            </div>
+          )}
+
+          {/* Selected country tooltip */}
+          {selectedCountryData && (
+            <div className="absolute top-4 left-4 z-[400] bg-white/95 backdrop-blur rounded-xl border border-slate-200 shadow-lg p-4 max-w-xs">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-black text-slate-800 text-sm">{selectedCountry}</h3>
+                <button onClick={() => setSelectedCountry(null)} className="text-slate-400 hover:text-slate-600">
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <div>
+                  <span className="text-slate-500">FOB</span>
+                  <p className="font-bold text-slate-800">{fmtFob(selectedCountryData.fobValue)}</p>
+                </div>
+                <div>
+                  <span className="text-slate-500">Peso</span>
+                  <p className="font-bold text-slate-800">{fmtKg(selectedCountryData.kgValue)}</p>
+                </div>
+                <div>
+                  <span className="text-slate-500">Share</span>
+                  <p className="font-bold text-[#D80E16]">{selectedCountryData.share}%</p>
+                </div>
+              </div>
             </div>
           )}
         </div>
 
-        {/* Side Panel — Country Detail */}
-        {sidePanelOpen && selectedCountry && (
-          <div className="absolute top-0 right-0 bottom-0 w-full md:w-96 bg-white border-l border-slate-200 shadow-2xl z-[400] flex flex-col">
-            {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-slate-200 bg-slate-50">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">{getFlag(selectedCountry)}</span>
-                <div>
-                  <h3 className="font-black text-slate-800">{selectedCountry}</h3>
-                  <p className="text-xs text-slate-600">
-                    {countryGroups[selectedCountry] || 0} importadores
-                  </p>
-                </div>
-              </div>
-              <button
-                onClick={() => setSidePanelOpen(false)}
-                className="p-2 rounded-lg hover:bg-slate-200 transition-colors"
-              >
-                <X className="w-5 h-5 text-slate-600" />
-              </button>
+        {/* ═══ TABLES ROW ═══ */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Top Countries */}
+          <Card className="rounded-2xl border-slate-200 shadow-sm">
+            <div className="p-4 border-b border-slate-100">
+              <h3 className="text-sm font-black text-slate-800">Top Países</h3>
+              <p className="text-[11px] text-slate-500">{tab === "export" ? "Destinos da exportação" : "Origens da importação"}</p>
             </div>
+            <div className="divide-y divide-slate-100 max-h-[400px] overflow-y-auto">
+              {loading ? (
+                <div className="p-8 text-center text-sm text-slate-500">Carregando...</div>
+              ) : topCountries.length === 0 ? (
+                <div className="p-8 text-center text-sm text-slate-500">Nenhum dado disponível</div>
+              ) : topCountries.map((c, i) => (
+                <div key={c.country}
+                  onClick={() => setSelectedCountry(c.country)}
+                  className={cn("flex items-center gap-3 px-4 py-3 hover:bg-slate-50 transition-colors cursor-pointer",
+                    selectedCountry === c.country && "bg-[#D80E16]/5"
+                  )}>
+                  <span className={cn("w-6 h-6 rounded-lg flex items-center justify-center text-[11px] font-black",
+                    i === 0 ? "bg-red-100 text-red-700" : i < 3 ? "bg-orange-50 text-orange-600" : "bg-slate-100 text-slate-500"
+                  )}>{i + 1}</span>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-bold text-slate-800 truncate">{c.country}</p>
+                    <p className="text-[11px] text-slate-500">{c.share}% share</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm font-black text-slate-800">{fmtFob(c.fobValue)}</p>
+                    <p className="text-[10px] text-slate-400">{fmtKg(c.kgValue)}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
 
-            {/* Content */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3">
-              {loadingImporters ? (
-                <div className="flex items-center justify-center py-8">
-                  <Loader2 className="w-5 h-5 animate-spin text-slate-600" />
-                  <span className="ml-2 text-sm text-slate-600">Carregando...</span>
-                </div>
-              ) : countryImporters.length === 0 ? (
-                <div className="text-center py-8 text-slate-500">
-                  <Building2 className="w-8 h-8 mx-auto mb-2 opacity-30" />
-                  <p className="text-sm">Nenhum importador encontrado.</p>
-                </div>
-              ) : (
-                <>
-                  <p className="text-xs font-bold text-slate-600 uppercase tracking-wide">
-                    {countryImporters.length} empresas encontradas
-                  </p>
-                  {countryImporters.map((imp) => (
-                    <div
-                      key={imp.id}
-                      className="rounded-xl border border-slate-200 p-4 hover:border-[#D80E16]/30 hover:shadow-md transition-all"
-                    >
-                      <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[#D80E16]/10 flex items-center justify-center shrink-0">
-                          <Building2 className="w-5 h-5 text-[#D80E16]" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-black text-slate-800">
-                            {imp.company}
-                          </h4>
-                          <div className="flex flex-wrap gap-2 mt-1.5">
-                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-bold text-slate-700">
-                              HS {imp.hs_code}
-                            </span>
-                            {imp.product_category && (
-                              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-blue-50 text-[10px] font-bold text-blue-700 truncate max-w-[200px]">
-                                {imp.product_category}
-                              </span>
-                            )}
-                          </div>
-                          <div className="flex flex-wrap gap-x-3 gap-y-1 mt-1.5 text-xs text-slate-600">
-                            {imp.city && (
-                              <span>{imp.city}</span>
-                            )}
-                            {imp.employees && (
-                              <span>{imp.employees} funcionários</span>
-                            )}
-                            {imp.turnover_usd && (
-                              <span>${(imp.turnover_usd / 1_000_000).toFixed(1)}M faturamento</span>
-                            )}
-                          </div>
-                          {imp.categories_traded && imp.categories_traded > 1 && (
-                            <p className="text-[10px] text-slate-500 mt-1">
-                              Comercializa em {imp.categories_traded} categorias
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </>
-              )}
+          {/* Top States */}
+          <Card className="rounded-2xl border-slate-200 shadow-sm">
+            <div className="p-4 border-b border-slate-100">
+              <h3 className="text-sm font-black text-slate-800">Top Estados</h3>
+              <p className="text-[11px] text-slate-500">UFs que mais {tab === "export" ? "exportam" : "importam"}</p>
             </div>
-          </div>
-        )}
+            <div className="divide-y divide-slate-100 max-h-[400px] overflow-y-auto">
+              {loading ? (
+                <div className="p-8 text-center text-sm text-slate-500">Carregando...</div>
+              ) : topStates.length === 0 ? (
+                <div className="p-8 text-center text-sm text-slate-500">Nenhum dado disponível</div>
+              ) : topStates.map((s, i) => (
+                <div key={s.state} className="flex items-center gap-3 px-4 py-3">
+                  <span className="w-6 h-6 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center text-[11px] font-black">{i + 1}</span>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <p className="text-sm font-bold text-slate-800">{s.state}</p>
+                      <p className="text-sm font-black text-slate-800">{fmtFob(s.fobValue)}</p>
+                    </div>
+                    <div className="mt-1 w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                      <div className="h-full rounded-full bg-gradient-to-r from-[#D80E16] to-[#f87171] transition-all"
+                        style={{ width: `${Math.min(100, s.share * 1.5)}%` }} />
+                    </div>
+                    <p className="text-[10px] text-slate-400 mt-0.5">{s.share}% do total</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* Top Cities */}
+          <Card className="rounded-2xl border-slate-200 shadow-sm">
+            <div className="p-4 border-b border-slate-100">
+              <h3 className="text-sm font-black text-slate-800">Top Cidades</h3>
+              <p className="text-[11px] text-slate-500">Municípios que mais {tab === "export" ? "exportam" : "importam"}</p>
+            </div>
+            <div className="divide-y divide-slate-100 max-h-[400px] overflow-y-auto">
+              {loading ? (
+                <div className="p-8 text-center text-sm text-slate-500">Carregando...</div>
+              ) : topCities.length === 0 ? (
+                <div className="p-8 text-center text-sm text-slate-500">Nenhum dado disponível</div>
+              ) : topCities.slice(0, 15).map((c, i) => (
+                <div key={`${c.city}-${c.uf}`} className="flex items-center gap-3 px-4 py-3">
+                  <span className="w-6 h-6 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center text-[11px] font-black">{i + 1}</span>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-bold text-slate-800 truncate">{c.city}</p>
+                    <p className="text-[11px] text-slate-500">{c.uf}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm font-black text-slate-800">{fmtFob(c.fobValue)}</p>
+                    <p className="text-[10px] text-slate-400">{fmtKg(c.kgValue)}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {topCities.length > 15 && (
+              <div className="p-3 text-center text-[11px] text-slate-400 border-t border-slate-100">
+                +{topCities.length - 15} cidades
+              </div>
+            )}
+          </Card>
+        </div>
       </div>
 
-      {/* ── Bottom legend ── */}
-      <div className="flex items-center gap-4 text-xs text-slate-600">
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-[#D80E16]" />
-          <span>Importador no mapa</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-5 h-5 rounded-full bg-[#D80E16]/30 border border-[#D80E16]" />
-          <span>Tamanho = volume de empresas</span>
-        </div>
-        <span className="ml-auto text-slate-500">
-          Clique no dot para ver detalhes
-        </span>
+      {/* ═══ Attribution ═══ */}
+      <div className="text-center pb-6 text-[10px] text-slate-400">
+        Dados: ComexStat (MDIC) | Mapa: © OpenStreetMap contributors | TRADEXA
       </div>
     </div>
   );

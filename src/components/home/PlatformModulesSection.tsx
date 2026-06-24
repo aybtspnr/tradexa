@@ -107,6 +107,7 @@ const CATEGORIES: Category[] = [
         ],
         color: "#06b6d4",
         actionRoute: "/importers-map",
+        actionLabel: "Ver Mapa",
         landingRoute: "/landing/import-map",
       },
       {
@@ -298,8 +299,8 @@ const CATEGORIES: Category[] = [
           { name: "Multi-rotas", desc: "Compare entre múltiplas rotas marítimas" },
         ],
         color: "#0ea5e9",
-        actionRoute: "/maritime-freight",
-        landingRoute: "/landing/maritime-freight",
+        actionRoute: "/maritime-freight-map",
+        landingRoute: "/landing/maritime-freight-map",
       },
       {
         icon: Ship, title: "Rastreamento de Carga",

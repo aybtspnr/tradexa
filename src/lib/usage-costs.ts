@@ -49,6 +49,29 @@ export const PLAN_COST_MULTIPLIER: Record<PlanType, number> = {
   business: 0,
 };
 
+/** Ações premium — consomem tanque mesmo no Growth */
+export const PREMIUM_ACTIONS: ActionType[] = [
+  "ai_query",
+  "ai_word",
+  "intel_view",
+  "data_export",
+];
+
+/** Ações básicas — só consomem tanque no Essential */
+export function isBasicAction(action: ActionType): boolean {
+  return !PREMIUM_ACTIONS.includes(action);
+}
+
+/** Retorna o multiplicador efetivo para uma ação em um plano.
+ *  Essential: 1.0× (tudo consome)
+ *  Growth: 0.4× (só premium consome; básico = 0)
+ *  Business: 0× (bypass total) */
+export function getEffectiveMultiplier(action: ActionType, plan: PlanType): number {
+  if (plan === "business") return 0;
+  if (plan === "growth" && isBasicAction(action)) return 0;
+  return PLAN_COST_MULTIPLIER[plan] ?? 1.0;
+}
+
 /** Labels dos planos */
 export const PLAN_LABELS: Record<PlanType, string> = {
   essential: "Essencial",
@@ -64,76 +87,81 @@ export const PLAN_PRICES: Record<PlanType, number> = {
 };
 
 /**
- * Custo de cada ação em percentagem (base Essential/Growth = 1.0×).
- * Growth aplica 0.4×, Business aplica 0 (bypass).
- * Ferramentas gratuitas (HTS, Comparador, Simulador, Alíquotas, etc.) = 0%.
+ * Custo de cada ação em percentagem (base Essential = 1.0×).
+ * Growth aplica 0.4× (cada ação custa menos do tanque).
+ * Business aplica 0 (bypass total — tudo ilimitado).
+ *
+ * Multiplicador do plano:
+ *   Essential → 1.0× (cada ação custa o valor exato)
+ *   Growth    → 0.4× (cada ação custa 40% do valor base)
+ *   Business  → 0×   (bypass — não consome nada)
  */
 export const ACTION_COSTS: Record<ActionType, ActionCost> = {
   page_view: {
     action: "page_view",
     label: "Acesso à página",
-    basePercent: 0,
-    description: "Navegação na plataforma (grátis)",
+    basePercent: 0.5,
+    description: "Cada página acessada na plataforma",
   },
   search: {
     action: "search",
     label: "Busca simples",
-    basePercent: 0,
-    description: "Consulta HS, HTS, alíquota, importador (grátis)",
+    basePercent: 1.0,
+    description: "Consulta HS, HTS, alíquota, importador, trade data",
   },
   ai_query: {
     action: "ai_query",
     label: "Consulta com IA",
     basePercent: 8.0,
-    description: "Classificador IA NCM, análise com IA",
+    description: "Classificador IA NCM, análise com IA — Essential limitado a 2/mês",
   },
   ai_word: {
     action: "ai_word",
     label: "Palavra em consulta IA",
     basePercent: 0.5,
-    description: "Cada palavra digitada em consulta IA (+ base)",
+    description: "Cada palavra extra digitada em consulta IA (+ base)",
   },
   simulator_run: {
     action: "simulator_run",
     label: "Simulação",
-    basePercent: 0,
-    description: "Simulador de custo de exportação (grátis)",
+    basePercent: 1.0,
+    description: "Simulador de custo de exportação, Drawback, Incoterms",
   },
   country_click: {
     action: "country_click",
     label: "Clique em país",
-    basePercent: 0,
-    description: "Selecionar país no mapa/comparador (grátis)",
+    basePercent: 0.3,
+    description: "Selecionar país no mapa, comparador, ranking",
   },
   importer_view: {
     action: "importer_view",
     label: "Ver importador",
-    basePercent: 0,
-    description: "Abrir detalhes de importador (grátis)",
+    basePercent: 0.5,
+    description: "Abrir detalhes de importador no diretório",
   },
   ranking_run: {
     action: "ranking_run",
     label: "Ranking/Smart Rank",
-    basePercent: 0,
-    description: "Comparar países ou ranquear mercados (grátis)",
+    basePercent: 1.5,
+    description: "Comparar países ou ranquear mercados por NCM",
   },
   alert_create: {
     action: "alert_create",
     label: "Criar alerta",
-    basePercent: 0,
-    description: "Novo alerta de tarifa/preço (grátis)",
+    basePercent: 0.5,
+    description: "Novo alerta de tarifa, preço ou oportunidade",
   },
   data_export: {
     action: "data_export",
     label: "Exportar dados",
-    basePercent: 0,
+    basePercent: 2.0,
     description: "CSV, PDF — Business apenas",
   },
   intel_view: {
     action: "intel_view",
     label: "Visualizar Intel Data",
     basePercent: 5.0,
-    description: "Cada consulta em Import/Export Intelligence",
+    description: "Cada consulta em Import/Export Intelligence — Essential limitado a 3/mês",
   },
 };
 

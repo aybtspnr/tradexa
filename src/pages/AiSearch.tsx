@@ -54,7 +54,7 @@ const formatNcmCode = (code: string): string => {
 const AiSearch = () => {
   const navigate = useNavigate();
   const { profile } = useAuth();
-  const { usage, loading: usageLoading, consume, consumePercent, percentUsed, isAtLimit, plan } = useUsage();
+  const { usage, loading: usageLoading, consume, consumePercent, consumeAiQuery, percentUsed, isAtLimit, plan } = useUsage();
   
   const [loading, setLoading] = useState(false);
   const [searchResult, setSearchResult] = useState<{
@@ -113,10 +113,8 @@ const AiSearch = () => {
 
     try {
       const wordCount = descricao.trim().split(/\s+/).length;
-      // Essential: 48% por consulta (2 consultas/mês). Outros planos: custo normal.
-      const consumed = plan === "essential"
-        ? await consumePercent(48)
-        : await consume("ai_query", { wordCount });
+      // Consumo via sistema de tanque (consumeAiQuery já gerencia limite de 2 p/ Essential)
+      const consumed = await consumeAiQuery();
       if (!consumed) {
         showError("Limite de uso atingido.");
         setLoading(false);

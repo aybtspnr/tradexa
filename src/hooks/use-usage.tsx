@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback, use
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
 import { showError } from "@/utils/toast";
-import { calculateCost, PLAN_COST_MULTIPLIER, PLAN_TANK, PLAN_LABELS, sanitizePlan, type ActionType, type PlanType } from "@/lib/usage-costs";
+import { calculateCost, getEffectiveMultiplier, PLAN_COST_MULTIPLIER, PLAN_TANK, PLAN_LABELS, sanitizePlan, type ActionType, type PlanType } from "@/lib/usage-costs";
 
 const LS_KEY = "tradexa_usage";
 
@@ -143,10 +143,11 @@ export function UsageProvider({ children }: { children: React.ReactNode }) {
     if (plan === "business") return true;
 
     const baseCost = calculateCost(action, opts);
-    // Multiplicador 0 = grátis (ferramentas gratuitas como HTS, Smart Rank, etc.)
-    const cost = multiplier === 0 ? 0 : Math.round(baseCost * multiplier * 10) / 10;
+    // getEffectiveMultiplier retorna 0 para ações básicas no Growth
+    const effectiveMultiplier = getEffectiveMultiplier(action, plan);
+    const cost = effectiveMultiplier === 0 ? 0 : Math.round(baseCost * effectiveMultiplier * 10) / 10;
 
-    // Ferramentas gratuitas: não consomem tanque
+    // Custo zero = não consome tanque
     if (cost <= 0) return true;
 
     const local = getLocalUsage();
@@ -258,5 +259,5 @@ export function useUsage() {
   return ctx;
 }
 
-export { PLAN_TANK, PLAN_COST_MULTIPLIER, PLAN_LABELS };
+export { PLAN_TANK, getEffectiveMultiplier as PLAN_COST_MULTIPLIER, PLAN_LABELS };
 export type { PlanType, ActionType };
