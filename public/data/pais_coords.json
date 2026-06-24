@@ -1,0 +1,1407 @@
+{
+  "000": {
+    "name": "Não Definido",
+    "lat": 0,
+    "lng": 0
+  },
+  "013": {
+    "name": "Afeganistão",
+    "lat": 33.94,
+    "lng": 67.71
+  },
+  "015": {
+    "name": "Aland, Ilhas",
+    "lat": 0,
+    "lng": 0
+  },
+  "017": {
+    "name": "Albânia",
+    "lat": 41.15,
+    "lng": 20.17
+  },
+  "020": {
+    "name": "Alboran-Perejil, Ilhas",
+    "lat": 0,
+    "lng": 0
+  },
+  "023": {
+    "name": "Alemanha",
+    "lat": 51.17,
+    "lng": 10.45
+  },
+  "025": {
+    "name": "Alemanha Oriental",
+    "lat": 0,
+    "lng": 0
+  },
+  "031": {
+    "name": "Burkina Faso",
+    "lat": 12.24,
+    "lng": -1.56
+  },
+  "037": {
+    "name": "Andorra",
+    "lat": 42.51,
+    "lng": 1.52
+  },
+  "040": {
+    "name": "Angola",
+    "lat": -11.2,
+    "lng": 17.87
+  },
+  "041": {
+    "name": "Anguilla",
+    "lat": 18.22,
+    "lng": -63.07
+  },
+  "042": {
+    "name": "Antártica",
+    "lat": 0,
+    "lng": 0
+  },
+  "043": {
+    "name": "Antígua e Barbuda",
+    "lat": 17.06,
+    "lng": -61.8
+  },
+  "047": {
+    "name": "Antilhas Holandesas",
+    "lat": 12.21,
+    "lng": -68.96
+  },
+  "053": {
+    "name": "Arábia Saudita",
+    "lat": 23.89,
+    "lng": 45.08
+  },
+  "059": {
+    "name": "Argélia",
+    "lat": 28.03,
+    "lng": 1.66
+  },
+  "063": {
+    "name": "Argentina",
+    "lat": -38.42,
+    "lng": -63.62
+  },
+  "064": {
+    "name": "Armênia",
+    "lat": 0,
+    "lng": 0
+  },
+  "065": {
+    "name": "Aruba",
+    "lat": 12.52,
+    "lng": -69.97
+  },
+  "069": {
+    "name": "Austrália",
+    "lat": -25.27,
+    "lng": 133.78
+  },
+  "072": {
+    "name": "Áustria",
+    "lat": 47.52,
+    "lng": 14.55
+  },
+  "073": {
+    "name": "Azerbaijão",
+    "lat": 40.14,
+    "lng": 47.58
+  },
+  "077": {
+    "name": "Bahamas",
+    "lat": 25.03,
+    "lng": -77.4
+  },
+  "080": {
+    "name": "Barein",
+    "lat": 26.07,
+    "lng": 50.56
+  },
+  "081": {
+    "name": "Bangladesh",
+    "lat": 23.68,
+    "lng": 90.36
+  },
+  "083": {
+    "name": "Barbados",
+    "lat": 13.19,
+    "lng": -59.54
+  },
+  "085": {
+    "name": "Belarus",
+    "lat": 53.71,
+    "lng": 27.95
+  },
+  "087": {
+    "name": "Bélgica",
+    "lat": 50.85,
+    "lng": 4.35
+  },
+  "088": {
+    "name": "Belize",
+    "lat": 17.19,
+    "lng": -88.5
+  },
+  "090": {
+    "name": "Bermudas",
+    "lat": 32.31,
+    "lng": -64.75
+  },
+  "093": {
+    "name": "Mianmar",
+    "lat": 21.92,
+    "lng": 95.96
+  },
+  "097": {
+    "name": "Bolívia",
+    "lat": -16.29,
+    "lng": -63.59
+  },
+  "098": {
+    "name": "Bósnia-Herzegovina",
+    "lat": 43.92,
+    "lng": 17.68
+  },
+  "099": {
+    "name": "Bonaire, Saint Eustatius e Saba",
+    "lat": 0,
+    "lng": 0
+  },
+  "100": {
+    "name": "Internação na Zona Franca de Manaus",
+    "lat": 0,
+    "lng": 0
+  },
+  "101": {
+    "name": "Botsuana",
+    "lat": -22.33,
+    "lng": 24.68
+  },
+  "102": {
+    "name": "Bouvet, Ilha",
+    "lat": 0,
+    "lng": 0
+  },
+  "105": {
+    "name": "Brasil",
+    "lat": -14.24,
+    "lng": -51.93
+  },
+  "108": {
+    "name": "Brunei",
+    "lat": 4.89,
+    "lng": 114.94
+  },
+  "111": {
+    "name": "Bulgária",
+    "lat": 42.73,
+    "lng": 25.49
+  },
+  "115": {
+    "name": "Burundi",
+    "lat": -3.37,
+    "lng": 29.92
+  },
+  "119": {
+    "name": "Butão",
+    "lat": 27.51,
+    "lng": 90.43
+  },
+  "127": {
+    "name": "Cabo Verde",
+    "lat": 15.12,
+    "lng": -23.61
+  },
+  "137": {
+    "name": "Cayman, Ilhas",
+    "lat": 19.31,
+    "lng": -81.25
+  },
+  "141": {
+    "name": "Camboja",
+    "lat": 12.57,
+    "lng": 104.99
+  },
+  "145": {
+    "name": "Camarões",
+    "lat": 7.37,
+    "lng": 12.35
+  },
+  "149": {
+    "name": "Canadá",
+    "lat": 56.13,
+    "lng": -106.35
+  },
+  "150": {
+    "name": "Canal, Ilhas do (Guernsey)",
+    "lat": 0,
+    "lng": 0
+  },
+  "151": {
+    "name": "Canárias, Ilhas",
+    "lat": 0,
+    "lng": 0
+  },
+  "152": {
+    "name": "Canal, Ilhas do (Jersey)",
+    "lat": 0,
+    "lng": 0
+  },
+  "153": {
+    "name": "Cazaquistão",
+    "lat": 48.02,
+    "lng": 66.92
+  },
+  "154": {
+    "name": "Catar",
+    "lat": 25.35,
+    "lng": 51.18
+  },
+  "158": {
+    "name": "Chile",
+    "lat": -35.68,
+    "lng": -71.54
+  },
+  "160": {
+    "name": "China",
+    "lat": 35.86,
+    "lng": 104.19
+  },
+  "161": {
+    "name": "Taiwan (Formosa)",
+    "lat": 23.7,
+    "lng": 120.96
+  },
+  "163": {
+    "name": "Chipre",
+    "lat": 35.13,
+    "lng": 33.43
+  },
+  "165": {
+    "name": "Cocos (Keeling), Ilhas",
+    "lat": 0,
+    "lng": 0
+  },
+  "169": {
+    "name": "Colômbia",
+    "lat": 4.57,
+    "lng": -74.3
+  },
+  "173": {
+    "name": "Comores",
+    "lat": -11.65,
+    "lng": 43.33
+  },
+  "177": {
+    "name": "Congo",
+    "lat": -0.23,
+    "lng": 15.83
+  },
+  "183": {
+    "name": "Cook, Ilhas",
+    "lat": 0,
+    "lng": 0
+  },
+  "187": {
+    "name": "Coreia do Norte",
+    "lat": 40.34,
+    "lng": 127.51
+  },
+  "190": {
+    "name": "Coreia do Sul",
+    "lat": 35.91,
+    "lng": 127.77
+  },
+  "193": {
+    "name": "Costa do Marfim",
+    "lat": 7.54,
+    "lng": -5.55
+  },
+  "195": {
+    "name": "Croácia",
+    "lat": 45.1,
+    "lng": 15.2
+  },
+  "196": {
+    "name": "Costa Rica",
+    "lat": 9.75,
+    "lng": -83.75
+  },
+  "198": {
+    "name": "Coveite (Kuweit)",
+    "lat": 0,
+    "lng": 0
+  },
+  "199": {
+    "name": "Cuba",
+    "lat": 21.52,
+    "lng": -77.78
+  },
+  "200": {
+    "name": "Curaçao",
+    "lat": 12.17,
+    "lng": -68.99
+  },
+  "229": {
+    "name": "Benin",
+    "lat": 9.31,
+    "lng": 2.32
+  },
+  "232": {
+    "name": "Dinamarca",
+    "lat": 56.26,
+    "lng": 9.5
+  },
+  "235": {
+    "name": "Dominica",
+    "lat": 15.42,
+    "lng": -61.37
+  },
+  "237": {
+    "name": "Dubai",
+    "lat": 0,
+    "lng": 0
+  },
+  "239": {
+    "name": "Equador",
+    "lat": -1.83,
+    "lng": -78.18
+  },
+  "240": {
+    "name": "Egito",
+    "lat": 26.82,
+    "lng": 30.8
+  },
+  "243": {
+    "name": "Eritreia",
+    "lat": 15.18,
+    "lng": 39.78
+  },
+  "244": {
+    "name": "Emirados Árabes Unidos",
+    "lat": 23.42,
+    "lng": 53.85
+  },
+  "245": {
+    "name": "Espanha",
+    "lat": 40.46,
+    "lng": -3.75
+  },
+  "246": {
+    "name": "Eslovênia",
+    "lat": 46.15,
+    "lng": 14.99
+  },
+  "247": {
+    "name": "Eslováquia",
+    "lat": 48.67,
+    "lng": 19.7
+  },
+  "249": {
+    "name": "Estados Unidos",
+    "lat": 37.09,
+    "lng": -95.71
+  },
+  "251": {
+    "name": "Estônia",
+    "lat": 58.6,
+    "lng": 25.01
+  },
+  "253": {
+    "name": "Etiópia",
+    "lat": 9.15,
+    "lng": 40.49
+  },
+  "255": {
+    "name": "Falkland (Malvinas)",
+    "lat": -51.7,
+    "lng": -59.0
+  },
+  "259": {
+    "name": "Faroe, Ilhas",
+    "lat": 62.0,
+    "lng": -7.0
+  },
+  "267": {
+    "name": "Filipinas",
+    "lat": 12.88,
+    "lng": 121.77
+  },
+  "271": {
+    "name": "Finlândia",
+    "lat": 61.92,
+    "lng": 25.75
+  },
+  "275": {
+    "name": "França",
+    "lat": 46.6,
+    "lng": 1.88
+  },
+  "281": {
+    "name": "Gabão",
+    "lat": -0.8,
+    "lng": 11.61
+  },
+  "285": {
+    "name": "Gâmbia",
+    "lat": 13.44,
+    "lng": -15.31
+  },
+  "289": {
+    "name": "Gana",
+    "lat": 7.95,
+    "lng": -1.02
+  },
+  "291": {
+    "name": "Geórgia",
+    "lat": 42.32,
+    "lng": 43.36
+  },
+  "292": {
+    "name": "Geórgia do Sul e Sandwich do Sul, Ilhas",
+    "lat": 0,
+    "lng": 0
+  },
+  "293": {
+    "name": "Gibraltar",
+    "lat": 36.14,
+    "lng": -5.35
+  },
+  "297": {
+    "name": "Granada",
+    "lat": 12.12,
+    "lng": -61.68
+  },
+  "301": {
+    "name": "Grécia",
+    "lat": 39.07,
+    "lng": 21.82
+  },
+  "305": {
+    "name": "Groenlândia",
+    "lat": 71.71,
+    "lng": -42.0
+  },
+  "309": {
+    "name": "Guadalupe",
+    "lat": 16.27,
+    "lng": -61.55
+  },
+  "313": {
+    "name": "Guam",
+    "lat": 13.44,
+    "lng": 144.78
+  },
+  "317": {
+    "name": "Guatemala",
+    "lat": 15.78,
+    "lng": -90.23
+  },
+  "321": {
+    "name": "Guernsey",
+    "lat": 0,
+    "lng": 0
+  },
+  "325": {
+    "name": "Guiana Francesa",
+    "lat": 3.93,
+    "lng": -53.13
+  },
+  "329": {
+    "name": "Guiné",
+    "lat": 9.95,
+    "lng": -9.7
+  },
+  "331": {
+    "name": "Guiné Equatorial",
+    "lat": 1.65,
+    "lng": 10.27
+  },
+  "334": {
+    "name": "Guiné-Bissau",
+    "lat": 11.8,
+    "lng": -15.18
+  },
+  "337": {
+    "name": "Guiana",
+    "lat": 4.86,
+    "lng": -58.93
+  },
+  "341": {
+    "name": "Haiti",
+    "lat": 18.97,
+    "lng": -72.29
+  },
+  "343": {
+    "name": "Heard e ilhas mcdonald, Ilha",
+    "lat": 0,
+    "lng": 0
+  },
+  "345": {
+    "name": "Honduras",
+    "lat": 15.2,
+    "lng": -86.24
+  },
+  "351": {
+    "name": "Hong Kong",
+    "lat": 22.32,
+    "lng": 114.17
+  },
+  "355": {
+    "name": "Hungria",
+    "lat": 47.16,
+    "lng": 19.5
+  },
+  "357": {
+    "name": "Iêmen",
+    "lat": 15.55,
+    "lng": 48.52
+  },
+  "358": {
+    "name": "Iêmen Democrático",
+    "lat": 0,
+    "lng": 0
+  },
+  "359": {
+    "name": "Ilha de Man",
+    "lat": 54.24,
+    "lng": -4.55
+  },
+  "361": {
+    "name": "Índia",
+    "lat": 20.59,
+    "lng": 78.96
+  },
+  "365": {
+    "name": "Indonésia",
+    "lat": -0.79,
+    "lng": 113.92
+  },
+  "367": {
+    "name": "Inglaterra",
+    "lat": 0,
+    "lng": 0
+  },
+  "369": {
+    "name": "Iraque",
+    "lat": 33.22,
+    "lng": 43.68
+  },
+  "372": {
+    "name": "Irã",
+    "lat": 32.43,
+    "lng": 53.69
+  },
+  "375": {
+    "name": "Irlanda",
+    "lat": 53.41,
+    "lng": -8.24
+  },
+  "379": {
+    "name": "Islândia",
+    "lat": 64.96,
+    "lng": -19.02
+  },
+  "383": {
+    "name": "Israel",
+    "lat": 31.05,
+    "lng": 34.85
+  },
+  "386": {
+    "name": "Itália",
+    "lat": 41.87,
+    "lng": 12.57
+  },
+  "388": {
+    "name": "Iugoslávia",
+    "lat": 44.02,
+    "lng": 21.01
+  },
+  "391": {
+    "name": "Jamaica",
+    "lat": 18.11,
+    "lng": -77.3
+  },
+  "393": {
+    "name": "Jersey",
+    "lat": 0,
+    "lng": 0
+  },
+  "396": {
+    "name": "Johnston, Ilhas",
+    "lat": 0,
+    "lng": 0
+  },
+  "399": {
+    "name": "Japão",
+    "lat": 36.2,
+    "lng": 138.25
+  },
+  "403": {
+    "name": "Jordânia",
+    "lat": 31.17,
+    "lng": 37.36
+  },
+  "411": {
+    "name": "Kiribati",
+    "lat": 1.45,
+    "lng": 173.02
+  },
+  "420": {
+    "name": "Laos",
+    "lat": 19.86,
+    "lng": 102.5
+  },
+  "423": {
+    "name": "Lebuan, Ilhas",
+    "lat": 0,
+    "lng": 0
+  },
+  "426": {
+    "name": "Lesoto",
+    "lat": -29.61,
+    "lng": 28.23
+  },
+  "427": {
+    "name": "Letônia",
+    "lat": 56.88,
+    "lng": 24.6
+  },
+  "431": {
+    "name": "Líbano",
+    "lat": 33.85,
+    "lng": 35.86
+  },
+  "434": {
+    "name": "Libéria",
+    "lat": 6.43,
+    "lng": -9.43
+  },
+  "438": {
+    "name": "Líbia",
+    "lat": 26.34,
+    "lng": 17.23
+  },
+  "440": {
+    "name": "Liechtenstein",
+    "lat": 47.14,
+    "lng": 9.55
+  },
+  "442": {
+    "name": "Lituânia",
+    "lat": 55.17,
+    "lng": 23.88
+  },
+  "445": {
+    "name": "Luxemburgo",
+    "lat": 49.82,
+    "lng": 6.13
+  },
+  "447": {
+    "name": "Macau",
+    "lat": 22.2,
+    "lng": 113.55
+  },
+  "449": {
+    "name": "Macedônia",
+    "lat": 41.61,
+    "lng": 21.75
+  },
+  "450": {
+    "name": "Madagascar",
+    "lat": -18.77,
+    "lng": 46.87
+  },
+  "452": {
+    "name": "Madeira, Ilha da",
+    "lat": 32.75,
+    "lng": -16.97
+  },
+  "455": {
+    "name": "Malásia",
+    "lat": 4.21,
+    "lng": 101.98
+  },
+  "458": {
+    "name": "Malavi",
+    "lat": -13.25,
+    "lng": 34.3
+  },
+  "461": {
+    "name": "Maldivas",
+    "lat": 3.2,
+    "lng": 73.22
+  },
+  "464": {
+    "name": "Mali",
+    "lat": 17.57,
+    "lng": -4.0
+  },
+  "467": {
+    "name": "Malta",
+    "lat": 35.94,
+    "lng": 14.38
+  },
+  "472": {
+    "name": "Marianas do Norte, Ilhas",
+    "lat": 15.19,
+    "lng": 145.75
+  },
+  "474": {
+    "name": "Marrocos",
+    "lat": 31.17,
+    "lng": -7.13
+  },
+  "476": {
+    "name": "Marshall, Ilhas",
+    "lat": 7.13,
+    "lng": 171.18
+  },
+  "477": {
+    "name": "Martinica",
+    "lat": 14.64,
+    "lng": -61.02
+  },
+  "485": {
+    "name": "Maurício",
+    "lat": -20.35,
+    "lng": 57.55
+  },
+  "488": {
+    "name": "Mauritânia",
+    "lat": 21.01,
+    "lng": -10.94
+  },
+  "489": {
+    "name": "Mayotte",
+    "lat": -12.83,
+    "lng": 45.17
+  },
+  "490": {
+    "name": "Midway, Ilhas",
+    "lat": 0,
+    "lng": 0
+  },
+  "493": {
+    "name": "México",
+    "lat": 23.63,
+    "lng": -102.55
+  },
+  "494": {
+    "name": "Moldávia",
+    "lat": 47.41,
+    "lng": 28.37
+  },
+  "495": {
+    "name": "Mônaco",
+    "lat": 43.74,
+    "lng": 7.42
+  },
+  "497": {
+    "name": "Mongólia",
+    "lat": 46.86,
+    "lng": 103.85
+  },
+  "498": {
+    "name": "Montenegro",
+    "lat": 42.71,
+    "lng": 19.37
+  },
+  "499": {
+    "name": "Micronésia",
+    "lat": 6.89,
+    "lng": 158.16
+  },
+  "501": {
+    "name": "Montserrat",
+    "lat": 16.74,
+    "lng": -62.19
+  },
+  "505": {
+    "name": "Moçambique",
+    "lat": -18.67,
+    "lng": 35.53
+  },
+  "507": {
+    "name": "Namíbia",
+    "lat": -22.96,
+    "lng": 18.49
+  },
+  "508": {
+    "name": "Nauru",
+    "lat": -0.52,
+    "lng": 166.93
+  },
+  "511": {
+    "name": "Christmas (Navidad), Ilha",
+    "lat": 0,
+    "lng": 0
+  },
+  "517": {
+    "name": "Nepal",
+    "lat": 28.39,
+    "lng": 84.12
+  },
+  "521": {
+    "name": "Nicarágua",
+    "lat": 12.87,
+    "lng": -85.21
+  },
+  "525": {
+    "name": "Níger",
+    "lat": 17.61,
+    "lng": 8.08
+  },
+  "528": {
+    "name": "Nigéria",
+    "lat": 9.08,
+    "lng": 8.68
+  },
+  "531": {
+    "name": "Niue",
+    "lat": -19.05,
+    "lng": -169.92
+  },
+  "535": {
+    "name": "Norfolk, Ilha",
+    "lat": -29.03,
+    "lng": 167.95
+  },
+  "538": {
+    "name": "Noruega",
+    "lat": 60.47,
+    "lng": 8.47
+  },
+  "542": {
+    "name": "Nova Caledônia",
+    "lat": -21.3,
+    "lng": 165.62
+  },
+  "545": {
+    "name": "Papua Nova Guiné",
+    "lat": -6.31,
+    "lng": 143.96
+  },
+  "548": {
+    "name": "Nova Zelândia",
+    "lat": -40.9,
+    "lng": 174.89
+  },
+  "551": {
+    "name": "Vanuatu",
+    "lat": -15.38,
+    "lng": 166.96
+  },
+  "556": {
+    "name": "Omã",
+    "lat": 21.47,
+    "lng": 55.98
+  },
+  "563": {
+    "name": "Pacífico, Ilhas do (Administração dos EUA)",
+    "lat": 0,
+    "lng": 0
+  },
+  "566": {
+    "name": "Pacífico, Ilhas do (EUA)",
+    "lat": 0,
+    "lng": 0
+  },
+  "569": {
+    "name": "Pacífico, Ilhas do (Território Fideicomisso EUA)",
+    "lat": 0,
+    "lng": 0
+  },
+  "573": {
+    "name": "Países Baixos (Holanda)",
+    "lat": 52.13,
+    "lng": 5.29
+  },
+  "575": {
+    "name": "Palau",
+    "lat": 7.51,
+    "lng": 134.58
+  },
+  "576": {
+    "name": "Paquistão",
+    "lat": 30.38,
+    "lng": 69.35
+  },
+  "578": {
+    "name": "Palestina",
+    "lat": 31.95,
+    "lng": 35.23
+  },
+  "580": {
+    "name": "Panamá",
+    "lat": 8.54,
+    "lng": -80.78
+  },
+  "583": {
+    "name": "Papua, Território de",
+    "lat": 0,
+    "lng": 0
+  },
+  "586": {
+    "name": "Paraguai",
+    "lat": -23.44,
+    "lng": -58.44
+  },
+  "589": {
+    "name": "Peru",
+    "lat": -9.19,
+    "lng": -75.02
+  },
+  "593": {
+    "name": "Pitcairn",
+    "lat": -25.07,
+    "lng": -130.11
+  },
+  "599": {
+    "name": "Polinésia Francesa",
+    "lat": -17.68,
+    "lng": -149.41
+  },
+  "603": {
+    "name": "Polônia",
+    "lat": 51.92,
+    "lng": 19.15
+  },
+  "607": {
+    "name": "Portugal",
+    "lat": 39.4,
+    "lng": -8.22
+  },
+  "611": {
+    "name": "Porto Rico",
+    "lat": 18.22,
+    "lng": -66.59
+  },
+  "623": {
+    "name": "Quênia",
+    "lat": -0.02,
+    "lng": 37.91
+  },
+  "625": {
+    "name": "Quirguistão",
+    "lat": 41.38,
+    "lng": 64.59
+  },
+  "628": {
+    "name": "Reino Unido",
+    "lat": 55.38,
+    "lng": -3.44
+  },
+  "640": {
+    "name": "República Centro-Africana",
+    "lat": 6.61,
+    "lng": 20.94
+  },
+  "647": {
+    "name": "República Dominicana",
+    "lat": 18.74,
+    "lng": -70.16
+  },
+  "660": {
+    "name": "Reunião",
+    "lat": -21.12,
+    "lng": 55.54
+  },
+  "665": {
+    "name": "Zimbábue",
+    "lat": -19.02,
+    "lng": 29.15
+  },
+  "670": {
+    "name": "Romênia",
+    "lat": 45.94,
+    "lng": 24.97
+  },
+  "675": {
+    "name": "Ruanda",
+    "lat": -1.94,
+    "lng": 29.87
+  },
+  "676": {
+    "name": "Rússia",
+    "lat": 61.52,
+    "lng": 105.32
+  },
+  "677": {
+    "name": "Salomão, Ilhas",
+    "lat": -9.65,
+    "lng": 160.16
+  },
+  "678": {
+    "name": "Saint Kitts e Nevis",
+    "lat": 0,
+    "lng": 0
+  },
+  "685": {
+    "name": "Saara Ocidental",
+    "lat": 24.5,
+    "lng": -13.0
+  },
+  "687": {
+    "name": "El Salvador",
+    "lat": 13.79,
+    "lng": -88.9
+  },
+  "690": {
+    "name": "Samoa",
+    "lat": -13.76,
+    "lng": -172.1
+  },
+  "691": {
+    "name": "Samoa Americana",
+    "lat": -14.28,
+    "lng": -170.7
+  },
+  "693": {
+    "name": "São Bartolomeu",
+    "lat": 17.9,
+    "lng": -62.83
+  },
+  "695": {
+    "name": "São Cristóvão e Névis",
+    "lat": 17.36,
+    "lng": -62.76
+  },
+  "697": {
+    "name": "San Marino",
+    "lat": 43.94,
+    "lng": 12.46
+  },
+  "698": {
+    "name": "São Martinho, Ilha de (parte francesa)",
+    "lat": 18.06,
+    "lng": -63.05
+  },
+  "699": {
+    "name": "Sint Maarten",
+    "lat": 18.04,
+    "lng": -63.07
+  },
+  "700": {
+    "name": "São Pedro e Miquelon",
+    "lat": 46.79,
+    "lng": -56.19
+  },
+  "705": {
+    "name": "São Vicente e Granadinas",
+    "lat": 13.26,
+    "lng": -61.21
+  },
+  "710": {
+    "name": "Santa Helena",
+    "lat": -24.14,
+    "lng": -10.03
+  },
+  "715": {
+    "name": "Santa Lúcia",
+    "lat": 13.91,
+    "lng": -60.98
+  },
+  "720": {
+    "name": "São Tomé e Príncipe",
+    "lat": 0.19,
+    "lng": 6.61
+  },
+  "728": {
+    "name": "Senegal",
+    "lat": 14.5,
+    "lng": -14.45
+  },
+  "731": {
+    "name": "Seicheles",
+    "lat": -4.68,
+    "lng": 55.49
+  },
+  "735": {
+    "name": "Serra Leoa",
+    "lat": 8.46,
+    "lng": -11.78
+  },
+  "737": {
+    "name": "Sérvia",
+    "lat": 44.02,
+    "lng": 21.01
+  },
+  "741": {
+    "name": "Cingapura",
+    "lat": 1.35,
+    "lng": 103.82
+  },
+  "744": {
+    "name": "Síria",
+    "lat": 34.8,
+    "lng": 39.0
+  },
+  "748": {
+    "name": "Somália",
+    "lat": 5.15,
+    "lng": 46.2
+  },
+  "750": {
+    "name": "Sri Lanka",
+    "lat": 7.87,
+    "lng": 80.77
+  },
+  "754": {
+    "name": "Suazilândia",
+    "lat": -26.52,
+    "lng": 31.47
+  },
+  "755": {
+    "name": "Svalbard e Jan Mayen",
+    "lat": 0,
+    "lng": 0
+  },
+  "756": {
+    "name": "África do Sul",
+    "lat": -30.56,
+    "lng": 22.94
+  },
+  "759": {
+    "name": "Sudão",
+    "lat": 12.86,
+    "lng": 30.22
+  },
+  "760": {
+    "name": "Sudão do Sul",
+    "lat": 7.86,
+    "lng": 29.69
+  },
+  "764": {
+    "name": "Suécia",
+    "lat": 60.13,
+    "lng": 18.64
+  },
+  "767": {
+    "name": "Suíça",
+    "lat": 46.82,
+    "lng": 8.23
+  },
+  "770": {
+    "name": "Suriname",
+    "lat": 3.92,
+    "lng": -56.03
+  },
+  "772": {
+    "name": "Tadjiquistão",
+    "lat": 38.86,
+    "lng": 71.28
+  },
+  "776": {
+    "name": "Tailândia",
+    "lat": 15.87,
+    "lng": 100.99
+  },
+  "780": {
+    "name": "Tanzânia",
+    "lat": -6.37,
+    "lng": 34.89
+  },
+  "781": {
+    "name": "Terras Austrais Francesas",
+    "lat": 0,
+    "lng": 0
+  },
+  "782": {
+    "name": "Território Britânico do Oceano Índico",
+    "lat": 0,
+    "lng": 0
+  },
+  "783": {
+    "name": "Djibuti",
+    "lat": 11.83,
+    "lng": 42.59
+  },
+  "785": {
+    "name": "Território da Alta Comissão do Pacífico Ocidental",
+    "lat": 0,
+    "lng": 0
+  },
+  "786": {
+    "name": "Território Antártico Britânico",
+    "lat": 0,
+    "lng": 0
+  },
+  "788": {
+    "name": "Chade",
+    "lat": 15.45,
+    "lng": 18.73
+  },
+  "790": {
+    "name": "Tchecoslováquia",
+    "lat": 49.82,
+    "lng": 15.47
+  },
+  "791": {
+    "name": "Tcheca, República",
+    "lat": 49.82,
+    "lng": 15.47
+  },
+  "795": {
+    "name": "Timor Leste",
+    "lat": -8.87,
+    "lng": 125.73
+  },
+  "800": {
+    "name": "Togo",
+    "lat": 8.62,
+    "lng": 0.82
+  },
+  "805": {
+    "name": "Toquelau",
+    "lat": -8.55,
+    "lng": -172.0
+  },
+  "810": {
+    "name": "Tonga",
+    "lat": -21.18,
+    "lng": -175.2
+  },
+  "815": {
+    "name": "Trinidad e Tobago",
+    "lat": 10.69,
+    "lng": -61.22
+  },
+  "820": {
+    "name": "Tunísia",
+    "lat": 33.89,
+    "lng": 9.54
+  },
+  "823": {
+    "name": "Turcas e Caicos, Ilhas",
+    "lat": 21.47,
+    "lng": -71.15
+  },
+  "824": {
+    "name": "Turcomenistão",
+    "lat": 38.97,
+    "lng": 59.56
+  },
+  "827": {
+    "name": "Turquia",
+    "lat": 38.96,
+    "lng": 35.24
+  },
+  "828": {
+    "name": "Tuvalu",
+    "lat": -7.11,
+    "lng": 177.65
+  },
+  "831": {
+    "name": "Ucrânia",
+    "lat": 48.38,
+    "lng": 31.17
+  },
+  "833": {
+    "name": "Uganda",
+    "lat": 1.37,
+    "lng": 32.29
+  },
+  "840": {
+    "name": "União das Repúblicas Socialistas Soviéticas",
+    "lat": 61.52,
+    "lng": 105.32
+  },
+  "845": {
+    "name": "Uruguai",
+    "lat": -32.52,
+    "lng": -55.77
+  },
+  "847": {
+    "name": "Uzbequistão",
+    "lat": 41.38,
+    "lng": 64.59
+  },
+  "848": {
+    "name": "Vaticano",
+    "lat": 41.9,
+    "lng": 12.46
+  },
+  "850": {
+    "name": "Venezuela",
+    "lat": 6.42,
+    "lng": -66.59
+  },
+  "858": {
+    "name": "Vietnã",
+    "lat": 14.06,
+    "lng": 108.28
+  },
+  "863": {
+    "name": "Virgens, Ilhas (Britânicas)",
+    "lat": 18.42,
+    "lng": -64.62
+  },
+  "866": {
+    "name": "Virgens, Ilhas (Americanas)",
+    "lat": 18.34,
+    "lng": -64.92
+  },
+  "870": {
+    "name": "Fiji",
+    "lat": -17.71,
+    "lng": 177.97
+  },
+  "873": {
+    "name": "Wake, Ilha",
+    "lat": 19.3,
+    "lng": 166.63
+  },
+  "875": {
+    "name": "Wallis e Futuna, Ilhas",
+    "lat": -13.3,
+    "lng": -176.21
+  },
+  "888": {
+    "name": "Congo, República Democrática",
+    "lat": -4.04,
+    "lng": 21.76
+  },
+  "890": {
+    "name": "Zâmbia",
+    "lat": -13.13,
+    "lng": 27.85
+  },
+  "895": {
+    "name": "Zona do Canal do Panamá",
+    "lat": 8.97,
+    "lng": -79.55
+  },
+  "990": {
+    "name": "Provisão de Navios e Aeronaves",
+    "lat": 0,
+    "lng": 0
+  },
+  "994": {
+    "name": "A Designar",
+    "lat": 0,
+    "lng": 0
+  },
+  "995": {
+    "name": "Bancos Centrais",
+    "lat": 0,
+    "lng": 0
+  },
+  "997": {
+    "name": "Organizações Internacionais",
+    "lat": 0,
+    "lng": 0
+  },
+  "998": {
+    "name": "Sem informação",
+    "lat": 0,
+    "lng": 0
+  },
+  "999": {
+    "name": "Não Declarados",
+    "lat": 0,
+    "lng": 0
+  }
+}

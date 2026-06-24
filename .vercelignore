@@ -1,0 +1,17 @@
+node_modules
+.vercel
+.DS_Store
+dist
+*.log
+.env
+data/*
+!src/data/
+scripts/download_baci.py
+scripts/download_trade_data.py
+scripts/download_trademap.py
+scripts/trademap_bulk_downloader.py
+scripts/trademap_stealth.py
+android/
+ios/
+.vscode/
+.idea/

@@ -1,0 +1,177 @@
+{
+  "ultima_atualizacao": "2026-06-08T13:00:04Z",
+  "ano": 2026,
+  "eventos": [
+    {
+      "data": "01 Jan",
+      "titulo": "Ano Novo",
+      "tipo": "feriado",
+      "portos": [
+        "Todos"
+      ],
+      "descricao": "Fechamento total. Operações retomam dia 02/01."
+    },
+    {
+      "data": "15 Jan–28 Fev",
+      "titulo": "Pico pré-Ano Novo Chinês",
+      "tipo": "pico",
+      "portos": [
+        "Shanghai",
+        "Ningbo",
+        "Shenzhen"
+      ],
+      "descricao": "Alta demanda por contêineres. Fretes sobem 15-30%. Reserve com 3-4 semanas de antecedência."
+    },
+    {
+      "data": "29 Jan",
+      "titulo": "Ano Novo Chinês",
+      "tipo": "feriado",
+      "portos": [
+        "Shanghai",
+        "Ningbo",
+        "Shenzhen",
+        "Hong Kong"
+      ],
+      "descricao": "Fábricas e portos parados por 1-2 semanas. Programe embarques antes de 15 Jan."
+    },
+    {
+      "data": "Fev–Mar",
+      "titulo": "Carnaval",
+      "tipo": "feriado",
+      "portos": [
+        "Santos",
+        "Paranaguá",
+        "Rio de Janeiro"
+      ],
+      "descricao": "Operação reduzida. Datas variam anualmente."
+    },
+    {
+      "data": "Mar–Abr",
+      "titulo": "Páscoa / Semana Santa",
+      "tipo": "feriado",
+      "portos": [
+        "Todos"
+      ],
+      "descricao": "Fechamento na Sexta-feira Santa. Portos operam com escala reduzida."
+    },
+    {
+      "data": "21 Abr",
+      "titulo": "Tiradentes",
+      "tipo": "feriado",
+      "portos": [
+        "Todos"
+      ],
+      "descricao": "Feriado nacional. Portos e órgãos anuentes fechados."
+    },
+    {
+      "data": "01 Mai",
+      "titulo": "Dia do Trabalho",
+      "tipo": "feriado",
+      "portos": [
+        "Todos"
+      ],
+      "descricao": "Feriado nacional. Sem operação."
+    },
+    {
+      "data": "Mai–Jul",
+      "titulo": "Safra de Grãos — Pico de Exportação",
+      "tipo": "pico",
+      "portos": [
+        "Santos",
+        "Paranaguá",
+        "Rio Grande",
+        "São Francisco do Sul"
+      ],
+      "descricao": "Alta demanda por contêineres reefer e granéis. Programe com 4 semanas de antecedência."
+    },
+    {
+      "data": "Jul–Ago",
+      "titulo": "Janela de Importação — Natal",
+      "tipo": "janela",
+      "portos": [
+        "Santos",
+        "Itajaí",
+        "Navegantes"
+      ],
+      "descricao": "Período ideal para importar produtos de Natal. Embarques até final de Agosto para chegada até Outubro."
+    },
+    {
+      "data": "07 Set",
+      "titulo": "Independência do Brasil",
+      "tipo": "feriado",
+      "portos": [
+        "Todos"
+      ],
+      "descricao": "Feriado nacional."
+    },
+    {
+      "data": "Set–Out",
+      "titulo": "Golden Week (China)",
+      "tipo": "feriado",
+      "portos": [
+        "Shanghai",
+        "Ningbo",
+        "Shenzhen"
+      ],
+      "descricao": "Semana de feriados na China (1-7 Out). Fábricas e portos parados. Programe embarques antes de 20 Set."
+    },
+    {
+      "data": "Out–Nov",
+      "titulo": "Janela de Importação — Black Friday",
+      "tipo": "janela",
+      "portos": [
+        "Santos",
+        "Itajaí",
+        "Viracopos"
+      ],
+      "descricao": "Embarques até meados de Outubro para chegada antes da Black Friday (final de Novembro)."
+    },
+    {
+      "data": "12 Out",
+      "titulo": "Nossa Senhora Aparecida",
+      "tipo": "feriado",
+      "portos": [
+        "Todos"
+      ],
+      "descricao": "Feriado nacional."
+    },
+    {
+      "data": "02 Nov",
+      "titulo": "Finados",
+      "tipo": "feriado",
+      "portos": [
+        "Todos"
+      ],
+      "descricao": "Feriado nacional."
+    },
+    {
+      "data": "15 Nov",
+      "titulo": "Proclamação da República",
+      "tipo": "feriado",
+      "portos": [
+        "Todos"
+      ],
+      "descricao": "Feriado nacional."
+    },
+    {
+      "data": "20 Nov",
+      "titulo": "Consciência Negra",
+      "tipo": "feriado",
+      "portos": [
+        "Santos",
+        "Rio de Janeiro",
+        "São Paulo"
+      ],
+      "descricao": "Feriado em diversos estados e municípios."
+    },
+    {
+      "data": "25 Dez",
+      "titulo": "Natal",
+      "tipo": "feriado",
+      "portos": [
+        "Todos"
+      ],
+      "descricao": "Feriado nacional. Fechamento total."
+    }
+  ]
+}

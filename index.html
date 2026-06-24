@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#D80E16" />
+    <!-- Preconnect para Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Favicon — apenas 3 tags essenciais -->
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <style>
+      /* ─── Anti-CLS ─── */
+      html { scrollbar-gutter: stable; background: #FAFAF9; }
+      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; }
+      /* Hero minimum height — evita CLS enquanto JS carrega */
+      #root > div:first-child { min-height: 90vh; }
+      /* Fallback até o CSS carregar — espelha o bg do hero white/light */
+      .min-h-screen { background: white; }
+    </style>
+    <meta name="description" content="Plataforma de comércio exterior com classificação NCM com IA, tarifas de 31 países, rastreamento de cargas ao vivo e serviços operacionais. Importe e exporte com confiança." />
+    <meta name="keywords" content="comércio exterior, NCM, HTS, importação, exportação, inteligência mercado, Brasil, classificação fiscal, tarifas, supply chain" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="TRADEXA — Plataforma de Comércio Exterior" />
+    <meta property="og:description" content="Dados oficiais, classificação NCM com IA, tarifas de 31 países e rastreamento de cargas ao vivo. Tudo para importar e exportar com confiança." />
+    <meta property="og:image" content="https://www.tradexa.com.br/og-image.png" />
+    <meta property="og:url" content="https://www.tradexa.com.br" />
+    <meta property="og:site_name" content="TRADEXA" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TRADEXA — Plataforma de Comércio Exterior" />
+    <meta name="twitter:description" content="Dados oficiais, classificação NCM com IA, tarifas de 31 países e rastreamento de cargas ao vivo. Tudo para importar e exportar com confiança." />
+    <meta name="twitter:image" content="https://www.tradexa.com.br/og-image.png" />
+    <link rel="canonical" href="https://www.tradexa.com.br" />
+    <!-- Fontes: carrega async com print → all swap (zero CLS) -->
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=optional" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=optional" rel="stylesheet" /></noscript>
+    <title>TRADEXA — Plataforma de Comércio Exterior</title>
+    <link rel="alternate" type="application/llms.txt+txt" href="/llms.txt" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

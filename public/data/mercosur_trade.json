@@ -1,0 +1,146 @@
+[
+  {
+    "year": "2024",
+    "exporter": "BRA",
+    "importer": "ARG",
+    "value_usd": 16200000000,
+    "top_products": [
+      "Vehicles",
+      "Machinery",
+      "Plastics",
+      "Chemicals"
+    ]
+  },
+  {
+    "year": "2024",
+    "exporter": "BRA",
+    "importer": "URY",
+    "value_usd": 2100000000,
+    "top_products": [
+      "Vehicles",
+      "Machinery",
+      "Chemicals",
+      "Food"
+    ]
+  },
+  {
+    "year": "2024",
+    "exporter": "BRA",
+    "importer": "PRY",
+    "value_usd": 3800000000,
+    "top_products": [
+      "Machinery",
+      "Vehicles",
+      "Plastics",
+      "Chemicals"
+    ]
+  },
+  {
+    "year": "2024",
+    "exporter": "ARG",
+    "importer": "BRA",
+    "value_usd": 14100000000,
+    "top_products": [
+      "Wheat",
+      "Gas",
+      "Vehicles",
+      "Machinery"
+    ]
+  },
+  {
+    "year": "2024",
+    "exporter": "URY",
+    "importer": "BRA",
+    "value_usd": 1200000000,
+    "top_products": [
+      "Beef",
+      "Wheat",
+      "Dairy",
+      "Wood"
+    ]
+  },
+  {
+    "year": "2024",
+    "exporter": "PRY",
+    "importer": "BRA",
+    "value_usd": 2800000000,
+    "top_products": [
+      "Soybeans",
+      "Beef",
+      "Electricity",
+      "Corn"
+    ]
+  },
+  {
+    "year": "2025",
+    "exporter": "BRA",
+    "importer": "ARG",
+    "value_usd": 17500000000,
+    "top_products": [
+      "Vehicles",
+      "Machinery",
+      "Plastics",
+      "Chemicals"
+    ]
+  },
+  {
+    "year": "2025",
+    "exporter": "BRA",
+    "importer": "URY",
+    "value_usd": 2300000000,
+    "top_products": [
+      "Vehicles",
+      "Machinery",
+      "Chemicals",
+      "Food"
+    ]
+  },
+  {
+    "year": "2025",
+    "exporter": "BRA",
+    "importer": "PRY",
+    "value_usd": 4100000000,
+    "top_products": [
+      "Machinery",
+      "Vehicles",
+      "Plastics",
+      "Chemicals"
+    ]
+  },
+  {
+    "year": "2025",
+    "exporter": "ARG",
+    "importer": "BRA",
+    "value_usd": 14800000000,
+    "top_products": [
+      "Wheat",
+      "Gas",
+      "Vehicles",
+      "Machinery"
+    ]
+  },
+  {
+    "year": "2025",
+    "exporter": "URY",
+    "importer": "BRA",
+    "value_usd": 1350000000,
+    "top_products": [
+      "Beef",
+      "Wheat",
+      "Dairy",
+      "Wood"
+    ]
+  },
+  {
+    "year": "2025",
+    "exporter": "PRY",
+    "importer": "BRA",
+    "value_usd": 3100000000,
+    "top_products": [
+      "Soybeans",
+      "Beef",
+      "Electricity",
+      "Corn"
+    ]
+  }
+]

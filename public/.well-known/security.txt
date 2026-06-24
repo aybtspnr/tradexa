@@ -1,0 +1,9 @@
+# Security contact for tradexa.com.br
+Contact: mailto:aybtspnr@gmail.com
+Expires: 2027-06-05T00:00:00.000Z
+Encryption: https://www.tradexa.com.br/.well-known/pgp-key.txt
+Acknowledgments: https://www.tradexa.com.br/sobre
+Policy: https://www.tradexa.com.br/termos
+Hiring: https://www.tradexa.com.br/trabalhe-conosco
+Canonical: https://www.tradexa.com.br/.well-known/security.txt
+Preferred-Languages: pt, en

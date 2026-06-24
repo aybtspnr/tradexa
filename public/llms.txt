@@ -1,0 +1,43 @@
+# TRADEXA — Market Intelligence para Comércio Exterior
+
+> Plataforma brasileira de inteligência comercial para importadores, exportadores e profissionais de comércio exterior.
+
+## Propósito
+A TRADEXA fornece dados de comércio exterior, classificação NCM por IA, tarifas globais, diretório de importadores em 97 países e ferramentas de análise de mercado para facilitar o comércio internacional.
+
+## Páginas Principais
+- [Home](https://www.tradexa.com.br/) — Página inicial da TRADEXA
+- [Export Import Data](https://www.tradexa.com.br/export-import-data) — Dados de exportação e importação por NCM
+- [US Trade Data](https://www.tradexa.com.br/us-trade) — Dados de comércio Brasil-EUA
+- [NCM Classifier](https://www.tradexa.com.br/landing/ncm-classifier) — Classificação NCM com IA
+- [Calculadora de Importação](https://www.tradexa.com.br/landing/calculadora-importacao) — Cálculo de tarifas de importação
+- [Global Explorer](https://www.tradexa.com.br/landing/global-explorer) — Exploração de mercados globais
+- [Trade Intelligence](https://www.tradexa.com.br/intelligence) — Dashboards de inteligência comercial
+- [Blog](https://www.tradexa.com.br/blog) — Artigos sobre comércio exterior
+- [Sobre](https://www.tradexa.com.br/sobre) — Sobre a TRADEXA
+- [Contato](https://www.tradexa.com.br/contato) — Fale conosco
+
+## Recursos
+- Classificação NCM com IA
+- Calculadora de tarifas de importação por país
+- Diretório de importadores em 97 países
+- Smart Rank — Ranking de mercados para exportação
+- Frete marítimo — Cotações e rotas em tempo real
+- Trade Intelligence — Dashboards interativos
+- Rastreamento de navios e containers
+- Glossário de comércio exterior
+
+## Dados
+- Dados de comércio exterior de 31 países
+- Alíquotas de importação atualizadas
+- Mais de 3.8 milhões de importadores cadastrados
+- Dados de frete marítimo em tempo real
+
+## API
+A TRADEXA oferece APIs REST para integração com sistemas de comércio exterior. Consulte a documentação para mais informações.
+
+## Links
+- Website: https://www.tradexa.com.br
+- Blog: https://www.tradexa.com.br/blog
+- Contato: https://www.tradexa.com.br/contato
+- Sobre: https://www.tradexa.com.br/sobre

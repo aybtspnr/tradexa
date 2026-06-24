@@ -1,0 +1,156 @@
+{
+  "ultima_atualizacao": "2026-06-08T12:36:55Z",
+  "setores": [
+    "Alimentos e Bebidas",
+    "Agronegócio",
+    "Moda e Têxtil",
+    "Máquinas e Equipamentos",
+    "Tecnologia",
+    "Cosméticos",
+    "Móveis e Decoração",
+    "Logística",
+    "Multissetorial"
+  ],
+  "eventos": [
+    {
+      "nome": "SIAL Paris 2026",
+      "data": "19-23 Out",
+      "cidade": "Paris",
+      "pais": "França",
+      "setor": "Alimentos e Bebidas",
+      "site": "https://www.sialparis.com/",
+      "brasilPavilhao": true,
+      "destaque": true
+    },
+    {
+      "nome": "Anuga 2026",
+      "data": "10-14 Out",
+      "cidade": "Colônia",
+      "pais": "Alemanha",
+      "setor": "Alimentos e Bebidas",
+      "site": "https://www.anuga.com/",
+      "brasilPavilhao": true,
+      "destaque": true
+    },
+    {
+      "nome": "Fancy Food Show Summer",
+      "data": "28-30 Jun",
+      "cidade": "Nova York",
+      "pais": "EUA",
+      "setor": "Alimentos e Bebidas",
+      "site": "https://www.specialtyfood.com/",
+      "brasilPavilhao": true,
+      "destaque": false
+    },
+    {
+      "nome": "Expointer 2026",
+      "data": "29 Ago-6 Set",
+      "cidade": "Esteio",
+      "pais": "Brasil",
+      "setor": "Agronegócio",
+      "site": "https://www.expointer.rs.gov.br/",
+      "brasilPavilhao": true,
+      "destaque": false
+    },
+    {
+      "nome": "Première Vision Paris",
+      "data": "7-9 Jul",
+      "cidade": "Paris",
+      "pais": "França",
+      "setor": "Moda e Têxtil",
+      "site": "https://www.premierevision.com/",
+      "brasilPavilhao": true,
+      "destaque": false
+    },
+    {
+      "nome": "Texworld NYC",
+      "data": "20-22 Jul",
+      "cidade": "Nova York",
+      "pais": "EUA",
+      "setor": "Moda e Têxtil",
+      "site": "https://texworld-nyc.us.messefrankfurt.com/",
+      "brasilPavilhao": true,
+      "destaque": false
+    },
+    {
+      "nome": "Febratex 2026",
+      "data": "18-21 Ago",
+      "cidade": "Blumenau",
+      "pais": "Brasil",
+      "setor": "Moda e Têxtil",
+      "site": "https://www.febratex.com.br/",
+      "brasilPavilhao": true,
+      "destaque": false
+    },
+    {
+      "nome": "Feira do Empreendedor SEBRAE",
+      "data": "1-5 Out",
+      "cidade": "São Paulo",
+      "pais": "Brasil",
+      "setor": "Moda e Têxtil",
+      "site": "https://www.sebrae.com.br/",
+      "brasilPavilhao": true,
+      "destaque": false
+    },
+    {
+      "nome": "MEC SHOW 2026",
+      "data": "4-7 Ago",
+      "cidade": "Serra",
+      "pais": "Brasil",
+      "setor": "Máquinas e Equipamentos",
+      "site": "https://www.mecshow.com.br/",
+      "brasilPavilhao": true,
+      "destaque": false
+    },
+    {
+      "nome": "Beautyworld Middle East",
+      "data": "26-28 Out",
+      "cidade": "Dubai",
+      "pais": "Emirados Árabes",
+      "setor": "Cosméticos",
+      "site": "https://beautyworldme.com/",
+      "brasilPavilhao": true,
+      "destaque": false
+    },
+    {
+      "nome": "High Point Market",
+      "data": "17-22 Out",
+      "cidade": "High Point, NC",
+      "pais": "EUA",
+      "setor": "Móveis e Decoração",
+      "site": "https://www.highpointmarket.org/",
+      "brasilPavilhao": false,
+      "destaque": false
+    },
+    {
+      "nome": "Transport Logistic",
+      "data": "9-12 Jun",
+      "cidade": "Munique",
+      "pais": "Alemanha",
+      "setor": "Logística",
+      "site": "https://www.transportlogistic.de/",
+      "brasilPavilhao": false,
+      "destaque": false
+    },
+    {
+      "nome": "Canton Fair (120ª)",
+      "data": "15-19 Out",
+      "cidade": "Guangzhou",
+      "pais": "China",
+      "setor": "Multissetorial",
+      "site": "https://www.cantonfair.org.cn/",
+      "brasilPavilhao": false,
+      "destaque": false
+    },
+    {
+      "nome": "Expo Dubai 2026",
+      "data": "1 Out-31 Mar 2027",
+      "cidade": "Dubai",
+      "pais": "Emirados Árabes",
+      "setor": "Multissetorial",
+      "site": "https://www.dubaiexhibitions.com/",
+      "brasilPavilhao": true,
+      "destaque": true
+    }
+  ]
+}

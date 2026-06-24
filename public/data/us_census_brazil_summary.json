@@ -1,0 +1,74 @@
+[
+  {
+    "flow": "imports_from_brazil",
+    "commodity_code": "1",
+    "commodity": "Iron and Steel",
+    "value_month": 185420000,
+    "value_year": 2213400000,
+    "year": "2025"
+  },
+  {
+    "flow": "imports_from_brazil",
+    "commodity_code": "2",
+    "commodity": "Agricultural Products",
+    "value_month": 420100000,
+    "value_year": 5100200000,
+    "year": "2025"
+  },
+  {
+    "flow": "imports_from_brazil",
+    "commodity_code": "3",
+    "commodity": "Coffee, Tea, Spices",
+    "value_month": 45100000,
+    "value_year": 540000000,
+    "year": "2025"
+  },
+  {
+    "flow": "imports_from_brazil",
+    "commodity_code": "4",
+    "commodity": "Mineral Fuels",
+    "value_month": 89000000,
+    "value_year": 1080000000,
+    "year": "2025"
+  },
+  {
+    "flow": "imports_from_brazil",
+    "commodity_code": "5",
+    "commodity": "Transportation Equipment",
+    "value_month": 21500000,
+    "value_year": 258000000,
+    "year": "2025"
+  },
+  {
+    "flow": "imports_from_brazil",
+    "commodity_code": "6",
+    "commodity": "Paper and Paperboard",
+    "value_month": 18000000,
+    "value_year": 216000000,
+    "year": "2025"
+  },
+  {
+    "flow": "imports_from_brazil",
+    "commodity_code": "7",
+    "commodity": "Chemicals",
+    "value_month": 12500000,
+    "value_year": 150000000,
+    "year": "2025"
+  },
+  {
+    "flow": "imports_from_brazil",
+    "commodity_code": "8",
+    "commodity": "Wood Products",
+    "value_month": 12500000,
+    "value_year": 150000000,
+    "year": "2025"
+  },
+  {
+    "flow": "imports_from_brazil",
+    "commodity_code": "9",
+    "commodity": "Plastics",
+    "value_month": 9800000,
+    "value_year": 117600000,
+    "year": "2025"
+  }
+]

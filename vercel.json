@@ -1,0 +1,618 @@
+{
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "echo 'BUILD_SIG=v11' && node scripts/extract-blog-content.mjs && vite build && node scripts/prerender.mjs && node scripts/generate-sitemap.js && node scripts/indexnow-submit.js",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/api/vps/(.*)",
+      "destination": "http://129.121.98.20:5051/api/$1"
+    },
+    {
+      "source": "/api/intel/(.*)",
+      "destination": "http://129.121.98.20:5057/api/v1/intel/$1"
+    },
+    {
+      "source": "/api/maritime-live",
+      "destination": "http://129.121.98.20:5052/api/ships"
+    },
+    {
+      "source": "/api/cctv",
+      "destination": "http://129.121.98.20:5053/api/cctv"
+    },
+    {
+      "source": "/api/earthquakes",
+      "destination": "http://129.121.98.20:5053/api/earthquakes"
+    },
+    {
+      "source": "/api/weather-events",
+      "destination": "http://129.121.98.20:5053/api/weather-events"
+    },
+    {
+      "source": "/api/fires",
+      "destination": "http://129.121.98.20:5053/api/fires"
+    },
+    {
+      "source": "/api/conflicts",
+      "destination": "http://129.121.98.20:5053/api/conflicts"
+    },
+    {
+      "source": "/api/comtrade",
+      "destination": "http://129.121.98.20:5053/api/comtrade"
+    },
+    {
+      "source": "/api/gdelt-geo",
+      "destination": "http://129.121.98.20:5053/api/gdelt-geo"
+    },
+    {
+      "source": "/api/send-contact",
+      "destination": "http://129.121.98.20:5056/api/send-contact"
+    },
+    {
+      "source": "/api/send-quote",
+      "destination": "http://129.121.98.20:5056/api/send-quote"
+    },
+    {
+      "source": "/api/send-email",
+      "destination": "https://ocivkbocmywinwqmaqac.supabase.co/functions/v1/send-email"
+    },
+    {
+      "source": "/api/deepseek-proxy",
+      "destination": "https://ocivkbocmywinwqmaqac.supabase.co/functions/v1/deepseek-proxy"
+    },
+    {
+      "source": "/api/subscribe",
+      "destination": "https://ocivkbocmywinwqmaqac.supabase.co/functions/v1/send-email"
+    },
+    {
+      "source": "/api/hts-search",
+      "destination": "http://129.121.98.20:5054/api/hts-search"
+    },
+    {
+      "source": "/api/hts-ai",
+      "destination": "http://129.121.98.20:5054/api/hts-ai"
+    },
+    {
+      "source": "/api/track",
+      "destination": "http://129.121.98.20:5060/api/track"
+    },
+    {
+      "source": "/api/carriers",
+      "destination": "http://129.121.98.20:5060/api/carriers"
+    },
+    {
+      "source": "/api/comex-intelligence",
+      "destination": "http://129.121.98.20:5055/api/comex-intelligence"
+    },
+    {
+      "source": "/api/access2markets/(.*)",
+      "destination": "https://trade.ec.europa.eu/access-to-markets/api/v2/$1"
+    },
+    {
+      "source": "/api/comtrade-un/(.*)",
+      "destination": "https://comtradeapi.un.org/data/v1/get/$1"
+    },
+    {
+      "source": "/api/oec/(.*)",
+      "destination": "https://api-v2.oec.world/$1"
+    },
+    {
+      "source": "/api/proxy/cnpj/(.*)",
+      "destination": "https://cnpj.biz/$1"
+    },
+    {
+      "source": "/api/proxy/receitaws/(.*)",
+      "destination": "https://receitaws.com.br/$1"
+    },
+    {
+      "source": "/api/proxy/restcountries/(.*)",
+      "destination": "https://restcountries.com/$1"
+    },
+    {
+      "source": "/api/proxy/ibge/(.*)",
+      "destination": "https://servicodados.ibge.gov.br/api/v1/$1"
+    },
+    {
+      "source": "/api/proxy/worldbank/(.*)",
+      "destination": "https://api.worldbank.org/v2/$1"
+    },
+    {
+      "source": "/api/proxy/census/(.*)",
+      "destination": "https://api.census.gov/$1"
+    },
+    {
+      "source": "/api/proxy/wto/(.*)",
+      "destination": "https://stats.wto.org/api/v1/$1"
+    },
+    {
+      "source": "/api/proxy/awesomeapi/(.*)",
+      "destination": "https://economia.awesomeapi.com.br/$1"
+    },
+    {
+      "source": "/api/proxy/bcb/(.*)",
+      "destination": "https://olinda.bcb.gov.br/$1"
+    },
+    {
+      "source": "/api/proxy/erapi/(.*)",
+      "destination": "https://open.er-api.com/$1"
+    },
+    {
+      "source": "/api/proxy/bcb-dados/(.*)",
+      "destination": "https://api.bcb.gov.br/$1"
+    },
+    {
+      "source": "/api/proxy/datalastic/(.*)",
+      "destination": "https://api.datalastic.com/api/v0/$1"
+    },
+    {
+      "source": "/api/proxy/searates/(.*)",
+      "destination": "https://api.searates.com/$1"
+    },
+    {
+      "source": "/api/proxy/comexstat/(.*)",
+      "destination": "https://api-comexstat.mdic.gov.br/$1"
+    },
+    {
+      "source": "/api/proxy/github-geo/(.*)",
+      "destination": "https://raw.githubusercontent.com/$1"
+    },
+    {
+      "source": "/api/proxy/supabase-storage/(.*)",
+      "destination": "https://ocivkbocmywinwqmaqac.supabase.co/storage/v1/object/public/$1"
+    },
+    {
+      "source": "/data/(.*)",
+      "destination": "http://129.121.98.20:5055/data/$1"
+    },
+    {
+      "source": "/casos-de-uso",
+      "destination": "/casos-de-uso.html"
+    },
+    {
+      "source": "/contato",
+      "destination": "/contato.html"
+    },
+    {
+      "source": "/country-comparison",
+      "destination": "/country-comparison.html"
+    },
+    {
+      "source": "/export-simulator",
+      "destination": "/export-simulator.html"
+    },
+    {
+      "source": "/global-tariff",
+      "destination": "/global-tariff.html"
+    },
+    {
+      "source": "/glossario",
+      "destination": "/glossario.html"
+    },
+    {
+      "source": "/guia-exportacao",
+      "destination": "/guia-exportacao.html"
+    },
+    {
+      "source": "/guia-importacao",
+      "destination": "/guia-importacao.html"
+    },
+    {
+      "source": "/guia-ncm",
+      "destination": "/guia-ncm.html"
+    },
+    {
+      "source": "/intelligence",
+      "destination": "/intelligence.html"
+    },
+    {
+      "source": "/logistica-internacional",
+      "destination": "/logistica-internacional.html"
+    },
+    {
+      "source": "/maritime-freight-map",
+      "destination": "/maritime-freight-map.html"
+    },
+    {
+      "source": "/ncm-comparison",
+      "destination": "/ncm-comparison.html"
+    },
+    {
+      "source": "/pricing",
+      "destination": "/pricing.html"
+    },
+    {
+      "source": "/privacidade",
+      "destination": "/privacidade.html"
+    },
+    {
+      "source": "/recursos",
+      "destination": "/recursos.html"
+    },
+    {
+      "source": "/smart-rank",
+      "destination": "/smart-rank.html"
+    },
+    {
+      "source": "/sobre",
+      "destination": "/sobre.html"
+    },
+    {
+      "source": "/servicos",
+      "destination": "/servicos.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "/blog/:path*/index.html"
+    },
+    {
+      "source": "/tutorial/:path*",
+      "destination": "/tutorial/:path*/index.html"
+    },
+    {
+      "source": "/checklist/:path*",
+      "destination": "/checklist/:path*/index.html"
+    },
+    {
+      "source": "/relatorio/:path*",
+      "destination": "/relatorio/:path*/index.html"
+    },
+    {
+      "source": "/solucoes/:path*",
+      "destination": "/solucoes/:path*/index.html"
+    },
+    {
+      "source": "/guia-duimp",
+      "destination": "/guia-duimp/index.html"
+    },
+    {
+      "source": "/feiras-eventos",
+      "destination": "/feiras-eventos/index.html"
+    },
+    {
+      "source": "/calendario-aduaneiro",
+      "destination": "/calendario-aduaneiro/index.html"
+    },
+    {
+      "source": "/template/planilha-cif",
+      "destination": "/template/planilha-cif/index.html"
+    },
+    {
+      "source": "/servicos/pesquisa-mercado-exportacao",
+      "destination": "/servicos/pesquisa-mercado-exportacao.html"
+    },
+    {
+      "source": "/servicos/pesquisa-compradores",
+      "destination": "/servicos/pesquisa-compradores.html"
+    },
+    {
+      "source": "/servicos/cotacao-frete-internacional",
+      "destination": "/servicos/cotacao-frete-internacional.html"
+    },
+    {
+      "source": "/servicos/despacho-aduaneiro",
+      "destination": "/servicos/despacho-aduaneiro.html"
+    },
+    {
+      "source": "/servicos/fulfillment",
+      "destination": "/servicos/fulfillment.html"
+    },
+    {
+      "source": "/servicos/representacao-brasil",
+      "destination": "/servicos/representacao-brasil.html"
+    },
+    {
+      "source": "/servicos/auditoria-classificacao-fiscal",
+      "destination": "/servicos/auditoria-classificacao-fiscal.html"
+    },
+    {
+      "source": "/servicos/agenciamento-carga",
+      "destination": "/servicos/agenciamento-carga.html"
+    },
+    {
+      "source": "/supply-chain",
+      "destination": "/supply-chain.html"
+    },
+    {
+      "source": "/termos",
+      "destination": "/termos.html"
+    },
+    {
+      "source": "/trabalhe-conosco",
+      "destination": "/trabalhe-conosco.html"
+    },
+    {
+      "source": "/trade-intelligence",
+      "destination": "/trade-intelligence.html"
+    },
+    {
+      "source": "/us-trade",
+      "destination": "/us-trade.html"
+    },
+    {
+      "source": "/landing/:path*",
+      "destination": "/landing/:path*/index.html"
+    },
+    {
+      "source": "/api/news",
+      "destination": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10001147"
+    },
+    {
+      "source": "/api/track-page",
+      "destination": "http://129.121.98.20:5053/api/track-page"
+    },
+    {
+      "source": "/ferramentas/calculadora-incoterms",
+      "destination": "/ferramentas/calculadora-incoterms.html"
+    },
+    {
+      "source": "/noticias",
+      "destination": "/noticias.html"
+    },
+    {
+      "source": "/ferramentas/comparador-portos",
+      "destination": "/ferramentas/comparador-portos.html"
+    },
+    {
+      "source": "/rastreamento",
+      "destination": "/rastreamento.html"
+    },
+    {
+      "source": "/track-trace",
+      "destination": "/track-trace.html"
+    },
+    {
+      "source": "/llms.txt",
+      "destination": "/llms.txt"
+    },
+    {
+      "source": "/feed.xml",
+      "destination": "/feed.xml"
+    },
+    {
+      "source": "/tarifario-global",
+      "destination": "/global-tariff.html"
+    },
+    {
+      "source": "/comparar-paises",
+      "destination": "/country-comparison.html"
+    },
+    {
+      "source": "/ranking-mercados",
+      "destination": "/smart-rank.html"
+    },
+    {
+      "source": "/simulador-exportacao",
+      "destination": "/export-simulator.html"
+    },
+    {
+      "source": "/cadeia-suprimentos",
+      "destination": "/supply-chain.html"
+    },
+    {
+      "source": "/mapa-frete-maritimo",
+      "destination": "/maritime-freight-map.html"
+    },
+    {
+      "source": "/inteligencia-comercial",
+      "destination": "/intelligence.html"
+    },
+    {
+      "source": "/comercio-brasil-eua",
+      "destination": "/us-trade.html"
+    },
+    {
+      "source": "/comparar-ncm",
+      "destination": "/ncm-comparison.html"
+    },
+    {
+      "source": "/tutorial",
+      "destination": "/tutorial/index.html"
+    },
+    {
+      "source": "/ferramentas",
+      "destination": "/ferramentas/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/blog/como-importar-da-china",
+      "destination": "/blog/como-importar-da-china-guia-completo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ncm-como-classificar",
+      "destination": "/blog/classificacao-ncm-guia-completo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/incoterms-guia-completo",
+      "destination": "/blog/incoterms-2026-guia-importacao-exportacao",
+      "permanent": true
+    },
+    {
+      "source": "/blog/impostos-importacao-brasil-guia",
+      "destination": "/blog/calcular-imposto-importacao-brasil",
+      "permanent": true
+    },
+    {
+      "source": "/blog/remessa-conforme-guia-completo",
+      "destination": "/blog/remessa-conforme-importacao-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/drawback-exportacao-guia-completo",
+      "destination": "/blog/drawback-regime-aduaneiro-exportacao",
+      "permanent": true
+    },
+    {
+      "source": "/blog/principais-produtos-exportados-brasil",
+      "destination": "/blog/principais-produtos-exportados-brasil-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/trade-balance-comex",
+      "destination": "/blog/balanca-comercial-brasileira-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/exportacao-brasil-guia-completo",
+      "destination": "/blog/como-fazer-exportacao-passo-a-passo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/como-descobrir-ncm-produto",
+      "destination": "/blog/como-saber-ncm-produto",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ncm-comparacao-ferramentas",
+      "destination": "/blog/classificacao-ncm-guia-completo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/portos-mais-importantes-brasil",
+      "destination": "/blog/portos-brasil-infraestrutura-logistica",
+      "permanent": true
+    },
+    {
+      "source": "/blog/seguro-de-carga-internacional",
+      "destination": "/blog/seguro-internacional-carga-importacao-exportacao",
+      "permanent": true
+    },
+    {
+      "source": "/blog/como-exportar-para-estados-unidos",
+      "destination": "/blog/exportar-para-eua-guia",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cotacao-frete-maritimo",
+      "destination": "/blog/cotacao-frete-internacional",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/sobre",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "tradex6.vercel.app"
+        }
+      ],
+      "destination": "https://www.tradexa.com.br/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "tradexa.com.br"
+        }
+      ],
+      "destination": "https://www.tradexa.com.br/$1",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), accelerometer=(), autoplay=(), clipboard-write=(), gyroscope=(), magnetometer=(), payment=(), usb=(), interest-cohort=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin-allow-popups"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "X-DNS-Prefetch-Control",
+          "value": "on"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://www.tradexa.com.br"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://www.googletagmanager.com https://*.googletagmanager.com https://cdn.mxpnl.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' data: https://fonts.gstatic.com https://*.basemaps.cartocdn.com https://basemaps.cartocdn.com; connect-src 'self' https://ocivkbocmywinwqmaqac.supabase.co https://*.supabase.co https://api-js.mixpanel.com https://api-js.mixpanel.com/track https://cdn.mxpnl.com https://api.groq.com https://*.basemaps.cartocdn.com https://basemaps.cartocdn.com https://tiles.basemaps.cartocdn.com https://www.google-analytics.com https://*.google-analytics.com https://region1.google-analytics.com https://api.bcb.gov.br; worker-src 'self' blob:; frame-ancestors 'self';"
+        }
+      ]
+    },
+    {
+      "source": "/data/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://www.tradexa.com.br"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=3600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=3600, must-revalidate"
+        }
+      ]
+    }
+  ]
+}

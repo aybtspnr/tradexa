@@ -1,0 +1,2172 @@
+[
+  {
+    "country": "BRA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2024",
+    "value": 392105352908.42
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2023",
+    "value": 393731591579.688
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2022",
+    "value": 383177580523.381
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2021",
+    "value": 319251213851.504
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2020",
+    "value": 242872081037.195
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2019",
+    "value": 264562972885.655
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2018",
+    "value": 280543238553.765
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2017",
+    "value": 258330740894.672
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2016",
+    "value": 223863316065.497
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2015",
+    "value": 232488797699.731
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2024",
+    "value": 3193500000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2023",
+    "value": 3052469000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2022",
+    "value": 3017379000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2021",
+    "value": 2555430000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2020",
+    "value": 2151139000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2019",
+    "value": 2539391000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2018",
+    "value": 2538089000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2017",
+    "value": 2388260000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2016",
+    "value": 2235558000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2015",
+    "value": 2270622000000.0
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2024",
+    "value": 3753056083349.04
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2023",
+    "value": 3490089712362.99
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2022",
+    "value": 3717887818646.97
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2021",
+    "value": 3554107780957.44
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2020",
+    "value": 2729884575163.89
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2019",
+    "value": 2628941104657.6
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2018",
+    "value": 2655609176087.45
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2017",
+    "value": 2424216052098.35
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2016",
+    "value": 2199974853570.14
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2015",
+    "value": 2362097053274.6
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2024",
+    "value": 1941431210621.87
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2023",
+    "value": 1960255682615.72
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2022",
+    "value": 1916859170749.03
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2021",
+    "value": 1851846071996.09
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2020",
+    "value": 1541867660412.46
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2019",
+    "value": 1676629137011.76
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2018",
+    "value": 1723433049609.41
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2017",
+    "value": 1589089750187.06
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2016",
+    "value": 1472560807845.53
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2015",
+    "value": 1458592274325.0
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2024",
+    "value": 97349127043.1651
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2023",
+    "value": 83276004574.7551
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2022",
+    "value": 103224756800.251
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2021",
+    "value": 87906118244.6601
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2020",
+    "value": 64053810078.3073
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2019",
+    "value": 80259482469.139
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2018",
+    "value": 75766598613.0197
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2017",
+    "value": 72860557902.7631
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2016",
+    "value": 69842604407.3878
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2015",
+    "value": 63671789068.8987
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2024",
+    "value": 917043674686.877
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2023",
+    "value": 920644083095.705
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2022",
+    "value": 918408424578.807
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2021",
+    "value": 912549013982.719
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2020",
+    "value": 785057625362.297
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2019",
+    "value": 893782209080.495
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2018",
+    "value": 923234601723.625
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2017",
+    "value": 867405253150.188
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2016",
+    "value": 803489014102.661
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2015",
+    "value": 775051882733.212
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2024",
+    "value": 827405227198.603
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2023",
+    "value": 780408530088.596
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2022",
+    "value": 778021514754.531
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2021",
+    "value": 677769255428.552
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2020",
+    "value": 499728529072.629
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2019",
+    "value": 529245063167.215
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2018",
+    "value": 538635186135.438
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2017",
+    "value": 498258808231.521
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2016",
+    "value": 439642578076.358
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2015",
+    "value": 416787940847.812
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2024",
+    "value": 681348718684.406
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2023",
+    "value": 648642274776.945
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2022",
+    "value": 629788673074.2
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2021",
+    "value": 534121610565.454
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2020",
+    "value": 439853932827.966
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2019",
+    "value": 502467566320.434
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2018",
+    "value": 490508969545.438
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2017",
+    "value": 446688309687.408
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2016",
+    "value": 409476294705.042
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.EXP.GNFS.CD",
+    "indicator_name": "Exports of goods and services (current US$)",
+    "year": "2015",
+    "value": 414495031033.993
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2024",
+    "value": 385708875013.773
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2023",
+    "value": 343939899556.732
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2022",
+    "value": 374482461947.998
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2021",
+    "value": 309853321037.194
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2020",
+    "value": 233941255872.595
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2019",
+    "value": 276634806846.042
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2018",
+    "value": 272994437656.194
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2017",
+    "value": 243510550194.841
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2016",
+    "value": 216686360894.163
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2015",
+    "value": 253272683229.75
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2024",
+    "value": 4103100000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2023",
+    "value": 3849811000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2022",
+    "value": 3976314000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2021",
+    "value": 3415459000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2020",
+    "value": 2777341000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2019",
+    "value": 3116681000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2018",
+    "value": 3131166000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2017",
+    "value": 2931589000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2016",
+    "value": 2738830000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2015",
+    "value": 2794942000000.0
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2024",
+    "value": 3219342570126.17
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2023",
+    "value": 3106457704279.42
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2022",
+    "value": 3140040863536.23
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2021",
+    "value": 3093278397249.18
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2020",
+    "value": 2374737462777.69
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2019",
+    "value": 2496153305902.9
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2018",
+    "value": 2564121910994.89
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2017",
+    "value": 2208518918632.2
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2016",
+    "value": 1944490534275.23
+  },
+  {
+    "country": "CHN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2015",
+    "value": 2003260696068.67
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2024",
+    "value": 1764438191610.94
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2023",
+    "value": 1779045873341.21
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2022",
+    "value": 1813049636001.95
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2021",
+    "value": 1628851031193.77
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2020",
+    "value": 1332733837256.03
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2019",
+    "value": 1454588084839.21
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2018",
+    "value": 1485437649157.65
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2017",
+    "value": 1327357307454.12
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2016",
+    "value": 1215609853746.31
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2015",
+    "value": 1204648073431.64
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2024",
+    "value": 80944817978.281
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2023",
+    "value": 89980573297.99
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2022",
+    "value": 96991607940.8038
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2021",
+    "value": 73042905138.0607
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2020",
+    "value": 52454091268.1886
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2019",
+    "value": 65845624691.108
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2018",
+    "value": 85681309473.2328
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2017",
+    "value": 89910495566.9384
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2016",
+    "value": 75639254067.6608
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2015",
+    "value": 70064879911.7042
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2024",
+    "value": 952041559317.639
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2023",
+    "value": 981637982326.316
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2022",
+    "value": 1076977967308.71
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2021",
+    "value": 938755726387.128
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2020",
+    "value": 798645128766.751
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2019",
+    "value": 908591904960.75
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2018",
+    "value": 922228472388.616
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2017",
+    "value": 829947425329.105
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2016",
+    "value": 763174802438.923
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2015",
+    "value": 799671850411.581
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2024",
+    "value": 918333719557.771
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2023",
+    "value": 856651130547.122
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2022",
+    "value": 897550749081.828
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2021",
+    "value": 760902891806.013
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2020",
+    "value": 510244747372.174
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2019",
+    "value": 602315056052.526
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2018",
+    "value": 640300806738.542
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2017",
+    "value": 582018012521.568
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2016",
+    "value": 480169055768.282
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2015",
+    "value": 465097595426.184
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2024",
+    "value": 703294122576.641
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2023",
+    "value": 674539330290.583
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2022",
+    "value": 672827146643.746
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2021",
+    "value": 559543398297.824
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2020",
+    "value": 421735413258.959
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2019",
+    "value": 507718819549.77
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2018",
+    "value": 517202845542.861
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2017",
+    "value": 469597181245.762
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2016",
+    "value": 432376614131.825
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.IMP.GNFS.CD",
+    "indicator_name": "Imports of goods and services (current US$)",
+    "year": "2015",
+    "value": 439821695268.006
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2024",
+    "value": 35.5845239385389
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2023",
+    "value": 33.6662298301284
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2022",
+    "value": 38.8160659764321
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2021",
+    "value": 37.6563307592575
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2020",
+    "value": 32.3020785443492
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2019",
+    "value": 28.8902578697354
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2018",
+    "value": 28.876203376153
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2017",
+    "value": 24.3197343741684
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2016",
+    "value": 24.5336820770756
+  },
+  {
+    "country": "BRA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2015",
+    "value": 26.9536259372369
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2024",
+    "value": 25.3786342507088
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2023",
+    "value": 25.2903297883366
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2022",
+    "value": 27.3139397355363
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2021",
+    "value": 25.6095576621932
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2020",
+    "value": 23.4015629969394
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2019",
+    "value": 26.4537594940475
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2018",
+    "value": 27.6103792720958
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2017",
+    "value": 27.3130208877206
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2016",
+    "value": 26.6079620604584
+  },
+  {
+    "country": "USA",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2015",
+    "value": 27.8235649187872
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2024",
+    "value": 79.0907305894936
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2023",
+    "value": 81.9625483787634
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2022",
+    "value": 88.7857542130501
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2021",
+    "value": 79.9195348609851
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2020",
+    "value": 72.9335327120137
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2019",
+    "value": 79.0732427175683
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2018",
+    "value": 79.1252260463654
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2017",
+    "value": 77.4548394742448
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2016",
+    "value": 76.0059902166055
+  },
+  {
+    "country": "DEU",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2015",
+    "value": 77.7565815686922
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2024",
+    "value": 27.929760849367
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2023",
+    "value": 26.6769512482215
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2022",
+    "value": 31.5801792606256
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2021",
+    "value": 33.078689567466
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2020",
+    "value": 30.203698807416
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2019",
+    "value": 32.6306150458499
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2018",
+    "value": 30.7625359549926
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2017",
+    "value": 25.2896011376779
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2016",
+    "value": 26.0938878488799
+  },
+  {
+    "country": "ARG",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2015",
+    "value": 22.4862260889792
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2024",
+    "value": 46.4069516150859
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2023",
+    "value": 45.1508795641248
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2022",
+    "value": 46.8129868368938
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2021",
+    "value": 36.7384462280698
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2020",
+    "value": 31.335208636773
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2019",
+    "value": 35.2164181084145
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2018",
+    "value": 36.609931802107
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2017",
+    "value": 34.4232135721686
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2016",
+    "value": 31.3102468455884
+  },
+  {
+    "country": "JPN",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2015",
+    "value": 35.4274083544798
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2024",
+    "value": 44.6492935069676
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2023",
+    "value": 44.9928422877561
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2022",
+    "value": 50.0752701498882
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2021",
+    "value": 45.4230887840446
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2020",
+    "value": 37.7581053292768
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2019",
+    "value": 39.9054035306442
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2018",
+    "value": 43.6169693323889
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2017",
+    "value": 40.7424969545225
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2016",
+    "value": 40.082485713276
+  },
+  {
+    "country": "IND",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2015",
+    "value": 41.9229138658647
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2024",
+    "value": 74.5889079825143
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2023",
+    "value": 73.5788616365245
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2022",
+    "value": 88.7984855867186
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2021",
+    "value": 83.0692976357895
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2020",
+    "value": 76.8545557056016
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2019",
+    "value": 77.4619722571128
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2018",
+    "value": 80.2126616568975
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2017",
+    "value": 76.9521260407254
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2016",
+    "value": 75.6903034088551
+  },
+  {
+    "country": "MEX",
+    "indicator": "NE.TRD.GNFS.ZS",
+    "indicator_name": "Trade (% of GDP)",
+    "year": "2015",
+    "value": 70.412974676264
+  },
+  {
+    "country": "BRA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2024",
+    "value": 337046000000.0
+  },
+  {
+    "country": "BRA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2023",
+    "value": 339696000000.0
+  },
+  {
+    "country": "BRA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2022",
+    "value": 334136000000.0
+  },
+  {
+    "country": "BRA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2021",
+    "value": 280815000000.0
+  },
+  {
+    "country": "BRA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2020",
+    "value": 209180000000.0
+  },
+  {
+    "country": "BRA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2019",
+    "value": 221127000000.0
+  },
+  {
+    "country": "BRA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2018",
+    "value": 231890000000.0
+  },
+  {
+    "country": "BRA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2017",
+    "value": 214988000000.0
+  },
+  {
+    "country": "BRA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2016",
+    "value": 179526000000.0
+  },
+  {
+    "country": "BRA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2015",
+    "value": 186782000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2024",
+    "value": 2065131000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2023",
+    "value": 2018059000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2022",
+    "value": 2065157000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2021",
+    "value": 1754300000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2020",
+    "value": 1424935000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2019",
+    "value": 1643161000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2018",
+    "value": 1663982000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2017",
+    "value": 1546273000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2016",
+    "value": 1451011000000.0
+  },
+  {
+    "country": "USA",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2015",
+    "value": 1502572000000.0
+  },
+  {
+    "country": "CHN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2024",
+    "value": 3576653000000.0
+  },
+  {
+    "country": "CHN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2023",
+    "value": 3379044000000.0
+  },
+  {
+    "country": "CHN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2022",
+    "value": 3544434000000.0
+  },
+  {
+    "country": "CHN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2021",
+    "value": 3316022000000.0
+  },
+  {
+    "country": "CHN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2020",
+    "value": 2589952000000.0
+  },
+  {
+    "country": "CHN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2019",
+    "value": 2499457000000.0
+  },
+  {
+    "country": "CHN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2018",
+    "value": 2486695000000.0
+  },
+  {
+    "country": "CHN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2017",
+    "value": 2263346000000.0
+  },
+  {
+    "country": "CHN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2016",
+    "value": 2097632000000.0
+  },
+  {
+    "country": "CHN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2015",
+    "value": 2273468000000.0
+  },
+  {
+    "country": "DEU",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2024",
+    "value": 1681655000000.0
+  },
+  {
+    "country": "DEU",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2023",
+    "value": 1702278000000.0
+  },
+  {
+    "country": "DEU",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2022",
+    "value": 1676472000000.0
+  },
+  {
+    "country": "DEU",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2021",
+    "value": 1627375000000.0
+  },
+  {
+    "country": "DEU",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2020",
+    "value": 1382533000000.0
+  },
+  {
+    "country": "DEU",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2019",
+    "value": 1489412000000.0
+  },
+  {
+    "country": "DEU",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2018",
+    "value": 1560539000000.0
+  },
+  {
+    "country": "DEU",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2017",
+    "value": 1448191000000.0
+  },
+  {
+    "country": "DEU",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2016",
+    "value": 1334355000000.0
+  },
+  {
+    "country": "DEU",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2015",
+    "value": 1326206000000.0
+  },
+  {
+    "country": "ARG",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2024",
+    "value": 79703000000.0
+  },
+  {
+    "country": "ARG",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2023",
+    "value": 66988000000.0
+  },
+  {
+    "country": "ARG",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2022",
+    "value": 88703000000.0
+  },
+  {
+    "country": "ARG",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2021",
+    "value": 77934000000.0
+  },
+  {
+    "country": "ARG",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2020",
+    "value": 54884000000.0
+  },
+  {
+    "country": "ARG",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2019",
+    "value": 65116000000.0
+  },
+  {
+    "country": "ARG",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2018",
+    "value": 61781000000.0
+  },
+  {
+    "country": "ARG",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2017",
+    "value": 58644000000.0
+  },
+  {
+    "country": "ARG",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2016",
+    "value": 57910000000.0
+  },
+  {
+    "country": "ARG",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2015",
+    "value": 56784000000.0
+  },
+  {
+    "country": "JPN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2024",
+    "value": 707009000000.0
+  },
+  {
+    "country": "JPN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2023",
+    "value": 717261000000.0
+  },
+  {
+    "country": "JPN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2022",
+    "value": 746835000000.0
+  },
+  {
+    "country": "JPN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2021",
+    "value": 756032000000.0
+  },
+  {
+    "country": "JPN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2020",
+    "value": 641319000000.0
+  },
+  {
+    "country": "JPN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2019",
+    "value": 705564000000.0
+  },
+  {
+    "country": "JPN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2018",
+    "value": 738143000000.0
+  },
+  {
+    "country": "JPN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2017",
+    "value": 698329000000.0
+  },
+  {
+    "country": "JPN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2016",
+    "value": 645052000000.0
+  },
+  {
+    "country": "JPN",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2015",
+    "value": 624921000000.0
+  },
+  {
+    "country": "IND",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2024",
+    "value": 442762000000.0
+  },
+  {
+    "country": "IND",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2023",
+    "value": 431559000000.0
+  },
+  {
+    "country": "IND",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2022",
+    "value": 453415000000.0
+  },
+  {
+    "country": "IND",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2021",
+    "value": 395426000000.0
+  },
+  {
+    "country": "IND",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2020",
+    "value": 276410000000.0
+  },
+  {
+    "country": "IND",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2019",
+    "value": 324340000000.0
+  },
+  {
+    "country": "IND",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2018",
+    "value": 324778000000.0
+  },
+  {
+    "country": "IND",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2017",
+    "value": 299241000000.0
+  },
+  {
+    "country": "IND",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2016",
+    "value": 264542000000.0
+  },
+  {
+    "country": "IND",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2015",
+    "value": 267951000000.0
+  },
+  {
+    "country": "MEX",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2024",
+    "value": 617100000000.0
+  },
+  {
+    "country": "MEX",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2023",
+    "value": 593005000000.0
+  },
+  {
+    "country": "MEX",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2022",
+    "value": 577698000000.0
+  },
+  {
+    "country": "MEX",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2021",
+    "value": 494949000000.0
+  },
+  {
+    "country": "MEX",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2020",
+    "value": 417171000000.0
+  },
+  {
+    "country": "MEX",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2019",
+    "value": 460604000000.0
+  },
+  {
+    "country": "MEX",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2018",
+    "value": 450713000000.0
+  },
+  {
+    "country": "MEX",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2017",
+    "value": 409433000000.0
+  },
+  {
+    "country": "MEX",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2016",
+    "value": 373948000000.0
+  },
+  {
+    "country": "MEX",
+    "indicator": "TX.VAL.MRCH.CD.WT",
+    "indicator_name": "Merchandise exports (current US$)",
+    "year": "2015",
+    "value": 380550000000.0
+  }
+]

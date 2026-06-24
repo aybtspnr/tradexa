@@ -1,0 +1,24 @@
+✗ Build failed in 29.20s
+error during build:
+[vite:esbuild] Transform failed with 1 error:
+/mnt/c/Users/Nuh TAŞPINAR/dyad-apps/TRADEXA MARKET INTELLIGENCE/src/pages/SeasonalAlerts.tsx:128:34: ERROR: Expected "}" but found "]"
+file: /mnt/c/Users/Nuh TAŞPINAR/dyad-apps/TRADEXA MARKET INTELLIGENCE/src/pages/SeasonalAlerts.tsx:128:34
+
+Expected "}" but found "]"
+126|                  <label htmlFor="ano-seasonal" className="text-xs font-bold text-slate-400 uppercase tracking-wider">Ano</label>
+127|                  <select id="ano-seasonal" value={year} onChange={(e) => setYear(e.target.value)} className="h-11 px-3 rounded-xl border-2 border-slate-200 bg-white font-medium">
+128|                    {AVAILABLE_YEARS].map((y) => <option key={y} value={y}>{y}</option>)}
+   |                                    ^
+129|                  </select>
+130|                </div>
+
+    at failureErrorWithLog (/mnt/c/Users/Nuh TAŞPINAR/dyad-apps/TRADEXA MARKET INTELLIGENCE/node_modules/.pnpm/esbuild@0.25.12/node_modules/esbuild/lib/main.js:1467:15)
+    at /mnt/c/Users/Nuh TAŞPINAR/dyad-apps/TRADEXA MARKET INTELLIGENCE/node_modules/.pnpm/esbuild@0.25.12/node_modules/esbuild/lib/main.js:736:50
+    at responseCallbacks.<computed> (/mnt/c/Users/Nuh TAŞPINAR/dyad-apps/TRADEXA MARKET INTELLIGENCE/node_modules/.pnpm/esbuild@0.25.12/node_modules/esbuild/lib/main.js:603:9)
+    at handleIncomingPacket (/mnt/c/Users/Nuh TAŞPINAR/dyad-apps/TRADEXA MARKET INTELLIGENCE/node_modules/.pnpm/esbuild@0.25.12/node_modules/esbuild/lib/main.js:658:12)
+    at Socket.readFromStdout (/mnt/c/Users/Nuh TAŞPINAR/dyad-apps/TRADEXA MARKET INTELLIGENCE/node_modules/.pnpm/esbuild@0.25.12/node_modules/esbuild/lib/main.js:581:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)

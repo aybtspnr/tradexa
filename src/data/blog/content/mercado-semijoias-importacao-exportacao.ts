@@ -1,0 +1,148 @@
+export const content = `## Introdução
+
+O Brasil ocupa uma posição singular no mercado global de semijoias. O país é, simultaneamente, um dos maiores produtores mundiais de semijoias — especialmente nos polos de Limeira (SP) e Guaporé (RS) — e um importador relevante de componentes, insumos e produtos acabados do mercado asiático, notadamente da China. Essa dualidade reflete a complexidade de um setor que combina produção artesanal de alto valor agregado com cadeias globais de fornecimento intensivas em escala e custo.
+
+Segundo a Associação Brasileira de Gemas e Joias, a IBGM, o setor de joias, bijuterias e semijoias movimenta anualmente mais de quinze bilhões de reais no Brasil, considerando mercado interno e exportações. Desse total, as semijoias representam uma fatia crescente e particularmente dinâmica, impulsionada pela tendência global de consumo de acessórios de moda com design sofisticado porém com preços acessíveis — um posicionamento em que as semijoias se encaixam perfeitamente.
+
+Este artigo oferece uma visão abrangente do mercado de semijoias no contexto do comércio exterior brasileiro. Abordaremos a definição técnica do que são semijoias, a classificação fiscal aplicável, as dinâmicas de importação e exportação, os principais fornecedores e mercados de destino, os aspectos tributários, logísticos e regulatórios, e as tendências que moldarão o setor nos próximos anos. Se você é um fabricante, importador, exportador ou empreendedor interessado nesse mercado, as informações aqui apresentadas fornecerão uma base sólida e atualizada para sua tomada de decisão.
+
+## O Que São Semijoias: Definição Técnica e Regulatória
+
+A distinção entre joias, semijoias e bijuterias é fundamental para o comércio exterior, pois determina a classificação fiscal, as alíquotas de tributos e as exigências regulatórias aplicáveis a cada categoria. A definição técnica é estabelecida pela Lei 12.476 de 2011 e pela regulamentação do Instituto Brasileiro de Gemas e Metais Preciosos.
+
+Joias são artigos de ourivesaria confeccionados com metais preciosos — ouro, prata, platina, paládio — em teores iguais ou superiores aos estabelecidos pela legislação. Uma joia de ouro, por exemplo, deve conter no mínimo 10 quilates de ouro puro (equivalente a 41,6 por cento) em sua composição. As joias podem incorporar ou não gemas preciosas, como diamantes, esmeraldas, rubis e safiras.
+
+Semijoias são artigos confeccionados sobre uma base metálica não preciosa — como latão, cobre, zamak (liga de zinco), bronze ou alpaca — que recebem um revestimento de metal precioso por meio de processos como banho eletrolítico (galvanoplastia) ou laminação. O revestimento deve ter espessura e teor de metal precioso compatíveis com os padrões estabelecidos pela regulamentação. As semijoias podem incorporar pedras naturais semipreciosas (como ametista, citrino, topázio, água-marinha), pérolas cultivadas, cristais, zircônias, resinas e outros materiais nobres, mas não gemas preciosas.
+
+Bijuterias, por sua vez, são artigos de adorno pessoal confeccionados com materiais de menor valor — plástico, resina sintética, metais não revestidos de precioso, vidro, tecido, madeira, couro sintético, entre outros — que não recebem nenhum revestimento de metal precioso. As bijuterias podem ter acabamentos como pintura, esmaltação ou verniz, mas não contêm metais preciosos em sua composição ou revestimento.
+
+Essa distinção tripartite tem implicações diretas no comércio exterior. As semijoias, por conterem metais preciosos em seu revestimento, estão sujeitas a controles mais rigorosos que as bijuterias, embora menos rigorosos que as joias. A classificação NCM correta — e, por consequência, a declaração de conteúdo de metais preciosos — é obrigatória para o desembaraço aduaneiro e para o cumprimento das exigências da Receita Federal e do Banco Central.
+
+## Classificação NCM para Semijoias
+
+A classificação fiscal de semijoias, joias e bijuterias na Nomenclatura Comum do Mercosul concentra-se no Capítulo 71, que trata de pérolas naturais ou cultivadas, pedras preciosas ou semipreciosas, metais preciosos, metais folheados ou chapeados e suas obras, bem como bijuterias.
+
+As joias e semijoias de metais preciosos ou de metais revestidos de metais preciosos classificam-se na posição 7113. Os desdobramentos dessa posição distinguem artigos de prata (7113.11), de outros metais preciosos (7113.19) e de metais folheados ou revestidos — que é exatamente a categoria das semijoias (7113.20.00). As bijuterias, por sua vez, classificam-se na posição 7117, que abrange artigos de adorno pessoal sem metais preciosos (7117.19.00) e com partes de metais preciosos ou revestidos (7117.90.00).
+
+A classificação correta é essencial porque as alíquotas de Imposto de Importação variam significativamente entre essas posições. Enquanto bijuterias da posição 7117 podem ter alíquotas de Imposto de Importação entre dezoito e trinta e cinco por cento, as semijoias da posição 7113 geralmente têm alíquotas menores, refletindo o maior valor agregado e a presença de metais preciosos no revestimento. Um erro de classificação, classificando semijoias como bijuterias ou vice-versa, pode resultar em pagamento incorreto de tributos e em multas substanciais.
+
+A ferramenta NCM AI da TRADEXA é particularmente útil para o setor de semijoias, onde as nuances entre materiais, processos de fabricação e revestimentos tornam a classificação fiscal desafiadora. Ao descrever o artigo com precisão — tipo de metal base, natureza do revestimento, tipo de pedras ou cristais incorporados — o sistema retorna a classificação mais provável, com as alíquotas e regulamentações aplicáveis, reduzindo significativamente o risco de erro.
+
+## O Polo Produtor Brasileiro: Limeira e Guaporé
+
+O Brasil é um dos maiores produtores mundiais de semijoias, e essa produção está concentrada em dois polos principais que, juntos, respondem pela quase totalidade da produção nacional e por uma parcela expressiva das exportações brasileiras do setor.
+
+Limeira, no interior de São Paulo, é reconhecida como a capital nacional das semijoias e bijuterias. O Arranjo Produtivo Local (APL) de Limeira reúne mais de quatrocentas empresas entre fabricantes, fornecedores de insumos, galvanoplastias, cravadores de pedras e prestadores de serviços especializados. A cidade responde por aproximadamente sessenta por cento da produção nacional de bijuterias e semijoias e emprega diretamente mais de quinze mil pessoas. A produção de Limeira é reconhecida pela diversidade de estilos, pela capacidade de atender desde o mercado popular até linhas de alto design, e pela agilidade em captar tendências internacionais e transformá-las em coleções comerciais.
+
+Guaporé, na Serra Gaúcha, é o segundo maior polo joalheiro e de semijoias do Brasil, respondendo por cerca de vinte por cento da produção nacional. Diferentemente de Limeira, que tradicionalmente se concentrou em bijuterias e expandiu para semijoias, o polo de Guaporé tem uma vocação histórica para a ourivesaria e a joalheria, o que se reflete na qualidade superior dos acabamentos e no posicionamento de mercado mais premium de suas semijoias. Empresas como a Carla Amorim e a Brumani, de projeção internacional, têm raízes no polo gaúcho.
+
+Além de Limeira e Guaporé, merecem destaque outros polos em crescimento, como o de Barra de São Francisco (ES), especializado em folheados a ouro, e o de Juazeiro do Norte (CE), com foco em bijuterias e acessórios de moda a preços competitivos. Há também uma produção dispersa significativa em São Paulo capital, Rio de Janeiro e Belo Horizonte, onde designers independentes criam coleções autorais de semijoias que conquistam mercados exigentes no Brasil e no exterior.
+
+## Importação de Semijoias: O Fornecimento Asiático
+
+Se o Brasil é um grande produtor de semijoias, é também um importador relevante — especialmente de componentes, insumos e produtos semiacabados que alimentam a indústria nacional, bem como de produtos acabados que chegam diretamente ao consumidor final.
+
+A China é, de longe, a principal origem das importações brasileiras de bijuterias, semijoias e componentes. Estima-se que mais de setenta por cento das importações brasileiras do setor tenham origem chinesa, abastecendo desde o mercado popular de bijuterias até linhas de semijoias de qualidade intermediária. As feiras de Cantão (Guangzhou), Hong Kong e Yiwu são os principais pontos de sourcing para importadores brasileiros, que encontram nessas plataformas uma oferta praticamente ilimitada de estilos, materiais e faixas de preço.
+
+Outros fornecedores asiáticos relevantes incluem a Índia, tradicional exportadora de componentes em metal e pedrarias; a Tailândia, com sua longa tradição em ourivesaria e lapidação de gemas coloridas; a Indonésia, com bijuterias e acessórios em materiais naturais como madeira, coco e concha; e o Vietnã, que vem ganhando espaço como alternativa à China em produtos de custo competitivo.
+
+A Itália merece menção especial como fornecedora de componentes de alto valor agregado — fechos, correntes, bases e acessórios em metal de qualidade superior que são utilizados por fabricantes brasileiros de semijoias premium. A tradição ourivesaria italiana e seus designs diferenciados fazem com que mesmo componentes importados da Itália tenham demanda no Brasil, apesar do custo superior.
+
+A importação de semijoias da China e de outros países asiáticos segue uma dinâmica particular. Muitos importadores brasileiros viajam às feiras com coleções e designs próprios e contratam fabricantes asiáticos para produzir sob encomenda, em regime de OEM (Original Equipment Manufacturing) ou ODM (Original Design Manufacturing). Nesse modelo, o design e a marca são brasileiros, mas a produção é terceirizada no exterior — uma prática comum no setor que permite ao empresário brasileiro competir em escala e custo sem abrir mão da diferenciação de design.
+
+Para o importador que busca fornecedores asiáticos, o diretório de mais de 3,8 milhões de empresas da TRADEXA, abrangendo 31 países, oferece uma ferramenta de qualificação de fornecedores muito mais eficiente que as buscas genéricas em plataformas de e-commerce B2B, que frequentemente listam intermediários, e não fabricantes reais. Filtrando por setor industrial, porte da empresa e país de origem, o importador gera listas segmentadas de fabricantes e exportadores qualificados, acelerando o processo de sourcing e reduzindo o risco de lidar com fornecedores não confiáveis.
+
+## Tributação na Importação de Semijoias
+
+A carga tributária na importação de semijoias é um fator determinante da competitividade, especialmente em um setor onde o preço final ao consumidor é sensível e as margens são frequentemente apertadas.
+
+O Imposto de Importação para semijoias da posição 7113.20.00 tem alíquota que varia conforme a origem. Para importações de países terceiros não membros do Mercosul, a alíquota geralmente situa-se entre dez e dezoito por cento, dependendo de exceções tarifárias e de eventuais preferências negociadas. Para países com os quais o Mercosul possui acordos comerciais — como Índia, Israel, Egito e SACU —, tarifas preferenciais podem ser aplicáveis, desde que cumpridas as regras de origem. A ferramenta de tarifas da TRADEXA, que cobre 31 países, permite consultar rapidamente a alíquota aplicável ao código NCM específico, facilitando a comparação entre diferentes origens e a estruturação da importação mais vantajosa.
+
+O IPI sobre semijoias importadas tem alíquota que varia de zero a dez por cento, dependendo do código NCM e de eventuais benefícios fiscais. O PIS/PASEP-Importação e a COFINS-Importação somam 9,25 por cento sobre o valor aduaneiro acrescido do Imposto de Importação e do IPI.
+
+O ICMS incide à alíquota do estado do importador, geralmente entre doze e dezoito por cento, sobre o valor aduaneiro acrescido de todos os tributos federais. Alguns estados concedem redução de base de cálculo ou crédito presumido de ICMS para importações realizadas por empresas do setor joalheiro e de bijuterias, como forma de incentivar a atividade econômica local.
+
+A soma de todos esses tributos pode elevar o custo de uma semijoia importada em quarenta a setenta por cento sobre o valor FOB, dependendo da classificação fiscal, da origem e do estado do importador. Esse custo tributário é um dos fatores que explicam por que, apesar da vantagem de escala da produção asiática, a indústria brasileira de semijoias mantém competitividade no mercado interno e consegue exportar — a carga tributária sobre a importação funciona, na prática, como uma proteção tarifária à produção nacional.
+
+## Exportação de Semijoias: Oportunidades e Mercados
+
+As exportações brasileiras de semijoias têm crescido consistentemente na última década, impulsionadas pela qualidade do design brasileiro, pela imagem positiva do Brasil no exterior associada a moda, criatividade e exuberância, e pelos esforços setoriais de promoção comercial liderados pela IBGM e pela ApexBrasil (Agência Brasileira de Promoção de Exportações e Investimentos).
+
+Os Estados Unidos são o principal destino das exportações brasileiras de semijoias e bijuterias. O mercado americano valoriza o design brasileiro, percebido como criativo, colorido e autêntico, e tem um apetite voraz por novidades em acessórios de moda. As coleções brasileiras de semijoias com pedras naturais brasileiras — como ametista, citrino, água-marinha e topázio — encontram consumidores dispostos a pagar um prêmio pela origem e pela diferenciação.
+
+A América Latina é o segundo mercado mais importante para as exportações brasileiras de semijoias, com destaque para Argentina, Chile, Colômbia, Peru e México. A proximidade geográfica, a afinidade cultural e a ausência de barreiras tarifárias significativas na maioria desses mercados — especialmente no Mercosul — favorecem as exportações brasileiras. Além disso, o Brasil é percebido como referência de moda e estilo na América Latina, o que confere às semijoias brasileiras um apelo aspiracional importante.
+
+A Europa representa um mercado mais desafiador, porém com enorme potencial para semijoias brasileiras de alto design e qualidade premium. Países como França, Itália, Alemanha e Reino Unido têm consumidores sofisticados que valorizam o design autoral, a sustentabilidade e a história por trás do produto — atributos que as semijoias brasileiras podem oferecer quando bem posicionadas. Feiras europeias como a Bijorhca em Paris, a Vicenzaoro na Itália e a Inhorgenta em Munique são vitrines importantes para marcas brasileiras que buscam entrar nesse mercado.
+
+O Oriente Médio, especialmente os Emirados Árabes Unidos (Dubai), Arábia Saudita e Catar, é um mercado em ascensão para semijoias brasileiras. O consumidor do Oriente Médio tem alto poder aquisitivo, aprecia ouro, pedras preciosas e designs exuberantes — elementos que estão no DNA da joalheria e das semijoias brasileiras de alto padrão. Dubai funciona como hub de distribuição para toda a região, e muitas marcas brasileiras utilizam as feiras de Dubai como porta de entrada para o Oriente Médio, a Ásia Meridional e o Norte da África.
+
+A Ásia, embora distante e culturalmente desafiadora, oferece oportunidades para semijoias brasileiras em nichos específicos. O Japão tem consumidores que apreciam pedras naturais brasileiras e design diferenciado. A China, apesar de ser o maior fabricante mundial de bijuterias, possui um mercado consumidor em rápida expansão que busca produtos importados de qualidade e design — e as semijoias brasileiras podem ocupar esse espaço.
+
+Os dashboards de inteligência comercial da TRADEXA permitem ao exportador brasileiro de semijoias analisar os fluxos de importação dos mercados-alvo para os códigos NCM relevantes. Com essas informações, é possível identificar mercados onde a demanda está crescendo, a participação dos concorrentes, os preços médios praticados e as lacunas competitivas que representam oportunidades de entrada.
+
+## Canais de Comercialização e Distribuição Internacional
+
+A escolha do canal de comercialização é uma decisão estratégica que impacta diretamente o sucesso das exportações de semijoias. Diferentes mercados demandam diferentes abordagens, e o exportador deve avaliar cuidadosamente qual canal maximiza o alcance e a rentabilidade em cada mercado-alvo.
+
+As feiras internacionais são, de longe, o canal mais importante para a prospecção de clientes no setor de semijoias. Eventos como a Feninjer (Feira Nacional da Indústria de Joias, Relógios e Afins), realizada em São Paulo e com presença crescente de compradores internacionais; a NY Now, em Nova York; a JCK Las Vegas, principal feira joalheira da América do Norte; a Bijorhca, em Paris; e a Vicenzaoro, na Itália, são encontros obrigatórios para quem quer exportar. Nesses eventos, o exportador interage diretamente com compradores de todo o mundo, apresenta coleções, fecha pedidos e estabelece relacionamentos que são a base do negócio internacional de semijoias.
+
+Os representantes comerciais e agentes são o canal predominante para mercados onde o exportador não tem presença direta. Um bom representante conhece o mercado local, tem relacionamento com as lojas e distribuidores, entende as preferências do consumidor e pode aconselhar sobre adaptações de produto, precificação e estratégia de entrada. A escolha do representante é crítica, e recomenda-se que o exportador participe de feiras, missões comerciais e rodadas de negócios para identificar e qualificar potenciais representantes antes de firmar contratos.
+
+As plataformas de e-commerce B2B, como Alibaba.com e Made-in-China.com, são amplamente utilizadas por importadores estrangeiros para buscar fornecedores. Embora essas plataformas sejam dominadas por fabricantes asiáticos, marcas brasileiras de semijoias com diferenciação de design podem se destacar e atrair compradores que buscam algo além do produto commodity asiático.
+
+O e-commerce B2C internacional — venda direta ao consumidor por meio de sites próprios com envio internacional ou marketplaces como Amazon e Etsy — é um canal em crescimento para marcas de semijoias. Com o avanço da logística internacional de pequenas encomendas e a familiaridade crescente dos consumidores com compras transfronteiriças, vender diretamente ao consumidor final no exterior tornou-se viável mesmo para pequenas e médias empresas. Esse canal permite margens maiores (eliminando intermediários) e um relacionamento direto com o consumidor, que gera insights valiosos sobre preferências e tendências.
+
+## Design, Marca e Diferenciação Competitiva
+
+No mercado de semijoias, o design é o principal vetor de diferenciação e de criação de valor. Diferentemente das bijuterias de baixo custo, que competem essencialmente por preço, as semijoias competem por design, qualidade percebida e valor de marca — e é exatamente nesses atributos que o Brasil possui vantagens competitivas reconhecidas internacionalmente.
+
+O design brasileiro de semijoias é celebrado por sua criatividade, exuberância cromática, uso generoso de pedras naturais brasileiras e capacidade de traduzir tendências internacionais em uma linguagem própria. O Brasil é um dos poucos países do mundo que combina oferta abundante de gemas de cor — ametista, citrino, água-marinha, topázio imperial, turmalina, esmeralda, entre outras — com uma indústria criativa pujante e uma tradição artesanal que atravessa gerações. Essa combinação é difícil de replicar e confere às semijoias brasileiras uma identidade inconfundível.
+
+A construção de marca é, cada vez mais, um pré-requisito para o sucesso na exportação de semijoias. O comprador internacional não busca apenas um produto bonito — busca uma história, um conceito, uma identidade que possa comunicar ao seu cliente final. Marcas brasileiras que investem em storytelling — conectando suas coleções à cultura brasileira, à sustentabilidade, ao trabalho artesanal de comunidades, ao design autoral — têm muito mais chances de conquistar espaço em mercados exigentes e de obter margens superiores.
+
+A sustentabilidade é uma tendência que favorece as semijoias brasileiras. O uso de metais reciclados, de pedras naturais com origem certificada, de processos produtivos com menor impacto ambiental e de embalagens eco-friendly são atributos cada vez mais valorizados pelos consumidores internacionais. O Brasil, com sua imagem associada à natureza e à sustentabilidade, tem a oportunidade de posicionar suas semijoias nesse segmento de alto valor agregado. Iniciativas como o programa "Brasil Sustentável" da IBGM e certificações como a do Responsible Jewellery Council (RJC) podem fortalecer esse posicionamento.
+
+## Logística e Envio Internacional
+
+A logística internacional de semijoias apresenta desafios específicos. Trata-se de produtos de pequeno volume e alto valor agregado, o que torna o modal aéreo o mais adequado para a maioria dos embarques de exportação. Entretanto, o frete aéreo é significativamente mais caro que o marítimo, e o exportador deve avaliar cuidadosamente a relação entre custo logístico e valor do pedido.
+
+Para remessas pequenas, de valor declarado baixo a moderado, o serviço postal internacional (Correios, EMS) ou couriers (DHL, FedEx, UPS) são os canais mais utilizados. Esses serviços oferecem agilidade, rastreamento e desembaraço simplificado, mas têm custos elevados que podem consumir uma parcela significativa da margem em pedidos de pequeno valor.
+
+Para pedidos maiores e para mercados distantes, o frete aéreo consolidado (LCL aéreo) ou o frete marítimo em contêineres consolidados são alternativas que reduzem o custo unitário do frete, mas exigem planejamento de estoque no destino e maior prazo de entrega. Para mercados como Estados Unidos e Europa, muitos exportadores brasileiros de semijoias mantêm centros de distribuição locais que recebem embarques consolidados e fazem a distribuição regional — uma estrutura que reduz custos e prazos de entrega para o cliente final.
+
+Os mapas de frete marítimo da TRADEXA, embora mais focados em cargas marítimas de maior volume, fornecem informações de referência sobre rotas e tempos de trânsito que auxiliam no planejamento logístico de qualquer operação de comércio exterior. Para exportadores de semijoias que utilizam o modal marítimo para embarques consolidados, a visualização das rotas e a estimativa de prazos são informações estratégicas para a gestão da cadeia de suprimentos.
+
+## Regulamentação e Certificações
+
+A exportação de semijoias está sujeita a regulamentações específicas no Brasil e nos países de destino. O primeiro registro obrigatório para o exportador brasileiro de semijoias é o cadastro no Sistema de Controle de Metais Preciosos da Receita Federal, que exige o registro do estabelecimento, a identificação do responsável técnico e a manutenção de livros de controle de entrada e saída de metais preciosos. Qualquer artigo que contenha ouro, prata ou platina — mesmo em revestimento — está sujeito a esse controle.
+
+A exportação de semijoias que contenham gemas naturais exige a emissão do Certificado do Processo de Kimberley (CPK) quando houver diamantes brutos na composição — uma situação rara em semijoias, que tipicamente não utilizam diamantes. Para as demais gemas, a exportação é relativamente simples do ponto de vista documental, mas deve ser acompanhada de nota fiscal, fatura comercial e, quando aplicável, certificado gemológico emitido por laboratório credenciado.
+
+Nos países de destino, as regulamentações variam. Os Estados Unidos exigem que artigos de metais preciosos ou revestidos com metais preciosos sejam marcados com o teor do metal (karat ou sterling) e com a identificação do fabricante ou importador, conforme as regras da Federal Trade Commission (FTC). A União Europeia possui regulamentação rigorosa quanto à presença de níquel em artigos de contato com a pele (Diretiva 94/27/EC, posteriormente incorporada ao regulamento REACH), exigindo que semijoias atendam a limites máximos de liberação de níquel. Produtos que não cumprem esse requisito são barrados na alfândega europeia.
+
+Para exportadores que buscam certificações voluntárias que agregam valor, a certificação de origem (Made in Brazil), a certificação de sustentabilidade e a certificação de não utilização de trabalho infantil ou análogo ao escravo são diferenciais competitivos. Embora não sejam obrigatórias, essas certificações são valorizadas por compradores internacionais, especialmente na Europa e nos Estados Unidos, e podem ser o fator de decisão entre produtos brasileiros e de outras origens.
+
+## Tendências e o Futuro do Setor de Semijoias
+
+O mercado global de semijoias está em transformação, impulsionado por tendências de consumo que favorecem produtos com design diferenciado, preços acessíveis e apelo de sustentabilidade — exatamente o espaço que as semijoias brasileiras podem ocupar com vantagem.
+
+A primeira grande tendência é a ascensão do consumidor consciente. Compradores em mercados desenvolvidos — especialmente as gerações mais jovens, como a Geração Z e os Millennials — estão cada vez mais atentos à origem dos produtos, às condições de trabalho na cadeia produtiva e ao impacto ambiental. Semijoias brasileiras que comunicam transparência na cadeia de fornecimento, uso de materiais reciclados e apoio a comunidades artesãs têm uma vantagem competitiva nesse segmento.
+
+A segunda tendência é a personalização. Consumidores buscam produtos que reflitam sua identidade individual, e a tecnologia está permitindo níveis de personalização antes inviáveis economicamente. Marcas de semijoias que oferecem customização — escolha de pedras, gravação de mensagens, combinações de cores — conquistam clientes mais fiéis e obtêm margens superiores.
+
+A terceira tendência é a digitalização do varejo de joias e semijoias. A pandemia de COVID-19 acelerou a migração para o comércio eletrônico de categorias antes consideradas de venda essencialmente presencial, e as semijoias se beneficiaram dessa tendência. Fotos em alta resolução, visualização em 3D, realidade aumentada para provadores virtuais e políticas de devolução flexíveis estão reduzindo a barreira da compra online de semijoias e abrindo mercados globais para marcas que investem em presença digital.
+
+A quarta tendência é a integração entre moda e tecnologia, com semijoias inteligentes — pulseiras que monitoram saúde, anéis que funcionam como dispositivos de pagamento, brincos com iluminação LED — criando novas categorias de produtos. Embora ainda incipiente, esse segmento deve crescer nos próximos anos e abrir oportunidades para empresas que combinarem conhecimento de design de semijoias com tecnologia embarcada.
+
+## Conclusão
+
+O mercado brasileiro de semijoias ocupa uma posição privilegiada no cenário internacional. A combinação de design criativo, oferta abundante de gemas de cor, tradição artesanal e uma indústria organizada em polos produtivos competitivos confere ao Brasil vantagens que poucos países possuem nesse setor. Ao mesmo tempo, a inserção nas cadeias globais de fornecimento — tanto como importador de componentes e insumos asiáticos quanto como exportador de produtos acabados de alto valor agregado — reflete a maturidade e a sofisticação alcançadas pelo setor.
+
+Para o importador, o desafio é navegar a complexidade tributária e logística, qualificar fornecedores confiáveis no mercado asiático e estruturar operações que permitam competir em custo sem sacrificar qualidade e design. Para o exportador, o desafio é construir marcas com identidade própria, conquistar canais de distribuição nos mercados-alvo, atender às exigências regulatórias de cada país e posicionar suas coleções no segmento de valor agregado que justifique o prêmio de preço em relação à produção asiática de massa.
+
+Em ambos os casos — importação e exportação —, a informação de qualidade é o ativo mais valioso. Conhecer a classificação fiscal correta, as alíquotas aplicáveis, os fluxos de comércio internacional, os potenciais compradores e fornecedores, e as rotas logísticas mais eficientes é o que separa as operações bem-sucedidas daquelas que resultam em mercadorias paradas na alfândega, custos inesperados e oportunidades perdidas.
+
+As ferramentas de inteligência comercial da TRADEXA fornecem exatamente esse tipo de informação estratégica em uma plataforma integrada. O classificador NCM com inteligência artificial elimina a dúvida sobre a classificação fiscal. O diretório de mais de 3,8 milhões de empresas em 31 países abre um universo de potenciais fornecedores e compradores. As tarifas de importação de 31 países permitem comparar rapidamente a carga tributária entre diferentes origens e destinos. Os dashboards de inteligência comercial revelam tendências, sazonalidades e lacunas competitivas nos mercados internacionais. E os mapas de frete marítimo auxiliam no planejamento logístico.
+
+Em um setor onde design, qualidade e preço são determinantes da competitividade, cada ponto percentual economizado em tributos, cada dia reduzido no trânsito internacional, cada fornecedor qualificado identificado pode fazer a diferença entre o sucesso e o fracasso comercial. Invista em informação, planeje meticulosamente cada operação e utilize as ferramentas disponíveis para tomar decisões baseadas em dados — e não em intuição. O mercado global de semijoias está em expansão, e o Brasil tem todas as condições de ampliar sua participação nesse mercado, tanto como fornecedor de produtos de alto valor agregado quanto como importador inteligente de insumos e componentes que alimentam a competitividade da indústria nacional.`;
+export const keyPoints: string[] | undefined = undefined;

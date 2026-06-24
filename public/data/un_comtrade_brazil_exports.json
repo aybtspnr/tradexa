@@ -1,0 +1,632 @@
+[
+  {
+    "year": "2024",
+    "partner": "CHN",
+    "hs_code": "1201",
+    "commodity": "Soybeans",
+    "value_usd": 28266410095.9,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 17580896337.0
+  },
+  {
+    "year": "2025",
+    "partner": "CHN",
+    "hs_code": "1201",
+    "commodity": "Soybeans",
+    "value_usd": 27395330666.72,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 8044849829.0
+  },
+  {
+    "year": "2024",
+    "partner": "ESP",
+    "hs_code": "1201",
+    "commodity": "Soybeans",
+    "value_usd": 4844953208.34,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1971062565.0
+  },
+  {
+    "year": "2025",
+    "partner": "ESP",
+    "hs_code": "1201",
+    "commodity": "Soybeans",
+    "value_usd": 3968627073.49,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1682136180.0
+  },
+  {
+    "year": "2024",
+    "partner": "NLD",
+    "hs_code": "1201",
+    "commodity": "Soybeans",
+    "value_usd": 2813854688.35,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 953954734.0
+  },
+  {
+    "year": "2025",
+    "partner": "NLD",
+    "hs_code": "1201",
+    "commodity": "Soybeans",
+    "value_usd": 3223252603.52,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1042498523.0
+  },
+  {
+    "year": "2024",
+    "partner": "USA",
+    "hs_code": "2709",
+    "commodity": "Petroleum oils",
+    "value_usd": 12575473550.19,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 2935887208.0
+  },
+  {
+    "year": "2025",
+    "partner": "USA",
+    "hs_code": "2709",
+    "commodity": "Petroleum oils",
+    "value_usd": 12688430520.48,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 11641967031.0
+  },
+  {
+    "year": "2024",
+    "partner": "CHN",
+    "hs_code": "2709",
+    "commodity": "Petroleum oils",
+    "value_usd": 9525834664.98,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 11550396643.0
+  },
+  {
+    "year": "2025",
+    "partner": "CHN",
+    "hs_code": "2709",
+    "commodity": "Petroleum oils",
+    "value_usd": 8128497275.19,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 2709152685.0
+  },
+  {
+    "year": "2024",
+    "partner": "IND",
+    "hs_code": "2709",
+    "commodity": "Petroleum oils",
+    "value_usd": 3381280513.89,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1063727175.0
+  },
+  {
+    "year": "2025",
+    "partner": "IND",
+    "hs_code": "2709",
+    "commodity": "Petroleum oils",
+    "value_usd": 3388176096.41,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1036415865.0
+  },
+  {
+    "year": "2024",
+    "partner": "CHN",
+    "hs_code": "2601",
+    "commodity": "Iron ores",
+    "value_usd": 24650460222.55,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 5057445185.0
+  },
+  {
+    "year": "2025",
+    "partner": "CHN",
+    "hs_code": "2601",
+    "commodity": "Iron ores",
+    "value_usd": 23445449528.29,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 42687396438.0
+  },
+  {
+    "year": "2024",
+    "partner": "JPN",
+    "hs_code": "2601",
+    "commodity": "Iron ores",
+    "value_usd": 3278868364.24,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 5185013953.0
+  },
+  {
+    "year": "2025",
+    "partner": "JPN",
+    "hs_code": "2601",
+    "commodity": "Iron ores",
+    "value_usd": 3219880193.13,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 2178681874.0
+  },
+  {
+    "year": "2024",
+    "partner": "KOR",
+    "hs_code": "2601",
+    "commodity": "Iron ores",
+    "value_usd": 2924902134.4,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1372649583.0
+  },
+  {
+    "year": "2025",
+    "partner": "KOR",
+    "hs_code": "2601",
+    "commodity": "Iron ores",
+    "value_usd": 2604515947.77,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 595456257.0
+  },
+  {
+    "year": "2024",
+    "partner": "CHN",
+    "hs_code": "0203",
+    "commodity": "Meat of swine",
+    "value_usd": 1610397983.48,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1358263018.0
+  },
+  {
+    "year": "2025",
+    "partner": "CHN",
+    "hs_code": "0203",
+    "commodity": "Meat of swine",
+    "value_usd": 1568778551.07,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 719962939.0
+  },
+  {
+    "year": "2024",
+    "partner": "HKG",
+    "hs_code": "0203",
+    "commodity": "Meat of swine",
+    "value_usd": 930755313.47,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 274191976.0
+  },
+  {
+    "year": "2025",
+    "partner": "HKG",
+    "hs_code": "0203",
+    "commodity": "Meat of swine",
+    "value_usd": 886302614.66,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 202675335.0
+  },
+  {
+    "year": "2024",
+    "partner": "USA",
+    "hs_code": "0901",
+    "commodity": "Coffee",
+    "value_usd": 2281179378.79,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1402422794.0
+  },
+  {
+    "year": "2025",
+    "partner": "USA",
+    "hs_code": "0901",
+    "commodity": "Coffee",
+    "value_usd": 2347472830.63,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 528354051.0
+  },
+  {
+    "year": "2024",
+    "partner": "DEU",
+    "hs_code": "0901",
+    "commodity": "Coffee",
+    "value_usd": 1318023189.9,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 354970593.0
+  },
+  {
+    "year": "2025",
+    "partner": "DEU",
+    "hs_code": "0901",
+    "commodity": "Coffee",
+    "value_usd": 1248380957.54,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 488479276.0
+  },
+  {
+    "year": "2024",
+    "partner": "ITA",
+    "hs_code": "0901",
+    "commodity": "Coffee",
+    "value_usd": 753390946.89,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 272254210.0
+  },
+  {
+    "year": "2025",
+    "partner": "ITA",
+    "hs_code": "0901",
+    "commodity": "Coffee",
+    "value_usd": 779082998.18,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 177000253.0
+  },
+  {
+    "year": "2024",
+    "partner": "DZA",
+    "hs_code": "1701",
+    "commodity": "Cane sugar",
+    "value_usd": 874607767.96,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 180417604.0
+  },
+  {
+    "year": "2025",
+    "partner": "DZA",
+    "hs_code": "1701",
+    "commodity": "Cane sugar",
+    "value_usd": 886817124.22,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1725966515.0
+  },
+  {
+    "year": "2024",
+    "partner": "BGD",
+    "hs_code": "1701",
+    "commodity": "Cane sugar",
+    "value_usd": 563539071.02,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 149150846.0
+  },
+  {
+    "year": "2025",
+    "partner": "BGD",
+    "hs_code": "1701",
+    "commodity": "Cane sugar",
+    "value_usd": 576990574.22,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 286586238.0
+  },
+  {
+    "year": "2024",
+    "partner": "MAR",
+    "hs_code": "1701",
+    "commodity": "Cane sugar",
+    "value_usd": 576187835.83,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 102794608.0
+  },
+  {
+    "year": "2025",
+    "partner": "MAR",
+    "hs_code": "1701",
+    "commodity": "Cane sugar",
+    "value_usd": 530357768.51,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 135597171.0
+  },
+  {
+    "year": "2024",
+    "partner": "USA",
+    "hs_code": "8802",
+    "commodity": "Aircraft",
+    "value_usd": 3223154995.3,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1930404550.0
+  },
+  {
+    "year": "2025",
+    "partner": "USA",
+    "hs_code": "8802",
+    "commodity": "Aircraft",
+    "value_usd": 3057166919.5,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1280192990.0
+  },
+  {
+    "year": "2024",
+    "partner": "FRA",
+    "hs_code": "8802",
+    "commodity": "Aircraft",
+    "value_usd": 847537628.94,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 181138549.0
+  },
+  {
+    "year": "2025",
+    "partner": "FRA",
+    "hs_code": "8802",
+    "commodity": "Aircraft",
+    "value_usd": 772723097.81,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 701961379.0
+  },
+  {
+    "year": "2024",
+    "partner": "USA",
+    "hs_code": "3004",
+    "commodity": "Medicaments",
+    "value_usd": 1403948724.2,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 704766947.0
+  },
+  {
+    "year": "2025",
+    "partner": "USA",
+    "hs_code": "3004",
+    "commodity": "Medicaments",
+    "value_usd": 1285542425.14,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1178383078.0
+  },
+  {
+    "year": "2024",
+    "partner": "VEN",
+    "hs_code": "3004",
+    "commodity": "Medicaments",
+    "value_usd": 656953491.67,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 151532584.0
+  },
+  {
+    "year": "2025",
+    "partner": "VEN",
+    "hs_code": "3004",
+    "commodity": "Medicaments",
+    "value_usd": 588610830.29,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 329031526.0
+  },
+  {
+    "year": "2024",
+    "partner": "USA",
+    "hs_code": "4011",
+    "commodity": "Tires",
+    "value_usd": 1698654594.85,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 406321200.0
+  },
+  {
+    "year": "2025",
+    "partner": "USA",
+    "hs_code": "4011",
+    "commodity": "Tires",
+    "value_usd": 1955863002.52,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 3145487815.0
+  },
+  {
+    "year": "2024",
+    "partner": "ARG",
+    "hs_code": "4011",
+    "commodity": "Tires",
+    "value_usd": 1052584647.71,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1281008912.0
+  },
+  {
+    "year": "2025",
+    "partner": "ARG",
+    "hs_code": "4011",
+    "commodity": "Tires",
+    "value_usd": 879743499.57,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 232268244.0
+  },
+  {
+    "year": "2024",
+    "partner": "USA",
+    "hs_code": "0201",
+    "commodity": "Beef",
+    "value_usd": 2101798147.73,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 789319816.0
+  },
+  {
+    "year": "2025",
+    "partner": "USA",
+    "hs_code": "0201",
+    "commodity": "Beef",
+    "value_usd": 2026153354.47,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 454500491.0
+  },
+  {
+    "year": "2024",
+    "partner": "CHN",
+    "hs_code": "0201",
+    "commodity": "Beef",
+    "value_usd": 1758235672.26,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 634989707.0
+  },
+  {
+    "year": "2025",
+    "partner": "CHN",
+    "hs_code": "0201",
+    "commodity": "Beef",
+    "value_usd": 1890239192.79,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1019791566.0
+  },
+  {
+    "year": "2024",
+    "partner": "THA",
+    "hs_code": "2304",
+    "commodity": "Soybean oilcake",
+    "value_usd": 1749007711.0,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 635843680.0
+  },
+  {
+    "year": "2025",
+    "partner": "THA",
+    "hs_code": "2304",
+    "commodity": "Soybean oilcake",
+    "value_usd": 1485570541.63,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1106131484.0
+  },
+  {
+    "year": "2024",
+    "partner": "VNM",
+    "hs_code": "2304",
+    "commodity": "Soybean oilcake",
+    "value_usd": 1191858687.32,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 868596391.0
+  },
+  {
+    "year": "2025",
+    "partner": "VNM",
+    "hs_code": "2304",
+    "commodity": "Soybean oilcake",
+    "value_usd": 1096898225.21,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 367401236.0
+  },
+  {
+    "year": "2024",
+    "partner": "CHN",
+    "hs_code": "4403",
+    "commodity": "Wood in rough",
+    "value_usd": 796834949.32,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 184319635.0
+  },
+  {
+    "year": "2025",
+    "partner": "CHN",
+    "hs_code": "4403",
+    "commodity": "Wood in rough",
+    "value_usd": 714936517.71,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 232274848.0
+  },
+  {
+    "year": "2024",
+    "partner": "USA",
+    "hs_code": "4403",
+    "commodity": "Wood in rough",
+    "value_usd": 459248979.92,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 106452809.0
+  },
+  {
+    "year": "2025",
+    "partner": "USA",
+    "hs_code": "4403",
+    "commodity": "Wood in rough",
+    "value_usd": 519955507.58,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 125385205.0
+  },
+  {
+    "year": "2024",
+    "partner": "CHN",
+    "hs_code": "4703",
+    "commodity": "Chemical wood pulp",
+    "value_usd": 3203283945.35,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 3970486963.0
+  },
+  {
+    "year": "2025",
+    "partner": "CHN",
+    "hs_code": "4703",
+    "commodity": "Chemical wood pulp",
+    "value_usd": 3000184000.65,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 1202397128.0
+  },
+  {
+    "year": "2024",
+    "partner": "USA",
+    "hs_code": "4703",
+    "commodity": "Chemical wood pulp",
+    "value_usd": 1651547503.85,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 304532881.0
+  },
+  {
+    "year": "2025",
+    "partner": "USA",
+    "hs_code": "4703",
+    "commodity": "Chemical wood pulp",
+    "value_usd": 1373401182.04,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 791672766.0
+  },
+  {
+    "year": "2024",
+    "partner": "USA",
+    "hs_code": "2009",
+    "commodity": "Orange juice",
+    "value_usd": 1087382805.78,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 837533656.0
+  },
+  {
+    "year": "2025",
+    "partner": "USA",
+    "hs_code": "2009",
+    "commodity": "Orange juice",
+    "value_usd": 1004246610.68,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 621441401.0
+  },
+  {
+    "year": "2024",
+    "partner": "NLD",
+    "hs_code": "2009",
+    "commodity": "Orange juice",
+    "value_usd": 401275551.12,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 167875757.0
+  },
+  {
+    "year": "2025",
+    "partner": "NLD",
+    "hs_code": "2009",
+    "commodity": "Orange juice",
+    "value_usd": 448380098.35,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 743819121.0
+  },
+  {
+    "year": "2024",
+    "partner": "USA",
+    "hs_code": "2207",
+    "commodity": "Ethyl alcohol",
+    "value_usd": 713074656.98,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 123602203.0
+  },
+  {
+    "year": "2025",
+    "partner": "USA",
+    "hs_code": "2207",
+    "commodity": "Ethyl alcohol",
+    "value_usd": 702629920.34,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 554701818.0
+  },
+  {
+    "year": "2024",
+    "partner": "NLD",
+    "hs_code": "2207",
+    "commodity": "Ethyl alcohol",
+    "value_usd": 297651640.86,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 137306723.0
+  },
+  {
+    "year": "2025",
+    "partner": "NLD",
+    "hs_code": "2207",
+    "commodity": "Ethyl alcohol",
+    "value_usd": 271076705.76,
+    "source": "un-comtrade-fallback-patterns",
+    "net_weight_kg": 60840184.0
+  }
+]

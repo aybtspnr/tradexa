@@ -1,0 +1,142 @@
+[
+  {
+    "hs": "1201",
+    "commodity": "Soybeans",
+    "mfn_tariff": 0.0,
+    "preferential": 0.0,
+    "notes": "Duty-free under EU-Mercosur"
+  },
+  {
+    "hs": "2709",
+    "commodity": "Petroleum oils",
+    "mfn_tariff": 0.0,
+    "preferential": 0.0,
+    "notes": "Duty-free"
+  },
+  {
+    "hs": "2601",
+    "commodity": "Iron ores",
+    "mfn_tariff": 0.0,
+    "preferential": 0.0,
+    "notes": "Duty-free"
+  },
+  {
+    "hs": "0203",
+    "commodity": "Meat of swine",
+    "mfn_tariff": 21.76,
+    "preferential": 0.0,
+    "notes": "20% + 1.76 EUR/kg. Mercosur quota: duty-free"
+  },
+  {
+    "hs": "0201",
+    "commodity": "Beef",
+    "mfn_tariff": 15.84,
+    "preferential": 0.0,
+    "notes": "12.8% + 3.04 EUR/kg. Mercosur quota"
+  },
+  {
+    "hs": "1701",
+    "commodity": "Cane sugar",
+    "mfn_tariff": 419.0,
+    "preferential": 0.0,
+    "notes": "EUR 419/100kg. Mercosur quota: duty-free"
+  },
+  {
+    "hs": "0901",
+    "commodity": "Coffee",
+    "mfn_tariff": 7.5,
+    "preferential": 0.0,
+    "notes": "7.5% MFN. Mercosur: duty-free"
+  },
+  {
+    "hs": "3004",
+    "commodity": "Medicaments",
+    "mfn_tariff": 0.0,
+    "preferential": 0.0,
+    "notes": "Duty-free"
+  },
+  {
+    "hs": "2207",
+    "commodity": "Ethyl alcohol",
+    "mfn_tariff": 10.2,
+    "preferential": 0.0,
+    "notes": "EUR 102/hl. Mercosur: duty-free within quota"
+  },
+  {
+    "hs": "2009",
+    "commodity": "Orange juice",
+    "mfn_tariff": 12.0,
+    "preferential": 0.0,
+    "notes": "12% MFN. Mercosur: duty-free"
+  },
+  {
+    "hs": "4011",
+    "commodity": "Tires",
+    "mfn_tariff": 4.0,
+    "preferential": 0.0,
+    "notes": "4% MFN. Mercosur: duty-free"
+  },
+  {
+    "hs": "4403",
+    "commodity": "Wood in rough",
+    "mfn_tariff": 0.0,
+    "preferential": 0.0,
+    "notes": "Duty-free"
+  },
+  {
+    "hs": "4703",
+    "commodity": "Chemical wood pulp",
+    "mfn_tariff": 0.0,
+    "preferential": 0.0,
+    "notes": "Duty-free"
+  },
+  {
+    "hs": "2818",
+    "commodity": "Aluminum oxide",
+    "mfn_tariff": 3.7,
+    "preferential": 0.0,
+    "notes": "3.7% MFN. Mercosur: duty-free"
+  },
+  {
+    "hs": "8703",
+    "commodity": "Motor cars",
+    "mfn_tariff": 10.0,
+    "preferential": 0.0,
+    "notes": "10% MFN. Mercosur: duty-free within quota"
+  },
+  {
+    "hs": "8802",
+    "commodity": "Aircraft",
+    "mfn_tariff": 0.0,
+    "preferential": 0.0,
+    "notes": "Duty-free under WTO agreement"
+  },
+  {
+    "hs": "2304",
+    "commodity": "Soybean oilcake",
+    "mfn_tariff": 0.0,
+    "preferential": 0.0,
+    "notes": "Duty-free"
+  },
+  {
+    "hs": "0803",
+    "commodity": "Bananas",
+    "mfn_tariff": 75.0,
+    "preferential": 0.0,
+    "notes": "EUR 75/100kg. ACP/Mercosur preferential"
+  },
+  {
+    "hs": "7108",
+    "commodity": "Gold",
+    "mfn_tariff": 0.0,
+    "preferential": 0.0,
+    "notes": "Duty-free"
+  },
+  {
+    "hs": "2844",
+    "commodity": "Radioactive chemicals",
+    "mfn_tariff": 0.0,
+    "preferential": 0.0,
+    "notes": "Duty-free"
+  }
+]

@@ -1,0 +1,190 @@
+{
+  "ultima_atualizacao": "2026-06-08T12:36:59Z",
+  "categorias": [
+    "tarifas",
+    "regulamentacao",
+    "mercados",
+    "logistica",
+    "cambio"
+  ],
+  "itens": {
+    "tarifas": [
+      {
+        "titulo": "Mais empresas terão acesso aos recursos do Plano Brasil Soberano",
+        "fonte": "MDIC",
+        "data": "03/06/2026",
+        "resumo": "Governo publica portaria que amplia o escopo do plano, incluindo empresas com impacto a partir de 1% no faturamento bruto devido ao tarifaço ou à guerra no Oriente Médio. Empresas contempladas pela portaria poderão solicitar o crédito já partir da próxima segunda-feira, 8 de junho",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "UE e Mercosul fecham acordo em princípio após 20 anos de negociações",
+        "fonte": "CÂMARA DO COMÉRCIO",
+        "data": "28/05/2026",
+        "resumo": "O acordo prevê redução gradual de tarifas para 91% dos produtos industrializados brasileiros exportados para a União Europeia.",
+        "tag": "Acordo Comercial",
+        "link": "#"
+      },
+      {
+        "titulo": "EUA anunciam novas tarifas de 25% sobre aço e alumínio",
+        "fonte": "JOTA",
+        "data": "25/05/2026",
+        "resumo": "Medida afeta exportações brasileiras de metais e pode impactar pauta de USD 2.3 bilhões em vendas para o mercado americano.",
+        "tag": "Tarifa",
+        "link": "#"
+      },
+      {
+        "titulo": "WTO aprova novo painel sobre subsídios agrícolas na Índia",
+        "fonte": "MDIC",
+        "data": "22/05/2026",
+        "resumo": "Decisão pode abrir caminho para compensações em setores como soja e algodão brasileiros afetados por subsídios indianos.",
+        "tag": "OMC",
+        "link": "#"
+      },
+      {
+        "titulo": "ACE 73 entre Mercosul e Singapura entra em vigor com novas concessões",
+        "fonte": "SECEX",
+        "data": "20/05/2026",
+        "resumo": "Acordo amplia preferências tarifárias para produtos agrícolas e industriais entre os países signatários.",
+        "tag": "Acordo Regional",
+        "link": "#"
+      }
+    ],
+    "regulamentacao": [
+      {
+        "titulo": "Nova Portaria SECEX regulamenta Drawback Integrado",
+        "fonte": "SECEX",
+        "data": "30/05/2026",
+        "resumo": "Medida simplifica processo de drawback para exportadores que utilizam insumos importados.",
+        "tag": "Drawback",
+        "link": "#"
+      },
+      {
+        "titulo": "RFB publica novas regras para habilitação no RADAR",
+        "fonte": "RECEITA FEDERAL",
+        "data": "27/05/2026",
+        "resumo": "Mudanças nos limites e requisitos para habilitação de importadores no sistema RADAR da Receita Federal.",
+        "tag": "RADAR",
+        "link": "#"
+      }
+    ],
+    "mercados": [
+      {
+        "titulo": "Macroprocesso 4: Inovação, agregação de valor, qualidade e competitividade aos produtos, serviços e setor produtivo brasileiro",
+        "fonte": "MDIC",
+        "data": "02/06/2026",
+        "resumo": "Sem descrição disponível.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "MACROPROCESSOS FINALÍSTICOS",
+        "fonte": "MDIC",
+        "data": "02/06/2026",
+        "resumo": "Sem descrição disponível.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Macroprocesso 7: Planejamento e gestão estratégica",
+        "fonte": "MDIC",
+        "data": "02/06/2026",
+        "resumo": "Sem descrição disponível.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Macroprocesso 10: Gestão administrativa",
+        "fonte": "MDIC",
+        "data": "02/06/2026",
+        "resumo": "Sem descrição disponível.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Macroprocesso 8: Gestão da integridade institucional",
+        "fonte": "MDIC",
+        "data": "02/06/2026",
+        "resumo": "Sem descrição disponível.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      }
+    ],
+    "logistica": [
+      {
+        "titulo": "Receita Federal realiza busca aduaneira em navio atracado no Porto de Santos e intercepta 108 kg de cocaína",
+        "fonte": "RECEITA FEDERAL",
+        "data": "01/06/2026",
+        "resumo": "Bolsas esportivas contendo tabletes de cocaína foram encontradas em um contêiner refrigerado.",
+        "tag": "Portos",
+        "link": "#"
+      },
+      {
+        "titulo": "Receita Federal realiza expedição técnica no Corredor Bioceânico para fortalecer preparação aduaneira e logística",
+        "fonte": "RECEITA FEDERAL",
+        "data": "02/06/2026",
+        "resumo": "Missão percorrerá Brasil, Paraguai, Argentina e Chile para avaliar infraestrutura, controles de fronteira e oportunidades de integração relacionadas ao futuro corredor de ligação com os portos do Pacífico.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "WCI atinge menor patamar desde janeiro: USD 2.847/40ft",
+        "fonte": "DREWRY",
+        "data": "03/06/2026",
+        "resumo": "Índice de frete marítimo recua 4.2% na semana com normalização pós-Ano Novo Chinês.",
+        "tag": "Frete Marítimo",
+        "link": "#"
+      },
+      {
+        "titulo": "Maersk anuncia nova rota direta Brasil-Ásia com escala reduzida",
+        "fonte": "MAERSK",
+        "data": "29/05/2026",
+        "resumo": "Nova rota reduz tempo de trânsito Santos-Shanghai de 35 para 28 dias.",
+        "tag": "Nova Rota",
+        "link": "#"
+      }
+    ],
+    "cambio": [
+      {
+        "titulo": "Receita Federal lança novo portal do Sped no gov.br com navegação mais simples e moderna",
+        "fonte": "RECEITA FEDERAL",
+        "data": "01/06/2026",
+        "resumo": "Sped ganha interface renovada, mais acessível e alinhada às diretrizes de governo digital.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Receita Federal e Polícia Federal deflagram operação para apurar irregularidades envolvendo servidor público",
+        "fonte": "RECEITA FEDERAL",
+        "data": "02/06/2026",
+        "resumo": "Ação conjunta apura possíveis irregularidades envolvendo servidor público e intervenientes no comércio exterior,",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Receita Federal retém 148,2 kg de substância análoga à maconha",
+        "fonte": "RECEITA FEDERAL",
+        "data": "02/06/2026",
+        "resumo": "Oculta em fundo falso de um veículo conduzido por um indivíduo paraguaio, a abordagem ocorreu na noite de 1º de junho.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Receita Federal e Polícia Rodoviária Federal firmam acordo para ampliar cooperação institucional",
+        "fonte": "RECEITA FEDERAL",
+        "data": "02/06/2026",
+        "resumo": "Parceria fortalece a integração entre os órgãos por meio do compartilhamento de conhecimentos, tecnologias e estratégias voltadas ao combate aos ilícitos e ao aprimoramento das ações de fiscalização e controle.",
+        "tag": "Acordo Comercial",
+        "link": "#"
+      },
+      {
+        "titulo": "Receita Federal inicia nova edição da ação de conformidade “Insuficiência de Declaração e Recolhimento de IRPJ/CSLL”",
+        "fonte": "RECEITA FEDERAL",
+        "data": "03/06/2026",
+        "resumo": "Estímulo à autorregularização alcança mais de 29 mil empresas, com divergências de R$ 4,9 bilhões.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      }
+    ]
+  }
+}

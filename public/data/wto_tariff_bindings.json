@@ -1,0 +1,92 @@
+[
+  {
+    "country": "BRA",
+    "country_name": "Brazil",
+    "bound_agriculture": 35.4,
+    "bound_non_agriculture": 30.7,
+    "applied_2024": 13.4,
+    "simple_average": 13.4,
+    "weighted_average": 8.2
+  },
+  {
+    "country": "USA",
+    "country_name": "United States",
+    "bound_agriculture": 4.7,
+    "bound_non_agriculture": 3.3,
+    "applied_2024": 3.4,
+    "simple_average": 3.4,
+    "weighted_average": 2.1
+  },
+  {
+    "country": "CHN",
+    "country_name": "China",
+    "bound_agriculture": 15.7,
+    "bound_non_agriculture": 9.1,
+    "applied_2024": 9.9,
+    "simple_average": 9.9,
+    "weighted_average": 5.4
+  },
+  {
+    "country": "DEU",
+    "country_name": "Germany (EU)",
+    "bound_agriculture": 11.1,
+    "bound_non_agriculture": 2.7,
+    "applied_2024": 5.2,
+    "simple_average": 5.2,
+    "weighted_average": 3.8
+  },
+  {
+    "country": "ARG",
+    "country_name": "Argentina",
+    "bound_agriculture": 32.0,
+    "bound_non_agriculture": 31.8,
+    "applied_2024": 13.4,
+    "simple_average": 13.4,
+    "weighted_average": 9.1
+  },
+  {
+    "country": "JPN",
+    "country_name": "Japan",
+    "bound_agriculture": 16.0,
+    "bound_non_agriculture": 2.5,
+    "applied_2024": 4.0,
+    "simple_average": 4.0,
+    "weighted_average": 2.8
+  },
+  {
+    "country": "GBR",
+    "country_name": "United Kingdom",
+    "bound_agriculture": 30.4,
+    "bound_non_agriculture": 3.6,
+    "applied_2024": 8.4,
+    "simple_average": 8.4,
+    "weighted_average": 4.2
+  },
+  {
+    "country": "IND",
+    "country_name": "India",
+    "bound_agriculture": 113.5,
+    "bound_non_agriculture": 34.6,
+    "applied_2024": 48.5,
+    "simple_average": 48.5,
+    "weighted_average": 17.8
+  },
+  {
+    "country": "KOR",
+    "country_name": "Korea",
+    "bound_agriculture": 59.3,
+    "bound_non_agriculture": 16.7,
+    "applied_2024": 13.4,
+    "simple_average": 13.4,
+    "weighted_average": 8.9
+  },
+  {
+    "country": "MEX",
+    "country_name": "Mexico",
+    "bound_agriculture": 45.2,
+    "bound_non_agriculture": 34.9,
+    "applied_2024": 7.2,
+    "simple_average": 7.2,
+    "weighted_average": 4.5
+  }
+]
