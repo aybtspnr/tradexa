@@ -321,7 +321,7 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto relative z-10">
           <SectionHeader badge="Planos" title={<>Escolha o seu <span className="text-[#D80E16]">plano</span></>} subtitle="Comece grátis. Sem cartão. Upgrade quando quiser." />
 
-          <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {PLANS.map((plan) => (
               <motion.div key={plan.name} variants={fadeUp}>
                 <div className={`rounded-2xl p-6 h-full relative ${plan.highlight ? "bg-gradient-to-br from-[#D80E16] to-[#B00C12] text-white shadow-xl shadow-[#D80E16]/20 ring-4 ring-[#D80E16]/10" : "glass-card"}`}>
@@ -540,32 +540,27 @@ const TESTIMONIALS = [
 
 const PLANS = [
   {
-    tier: "Grátis", name: "Essential", price: "R$0",
+    tier: "Grátis", name: "Essencial", price: "Grátis",
     features: ["2 consultas IA NCM", "Classificação inteligente", "Acesso ao dashboard", "Sem compromisso"],
     cta: "Começar Grátis", highlight: false,
   },
   {
-    tier: "Premium", name: "Growth", price: "R$497",
-    features: ["Consultas IA NCM", "Consulta HTS EUA", "Comparar NCMs", "Simular Exportação", "Alíquotas por País", "Suporte por email"],
-    cta: "Assinar Growth", highlight: false,
+    tier: "Premium", name: "Growth", price: "R$ 289",
+    features: ["Consultas IA NCM ilimitadas", "Consulta HTS EUA", "Comparar NCMs", "Simular Exportação", "Alíquotas por País", "Suporte por email"],
+    cta: "Assinar Growth", highlight: true, badge: "MAIS POPULAR",
   },
   {
-    tier: "Premium", name: "Professional", price: "R$1.297",
-    features: ["Tudo do Growth", "Smart Rank", "Alertas de Tarifas", "Análise Avançada", "Mapa de Importadores", "Calendário Sazonal", "Frete Marítimo", "Port Intelligence", "Suporte prioritário"],
-    cta: "Assinar Professional", highlight: true, badge: "MAIS POPULAR",
-  },
-  {
-    tier: "Empresarial", name: "Business", price: "R$4.799+",
-    features: ["Tudo do Professional", "API customizada", "Limites personalizados", "Onboarding dedicado"],
+    tier: "Empresarial", name: "Business", price: "R$ 3.200",
+    features: ["Tudo do Growth", "Smart Rank", "Alertas de Tarifas", "Análise Avançada", "API customizada", "Mapa de Importadores", "Calendário Sazonal", "Onboarding dedicado", "Suporte prioritário"],
     cta: "Falar com Vendas", highlight: false,
   },
 ];
 
 const FAQ = [
   { q: "Os dados são realmente oficiais?", a: "Sim. Integramos diretamente dados atualizados de comércio exterior brasileiro e internacional. Zero estimativas." },
-  { q: "Preciso de cartão para começar?", a: "Não. O plano Essential é 100% grátis, sem cartão, sem compromisso. Você pode usar as funcionalidades básicas sem pagar nada." },
+  { q: "Preciso de cartão para começar?", a: "Não. O plano Essencial é 100% grátis, sem cartão, sem compromisso. Você pode usar as funcionalidades básicas sem pagar nada." },
   { q: "O que a IA analisa exatamente?", a: "Nossa IA analisa automaticamente dados de exportação/importação para identificar tendências, recomendar mercados e detectar variações de preço." },
-  { q: "Posso exportar dados?", a: "Sim. A partir do plano Professional, você pode acessar dados via API. No plano Business, acesso à API customizada também está disponível." },
+  { q: "Posso exportar dados?", a: "Sim. A partir do plano Growth, você pode acessar dados via API. No plano Business, acesso à API customizada também está disponível." },
   { q: "Até quando os dados são atualizados?", a: "Os dados atualizados são atualizados mensalmente. Alertas e notificações são processados diariamente." },
 
 ];

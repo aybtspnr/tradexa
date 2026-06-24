@@ -487,7 +487,7 @@ export default function MaritimeFreightMapPage() {
           {/* ── Bottom notice bar ── */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
             <div className="bg-white/90 backdrop-blur-md rounded-xl px-4 py-2 border border-slate-200 shadow-lg text-[10px] text-slate-500 flex items-center gap-3">
-              <span>⏳ <strong>Gratuito por tempo limitado</strong> — depois disponível apenas no plano Professional</span>
+              <span>⏳ <strong>Gratuito por tempo limitado</strong> — depois disponível apenas no plano Business</span>
               <span className="text-slate-300">|</span>
               <span>Preços atualizados pelo <strong>World Container Index</strong> (WCI)</span>
             </div>

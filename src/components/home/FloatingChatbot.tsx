@@ -57,7 +57,7 @@ export default function FloatingChatbot() {
       } else if (lower.includes("ncm") || lower.includes("hs") || lower.includes("codigo") || lower.includes("tarifário")) {
         response = "Você pode consultar qualquer NCM brasileira usando nossa ferramenta de Consulta NCM/HS. Basta digitar o código ou uma descrição do produto e terá acesso às alíquotas, descrições e estatísticas de importação.";
       } else if (lower.includes("premium") || lower.includes("gratuito") || lower.includes("planos") || lower.includes("valor")) {
-        response = "A TRADEXA tem plano Essential gratuito com acesso a dashboards e rankings. Os planos Growth (R$ 497/mês), Professional (R$ 1.297/mês) e Business incluem análises avançadas, API e suporte dedicado. Veja nossa página de Planos!";
+        response = "A TRADEXA tem plano Essencial gratuito com acesso a dashboards, rankings e ferramentas essenciais. O plano Growth (R$ 289/mês) inclui IA NCM ilimitada e Intel Data completo. O plano Business (R$ 3.200/mês) tem tudo ilimitado com exportação CSV/PDF. Veja nossa página de Planos!";
       } else if (lower.includes("brasil") && lower.includes("eua")) {
         response = "Temos dados cruzados Brasil ↔ EUA com volumes, valores e tendências de comércio bilateral. Acesse o módulo Análise de Mercado > Dados Cruzados para explorar.";
       } else {

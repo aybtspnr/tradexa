@@ -75,7 +75,7 @@ export default function TermosPage() {
                 <li><strong>Smart Rank, AI Search, HTS Lookup EUA, NCM Comparison:</strong> Ferramentas avançadas de busca, ranqueamento e comparação de dados de comércio exterior com suporte de inteligência artificial e processamento de linguagem natural.</li>
               </ul>
 
-              <p className="mb-3">A disponibilidade de cada serviço e ferramenta depende do plano contratado (Essential, Growth, Professional ou Business), conforme descrito na página de planos (www.tradexa.com.br/pricing). A TRADEXA reserva-se o direito de modificar, suspender ou descontinuar qualquer serviço ou ferramenta a qualquer momento, mediante comunicação prévia aos Usuários afetados com pelo menos 30 (trinta) dias de antecedência.</p>
+              <p className="mb-3">A disponibilidade de cada serviço e ferramenta depende do plano contratado (Essencial, Growth ou Business), conforme descrito na página de planos (www.tradexa.com.br/pricing). A TRADEXA reserva-se o direito de modificar, suspender ou descontinuar qualquer serviço ou ferramenta a qualquer momento, mediante comunicação prévia aos Usuários afetados com pelo menos 30 (trinta) dias de antecedência.</p>
               <p>A TRADEXA não é uma empresa de consultoria jurídica, contábil ou fiscal. Todas as informações, análises, relatórios e recomendações fornecidas através da Plataforma têm caráter informativo e não substituem a consulta a profissionais qualificados nas respectivas áreas.</p>
             </div>
 
@@ -86,7 +86,7 @@ export default function TermosPage() {
               <p className="mb-3">Você é o único responsável por manter a confidencialidade de suas credenciais de acesso (e-mail e senha) e por todas as atividades que ocorram sob sua conta. Você concorda em notificar imediatamente a TRADEXA sobre qualquer uso não autorizado de sua conta ou qualquer outra violação de segurança através do e-mail help@tradexa.com.br.</p>
               <p className="mb-3">A TRADEXA reserva-se o direito de, a seu exclusivo critério, recusar o cadastro, suspender ou encerrar contas que: (a) fornecerem informações falsas, incompletas ou desatualizadas; (b) violarem qualquer disposição destes Termos; (c) estiverem envolvidas em atividades fraudulentas, ilegais ou que possam causar danos à TRADEXA ou a terceiros; (d) utilizarem a Plataforma de forma abusiva ou excessiva que comprometa a estabilidade dos sistemas; (e) tentarem realizar engenharia reversa, descompilação ou extração não autorizada de dados.</p>
               <p className="mb-3">Cada conta é pessoal e intransferível. Você não poderá ceder, transferir, sublicenciar ou compartilhar suas credenciais de acesso com terceiros não autorizados, exceto quando expressamente permitido pelo plano contratado (múltiplos usuários).</p>
-              <p>Para planos empresariais (Professional e Business), a TRADEXA poderá solicitar documentação adicional para verificação da empresa, incluindo comprovante de inscrição no CNPJ, comprovante de endereço comercial e identificação dos representantes legais.</p>
+              <p>Para planos Business, a TRADEXA poderá solicitar documentação adicional para verificação da empresa, incluindo comprovante de inscrição no CNPJ, comprovante de endereço comercial e identificação dos representantes legais.</p>
             </div>
 
             {/* 4. PLANOS E PAGAMENTOS */}

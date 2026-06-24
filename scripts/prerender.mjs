@@ -750,13 +750,13 @@ const BLOG_POSTS = [
   { slug: "quanto-custa-container-maritimo", name: "Custo de Contêiner Marítimo 2026", desc: "Saiba quanto custa alugar um contêiner marítimo 20 e 40 HC. Preços por rota, taxas portuárias, seguros e dicas para reduzir custos de frete." },
   { slug: "remessa-conforme-importacao-2026", name: "Remessa Conforme 2026", desc: "Guia atualizado do regime Remessa Conforme: como o ICMS é cobrado, alíquotas por faixa de valor e impacto no custo de importação via e-commerce." },
   { slug: "principais-produtos-exportados-brasil-2026", name: "Produtos Exportados do Brasil 2026", desc: "Ranking dos produtos que mais geram divisas para o Brasil. Exportação por produto, destino e crescimento em 2026." },
-  { slug: "como-saber-ncm-produto", name: "Saber o NCM: 3 Métodos Práticos", desc: "Descubra o código NCM de qualquer produto em 3 passos: consulta manual, busca por descrição e classificação com inteligência artificial." },
+  { slug: "como-saber-ncm-produto", name: "Saber o NCM de Qualquer Produto: 3 Métodos Práticos", desc: "Descubra o código NCM de qualquer produto em 3 passos: consulta manual, busca por descrição e classificação com inteligência artificial." },
   { slug: "importar-china-vs-india-vs-vietna", name: "China vs Índia vs Vietnã: Qual Melhor?", desc: "Comparativo completo entre China, Índia e Vietnã para importação brasileira. Custos, tributos, logística, fornecedores e riscos de cada país." },
   // Posts novos (lote 2 - 30 posts)
   { slug: "o-que-e-ncm-significado", name: "O Que é NCM? Significado e Uso", desc: "Entenda o que é NCM (Nomenclatura Comum do Mercosul), como funciona a estrutura do código de 8 dígitos e como classificar produtos." },
   { slug: "despachante-aduaneiro-quanto-custa", name: "Despachante Aduaneiro: O Que É", desc: "Saiba o que faz um despachante aduaneiro, quanto cobram por desembaraço e como escolher o profissional certo." },
   { slug: "agente-de-carga-o-que-e", name: "Agente de Carga: O Que É", desc: "Entenda a diferença entre agente de carga e despachante aduaneiro e como escolher o profissional certo." },
-  { slug: "como-importar-dos-eua-brasil", name: "Importar dos EUA: Guia 2026", desc: "Guia completo para importar dos EUA: fornecedores, HTS, tarifas, frete e documentação necessária." },
+  { slug: "como-importar-dos-eua-brasil", name: "Importar dos EUA: Guia Completo 2026", desc: "Guia completo para importar dos EUA: fornecedores, HTS, tarifas, frete e documentação necessária." },
   { slug: "importar-eletronicos-china", name: "Importar Eletrônicos da China", desc: "Guia prático para importar eletrônicos: ANATEL, INMETRO, NCM e custos totais." },
   { slug: "carta-de-credito-importacao", name: "Carta de Crédito na Importação", desc: "Entenda a carta de crédito internacional, quando usar e custos para pagamento de importação." },
   { slug: "importar-roupas-revender-brasil", name: "Como Importar Roupas para Revender no Brasil", desc: "Guia para importar roupas da China, Turquia e Bangladesh: fornecedores, tributos e dicas." },
@@ -782,7 +782,7 @@ const BLOG_POSTS = [
   { slug: "cotacao-frete-internacional", name: "Cotação de Frete Internacional", desc: "Entenda como funciona uma cotação de frete, fatores que afetam o preço e como solicitar orçamentos." },
   { slug: "spread-cambial-importacao", name: "Spread Cambial na Importação", desc: "Entenda o spread cambial, quanto o banco cobra por dólar e estratégias para reduzir custos na importação. Guia completo com exemplos práticos e cálculos." },
   { slug: "exportacao-servicos-brasil", name: "Exportação de Serviços 2026", desc: "Guia completo para exportar serviços do Brasil: software, consultoria, design, documentação exigida, incentivos fiscais, tributação e oportunidades internacionais." },
-  { slug: "compliance-aduaneiro-empresas", name: "Compliance Aduaneiro 2026", desc: "Entenda o compliance aduaneiro, benefícios, como implementar e evitar multas e penalidades na importação e exportação." },
+  { slug: "compliance-aduaneiro-empresas", name: "Compliance Aduaneiro: Sua Empresa Precisa em 2026", desc: "Entenda o compliance aduaneiro, benefícios, como implementar e evitar multas e penalidades na importação e exportação." },
   { slug: "acordo-mercosul-ue-impactos", name: "Acordo Mercosul-UE: Impactos", desc: "Acordo Mercosul-UE: setores beneficiados, alíquotas reduzidas e impactos para exportadores." },
   { slug: "acordos-preferenciais-brasil", name: "Acordos de Preferência Tarifária", desc: "Guia sobre acordos de preferência tarifária do Brasil: Mercosul, ACE, ALADI, SGP e como aproveitar reduções de alíquotas na importação e exportação." },
   { slug: "admissao-temporaria-importacao", name: "Admissão Temporária: Regime", desc: "Entenda o regime de admissão temporária para importação: como funciona, requisitos, prazos, garantias e quando usar para seus produtos." },
@@ -907,7 +907,7 @@ const BLOG_POSTS = [
   { slug: "gestao-riscos-cadeia-internacional", name: "Gestão de Riscos na Cadeia de Suprimentos", desc: "Guia completo de gestão de riscos na cadeia de suprimentos internacional: riscos geopolíticos, desastres naturais, pirataria, compliance, câmbio e estratégias de mitigação com inteligência de mercado." },
   { slug: "logistica-reversa-comercio-exterior", name: "Logística Reversa no Comércio Exterior", desc: "Guia completo sobre logística reversa no comércio exterior: devoluções, reexportação, drawback, custos, documentação e regulamentações ambientais." },
   { slug: "certificacoes-transporte-imdg-iata-adr", name: "Certificações de Transporte: IMDG, IATA, ADR", desc: "Guia completo sobre certificações para transporte de cargas perigosas: IMDG Code marítimo, IATA DGR aéreo e ADR rodoviário europeu." },
-  { slug: "como-negociar-frete-internacional", name: "Como Negociar Frete Internacional", desc: "Guia completo sobre negociação de frete internacional: FCL/LCL, aéreo, Incoterms, custos invisíveis (THC, BAF, CAF), índices WCI/FBX e estratégias para reduzir custos de transporte." },
+  { slug: "como-negociar-frete-internacional", name: "Negociar Frete: Estratégias e Redução de Custos", desc: "Guia completo sobre negociação de frete internacional: FCL/LCL, aéreo, Incoterms, custos invisíveis (THC, BAF, CAF), índices WCI/FBX e estratégias para reduzir custos de transporte." },
   { slug: "economia-circular-comercio-exterior", name: "Economia Circular no Comércio Exterior: Oportunidades e Desafios", desc: "Guia completo sobre economia circular aplicada ao comércio exterior: conceitos, regulamentações internacionais, certificações, logística reversa e oportunidades para empresas brasileiras." },
   { slug: "creditos-carbono-exportacao", name: "Créditos de Carbono na Exportação: Guia Completo para Empresas Brasileiras", desc: "Guia completo sobre como empresas brasileiras podem gerar, comercializar e usar créditos de carbono no contexto da exportação, com análise do CBAM, certificações e mercado regulado." },
   { slug: "embalagens-sustentaveis-exportacao", name: "Embalagens Sustentáveis na Exportação: Regulamentações, Materiais e Tendências", desc: "Guia completo sobre embalagens sustentáveis para exportação: regulamentações internacionais, materiais alternativos, certificações e como adequar seus produtos aos mercados mais exigentes." },
@@ -933,7 +933,7 @@ const BLOG_POSTS = [
   { slug: "mercado-pet-produtos-alimentos-animais", name: "Mercado Pet: Importação de Produtos e Alimentos para Animais", desc: "Guia completo sobre importação de rações, acessórios, medicamentos veterinários e produtos pet — regulamentações, NCMs e" },
   { slug: "construcao-civil-importacao-acabamentos", name: "Construção Civil: Importação de Materiais e Acabamentos", desc: "Saiba como importar pisos, revestimentos, louças, metais sanitários e materiais de acabamento para construção civil — cl" },
   { slug: "trade-intelligence-pratica-decisoes-dados", name: "Trade Intelligence na Prática: Como Tomar Decisões Baseadas em Dados", desc: "Aprenda a transformar dados de importação e exportação em decisões estratégicas — cases reais de como empresas brasileir" },
-  { slug: "como-mapear-cadeia-fornecedores", name: "Como Mapear a Cadeia de Fornecedores Internacionais", desc: "Aprenda a mapear toda a cadeia de fornecedores internacionais usando dados de comércio exterior — identifique players, r" },
+  { slug: "como-mapear-cadeia-fornecedores", name: "Como Mapear a Cadeia de Fornecedores Internacionais", desc: "Aprenda a mapear toda a cadeia de fornecedores internacionais usando dados de comércio exterior — identifique players, rotas, volumes e relações comerciais." },
   { slug: "rastreamento-carga-tempo-real", name: "Rastreamento de Carga em Tempo Real no Comércio Exterior", desc: "Guia completo sobre tecnologias e ferramentas para rastrear cargas internacionais em tempo real — AIS marítimo, tracking" },
   { slug: "tecnologia-logistica-blockchain-iot-ia", name: "Tecnologia na Logística Internacional: Blockchain, IoT e Inteligência Artificial", desc: "Como blockchain, Internet das Coisas e IA estão transformando a logística do comércio exterior — rastreabilidade, contra" },
   { slug: "green-logistics-cadeia-sustentavel", name: "Green Logistics: Como Construir uma Cadeia de Suprimentos Sustentável", desc: "Guia prático de green logistics para importadores e exportadores: redução de emissões, modais sustentáveis, embalagens v" },
@@ -945,7 +945,7 @@ const BLOG_POSTS = [
   { slug: "due-diligence-fornecedores-internacionais", name: "Due Diligence de Fornecedores Internacionais: Guia Completo", desc: "Metodologia completa de due diligence para fornecedores internacionais: verificação documental, reputacional, financeira" },
   { slug: "como-usar-classificador-ncm-ia", name: "Como Usar o Classificador NCM com IA da TRADEXA", desc: "Guia prático do classificador NCM com inteligência artificial: como funciona, casos de uso, integração com sistemas, red" },
   { slug: "como-smart-rank-ajuda-escolha-mercados", name: "Como o Smart Rank da TRADEXA Ajuda na Escolha de Mercados", desc: "Descubra como o algoritmo Smart Rank analisa dezenas de variáveis para ranquear os melhores mercados para seu produto — " },
-  { slug: "como-monitorar-tarifas-importacao-tempo-real", name: "Como Monitorar Tarifas de Importação em Tempo Real", desc: "Guia sobre ferramentas para monitorar mudanças tarifárias em tempo real — alertas de alterações, impacto de acordos come" },
+  { slug: "como-monitorar-tarifas-importacao-tempo-real", name: "Como Monitorar Tarifas de Importação em Tempo Real", desc: "Guia sobre ferramentas para monitorar mudanças tarifárias em tempo real — alertas de alterações, impacto de acordos comerciais e como se antecipar." },
   { slug: "automacao-comex-ferramentas-apis", name: "Automação no Comércio Exterior: Ferramentas e APIs", desc: "Como automatizar processos de comércio exterior com APIs — classificação fiscal, cotação de frete, consulta de dados e i" },
   { slug: "como-usar-dados-ais-monitorar-transporte-maritimo", name: "Dados AIS para Monitorar Transporte Marítimo", desc: "Aprenda a utilizar dados do sistema AIS para rastrear navios, monitorar cargas e otimizar sua cadeia logística." },
   { slug: "digitalizacao-documentos-ebl-ecert", name: "Digitalização de Documentos: e-BL e e-Cert", desc: "Entenda como a digitalização de documentos está transformando o comércio exterior, reduzindo custos e acelerando processos." },
@@ -962,7 +962,7 @@ const BLOG_POSTS = [
   { slug: "impacto-real-digital-comercio-exterior", name: "Impacto do Real Digital no Comex", desc: "Como o Drex promete transformar pagamentos internacionais e financiamento no comércio exterior." },
   { slug: "retrospectiva-comex-2026-licoes-tendencias", name: "Retrospectiva Comex 2026", desc: "Balanço completo do comércio exterior brasileiro em 2026: análise de exportações, importações, principais produtos, parceiros comerciais e lições para o próximo ano." },
   { slug: "blockchain-cadeia-suprimentos-internacional", name: "Blockchain na Cadeia de Suprimentos", desc: "Como o blockchain está sendo aplicado na cadeia de suprimentos global com rastreabilidade e smart contracts." },
-  { slug: "como-reduzir-custo-brasil-exportacao", name: "Reduzir Custo Brasil na Exportação", desc: "Estratégias práticas para reduzir o Custo Brasil e aumentar a competitividade das suas exportações." },
+  { slug: "como-reduzir-custo-brasil-exportacao", name: "Como Reduzir o Custo Brasil na Exportação", desc: "Estratégias práticas para reduzir o Custo Brasil e aumentar a competitividade das suas exportações." },
   { slug: "importacao-insumos-industria-4-0", name: "Importação Insumos Indústria 4.0", desc: "Guia de importação de insumos para Indústria 4.0: NCMs, fornecedores globais e regimes de incentivo." },
   { slug: "brasil-fornecedor-global-alimentos", name: "Brasil Fornecedor Global de Alimentos", desc: "Análise do protagonismo brasileiro na segurança alimentar mundial e liderança em proteínas e grãos." },
   { slug: "seguro-garantia-importacao-modalidades", name: "Seguro Garantia na Importação", desc: "Guia completo sobre seguro garantia aduaneiro com modalidades e vantagens para importadores." },
@@ -1096,7 +1096,7 @@ const BLOG_POSTS = [
   { slug: "packing-list-romaneio-carga", name: "Packing List e Romaneio de Carga: Guia", desc: "Guia completo sobre packing list e romaneio de carga no comércio exterior. Diferenças, campos obrigatórios, ISPM 15 e erros que causam canal vermelho." },
   { slug: "fatura-comercial-commercial-invoice", name: "Fatura Comercial (Commercial Invoice): Guia", desc: "Guia completo sobre fatura comercial no comércio exterior. Campos obrigatórios IN RFB, diferenças da proforma, valoração aduaneira e integração com NF-e." },
   { slug: "certificado-origem-formulario", name: "Certificado de Origem: Tipos e Procedimentos", desc: "Guia completo sobre certificado de origem no comércio exterior. SGP, ALADI, ACE, Mercosul, entidades emissoras, certificação digital e margens de preferência." },
-  { slug: "conhecimento-embarque-maritimo", name: "Bill of Lading (BL): Guia Completo", desc: "Guia completo sobre Bill of Lading no comércio exterior. Tipos de BL, funções jurídicas, BL eletrônico e-BL, carta de crédito e erros comuns no preenchimento." },
+  { slug: "conhecimento-embarque-maritimo", name: "Conhecimento de Embarque (Bill of Lading): Guia", desc: "Guia completo sobre Bill of Lading no comércio exterior. Tipos de BL, funções jurídicas, BL eletrônico e-BL, carta de crédito e erros comuns no preenchimento." },
   { slug: "manifesto-internacional-carga", name: "MIC/DTA: Manifesto Internacional de Carga", desc: "Guia completo sobre Manifesto Internacional de Carga Rodoviária (MIC/DTA). Arcabouço legal ATIT, preenchimento, trânsito aduaneiro e integração SISCOMEX." },
   { slug: "exportar-italia-moda-design", name: "Exportar para a Itália: Moda, Design e Alimentos", desc: "Guia completo para exportar produtos brasileiros para a Itália. Couro, calçados, café, carnes, tarifas TARIC, logística e feiras setoriais italianas." },
   { slug: "exportar-franca-gourmet", name: "Exportar para a França: Alimentos e Cosméticos", desc: "Guia completo para exportar do Brasil para a França. Açaí, café especial, carnes, ingredientes cosméticos amazônicos, certificações EU e logística portuária." },
@@ -1545,7 +1545,15 @@ function buildHtml(title, desc, keywords, ogTitle, ogDesc, route, baseHtml, seoC
       /<meta name="twitter:description"[^>]*\/?>/,
       `<meta name="twitter:description" content="${ogDescFinal}" />`
     )
-    .replace(/<\/head>/, `  <style>
+    .replace(/<\/head>/, `  <!-- og:image dimensions -->
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="426" />
+    <meta property="og:image:alt" content="${ogTitleFinal}" />
+    <meta name="twitter:image:alt" content="${ogTitleFinal}" />
+    <!-- Hreflang -->
+    <link rel="alternate" hrefLang="pt-BR" href="${canonical}" />
+    <link rel="alternate" hrefLang="x-default" href="${canonical}" />
+    <style>
       /* Critical CSS — unblocks first paint while external CSS loads */
       *,*::before,*::after{box-sizing:border-box}
       body{margin:0;padding:0;background:#f8fafc;color:#1e293b;font-family:system-ui,-apple-system,sans-serif}

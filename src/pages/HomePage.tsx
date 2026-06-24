@@ -803,9 +803,9 @@ export default function HomePage() {
     "offers": {
       "@type": "AggregateOffer",
       "lowPrice": "0",
-      "highPrice": "4799",
+      "highPrice": "3200",
       "priceCurrency": "BRL",
-      "offerCount": "4",
+      "offerCount": "3",
       "offers": [
         {
           "@type": "Offer",

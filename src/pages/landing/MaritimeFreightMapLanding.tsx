@@ -19,7 +19,7 @@ export default function MaritimeFreightMapLanding() {
         { name: "Cotações por rota", desc: "Clique em qualquer porto e veja preços de 20' GP e 40' HC de múltiplos armadores." },
         { name: "Cotação sob demanda", desc: "Solicite cotação completa e atualizada diretamente pelo mapa. Enviamos para seu email." },
         { name: "Rotas detalhadas", desc: "Traçado marítimo real passando pelos principais chokepoints globais — sem cruzar terra." },
-        { name: "Grátis por tempo limitado", desc: "Aproveite agora! Depois do beta, disponível apenas no plano Professional." }
+        { name: "Grátis por tempo limitado", desc: "Aproveite agora! Depois do beta, disponível apenas no plano Business." }
       ]}
       sections={[
         {
@@ -51,7 +51,7 @@ export default function MaritimeFreightMapLanding() {
             "Ajuste automático pelo WCI (World Container Index)",
             "Cotações sob demanda enviadas por email",
             "Gratuito durante o período Beta",
-            "Após o Beta: exclusivo para plano Professional"
+            "Após o Beta: exclusivo para plano Business"
           ]
         }
       ]}

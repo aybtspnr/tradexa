@@ -16,6 +16,8 @@ interface SEOMetadataProps {
 
 const SITE_URL = "https://www.tradexa.com.br";
 const DEFAULT_OG_IMAGE = "https://www.tradexa.com.br/og-image.png";
+const OG_IMAGE_WIDTH = "1280";
+const OG_IMAGE_HEIGHT = "426";
 
 export default function SEOMetadata({
   title,
@@ -69,6 +71,7 @@ export default function SEOMetadata({
       return {
         ...baseSchema,
         headline: fullOgTitle,
+        image: ogImage.startsWith("http") ? ogImage : `${SITE_URL}${ogImage}`,
         author: {
           "@type": "Organization",
           name: "TRADEXA",
@@ -142,6 +145,9 @@ export default function SEOMetadata({
       <meta property="og:title" content={fullOgTitle} />
       <meta property="og:description" content={fullOgDescription} />
       <meta property="og:image" content={ogImage.startsWith("http") ? ogImage : `${SITE_URL}${ogImage}`} />
+      <meta property="og:image:width" content={OG_IMAGE_WIDTH} />
+      <meta property="og:image:height" content={OG_IMAGE_HEIGHT} />
+      <meta property="og:image:alt" content={fullOgTitle} />
       <meta property="og:site_name" content="TRADEXA" />
       <meta property="og:locale" content="pt_BR" />
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
@@ -151,9 +157,14 @@ export default function SEOMetadata({
       <meta name="twitter:title" content={fullOgTitle} />
       <meta name="twitter:description" content={fullOgDescription} />
       <meta name="twitter:image" content={ogImage.startsWith("http") ? ogImage : `${SITE_URL}${ogImage}`} />
+      <meta name="twitter:image:alt" content={fullOgTitle} />
 
       {/* Canonical */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+      {/* Hreflang — Portuguese (Brazil) */}
+      {canonicalUrl && <link rel="alternate" hrefLang="pt-BR" href={canonicalUrl} />}
+      {canonicalUrl && <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />}
 
       {/* Robots */}
       {noindex && <meta name="robots" content="noindex, nofollow" />}

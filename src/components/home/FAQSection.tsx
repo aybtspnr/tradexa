@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "Posso usar a TRADEXA em consultorias para meus clientes?",
-    a: "Sim. A licença permite uso comercial, incluindo consultorias para terceiros. Usuários empresariais e consultorias devem utilizar o plano Professional ou Enterprise para acesso à API e recursos avançados.",
+    a: "Sim. A licença permite uso comercial, incluindo consultorias para terceiros. Usuários empresariais e consultorias devem utilizar o plano Growth ou Business para acesso à API e recursos avançados.",
   },
 ];
 

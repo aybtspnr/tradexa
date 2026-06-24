@@ -7,7 +7,7 @@ A TRADEXA fornece dados de comércio exterior, classificação NCM por IA, tarif
 
 ## Páginas Principais
 - [Home](https://www.tradexa.com.br/) — Página inicial da TRADEXA
-- [Export Import Data](https://www.tradexa.com.br/export-import-data) — Dados de exportação e importação por NCM
+- [Import Export Data](https://www.tradexa.com.br/import-export-data) — Dados de exportação e importação por NCM
 - [US Trade Data](https://www.tradexa.com.br/us-trade) — Dados de comércio Brasil-EUA
 - [NCM Classifier](https://www.tradexa.com.br/landing/ncm-classifier) — Classificação NCM com IA
 - [Calculadora de Importação](https://www.tradexa.com.br/landing/calculadora-importacao) — Cálculo de tarifas de importação
@@ -16,6 +16,11 @@ A TRADEXA fornece dados de comércio exterior, classificação NCM por IA, tarif
 - [Blog](https://www.tradexa.com.br/blog) — Artigos sobre comércio exterior
 - [Sobre](https://www.tradexa.com.br/sobre) — Sobre a TRADEXA
 - [Contato](https://www.tradexa.com.br/contato) — Fale conosco
+- [Planos](https://www.tradexa.com.br/pricing) — Planos e preços
+- [Glossário](https://www.tradexa.com.br/glossario) — Glossário de comércio exterior
+- [Guia de Importação](https://www.tradexa.com.br/guia-importacao) — Guia completo de importação
+- [Guia de Exportação](https://www.tradexa.com.br/guia-exportacao) — Guia completo de exportação
+- [Recursos](https://www.tradexa.com.br/recursos) — Guias e ferramentas
 
 ## Recursos
 - Classificação NCM com IA
@@ -41,3 +46,4 @@ A TRADEXA oferece APIs REST para integração com sistemas de comércio exterior
 - Blog: https://www.tradexa.com.br/blog
 - Contato: https://www.tradexa.com.br/contato
 - Sobre: https://www.tradexa.com.br/sobre
+- Planos: https://www.tradexa.com.br/pricing
