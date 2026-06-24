@@ -72,7 +72,7 @@ const AiSearch = () => {
   const [explicacoesMap, setExplicacoesMap] = useState<Record<string, any>>({});
 
   // Cost per NCM detail click by plan
-  const detailCost = plan === "business" ? 0.5 : plan === "professional" ? 1 : 5;
+  const detailCost = plan === "business" ? 0 : plan === "growth" ? 2 : 5;
 
   // SEO hook must be called unconditionally at the top level
   useSeo({

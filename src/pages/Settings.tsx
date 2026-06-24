@@ -23,7 +23,6 @@ import { PLAN_LABELS } from "@/lib/usage-costs";
 const planColors: Record<string, string> = {
   essential: "bg-slate-100 text-slate-700 border-slate-200",
   growth: "bg-blue-50 text-blue-700 border-blue-200",
-  professional: "bg-purple-50 text-purple-700 border-purple-200",
   business: "bg-amber-50 text-amber-700 border-amber-200",
 };
 

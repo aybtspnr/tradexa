@@ -545,69 +545,41 @@ const PLANS = [
   },
   {
     name: "Growth",
-    price: "R$ 497",
+    price: "R$ 289",
     period: "/mês",
     description: "Para empresas que estão começando a exportar",
     features: [
-      "Consultas IA NCM",
-      "Consulta HTS EUA",
-      "Comparar NCMs",
-      "Simular Exportação",
-      "Alíquotas por País",
+      "IA NCM ilimitada (via tanque)",
+      "Import/Export Intelligence completo",
+      "Todas as ferramentas liberadas",
+      "Smart Rank, Alertas, Análise Avançada",
       "Suporte por email",
     ],
     unavailable: [
-      "Smart Rank",
-      "Alertas de Tarifas",
-      "Análise Avançada",
-      "API",
+      "Exportação CSV/PDF",
+      "Uso ilimitado sem tanque",
     ],
     cta: "Assinar Growth",
     highlighted: false,
     route: "/register?plan=growth",
   },
   {
-    name: "Professional",
-    price: "R$ 1.297",
+    name: "Business",
+    price: "R$ 3.200",
     period: "/mês",
-    description: "Para profissionais que precisam de dados profundos e análises completas",
+    description: "Tudo ilimitado. Sem preocupações com limite de uso.",
     features: [
-      "Tudo do Growth",
-      "Smart Rank",
-      "Alertas de Tarifas",
-      "Análise Avançada",
-      "Mapa de Importadores",
-      "Calendário Sazonal",
-      "Frete Marítimo",
-      "Port Intelligence",
+      "Tudo do Growth + ilimitado",
+      "IA NCM — sem limites de consulta",
+      "Import/Export Intelligence — sem limites",
+      "Exportação CSV e PDF liberada",
       "Suporte prioritário",
     ],
-    unavailable: [
-      "API customizada",
-      "Limites personalizados",
-    ],
-    cta: "Assinar Professional",
-    highlighted: true,
-    badge: "MAIS POPULAR",
-    route: "/register?plan=professional",
-  },
-  {
-    name: "Business",
-    price: "R$ 4.799",
-    period: "/mês",
-    description: "Acesso total para empresas que vivem de comércio exterior",
-    features: [
-      "Tudo do Professional",
-      "API customizada",
-      "Limites personalizados",
-      "Custo mínimo por ação",
-      "Onboarding dedicado",
-      "SLA garantido",
-    ],
     unavailable: [],
-    cta: "Falar com Vendas",
-    highlighted: false,
-    route: "/contact",
+    cta: "Assinar Business",
+    highlighted: true,
+    badge: "ILIMITADO",
+    route: "/register?plan=business",
   },
 ];
 
@@ -621,7 +593,7 @@ function PlansSection() {
           subtitle="Comece grátis. Sem cartão. Upgrade quando quiser."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {PLANS.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -686,7 +658,7 @@ function PlansSection() {
 const FAQ = [
   {
     q: "O plano grátis tem limitações?",
-    a: "O plano Essential é gratuito e oferece acesso a estatísticas gerais e 2 consultas IA NCM por mês. Além disso, várias ferramentas são completamente gratuitas e nem exigem cadastro: Supply Chain Map (navios e aviões ao vivo), Track & Trace (rastreamento de cargas) e Rastreamento de Container. Para recursos avançados como Trade Intelligence e Smart Rank, recomendamos os planos Growth ou Professional.",
+    a: "O plano Essential é gratuito e oferece acesso a estatísticas gerais e 2 consultas IA NCM por mês. Além disso, várias ferramentas são completamente gratuitas e nem exigem cadastro: Supply Chain Map (navios e aviões ao vivo), Track & Trace (rastreamento de cargas) e Rastreamento de Container. Para recursos avançados como Trade Intelligence e Smart Rank, recomendamos os planos Growth ou Business.",
   },
   {
     q: "Preciso pagar para testar as ferramentas?",
@@ -706,7 +678,7 @@ const FAQ = [
   },
   {
     q: "Posso usar a TRADEXA para encontrar compradores internacionais?",
-    a: "Sim. O Diretório de Importadores tem 3.8M+ empresas classificadas por código HS em 97 países. Os planos Professional e Business incluem busca avançada com filtros por país, porte e categoria de produto. Para prospecção personalizada, oferecemos o serviço de Pesquisa de Compradores Internacionais.",
+    a: "Sim. O Diretório de Importadores tem 3.8M+ empresas classificadas por código HS em 97 países. Os planos Growth e Business incluem busca avançada com filtros por país, porte e categoria de produto. Para prospecção personalizada, oferecemos o serviço de Pesquisa de Compradores Internacionais.",
   },
   {
     q: "Quais ferramentas são gratuitas e não precisam de cadastro?",
@@ -845,23 +817,16 @@ export default function HomePage() {
         {
           "@type": "Offer",
           "name": "Growth",
-          "price": "497",
+          "price": "289",
           "priceCurrency": "BRL",
           "description": "Para empresas que estao comecando a exportar"
         },
         {
           "@type": "Offer",
-          "name": "Professional",
-          "price": "1297",
-          "priceCurrency": "BRL",
-          "description": "Dados profundos e analises completas"
-        },
-        {
-          "@type": "Offer",
           "name": "Business",
-          "price": "4799",
+          "price": "3200",
           "priceCurrency": "BRL",
-          "description": "Acesso total para empresas que vivem de comercio exterior"
+          "description": "Tudo ilimitado. Sem limites de uso"
         }
       ]
     },

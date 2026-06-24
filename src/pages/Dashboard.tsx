@@ -214,7 +214,6 @@ export default function Dashboard() {
         "rounded-2xl border p-5 flex items-center justify-between",
         "bg-gradient-to-r",
         plan === "business" ? "from-slate-800 to-slate-900 border-slate-700 text-white"
-        : plan === "professional" ? "from-red-50 to-rose-50 border-red-200"
         : plan === "growth" ? "from-blue-50 to-cyan-50 border-blue-200"
         : "from-slate-50 to-slate-100 border-slate-200"
       )}>
@@ -222,13 +221,13 @@ export default function Dashboard() {
           <div className={cn(
             "p-2.5 rounded-xl",
             plan === "business" ? "bg-white/10"
-            : plan === "professional" ? "bg-red-100"
+            : plan === "business" ? "bg-slate-800"
             : plan === "growth" ? "bg-blue-100"
             : "bg-slate-200"
           )}>
             <Crown className={cn("w-5 h-5",
               plan === "business" ? "text-amber-300"
-              : plan === "professional" ? "text-red-600"
+              : plan === "business" ? "text-white"
               : plan === "growth" ? "text-blue-600"
               : "text-slate-600"
             )} />

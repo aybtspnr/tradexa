@@ -25,11 +25,9 @@ interface UserRow {
 }
 
 const PLANS = [
-  { value: "essential", label: "Essential" },
+  { value: "essential", label: "Essencial" },
   { value: "growth", label: "Growth" },
-  { value: "professional", label: "Professional" },
   { value: "business", label: "Business" },
-  { value: "enterprise", label: "Enterprise" },
 ];
 
 export default function AdminDashboard() {
@@ -138,10 +136,9 @@ export default function AdminDashboard() {
 
   const stats = {
     total: users.length,
-    essential: users.filter((u) => u.plan_type === "essential").length,
-    growth: users.filter((u) => u.plan_type === "growth").length,
-    professional: users.filter((u) => u.plan_type === "professional").length,
-    business: users.filter((u) => u.plan_type === "business").length,
+    essential: users.filter((u) => u.plan_type === "essential" || u.plan_type === "starter").length,
+    growth: users.filter((u) => u.plan_type === "growth" || u.plan_type === "professional").length,
+    business: users.filter((u) => u.plan_type === "business" || u.plan_type === "enterprise").length,
   };
 
   if (!profile || (profile.role !== "admin" && profile.email !== "aybtspnr@gmail.com")) {
@@ -163,9 +160,8 @@ export default function AdminDashboard() {
       {/* KPIs */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
         <KpiCard label="Total" value={String(stats.total)} color="bg-slate-100 text-slate-700" />
-        <KpiCard label="Essential" value={String(stats.essential)} color="bg-slate-100 text-slate-600" />
+        <KpiCard label="Essencial" value={String(stats.essential)} color="bg-slate-100 text-slate-600" />
         <KpiCard label="Growth" value={String(stats.growth)} color="bg-blue-50 text-blue-700" />
-        <KpiCard label="Professional" value={String(stats.professional)} color="bg-amber-50 text-amber-700" />
         <KpiCard label="Business" value={String(stats.business)} color="bg-purple-50 text-purple-700" />
       </div>
 
@@ -289,11 +285,9 @@ export default function AdminDashboard() {
                         <Badge
                           variant="outline"
                           className={`text-[10px] font-black uppercase ${
-                            u.plan_type === "business"
+                            u.plan_type === "business" || u.plan_type === "enterprise"
                               ? "bg-purple-50 text-purple-700 border-purple-200"
-                              : u.plan_type === "professional"
-                              ? "bg-amber-50 text-amber-700 border-amber-200"
-                              : u.plan_type === "growth"
+                              : u.plan_type === "growth" || u.plan_type === "professional"
                               ? "bg-blue-50 text-blue-700 border-blue-200"
                               : "bg-slate-50 text-slate-600 border-slate-200"
                           }`}

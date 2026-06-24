@@ -53,7 +53,7 @@ const AIChat = () => {
     if (!text.trim() || loading) return;
 
     // Consume 9% of usage per question, with plan multiplier
-    const multiplier = plan === "professional" ? 0.4 : plan === "business" ? 0.2 : 1.0;
+    const multiplier = plan === "business" ? 0 : 0.4;
     const basePercent = 9;
     const adjustedPercent = Math.round(basePercent * multiplier);
     const ok = await consumePercent(adjustedPercent);

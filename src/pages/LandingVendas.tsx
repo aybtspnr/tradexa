@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import {
   Check, X, Zap, Shield, Globe, BrainCircuit, Bell,
-  Search, TrendingUp, ArrowRight, Star, Users,
+  Search, TrendingUp, ArrowRight, Star, Users, Infinity,
+  Database, Download,
 } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { useSeo } from "@/hooks/use-seo";
@@ -13,27 +14,25 @@ const FEATURES = [
   { icon: Bell, label: "Alertas de Tarifas", desc: "Monitore variações e receba notificações." },
   { icon: BrainCircuit, label: "Análise Avançada", desc: "IA analisa tendências e oportunidades." },
   { icon: Users, label: "3.8M+ Importadores", desc: "Base global de empresas importadoras." },
-  { icon: Shield, label: "Consulta CNPJ", desc: "Valide empresas brasileiras." },
+  { icon: Database, label: "Import/Export Intelligence", desc: "Dados reais de comércio exterior por NCM." },
 ];
 
 const PLANS = [
   {
-    name: "Essential",
+    name: "Essencial",
     price: "Grátis",
     period: "para sempre",
     badge: null,
     features: [
-      { text: "2 consultas IA NCM/mês", included: true },
-      { text: "Exportação Intelligence (5 buscas/dia)", included: true },
+      { text: "Classificador IA NCM — 2 consultas/mês", included: true },
+      { text: "Import/Export Intelligence — 3 consultas/mês", included: true },
+      { text: "Todas as ferramentas liberadas", included: true },
       { text: "Dashboard com dados reais", included: true },
-      { text: "Suporte por email", included: true },
-      { text: "Consulta HTS EUA", included: false },
-      { text: "Comparador de NCMs", included: false },
-      { text: "Simulador Exportação", included: false },
-      { text: "Smart Rank", included: false },
-      { text: "Alertas de Tarifas", included: false },
-      { text: "Análise Avançada", included: false },
-      { text: "API", included: false },
+      { text: "Alíquotas por País", included: true },
+      { text: "Smart Rank", included: true },
+      { text: "Alertas de Tarifas", included: true },
+      { text: "Análise Avançada", included: true },
+      { text: "Exportar CSV/PDF", included: false },
     ],
     cta: "Começar Grátis",
     ctaLink: "/register",
@@ -41,67 +40,41 @@ const PLANS = [
   },
   {
     name: "Growth",
-    price: "R$ 497",
-    period: "/ mês",
-    badge: null,
-    features: [
-      { text: "Consultas IA NCM", included: true },
-      { text: "Consulta HTS EUA", included: true },
-      { text: "Comparador de NCMs", included: true },
-      { text: "Simular Exportação", included: true },
-      { text: "Alíquotas por País", included: true },
-      { text: "Suporte por email", included: true },
-      { text: "Smart Rank", included: false },
-      { text: "Alertas de Tarifas", included: false },
-      { text: "Análise Avançada", included: false },
-      { text: "API customizada", included: false },
-    ],
-    cta: "Assinar Growth",
-    ctaLink: "/register?plan=growth",
-    primary: false,
-  },
-  {
-    name: "Professional",
-    price: "R$ 1.297",
+    price: "R$ 289",
     period: "/ mês",
     badge: "MAIS POPULAR",
     features: [
-      { text: "Tudo do Growth", included: true },
+      { text: "Classificador IA NCM ilimitado (via tanque)", included: true },
+      { text: "Import/Export Intelligence ilimitado (via tanque)", included: true },
+      { text: "Todas as ferramentas liberadas", included: true },
+      { text: "2.5× mais ações (multiplicador 0.4×)", included: true },
       { text: "Smart Rank", included: true },
       { text: "Alertas de Tarifas", included: true },
       { text: "Análise Avançada", included: true },
       { text: "Mapa de Importadores", included: true },
-      { text: "Calendário Sazonal", included: true },
       { text: "Frete Marítimo", included: true },
-      { text: "Port Intelligence", included: true },
-      { text: "Suporte prioritário", included: true },
-      { text: "API customizada", included: false },
+      { text: "Suporte por email", included: true },
+      { text: "Exportar CSV/PDF", included: false },
     ],
-    cta: "Assinar Professional",
-    ctaLink: "/register?plan=professional",
+    cta: "Assinar Growth",
+    ctaLink: "/register?plan=growth",
     primary: true,
   },
   {
     name: "Business",
-    price: "R$ 4.799",
+    price: "R$ 3.200",
     period: "/ mês",
-    badge: "EMPRESARIAL",
+    badge: "TUDO ILIMITADO",
     features: [
-      { text: "Tudo do Professional", included: true },
-      { text: "API customizada", included: true },
-      { text: "Limites personalizados", included: true },
-      { text: "Custo mínimo por ação", included: true },
-      { text: "Onboarding dedicado", included: true },
-      { text: "SLA garantido", included: true },
+      { text: "Tudo do Growth + ilimitado", included: true },
+      { text: "IA NCM — sem limites de consulta", included: true },
+      { text: "Import/Export Intelligence — sem limites", included: true },
+      { text: "Exportação CSV e PDF liberada", included: true },
+      { text: "Sem tanque — sem contagem de uso", included: true },
       { text: "Suporte prioritário", included: true },
-      { text: "Relatórios customizados", included: true },
-      { text: "White-label", included: false },
-      { text: "Gerente de conta", included: false },
-      { text: "Múltiplos usuários", included: false },
-      { text: "Webhooks", included: false },
     ],
-    cta: "Falar com Vendas",
-    ctaLink: "mailto:contato@tradexa.com.br",
+    cta: "Assinar Business",
+    ctaLink: "/register?plan=business",
     primary: false,
   },
 ];
@@ -179,20 +152,26 @@ export default function LandingVendas() {
             <p className="text-sm text-slate-600 mt-2">Comece grátis. Faça upgrade quando precisar de mais poder.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {PLANS.map((plan) => (
               <div
                 key={plan.name}
                 className={`rounded-2xl border p-6 space-y-5 ${
                   plan.primary
                     ? "border-[#D80E16] bg-gradient-to-b from-red-50/50 to-white shadow-xl shadow-red-500/10 relative"
-                    : "border-slate-200 bg-white"
+                    : plan.badge === "TUDO ILIMITADO"
+                      ? "border-slate-800 bg-gradient-to-b from-slate-50 to-white shadow-xl relative"
+                      : "border-slate-200 bg-white"
                 }`}
               >
-                {plan.badge && (
-                  <div className={`text-center text-[10px] font-black uppercase tracking-widest py-1 rounded-full ${
-                    plan.primary ? "bg-[#D80E16] text-white" : "bg-slate-800 text-white"
-                  }`}>
+                {plan.badge === "TUDO ILIMITADO" && (
+                  <div className="text-center text-[10px] font-black uppercase tracking-widest py-1 rounded-full bg-slate-800 text-white flex items-center justify-center gap-1">
+                    <Infinity className="w-3 h-3" />
+                    {plan.badge}
+                  </div>
+                )}
+                {plan.badge === "MAIS POPULAR" && (
+                  <div className="text-center text-[10px] font-black uppercase tracking-widest py-1 rounded-full bg-[#D80E16] text-white">
                     {plan.badge}
                   </div>
                 )}
@@ -231,7 +210,9 @@ export default function LandingVendas() {
                   className={`w-full py-3 rounded-xl font-bold text-sm transition-all ${
                     plan.primary
                       ? "bg-[#D80E16] text-white hover:bg-[#b80c12] shadow-lg shadow-red-500/20"
-                      : "border-2 border-slate-200 text-slate-700 hover:border-slate-400"
+                      : plan.badge === "TUDO ILIMITADO"
+                        ? "bg-slate-800 text-white hover:bg-slate-700 shadow-lg"
+                        : "border-2 border-slate-200 text-slate-700 hover:border-slate-400"
                   }`}
                 >
                   {plan.cta}

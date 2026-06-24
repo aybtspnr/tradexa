@@ -4,13 +4,16 @@
  * O diferencial é o multiplicador de custo: planos mais caros "gastam menos" da barra.
  *
  * Planos:
- *   Essential    → Grátis. Tank 100%, custo 1.0×. Apenas 2 consultas IA NCM.
- *   Growth       → R$ 497. Tank 100%, custo 1.0×. Acesso a ferramentas básicas.
- *   Professional → R$ 1.297. Tank 100%, custo 0.4× (~2.5× mais ações).
- *   Business     → A partir de R$ 4.799. Tank 100%, custo 0.2× (~5× mais ações).
+ *   Essencial    → Grátis. Tank 100%, custo 1.0×. 2 consultas IA NCM, 3 vis. Import/Export Data.
+ *   Growth       → R$ 289. Tank 100%, custo 0.4× (~2.5× mais ações).
+ *   Business     → R$ 3.200. Tudo ilimitado (bypass do tank).
+ *
+ * Ferramentas gratuitas (0% do tanque): HTS, Comparador, Simulador, Alíquotas,
+ * Smart Rank, Alertas, Trade Intelligence, Mapa Importadores, Frete, Port Intel, etc.
+ * Apenas consultas IA NCM e visualizações Import/Export Data consomem tanque.
  */
 
-export type PlanType = "essential" | "growth" | "professional" | "business";
+export type PlanType = "essential" | "growth" | "business";
 
 export type ActionType =
   | "page_view"
@@ -22,7 +25,8 @@ export type ActionType =
   | "importer_view"
   | "ranking_run"
   | "alert_create"
-  | "data_export";
+  | "data_export"
+  | "intel_view";
 
 export interface ActionCost {
   action: ActionType;
@@ -35,50 +39,47 @@ export interface ActionCost {
 export const PLAN_TANK: Record<PlanType, number> = {
   essential: 100,
   growth: 100,
-  professional: 100,
   business: 100,
 };
 
 /** Multiplicador de custo por plano. Menor = mais econômico. */
 export const PLAN_COST_MULTIPLIER: Record<PlanType, number> = {
   essential: 1.0,
-  growth: 1.0,
-  professional: 0.4,
+  growth: 0.4,
   business: 0,
 };
 
 /** Labels dos planos */
 export const PLAN_LABELS: Record<PlanType, string> = {
-  essential: "Essential",
+  essential: "Essencial",
   growth: "Growth",
-  professional: "Professional",
   business: "Business",
 };
 
 /** Preços dos planos (mensal, em reais) */
 export const PLAN_PRICES: Record<PlanType, number> = {
   essential: 0,
-  growth: 497,
-  professional: 1297,
-  business: 0,
+  growth: 289,
+  business: 3200,
 };
 
 /**
  * Custo de cada ação em percentagem (base Essential/Growth = 1.0×).
- * Professional aplica 0.4×, Business aplica 0.2×.
+ * Growth aplica 0.4×, Business aplica 0 (bypass).
+ * Ferramentas gratuitas (HTS, Comparador, Simulador, Alíquotas, etc.) = 0%.
  */
 export const ACTION_COSTS: Record<ActionType, ActionCost> = {
   page_view: {
     action: "page_view",
     label: "Acesso à página",
-    basePercent: 0.8,
-    description: "Cada página acessada consome 0.8%",
+    basePercent: 0,
+    description: "Navegação na plataforma (grátis)",
   },
   search: {
     action: "search",
     label: "Busca simples",
-    basePercent: 2.0,
-    description: "Consulta HS, HTS, alíquota, importador",
+    basePercent: 0,
+    description: "Consulta HS, HTS, alíquota, importador (grátis)",
   },
   ai_query: {
     action: "ai_query",
@@ -95,38 +96,44 @@ export const ACTION_COSTS: Record<ActionType, ActionCost> = {
   simulator_run: {
     action: "simulator_run",
     label: "Simulação",
-    basePercent: 4.0,
-    description: "Simulador de custo de exportação",
+    basePercent: 0,
+    description: "Simulador de custo de exportação (grátis)",
   },
   country_click: {
     action: "country_click",
     label: "Clique em país",
-    basePercent: 0.5,
-    description: "Selecionar país no mapa/comparador",
+    basePercent: 0,
+    description: "Selecionar país no mapa/comparador (grátis)",
   },
   importer_view: {
     action: "importer_view",
     label: "Ver importador",
-    basePercent: 1.5,
-    description: "Abrir detalhes de importador",
+    basePercent: 0,
+    description: "Abrir detalhes de importador (grátis)",
   },
   ranking_run: {
     action: "ranking_run",
     label: "Ranking/Smart Rank",
-    basePercent: 6.0,
-    description: "Comparar países ou ranquear mercados",
+    basePercent: 0,
+    description: "Comparar países ou ranquear mercados (grátis)",
   },
   alert_create: {
     action: "alert_create",
     label: "Criar alerta",
-    basePercent: 3.0,
-    description: "Novo alerta de tarifa/preço",
+    basePercent: 0,
+    description: "Novo alerta de tarifa/preço (grátis)",
   },
   data_export: {
     action: "data_export",
     label: "Exportar dados",
-    basePercent: 4.0,
-    description: "CSV, Excel, ou outra exportação",
+    basePercent: 0,
+    description: "CSV, PDF — Business apenas",
+  },
+  intel_view: {
+    action: "intel_view",
+    label: "Visualizar Intel Data",
+    basePercent: 5.0,
+    description: "Cada consulta em Import/Export Intelligence",
   },
 };
 
@@ -162,4 +169,19 @@ export function calculateFinalCost(
 export function costLabel(action: ActionType, opts?: { wordCount?: number }): string {
   const pct = calculateCost(action, opts);
   return pct <= 1 ? `${pct}%` : `${pct}% do plano`;
+}
+
+/** Mapa de planos legados para o novo sistema (backward compat) */
+const LEGACY_PLAN_MAP: Record<string, PlanType> = {
+  professional: "growth",
+  enterprise: "business",
+  starter: "essential",
+};
+
+/** Sanitiza plan_type do banco para o novo sistema de planos */
+export function sanitizePlan(plan: string | undefined | null): PlanType {
+  if (!plan) return "essential";
+  const known: PlanType[] = ["essential", "growth", "business"];
+  if (known.includes(plan as PlanType)) return plan as PlanType;
+  return LEGACY_PLAN_MAP[plan] || "essential";
 }

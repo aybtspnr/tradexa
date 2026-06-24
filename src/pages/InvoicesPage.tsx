@@ -98,10 +98,10 @@ const getStatusConfig = (status: string) => {
 };
 
 const PLAN_LABELS: Record<string, string> = {
-  essential: "Essential",
+  essential: "Essencial",
   growth: "Growth",
-  professional: "Professional",
   business: "Business",
+  professional: "Growth",
 };
 
 /* ─── Componente ─── */

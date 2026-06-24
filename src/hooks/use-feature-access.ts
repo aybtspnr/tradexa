@@ -11,6 +11,7 @@ import {
   type PlanType,
   FEATURE_MAP,
 } from "@/lib/plan-features";
+import { sanitizePlan } from "@/lib/usage-costs";
 
 export interface FeatureAccessResult {
   canAccess: boolean;
@@ -30,7 +31,7 @@ export function useFeatureAccess(featureKey: string): FeatureAccessResult {
   const { profile } = useAuth();
   const { usage, loading: usageLoading, isAtLimit } = useUsage();
 
-  const plan: PlanType = (profile?.plan_type as PlanType) || "essential";
+  const plan: PlanType = sanitizePlan(profile?.plan_type || "essential");
   const featureConfig = FEATURE_MAP[featureKey];
 
   return useMemo(() => {
@@ -66,7 +67,7 @@ export function useFeatureAccess(featureKey: string): FeatureAccessResult {
 export function useFeaturesStatus(featureKeys: string[]) {
   const { profile } = useAuth();
   const { usage, loading, isAtLimit } = useUsage();
-  const plan: PlanType = (profile?.plan_type as PlanType) || "essential";
+  const plan: PlanType = sanitizePlan(profile?.plan_type || "essential");
 
   return useMemo(() => {
     const result: Record<string, FeatureAccessResult> = {};

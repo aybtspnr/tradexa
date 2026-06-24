@@ -29,11 +29,9 @@ interface UserRow {
 }
 
 const PLAN_OPTIONS = [
-  { value: "essential", label: "Essential", color: "bg-slate-100 text-slate-700" },
+  { value: "essential", label: "Essencial", color: "bg-slate-100 text-slate-700" },
   { value: "growth", label: "Growth", color: "bg-blue-50 text-blue-700" },
-  { value: "professional", label: "Professional", color: "bg-amber-50 text-amber-700" },
   { value: "business", label: "Business", color: "bg-purple-50 text-purple-700" },
-  { value: "enterprise", label: "Enterprise", color: "bg-slate-800 text-white" },
 ];
 
 const ROLE_OPTIONS = [

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Lock, ArrowRight, Zap, Shield, Star, Crown } from "lucide-react";
+import { Lock, ArrowRight, Zap, Shield, Star, Crown, Infinity } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { PlanType } from "@/lib/plan-features";
 
@@ -13,30 +13,23 @@ const PLAN_META: Record<PlanType, { icon: typeof Crown; color: string; label: st
   essential: {
     icon: Star,
     color: "from-slate-500 to-slate-600",
-    label: "Essential",
-    desc: "Plano gratuito com 2 consultas IA NCM.",
+    label: "Essencial",
+    desc: "Plano gratuito com 2 consultas IA NCM e 3 visualizações Intel Data.",
     price: "Grátis",
   },
   growth: {
     icon: Zap,
     color: "from-blue-600 to-cyan-600",
     label: "Growth",
-    desc: "Ferramentas básicas: IA NCM, HTS, Comparador, Simulador, Alíquotas.",
-    price: "R$ 397/mês",
-  },
-  professional: {
-    icon: Crown,
-    color: "from-red-500 to-rose-600",
-    label: "Professional",
-    desc: "Desbloqueie análises avançadas, alertas de tarifas, Smart Rank e mapa de importadores.",
-    price: "R$ 797/mês",
+    desc: "IA NCM ilimitada, Intel Data, Smart Rank e todas as ferramentas com tanque mensal.",
+    price: "R$ 289/mês",
   },
   business: {
-    icon: Shield,
+    icon: Crown,
     color: "from-slate-700 to-slate-900",
     label: "Business",
-    desc: "Acesso total + API customizada, limites personalizáveis e suporte prioritário.",
-    price: "Sob demanda",
+    desc: "Tudo ilimitado: IA NCM, Intel Data, exportação CSV/PDF e suporte prioritário.",
+    price: "R$ 3.200/mês",
   },
 };
 

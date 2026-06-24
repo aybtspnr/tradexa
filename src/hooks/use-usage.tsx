@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback, use
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
 import { showError } from "@/utils/toast";
-import { calculateCost, PLAN_COST_MULTIPLIER, PLAN_TANK, PLAN_LABELS, type ActionType, type PlanType } from "@/lib/usage-costs";
+import { calculateCost, PLAN_COST_MULTIPLIER, PLAN_TANK, PLAN_LABELS, sanitizePlan, type ActionType, type PlanType } from "@/lib/usage-costs";
 
 const LS_KEY = "tradexa_usage";
 
@@ -71,7 +71,8 @@ export function UsageProvider({ children }: { children: React.ReactNode }) {
   const [supabaseOk, setSupabaseOk] = useState(true);
   const refreshTimer = useRef<NodeJS.Timeout | null>(null);
 
-  const plan: PlanType = (usage?.plan_type as PlanType) || (profile?.plan_type as PlanType) || "essential";
+  // Sanitiza plan_type do DB para o novo sistema (professional → growth, etc.)
+  const plan: PlanType = sanitizePlan(usage?.plan_type || profile?.plan_type || "essential");
   const multiplier = PLAN_COST_MULTIPLIER[plan] ?? 1.0;
   const tank = PLAN_TANK[plan] ?? 100;
 
@@ -80,7 +81,8 @@ export function UsageProvider({ children }: { children: React.ReactNode }) {
   const localUsed = localUsage?.used_percent || 0;
   const used = Math.max(supabaseUsed, localUsed);
 
-  const isLimited = true;
+  // Business: não é limitado (bypass total)
+  const isLimited = plan !== "business";
   const percentUsed = tank > 0 ? Math.min(100, (used / tank) * 100) : 0;
   const remaining = isLimited ? Math.max(0, tank - used) : 999999;
   const isNearLimit = isLimited && tank > 0 && used >= tank * 0.8;
@@ -97,14 +99,19 @@ export function UsageProvider({ children }: { children: React.ReactNode }) {
       if (error) { setSupabaseOk(false); setUsage(null); setLoading(false); return; }
       setSupabaseOk(true);
       if (!data) {
-        const defaults = { user_id: profile.id, plan_type: (profile.plan_type as PlanType) || "essential", used_percent: 0, tank_percent: tank, ai_queries_used: 0, reset_date: nextResetDate() };
+        const defaults = { user_id: profile.id, plan_type: sanitizePlan(profile.plan_type) || "essential", used_percent: 0, tank_percent: tank, ai_queries_used: 0, reset_date: nextResetDate() };
         try {
           const { data: created, error: createError } = await supabase.from("user_usage").upsert(defaults, { onConflict: "user_id" }).select().single();
           if (createError) { setSupabaseOk(false); }
           setUsage(created || null);
         } catch { setSupabaseOk(false); setUsage(null); }
       } else {
-        // If Supabase was reset externally (e.g. admin reset), clear stale localStorage
+        // Sanitize plan_type from DB
+        const sanitized = sanitizePlan(data.plan_type);
+        if (sanitized !== data.plan_type) {
+          await supabase.from("user_usage").update({ plan_type: sanitized }).eq("user_id", profile.id);
+          data.plan_type = sanitized;
+        }
         const supabaseUsed = data.used_percent || 0;
         const local = getLocalUsage();
         if (local && supabaseUsed < local.used_percent) {
@@ -132,8 +139,16 @@ export function UsageProvider({ children }: { children: React.ReactNode }) {
   const refresh = useCallback(() => { fetchUsage(); }, [fetchUsage]);
 
   const consume = useCallback(async (action: ActionType, opts?: { wordCount?: number }): Promise<boolean> => {
+    // Business: bypass total — não consome nada
+    if (plan === "business") return true;
+
     const baseCost = calculateCost(action, opts);
-    const cost = Math.round(baseCost * multiplier * 10) / 10;
+    // Multiplicador 0 = grátis (ferramentas gratuitas como HTS, Smart Rank, etc.)
+    const cost = multiplier === 0 ? 0 : Math.round(baseCost * multiplier * 10) / 10;
+
+    // Ferramentas gratuitas: não consomem tanque
+    if (cost <= 0) return true;
+
     const local = getLocalUsage();
     const currentLocalUsed = local?.used_percent || 0;
     const effectiveUsed = Math.max(currentLocalUsed, used);
@@ -142,7 +157,6 @@ export function UsageProvider({ children }: { children: React.ReactNode }) {
       showError(`Limite ${label} atingido (${effectiveUsed.toFixed(1)}% / ${tank}%). Faça upgrade!`);
       return false;
     }
-    // Always save to localStorage (works even without auth)
     saveLocalUsage(currentLocalUsed + cost, tank);
     setUsage(prev => prev ? { ...prev, used_percent: currentLocalUsed + cost } : { used_percent: currentLocalUsed + cost } as any);
     // Try Supabase only if authenticated
@@ -150,7 +164,7 @@ export function UsageProvider({ children }: { children: React.ReactNode }) {
       try {
         const currentSupabaseUsed = usage?.used_percent || 0;
         if (!usage?.id) {
-          const { data: created } = await supabase.from("user_usage").upsert({ user_id: profile.id, plan_type: (profile.plan_type as PlanType) || "essential", used_percent: Math.max(currentSupabaseUsed + cost, currentLocalUsed + cost), tank_percent: tank, ai_queries_used: action === "ai_query" ? 1 : 0, reset_date: nextResetDate() }, { onConflict: "user_id" }).select().single();
+          const { data: created } = await supabase.from("user_usage").upsert({ user_id: profile.id, plan_type: plan, used_percent: Math.max(currentSupabaseUsed + cost, currentLocalUsed + cost), tank_percent: tank, ai_queries_used: action === "ai_query" ? 1 : 0, reset_date: nextResetDate() }, { onConflict: "user_id" }).select().single();
           if (created) setUsage(created);
         } else {
           const updates: Record<string, any> = { used_percent: Math.max(currentSupabaseUsed + cost, currentLocalUsed + cost), updated_at: new Date().toISOString() };
@@ -164,7 +178,12 @@ export function UsageProvider({ children }: { children: React.ReactNode }) {
   }, [profile, multiplier, tank, used, plan, usage, supabaseOk]);
 
   const consumePercent = useCallback(async (percent: number): Promise<boolean> => {
-    const cost = Math.round(percent * multiplier * 10) / 10;
+    // Business: bypass total
+    if (plan === "business") return true;
+
+    const cost = multiplier === 0 ? 0 : Math.round(percent * multiplier * 10) / 10;
+    if (cost <= 0) return true;
+
     const local = getLocalUsage();
     const currentLocalUsed = local?.used_percent || 0;
     const effectiveUsed = Math.max(currentLocalUsed, used);
@@ -175,12 +194,11 @@ export function UsageProvider({ children }: { children: React.ReactNode }) {
     }
     saveLocalUsage(currentLocalUsed + cost, tank);
     setUsage(prev => prev ? { ...prev, used_percent: currentLocalUsed + cost } : { used_percent: currentLocalUsed + cost } as any);
-    // Sync to Supabase if authenticated
     if (profile && supabaseOk) {
       try {
         const currentSupabaseUsed = usage?.used_percent || 0;
         if (!usage?.id) {
-          const { data: created } = await supabase.from("user_usage").upsert({ user_id: profile.id, plan_type: (profile.plan_type as PlanType) || "essential", used_percent: Math.max(currentSupabaseUsed + cost, currentLocalUsed + cost), tank_percent: tank, ai_queries_used: 0, reset_date: nextResetDate() }, { onConflict: "user_id" }).select().single();
+          const { data: created } = await supabase.from("user_usage").upsert({ user_id: profile.id, plan_type: plan, used_percent: Math.max(currentSupabaseUsed + cost, currentLocalUsed + cost), tank_percent: tank, ai_queries_used: 0, reset_date: nextResetDate() }, { onConflict: "user_id" }).select().single();
           if (created) setUsage(created);
         } else {
           const { data } = await supabase.from("user_usage").update({ used_percent: Math.max(currentSupabaseUsed + cost, currentLocalUsed + cost), updated_at: new Date().toISOString() }).eq("user_id", profile.id).select().single();
@@ -192,24 +210,31 @@ export function UsageProvider({ children }: { children: React.ReactNode }) {
   }, [profile, multiplier, tank, used, plan, usage, supabaseOk]);
 
   const consumeAiQuery = useCallback(async (): Promise<boolean> => {
+    // Business: ilimitado
+    if (plan === "business") return true;
+
     const currentAi = usage?.ai_queries_used ?? 0;
+    // Essencial: limite fixo de 2 consultas IA/mês
     if (plan === "essential" && currentAi >= 2) {
-      showError("Limite de 2 consultas IA atingido no plano Essential. Faça upgrade!");
+      showError("Limite de 2 consultas IA atingido no plano Essencial. Faça upgrade!");
       return false;
     }
-    const cost = 8.0 * multiplier;
+
+    // Growth: usa o tanque com multiplicador
+    const baseCost = 8.0;
+    const cost = Math.round(baseCost * multiplier * 10) / 10;
+
     const local = getLocalUsage();
     const currentLocalUsed = local?.used_percent || 0;
     const effectiveUsed = Math.max(currentLocalUsed, used);
     if (effectiveUsed + cost > tank) { showError("Limite do plano atingido."); return false; }
     saveLocalUsage(currentLocalUsed + cost, tank);
     setUsage(prev => prev ? { ...prev, used_percent: currentLocalUsed + cost, ai_queries_used: currentAi + 1 } : { used_percent: currentLocalUsed + cost, ai_queries_used: currentAi + 1 } as any);
-    // Sync to Supabase if authenticated
     if (profile && supabaseOk) {
       try {
         const currentSupabaseUsed = usage?.used_percent || 0;
         if (!usage?.id) {
-          const { data: created } = await supabase.from("user_usage").upsert({ user_id: profile.id, plan_type: (profile.plan_type as PlanType) || "essential", used_percent: Math.max(currentSupabaseUsed + cost, currentLocalUsed + cost), tank_percent: tank, ai_queries_used: currentAi + 1, reset_date: nextResetDate() }, { onConflict: "user_id" }).select().single();
+          const { data: created } = await supabase.from("user_usage").upsert({ user_id: profile.id, plan_type: plan, used_percent: Math.max(currentSupabaseUsed + cost, currentLocalUsed + cost), tank_percent: tank, ai_queries_used: currentAi + 1, reset_date: nextResetDate() }, { onConflict: "user_id" }).select().single();
           if (created) setUsage(created);
         } else {
           const { data } = await supabase.from("user_usage").update({ used_percent: Math.max(currentSupabaseUsed + cost, currentLocalUsed + cost), ai_queries_used: currentAi + 1, updated_at: new Date().toISOString() }).eq("user_id", profile.id).select().single();
