@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "2026-06-08T12:36:55Z",
+  "ultima_atualizacao": "2026-06-22T12:28:13Z",
   "setores": [
     "Alimentos e Bebidas",
     "Agronegócio",
@@ -119,16 +119,6 @@
       "pais": "EUA",
       "setor": "Móveis e Decoração",
       "site": "https://www.highpointmarket.org/",
-      "brasilPavilhao": false,
-      "destaque": false
-    },
-    {
-      "nome": "Transport Logistic",
-      "data": "9-12 Jun",
-      "cidade": "Munique",
-      "pais": "Alemanha",
-      "setor": "Logística",
-      "site": "https://www.transportlogistic.de/",
       "brasilPavilhao": false,
       "destaque": false
     },

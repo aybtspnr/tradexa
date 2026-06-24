@@ -1,22 +1,22 @@
 {
-  "ultima_atualizacao": "2026-06-08T23:00:04.922526+00:00",
+  "ultima_atualizacao": "2026-06-24T11:19:52.724575+00:00",
   "moedas": {
     "USD": {
       "nome": "Dólar Americano",
       "codigo": "USD",
       "simbolo": "US$",
-      "compra": 5.1689,
-      "venda": 5.1695,
-      "data": "2026-06-08",
+      "compra": 5.1737,
+      "venda": 5.1743,
+      "data": "2026-06-23",
       "variacao": 0.0
     },
     "EUR": {
       "nome": "Euro",
       "codigo": "EUR",
       "simbolo": "€",
-      "compra": 5.9665,
-      "venda": 5.9682,
-      "data": "2026-06-08",
+      "compra": 5.8887,
+      "venda": 5.8904,
+      "data": "2026-06-23",
       "variacao": 0.0
     }
   }

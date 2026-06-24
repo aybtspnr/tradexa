@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "2026-06-08T12:36:59Z",
+  "ultima_atualizacao": "2026-06-24T13:46:18Z",
   "categorias": [
     "tarifas",
     "regulamentacao",
@@ -9,6 +9,30 @@
   ],
   "itens": {
     "tarifas": [
+      {
+        "titulo": "Painel Receita",
+        "fonte": "RECEITA FEDERAL",
+        "data": "16/06/2026",
+        "resumo": "Sem descrição disponível.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Webinar de comércio exterior debate drawback, reforma tributária e exportações",
+        "fonte": "MDIC",
+        "data": "16/06/2026",
+        "resumo": "Evento gratuito tratará de medidas de facilitação do comércio, estímulos às exportações e mudanças no ambiente regulatório",
+        "tag": "Drawback",
+        "link": "#"
+      },
+      {
+        "titulo": "Brasil é destaque na OMC por avanços no Portal Único de Comércio Exterior",
+        "fonte": "MDIC",
+        "data": "12/06/2026",
+        "resumo": "Durante revisão do Acordo de Facilitação do Comércio, país reforça protagonismo na facilitação do comércio com soluções que reduzem burocracia, custos e prazos para empresas exportadoras e importadoras",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
       {
         "titulo": "Mais empresas terão acesso aos recursos do Plano Brasil Soberano",
         "fonte": "MDIC",
@@ -24,33 +48,41 @@
         "resumo": "O acordo prevê redução gradual de tarifas para 91% dos produtos industrializados brasileiros exportados para a União Europeia.",
         "tag": "Acordo Comercial",
         "link": "#"
-      },
-      {
-        "titulo": "EUA anunciam novas tarifas de 25% sobre aço e alumínio",
-        "fonte": "JOTA",
-        "data": "25/05/2026",
-        "resumo": "Medida afeta exportações brasileiras de metais e pode impactar pauta de USD 2.3 bilhões em vendas para o mercado americano.",
-        "tag": "Tarifa",
-        "link": "#"
-      },
-      {
-        "titulo": "WTO aprova novo painel sobre subsídios agrícolas na Índia",
-        "fonte": "MDIC",
-        "data": "22/05/2026",
-        "resumo": "Decisão pode abrir caminho para compensações em setores como soja e algodão brasileiros afetados por subsídios indianos.",
-        "tag": "OMC",
-        "link": "#"
-      },
-      {
-        "titulo": "ACE 73 entre Mercosul e Singapura entra em vigor com novas concessões",
-        "fonte": "SECEX",
-        "data": "20/05/2026",
-        "resumo": "Acordo amplia preferências tarifárias para produtos agrícolas e industriais entre os países signatários.",
-        "tag": "Acordo Regional",
-        "link": "#"
       }
     ],
     "regulamentacao": [
+      {
+        "titulo": "Receita Federal atualiza regras do Adicional da CSLL no contexto das Regras GloBE",
+        "fonte": "RECEITA FEDERAL",
+        "data": "19/06/2026",
+        "resumo": "A iniciativa busca ampliar a segurança jurídica e alinhar a regulamentação brasileira às melhores práticas internacionais no enfrentamento da erosão da base tributária.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Receita Federal abre consulta pública sobre proposta de Instrução Normativa que consolida normas do despacho aduaneiro de importação",
+        "fonte": "RECEITA FEDERAL",
+        "data": "17/06/2026",
+        "resumo": "Contribuições poderão ser enviadas de 18 de junho a 8 de julho pela plataforma Brasil Participativo.",
+        "tag": "Importação",
+        "link": "#"
+      },
+      {
+        "titulo": "Receita Federal oficializa identidade do Programa Confia e reforça regras para uso da marca e do selo de conformidade Confia",
+        "fonte": "RECEITA FEDERAL",
+        "data": "12/06/2026",
+        "resumo": "Nova portaria padroniza a comunicação do programa e detalha regras para uso da marca e concessão do selo às empresas.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "MDIC fortalece o Selo Verde Brasil com nova norma para chapas laminadas de alumínio",
+        "fonte": "MDIC",
+        "data": "08/06/2026",
+        "resumo": "Norma técnica publicada pela ABNT estabelece critérios de sustentabilidade para classificação e certificação voluntária de chapas de aluminio e suas ligas",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
       {
         "titulo": "Nova Portaria SECEX regulamenta Drawback Integrado",
         "fonte": "SECEX",
@@ -58,59 +90,67 @@
         "resumo": "Medida simplifica processo de drawback para exportadores que utilizam insumos importados.",
         "tag": "Drawback",
         "link": "#"
-      },
-      {
-        "titulo": "RFB publica novas regras para habilitação no RADAR",
-        "fonte": "RECEITA FEDERAL",
-        "data": "27/05/2026",
-        "resumo": "Mudanças nos limites e requisitos para habilitação de importadores no sistema RADAR da Receita Federal.",
-        "tag": "RADAR",
-        "link": "#"
       }
     ],
     "mercados": [
       {
-        "titulo": "Macroprocesso 4: Inovação, agregação de valor, qualidade e competitividade aos produtos, serviços e setor produtivo brasileiro",
-        "fonte": "MDIC",
-        "data": "02/06/2026",
+        "titulo": "Receita Federal lança página do Painel Receita e amplia acesso a informações estratégicas para empresas",
+        "fonte": "RECEITA FEDERAL",
+        "data": "18/06/2026",
+        "resumo": "Nova ferramenta reúne orientações, indicadores, formas de acesso e detalhes sobre o serviço gratuito que transforma dados declarados pelas empresas em inteligência de mercado e benchmarks setoriais.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Receita Federal participa da Operação Conto da Sorte contra esquema de apostas ilegais",
+        "fonte": "RECEITA FEDERAL",
+        "data": "19/06/2026",
+        "resumo": "Operação cumpriu mandados em Pernambuco, Ceará e São Paulo para desarticular esquema de apostas irregulares; programação incluiu ainda a formalização de parceria entre a Receita Federal e o MPPE.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Operação Timber Shield revela esquema internacional e pode resultar na maior apreensão de cocaína do Brasil",
+        "fonte": "RECEITA FEDERAL",
+        "data": "21/06/2026",
+        "resumo": "Ação integrada resultou na retenção de 260 toneladas de madeira com indícios de ocultação de cocaína, em uma das maiores operações de combate ao narcotráfico já realizadas nas fronteiras brasileiras.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Lista de Devedores Contumazes",
+        "fonte": "RECEITA FEDERAL",
+        "data": "24/06/2026",
         "resumo": "Sem descrição disponível.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "MACROPROCESSOS FINALÍSTICOS",
+        "titulo": "79ª Reunião do Comitê de Alterações Tarifárias - CAT",
         "fonte": "MDIC",
-        "data": "02/06/2026",
-        "resumo": "Sem descrição disponível.",
-        "tag": "Comércio Exterior",
-        "link": "#"
-      },
-      {
-        "titulo": "Macroprocesso 7: Planejamento e gestão estratégica",
-        "fonte": "MDIC",
-        "data": "02/06/2026",
-        "resumo": "Sem descrição disponível.",
-        "tag": "Comércio Exterior",
-        "link": "#"
-      },
-      {
-        "titulo": "Macroprocesso 10: Gestão administrativa",
-        "fonte": "MDIC",
-        "data": "02/06/2026",
-        "resumo": "Sem descrição disponível.",
-        "tag": "Comércio Exterior",
-        "link": "#"
-      },
-      {
-        "titulo": "Macroprocesso 8: Gestão da integridade institucional",
-        "fonte": "MDIC",
-        "data": "02/06/2026",
+        "data": "18/06/2026",
         "resumo": "Sem descrição disponível.",
         "tag": "Comércio Exterior",
         "link": "#"
       }
     ],
     "logistica": [
+      {
+        "titulo": "Operação “Rota Clandestina” combate organização criminosa envolvida com contrabando de cigarros",
+        "fonte": "RECEITA FEDERAL",
+        "data": "16/06/2026",
+        "resumo": "Investigação identifica estrutura criminosa sofisticada com atuação em diversos estados brasileiros.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Receita Federal e PRF apreendem 20 toneladas de insumo utilizado na produção de cocaína",
+        "fonte": "RECEITA FEDERAL",
+        "data": "12/06/2026",
+        "resumo": "Produto químico não estava acompanhado da documentação e autorização necessárias para seu transporte.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
       {
         "titulo": "Receita Federal realiza busca aduaneira em navio atracado no Porto de Santos e intercepta 108 kg de cocaína",
         "fonte": "RECEITA FEDERAL",
@@ -134,54 +174,46 @@
         "resumo": "Índice de frete marítimo recua 4.2% na semana com normalização pós-Ano Novo Chinês.",
         "tag": "Frete Marítimo",
         "link": "#"
-      },
-      {
-        "titulo": "Maersk anuncia nova rota direta Brasil-Ásia com escala reduzida",
-        "fonte": "MAERSK",
-        "data": "29/05/2026",
-        "resumo": "Nova rota reduz tempo de trânsito Santos-Shanghai de 35 para 28 dias.",
-        "tag": "Nova Rota",
-        "link": "#"
       }
     ],
     "cambio": [
       {
-        "titulo": "Receita Federal lança novo portal do Sped no gov.br com navegação mais simples e moderna",
+        "titulo": "Receita Federal publica Manual do Programa Confia e reforça transparência para contribuintes",
         "fonte": "RECEITA FEDERAL",
-        "data": "01/06/2026",
-        "resumo": "Sped ganha interface renovada, mais acessível e alinhada às diretrizes de governo digital.",
+        "data": "18/06/2026",
+        "resumo": "Publicação detalha diretrizes do Confia e reforça ambiente de negócios mais transparente e previsível.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Receita Federal e Polícia Federal deflagram operação para apurar irregularidades envolvendo servidor público",
+        "titulo": "Operação Rede de Fumaça combate comércio ilegal de cigarros e cigarros eletrônicos",
         "fonte": "RECEITA FEDERAL",
-        "data": "02/06/2026",
-        "resumo": "Ação conjunta apura possíveis irregularidades envolvendo servidor público e intervenientes no comércio exterior,",
+        "data": "23/06/2026",
+        "resumo": "Servidores da Receita Federal atuam em todo o país, em parceria com a Agência de Vigilância Sanitária (Anvisa) e outros órgãos.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Receita Federal retém 148,2 kg de substância análoga à maconha",
+        "titulo": "Receita Federal inicia segunda fase da Operação Três Corpos e recolhe equipamentos de academia importados irregularmente",
         "fonte": "RECEITA FEDERAL",
-        "data": "02/06/2026",
-        "resumo": "Oculta em fundo falso de um veículo conduzido por um indivíduo paraguaio, a abordagem ocorreu na noite de 1º de junho.",
+        "data": "23/06/2026",
+        "resumo": "Ação realizada com apoio da Polícia Federal ocorre em Quaraí, Bagé e Uruguaiana/RS e visa dar cumprimento às medidas decorrentes da apreensão de equipamentos estrangeiros sem comprovação de regular importação.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Receita Federal e Polícia Rodoviária Federal firmam acordo para ampliar cooperação institucional",
+        "titulo": "Receita Federal lança página sobre Devedores Contumazes e amplia a transparência e o controle fiscal",
         "fonte": "RECEITA FEDERAL",
-        "data": "02/06/2026",
-        "resumo": "Parceria fortalece a integração entre os órgãos por meio do compartilhamento de conhecimentos, tecnologias e estratégias voltadas ao combate aos ilícitos e ao aprimoramento das ações de fiscalização e controle.",
-        "tag": "Acordo Comercial",
+        "data": "23/06/2026",
+        "resumo": "Ferramenta disponibiliza lista de devedores contumazes e orientações para acompanhamento e regularização fiscal.",
+        "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Receita Federal inicia nova edição da ação de conformidade “Insuficiência de Declaração e Recolhimento de IRPJ/CSLL”",
+        "titulo": "Operação Rede de Fumaça apreende mais de 25 mil cigarros eletrônicos proibidos",
         "fonte": "RECEITA FEDERAL",
-        "data": "03/06/2026",
-        "resumo": "Estímulo à autorregularização alcança mais de 29 mil empresas, com divergências de R$ 4,9 bilhões.",
+        "data": "23/06/2026",
+        "resumo": "Servidores da Receita Federal atuaram em todo o país, em parceria com Anvisa e outros órgãos.",
         "tag": "Comércio Exterior",
         "link": "#"
       }
