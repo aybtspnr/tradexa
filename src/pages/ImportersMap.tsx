@@ -199,10 +199,6 @@ export default function ImportersMap() {
   // ── Tab ──
   const [tab, setTab] = useState<TabType>("export");
 
-  // ── NCM filter ──
-  const [ncmInput, setNcmInput] = useState("");
-  const [ncmFilter, setNcmFilter] = useState("");
-
   // ── Data ──
   const [dataExport, setDataExport] = useState<TradeData | null>(null);
   const [dataImport, setDataImport] = useState<TradeData | null>(null);
@@ -252,14 +248,7 @@ export default function ImportersMap() {
     setError("");
 
     try {
-      const filters = ncmFilter ? (() => {
-        const v = ncmFilter.trim();
-        let filterName = "ncm";
-        if (/^\d{2}$/.test(v)) filterName = "chapter";
-        else if (/^\d{4}$/.test(v)) filterName = "heading";
-        else if (/^\d{6}$/.test(v)) filterName = "subHeading";
-        return [{ filter: filterName, values: [v] }];
-      })() : undefined;
+      const filters = undefined;
 
       // 1. Countries
       const countryResult = await comexstat.queryGeneral({
@@ -356,11 +345,23 @@ export default function ImportersMap() {
     } finally {
       setLoading(false);
     }
-  }, [periodParam, ncmFilter, consume]);
+  }, [periodParam, tab, consume]);
 
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    // Only auto-fetch on mount or when period changes
+    const hasData = tab === "export" ? dataExport !== null : dataImport !== null;
+    if (!hasData) {
+      fetchData();
+    }
+  }, [periodParam]);
+
+  // Fetch on tab switch if no cached data for that tab
+  useEffect(() => {
+    const hasData = tab === "export" ? dataExport !== null : dataImport !== null;
+    if (!hasData) {
+      fetchData();
+    }
+  }, [tab]);
 
   // ── Init MapLibre map ──
   useEffect(() => {
@@ -592,38 +593,49 @@ export default function ImportersMap() {
 
           <span className="w-px h-6 bg-slate-200 shrink-0" />
 
-          {/* NCM filter */}
+          {/* Período */}
           <div className="flex items-center gap-1.5 shrink-0">
-            <label className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 whitespace-nowrap">NCM</label>
-            <div className="relative flex items-center gap-1.5">
-              <Input value={ncmInput} onChange={e => setNcmInput(e.target.value)}
-                placeholder="Ex: 84 (capítulo)"
-                className="w-28 h-8 text-xs px-2.5 rounded-md border-slate-200"
-                onKeyDown={e => { if (e.key === "Enter" && ncmInput.length >= 2) setNcmFilter(ncmInput); }}
-              />
-              {ncmInput.length >= 2 && (
-                <button onClick={() => setNcmFilter(ncmInput)}
-                  className="text-[11px] font-bold text-[#D80E16] hover:text-[#b80c12]">
-                  OK
-                </button>
-              )}
-              {ncmFilter && (
-                <button onClick={() => { setNcmFilter(""); setNcmInput(""); }}
-                  className="text-[11px] text-slate-400 hover:text-red-500 flex items-center gap-1 ml-1">
-                  <X className="w-3 h-3" /> {ncmFilter}
-                </button>
-              )}
+            <label className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 whitespace-nowrap">Ano</label>
+            <div className="flex gap-1">
+              {(availableYears.length > 0 ? availableYears.filter(y => y !== 2024) : [2026, 2025]).slice(0, 2).map((y) => (
+                <button key={y} onClick={() => {
+                  if (period.mode === "full_year" && period.year === y) {
+                    setPeriod({ mode: "specific_month", year: y, month: period.month || 1 });
+                  } else {
+                    setPeriod({ mode: "full_year", year: y });
+                  }
+                }}
+                  className={cn("text-[11px] font-bold py-1.5 px-2.5 rounded border transition-all",
+                    (period.mode === "full_year" || period.mode === "specific_month") && period.year === y ? "bg-[#D80E16] text-white border-[#D80E16]" : "bg-white text-slate-500 border-slate-200 hover:border-slate-300"
+                  )}>{y}</button>
+              ))}
             </div>
+            {period.mode === "full_year" && period.year && (
+              <button onClick={() => setPeriod({ mode: "specific_month", year: period.year!, month: 1 })}
+                className="text-[11px] text-slate-400 hover:text-slate-600 underline whitespace-nowrap">mês</button>
+            )}
+            {period.mode === "specific_month" && period.year && (
+              <div className="flex gap-1">
+                {MONTHS_LABEL.map((m, i) => (
+                  <button key={i} onClick={() => {
+                    if (period.month === i + 1) setPeriod({ mode: "full_year", year: period.year! });
+                    else setPeriod({ mode: "specific_month", year: period.year!, month: i + 1 });
+                  }}
+                    className={cn("text-[10px] font-bold py-1.5 px-2 rounded border transition-all",
+                      period.month === i + 1 ? "bg-[#D80E16] text-white border-[#D80E16]" : "bg-white text-slate-500 border-slate-200 hover:border-slate-300"
+                    )}>{m}</button>
+                ))}
+              </div>
+            )}
           </div>
 
+          <span className="w-px h-6 bg-slate-200 shrink-0" />
+
           {/* Refresh */}
-          <div className="ml-auto flex items-center gap-2">
-            <Button onClick={fetchData} disabled={loading}
-              className="h-8 bg-[#D80E16] hover:bg-[#b80c12] text-white text-xs gap-1.5 rounded-lg px-3.5">
+          <Button onClick={fetchData} className="ml-auto flex items-center gap-2">
               {loading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Search className="h-3.5 w-3.5" />}
               {loading ? "Carregando..." : "Atualizar"}
             </Button>
-          </div>
         </div>
       </div>
 
@@ -816,11 +828,6 @@ export default function ImportersMap() {
             )}
           </Card>
         </div>
-      </div>
-
-      {/* ═══ Attribution ═══ */}
-      <div className="text-center pb-6 text-[10px] text-slate-400">
-        Dados: ComexStat (MDIC) | Mapa: © OpenStreetMap contributors | TRADEXA
       </div>
     </div>
   );
