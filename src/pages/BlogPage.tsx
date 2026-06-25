@@ -75,7 +75,7 @@ const activeTagColors: Record<string, string> = {
 
 // ─── Post Card ───
 function PostCard({ post, index }: { post: BlogPost; index: number }) {
-  const primaryTag = post.tags[0];
+  const primaryTag = (post.tags || [])[0];
   const CategoryIcon = categoryIcons[primaryTag] || FileText;
 
   return (
@@ -165,7 +165,7 @@ const toolCards = [
 function getCategories(posts: BlogPost[]): string[] {
   const freq = new Map<string, number>();
   for (const p of posts) {
-    for (const tag of p.tags) {
+    for (const tag of p.tags || []) {
       freq.set(tag, (freq.get(tag) || 0) + 1);
     }
   }
@@ -189,7 +189,7 @@ export default function BlogPage() {
 
     // Category filter
     if (activeCategory) {
-      result = result.filter((p) => p.tags.includes(activeCategory));
+      result = result.filter((p) => (p.tags || []).includes(activeCategory));
     }
 
     // Search filter
@@ -199,7 +199,7 @@ export default function BlogPage() {
         (p) =>
           p.title.toLowerCase().includes(q) ||
           p.excerpt.toLowerCase().includes(q) ||
-          p.tags.some((t) => t.toLowerCase().includes(q)),
+          (p.tags || []).some((t) => t.toLowerCase().includes(q)),
       );
     }
 

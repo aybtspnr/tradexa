@@ -817,7 +817,7 @@ function getRelatedPosts(current: BlogPost, allPosts: BlogPost[], count = 3): Bl
   const scored = allPosts
     .filter((p) => p.slug !== current.slug)
     .map((p) => {
-      const intersection = p.tags.filter((t) => current.tags.includes(t)).length;
+      const intersection = (p.tags || []).filter((t) => (current.tags || []).includes(t)).length;
       const score = intersection * 10 + (p.readTime === current.readTime ? 1 : 0);
       return { post: p, score };
     })
@@ -850,7 +850,7 @@ export default function BlogPostPage() {
   
   // Auto-generate tool cards for posts without hardcoded postTools
   const autoTools = useMemo(() => {
-    if (!post || tools.length > 0) return []; // only use auto when no hardcoded tools
+    if (!post || tools.length > 0 || !post.tags) return []; // only use auto when no hardcoded tools
     const seen = new Set<string>();
     const result: typeof tools = [];
     for (const tag of post.tags) {
@@ -871,7 +871,7 @@ export default function BlogPostPage() {
   
   // Auto-generate service cards from tags
   const services = useMemo(() => {
-    if (!post) return [];
+    if (!post || !post.tags) return [];
     const seen = new Set<string>();
     const result: { title: string; desc: string; route: string; icon: React.ElementType }[] = [];
     for (const tag of post.tags) {
@@ -897,7 +897,7 @@ export default function BlogPostPage() {
       ? `${post.title} | Blog TRADEXA`
       : "Post não encontrado | Blog TRADEXA",
     description: post?.excerpt || "",
-    keywords: post ? `blog, ${post.tags.join(", ")}, TRADEXA` : "",
+    keywords: post ? `blog, ${(post.tags || []).join(", ")}, TRADEXA` : "",
     canonical: post
       ? `https://www.tradexa.com.br/blog/${post.slug}`
       : undefined,
@@ -1006,7 +1006,7 @@ export default function BlogPostPage() {
             <header>
               {/* Tags + Date row */}
               <div className="flex flex-wrap items-center gap-3 mb-5">
-                {post.tags.slice(0, 3).map((tag) => (
+                {(post.tags || []).slice(0, 3).map((tag) => (
                   <Badge
                     key={tag}
                     className={`font-bold text-[10px] uppercase tracking-[0.15em] px-3 py-1 rounded-full border-0 ${
