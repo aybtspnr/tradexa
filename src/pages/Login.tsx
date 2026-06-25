@@ -11,11 +11,17 @@ import { supabase } from "@/integrations/supabase/client";
 import { showError, showSuccess } from "@/utils/toast";
 import Logo from "@/components/Logo";
 import { TurnstileWidget } from "@/components/TurnstileWidget";
+import { useSeo } from "@/hooks/use-seo";
 
 // Substitua pela Site Key real do Cloudflare Turnstile
 const TURNSTILE_SITE_KEY = "0x4AAAAAADe_AYE8-7mYGcrX";
 
 const Login = () => {
+  useSeo({
+    title: "Login — TRADEXA",
+    description: "Faça login na plataforma TRADEXA de inteligência comercial. Acesse dashboards de importação e exportação, classificação NCM com IA e tarifário global.",
+    keywords: "login tradexa, comércio exterior, inteligência comercial, importação, exportação",
+  });
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

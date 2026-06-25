@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import { CheckCircle, BarChart3, Search, Globe } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import Logo from "@/components/Logo";
+import { useSeo } from "@/hooks/use-seo";
 
 export default function ClientWelcome() {
+  useSeo({
+    title: "Bem-vindo — TRADEXA",
+    description: "Bem-vindo à TRADEXA. Comece a explorar ferramentas de inteligência comercial para importação e exportação.",
+    noIndex: true,
+  });
   const { profile } = useAuth();
   const displayName = profile?.company_name || profile?.email?.split("@")[0] || "usuário";
 

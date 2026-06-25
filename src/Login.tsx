@@ -11,8 +11,14 @@ import { motion } from "framer-motion";
 import { ArrowRight, Eye, EyeOff, Lock, Mail, UserPlus } from "lucide-react";
 import Logo from "@/components/Logo";
 import { trackEvent } from "@/lib/analytics";
+import { useSeo } from "@/hooks/use-seo";
 
 const Login = () => {
+  useSeo({
+    title: "Entrar — TRADEXA",
+    description: "Faça login na plataforma TRADEXA de inteligência comercial para importação e exportação com classificação NCM por IA, tarifário global e dashboards.",
+    keywords: "login tradexa, entrar, comércio exterior, inteligência comercial, importação, exportação",
+  });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);

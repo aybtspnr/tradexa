@@ -471,7 +471,7 @@ export default function MaritimeFreightMapPage() {
                 <TrendingUp className="w-3 h-3 text-slate-400" />
                 <span className="font-bold text-slate-700">WCI {wciData.wci.toLocaleString("en-US")}</span>
                 <span className={`${wciTrendColor} font-black`}>{wciTrendIcon}</span>
-                <span className="text-[9px] text-slate-400">preços indexados</span>
+                <span className="text-[9px] text-slate-400">Drewry WCI</span>
               </div>
             )}
             {/* Beta + Free badges */}

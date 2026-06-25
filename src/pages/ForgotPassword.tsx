@@ -11,8 +11,14 @@ import { ArrowLeft, Mail, CheckCircle, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { showError, showSuccess } from "@/utils/toast";
 import Logo from "@/components/Logo";
+import { useSeo } from "@/hooks/use-seo";
 
 const ForgotPassword = () => {
+  useSeo({
+    title: "Recuperar Senha — TRADEXA",
+    description: "Recupere sua senha da plataforma TRADEXA. Receba um link de redefinição no seu e-mail para acessar sua conta de inteligência comercial.",
+    keywords: "recuperar senha tradexa, redefinir senha, comércio exterior",
+  });
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);

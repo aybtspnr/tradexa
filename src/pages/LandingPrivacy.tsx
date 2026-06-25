@@ -8,8 +8,15 @@ import Logo from "@/components/Logo";
 import { Footer } from "./Index/components/Footer";
 import { ArrowLeft, Shield, Lock, Eye, Database, UserCheck, Mail } from "lucide-react";
 import { PremiumCard, PageTransition } from "@/components/premium";
+import { useSeo } from "@/hooks/use-seo";
 
 const Privacy = () => {
+  useSeo({
+    title: "Política de Privacidade — TRADEXA",
+    description: "Política de privacidade da TRADEXA. Saiba como coletamos, usamos e protegemos seus dados pessoais na plataforma de inteligência comercial.",
+    keywords: "privacidade tradexa, política privacidade, dados pessoais, LGPD, comércio exterior",
+    noIndex: false,
+  });
   const navigate = useNavigate();
 
   const sections = [

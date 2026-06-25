@@ -14,7 +14,7 @@ const SUPA_URL = process.env.SUPABASE_URL || "";
 const SUPA_ANON = process.env.SUPABASE_ANON_KEY || "";
 
 // Fallback default (used when Supabase is unreachable)
-const DEFAULT_WCI = 3969;
+const DEFAULT_WCI = 4166;
 
 interface WciResponse {
   wci: number;

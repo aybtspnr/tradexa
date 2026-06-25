@@ -8,8 +8,15 @@ import Logo from "@/components/Logo";
 import { Footer } from "./Index/components/Footer";
 import { ArrowLeft, CheckCircle2, Scale, Shield, FileText } from "lucide-react";
 import { PremiumCard, PageTransition } from "@/components/premium";
+import { useSeo } from "@/hooks/use-seo";
 
 const Terms = () => {
+  useSeo({
+    title: "Termos de Uso — TRADEXA",
+    description: "Termos de uso da plataforma TRADEXA. Leia as condições gerais para utilização dos serviços de inteligência comercial e logística internacional.",
+    keywords: "termos de uso tradexa, condições serviço, comércio exterior, plataforma importação",
+    noIndex: false,
+  });
   const navigate = useNavigate();
 
   const sections = [

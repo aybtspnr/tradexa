@@ -11,10 +11,16 @@ import { supabase } from "@/integrations/supabase/client";
 import { showError, showSuccess } from "@/utils/toast";
 import Logo from "@/components/Logo";
 import { TurnstileWidget } from "@/components/TurnstileWidget";
+import { useSeo } from "@/hooks/use-seo";
 
 const TURNSTILE_SITE_KEY = "0x4AAAAAADe_AYE8-7mYGcrX";
 
 const Register = () => {
+  useSeo({
+    title: "Criar Conta — TRADEXA",
+    description: "Crie sua conta grátis na TRADEXA e tenha acesso a inteligência comercial para importação e exportação: classificação NCM com IA, tarifário global e dashboards.",
+    keywords: "criar conta tradexa, cadastro, comércio exterior, plataforma importação, classificação NCM",
+  });
   const navigate = useNavigate();
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");

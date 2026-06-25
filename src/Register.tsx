@@ -24,8 +24,14 @@ import {
 import Logo from "@/components/Logo";
 import { useFormatters } from "@/hooks/use-formatters";
 import { usePasswordStrength } from "@/hooks/use-password-strength";
+import { useSeo } from "@/hooks/use-seo";
 
 const Register = () => {
+  useSeo({
+    title: "Criar Conta Grátis — TRADEXA",
+    description: "Crie sua conta grátis na TRADEXA. Acesse classificação NCM com IA, tarifário global de 31 países e dashboards de comércio exterior.",
+    keywords: "cadastro tradexa, conta grátis, comércio exterior, importação, exportação, classificação NCM",
+  });
   const [accountType, setAccountType] = useState<"individual" | "company">(
     "individual"
   );

@@ -20,8 +20,14 @@ import {
 import { PremiumCard, PremiumButton, PageTransition } from "@/components/premium";
 import { useState } from "react";
 import { showSuccess } from "@/utils/toast";
+import { useSeo } from "@/hooks/use-seo";
 
 const ApiDocs = () => {
+  useSeo({
+    title: "API — Documentação para Desenvolvedores | TRADEXA",
+    description: "Documentação completa da API TRADEXA. Integre-se à plataforma de inteligência comercial para importação e exportação com cotações, rastreamento e dados de comércio exterior.",
+    keywords: "api tradexa, documentação api, integração comércio exterior, api frete, api rastreamento",
+  });
   const navigate = useNavigate();
   const [copiedEndpoint, setCopiedEndpoint] = useState<string | null>(null);
 

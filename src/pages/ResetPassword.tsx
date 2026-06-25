@@ -11,8 +11,14 @@ import { Eye, EyeOff, Lock, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { showError, showSuccess } from "@/utils/toast";
 import Logo from "@/components/Logo";
+import { useSeo } from "@/hooks/use-seo";
 
 const ResetPassword = () => {
+  useSeo({
+    title: "Nova Senha — TRADEXA",
+    description: "Defina sua nova senha da plataforma TRADEXA. Crie uma senha forte para acessar sua conta de inteligência comercial.",
+    keywords: "nova senha tradexa, redefinir senha, comércio exterior",
+  });
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);

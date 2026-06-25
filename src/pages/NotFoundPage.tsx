@@ -5,8 +5,14 @@ import { motion } from "framer-motion";
 import { ArrowRight, Home, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/SiteLayout";
+import { useSeo } from "@/hooks/use-seo";
 
 export default function NotFoundPage() {
+  useSeo({
+    title: "Página Não Encontrada — TRADEXA",
+    description: "A página que você procura não foi encontrada. Volte à página inicial da TRADEXA ou explore nossas ferramentas de inteligência comercial.",
+    noIndex: true,
+  });
   return (
     <SiteLayout>
       <div className="min-h-[70vh] flex items-center justify-center px-4 py-20">

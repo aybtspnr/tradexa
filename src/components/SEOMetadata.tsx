@@ -81,7 +81,7 @@ export default function SEOMetadata({
           name: "TRADEXA",
           logo: {
             "@type": "ImageObject",
-            url: `${SITE_URL}/favicon.svg`,
+            url: `${SITE_URL}/favicon.ico`,
           },
         },
         datePublished: new Date().toISOString().split("T")[0],
@@ -113,7 +113,7 @@ export default function SEOMetadata({
         "@type": "Organization",
         name: "TRADEXA Market Intelligence",
         url: SITE_URL,
-        logo: `${SITE_URL}/favicon.svg`,
+        logo: `${SITE_URL}/favicon.ico`,
         description: fullOgDescription,
         sameAs: [
           "https://www.linkedin.com/company/tradexa",

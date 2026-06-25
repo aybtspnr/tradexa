@@ -9,12 +9,19 @@ import { JourneysSection } from "./Index/components/JourneysSection";
 import { MarketsSection } from "./Index/components/MarketsSection";
 import { Header } from "./Index/components/Header";
 import { Footer } from "./Index/components/Footer";
+import { ParticleCanvasThemed } from "@/components/3d";
 import { HowItWorksSection } from "@/components/sections/HowItWorks";
 import { FAQSection } from "@/components/sections/FAQ";
 import { CTASection } from "@/components/sections/CTASection";
 import { CustomerSegmentsSection } from "@/components/sections/CustomerSegments";
+import { useSeo } from "@/hooks/use-seo";
 
 const Index = () => {
+  useSeo({
+    title: "TRADEXA — Plataforma de Inteligência Comercial",
+    description: "Plataforma completa de comércio exterior com classificação NCM por IA, tarifário global de 31 países, rastreamento de cargas ao vivo e diretório de importadores.",
+    keywords: "comércio exterior, classificação NCM, importação, exportação, inteligência comercial, tarifas, frete marítimo, TRADEXA",
+  });
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
