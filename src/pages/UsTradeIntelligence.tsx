@@ -238,7 +238,7 @@ function ResultCard({
       >
         <div
           className={cn(
-            "bg-white rounded-2xl border transition-all duration-300",
+            "bg-white rounded-2xl overflow-hidden border transition-all duration-300",
             selected
               ? "border-[#D80E16]/40 shadow-md shadow-red-200/20"
               : "hover:shadow-lg hover:border-[#D80E16]/20",
@@ -281,19 +281,19 @@ function ResultCard({
 
               {/* Rates column */}
               {!isHeader && !isSuperior && hasRates && (
-                <div className="flex gap-2 shrink-0">
+                <div className="flex flex-col sm:flex-row gap-1.5 sm:gap-2 shrink-0 min-w-0 max-w-full">
                   {record.general && (
                     <div className="text-right">
                       <span className="text-[7px] font-black uppercase tracking-[0.15em] text-amber-600 block leading-none mb-0.5">MFN</span>
-                      <span className={cn("text-[11px] font-black px-2 py-0.5 rounded-md border", rateColor(record.general))}>
-                        {record.general}
+                      <span className={cn("text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-md border whitespace-nowrap", rateColor(record.general))}>
+                        {record.general.length > 8 ? record.general.substring(0, 8) + "..." : record.general}
                       </span>
                     </div>
                   )}
                   {record.special && record.special !== record.general && (
                     <div className="text-right">
                       <span className="text-[7px] font-black uppercase tracking-[0.15em] text-emerald-600 block leading-none mb-0.5">Esp.</span>
-                      <span className="text-[11px] font-black px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      <span className="text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 max-w-[180px] truncate block">
                         {record.special}
                       </span>
                     </div>
@@ -301,8 +301,8 @@ function ResultCard({
                   {record.other && (
                     <div className="text-right">
                       <span className="text-[7px] font-black uppercase tracking-[0.15em] text-red-600 block leading-none mb-0.5">Col.2</span>
-                      <span className="text-[11px] font-black px-2 py-0.5 rounded-md bg-red-50 text-red-700 border border-red-200">
-                        {record.other}
+                      <span className={cn("text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-md border", rateColor(record.other))}>
+                        {record.other.length > 10 ? record.other.substring(0, 10) + "..." : record.other}
                       </span>
                     </div>
                   )}
@@ -321,10 +321,10 @@ function ResultCard({
             {/* Description */}
             <p
               className={cn(
-                "text-[13px] font-semibold leading-snug",
+                "text-[13px] font-semibold leading-snug break-words",
                 isSuperior ? "text-purple-800" : "text-[#0F111A]",
               )}
-              style={{ paddingLeft: indent > 0 ? `${Math.min(indent, 6) * 16}px` : "0" }}
+              style={{ paddingLeft: indent > 0 ? `${Math.min(indent, 4) * 16}px` : "0" }}
             >
               {record.description}
             </p>
@@ -337,8 +337,8 @@ function ResultCard({
                 </span>
               )}
               {record.special && (
-                <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
-                  Especial: <span className="font-black">{record.special}</span>
+                <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200 max-w-full">
+                  Especial: <span className="font-black break-all">{record.special}</span>
                 </span>
               )}
               {record.other && (
@@ -797,9 +797,9 @@ const UsTradeIntelligence = () => {
         {/* ═══ SEARCH ═══ */}
         <SpotlightCard className="rounded-2xl">
           <div className="bg-white border border-slate-200/60 rounded-2xl overflow-hidden shadow-sm">
-            <div className="p-6 space-y-4">
+            <div className="p-4 sm:p-6 space-y-4">
               <div className="flex flex-col sm:flex-row gap-3">
-                <div className="flex-1 relative">
+                <div className="flex-1 relative min-w-0">
                   <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-1 pointer-events-none z-10">
                     <Search className="w-5 h-5 text-slate-400" />
                   </div>
@@ -816,7 +816,7 @@ const UsTradeIntelligence = () => {
                   disabled={loading}
                   variant="primary"
                   size="lg"
-                  className="shadow-lg shadow-red-200/50 h-14 min-w-[140px]"
+                  className="shadow-lg shadow-red-200/50 h-14 w-full sm:w-auto sm:min-w-[140px]"
                 >
                   {loading ? (
                     <><Loader2 className="w-4 h-4 animate-spin" /> Buscando...</>
@@ -887,11 +887,11 @@ const UsTradeIntelligence = () => {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center justify-between"
+                className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
               >
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-gradient-to-br from-[#D80E16] to-rose-600 rounded-xl flex items-center justify-center shadow-md shadow-red-200/40">
+                    <div className="w-8 h-8 bg-gradient-to-br from-[#D80E16] to-rose-600 rounded-xl flex items-center justify-center shadow-md shadow-red-200/40 shrink-0">
                       <Trophy className="w-4 h-4 text-white" />
                     </div>
                     <div>
@@ -989,7 +989,7 @@ const UsTradeIntelligence = () => {
                   </div>
 
                   {/* ImportInfo: Top US Importers */}
-                  <Card className="border border-slate-200 rounded-2xl shadow-sm">
+                  <Card className="border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
                     <CardContent className="p-5 space-y-4">
                       <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
                         <Building2 className="w-5 h-5 text-[#D80E16]" />
@@ -1002,41 +1002,43 @@ const UsTradeIntelligence = () => {
                           <p className="text-sm font-bold text-slate-600">Nenhum importador encontrado para este SH6.</p>
                         </div>
                       )}
-                      {!loadingImport && importCompanies.length > 0 && (
-                        <div className="space-y-2">
-                          {importCompanies.slice(0, 10).map((company, i) => (
-                            <motion.div
-                              key={company.slug}
-                              initial={{ opacity: 0, y: 8 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: i * 0.04 }}
-                              className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-slate-50 transition-colors"
-                            >
-                              <div className="w-8 h-8 rounded-lg bg-[#D80E16]/10 flex items-center justify-center text-[#D80E16] font-bold text-sm">
-                                {i + 1}
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <p className="font-bold text-slate-900 text-sm truncate">{company.name}</p>
-                                <p className="text-xs text-slate-500">
-                                  {company.bol_count} BOLs &middot; {company.buyer_count} compradores
-                                </p>
-                              </div>
-                              <div className="text-right shrink-0">
-                                <span className="text-xs font-bold text-slate-600">
-                                  {company.origin_ports.slice(0, 2).join(", ") || "N/A"}
-                                </span>
-                              </div>
-                            </motion.div>
-                          ))}
+                        {!loadingImport && importCompanies.length > 0 && (
+                          <div className="space-y-2">
+                            {importCompanies.slice(0, 10).map((company, i) => (
+                              <motion.div
+                                key={company.slug}
+                                initial={{ opacity: 0, y: 8 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: i * 0.04 }}
+                                className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-3 sm:p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+                              >
+                                <div className="flex items-center gap-3 sm:gap-4">
+                                  <div className="w-8 h-8 rounded-lg bg-[#D80E16]/10 flex items-center justify-center text-[#D80E16] font-bold text-sm shrink-0">
+                                    {i + 1}
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <p className="font-bold text-slate-900 text-sm truncate">{company.name}</p>
+                                    <p className="text-xs text-slate-500">
+                                      {company.bol_count} BOLs &middot; {company.buyer_count} compradores
+                                    </p>
+                                  </div>
+                                </div>
+                                <div className="text-left sm:text-right shrink-0 ml-11 sm:ml-0">
+                                  <span className="text-xs font-bold text-slate-600">
+                                    {company.origin_ports.slice(0, 2).join(", ") || "N/A"}
+                                  </span>
+                                </div>
+                              </motion.div>
+                            ))}
                         </div>
                       )}
                     </CardContent>
                   </Card>
 
                   {/* Census Data Section */}
-                  <Card className="border border-slate-200 rounded-2xl shadow-sm">
+                  <Card className="border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
                     <CardContent className="p-5 space-y-4">
-                      <div className="flex items-center justify-between gap-2 flex-wrap">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                         <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
                           <BarChart3 className="w-5 h-5 text-[#D80E16]" />
                           US Census &mdash; Import Data 2026
@@ -1079,7 +1081,7 @@ const UsTradeIntelligence = () => {
                             </div>
                             <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl p-4 border border-slate-200">
                               <p className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">Participacao Brasil</p>
-                              <div className="flex items-center gap-2 mt-1">
+                              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 mt-1">
                                 <p className="text-lg font-black text-slate-900">{formatCurrency(censusAnalysis.brazilValue)}</p>
                                 <BrazilShareBadge total={censusAnalysis.totalValue} brazil={censusAnalysis.brazilValue} />
                               </div>
@@ -1143,7 +1145,7 @@ const UsTradeIntelligence = () => {
 
                   {/* Recent BOLs table */}
                   {expandedCompany && (
-                    <Card className="border border-slate-200 rounded-2xl shadow-sm">
+                    <Card className="border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
                       <CardContent className="p-5 space-y-4">
                         <div className="flex items-center justify-between">
                           <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
@@ -1167,29 +1169,31 @@ const UsTradeIntelligence = () => {
                           </div>
                         )}
                         {!loadingBols && bols.length > 0 && (
-                          <div className="overflow-x-auto -mx-5">
-                            <table className="w-full text-left">
-                              <thead>
-                                <tr className="border-b border-slate-100">
-                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Data</th>
-                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Vessel</th>
-                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Porto US</th>
-                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Porto Origem</th>
-                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500 text-right">Peso (kg)</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                {bols.slice(0, 20).map((bol, i) => (
-                                  <tr key={i} className="border-b border-slate-50 hover:bg-slate-50/50 transition-colors">
-                                    <td className="px-5 py-3 text-xs font-medium text-slate-800">{bol.arrival_date || bol.run_date}</td>
-                                    <td className="px-5 py-3 text-xs font-medium text-slate-700 max-w-[120px] truncate">{bol.vessel}</td>
-                                    <td className="px-5 py-3 text-xs text-slate-600">{bol.us_port}</td>
-                                    <td className="px-5 py-3 text-xs text-slate-600">{bol.foreign_port}</td>
-                                    <td className="px-5 py-3 text-xs font-bold text-right text-slate-800">{formatWeight(bol.weight_kg)}</td>
+                          <div className="overflow-x-auto -mx-5 px-0">
+                            <div className="min-w-[500px]">
+                              <table className="w-full text-left">
+                                <thead>
+                                  <tr className="border-b border-slate-100">
+                                    <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Data</th>
+                                    <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Vessel</th>
+                                    <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Porto US</th>
+                                    <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Porto Origem</th>
+                                    <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500 text-right">Peso (kg)</th>
                                   </tr>
-                                ))}
-                              </tbody>
-                            </table>
+                                </thead>
+                                <tbody>
+                                  {bols.slice(0, 20).map((bol, i) => (
+                                    <tr key={i} className="border-b border-slate-50 hover:bg-slate-50/50 transition-colors">
+                                      <td className="px-5 py-3 text-xs font-medium text-slate-800 whitespace-nowrap">{bol.arrival_date || bol.run_date}</td>
+                                      <td className="px-5 py-3 text-xs font-medium text-slate-700 max-w-[120px] truncate">{bol.vessel}</td>
+                                      <td className="px-5 py-3 text-xs text-slate-600">{bol.us_port}</td>
+                                      <td className="px-5 py-3 text-xs text-slate-600">{bol.foreign_port}</td>
+                                      <td className="px-5 py-3 text-xs font-bold text-right text-slate-800 whitespace-nowrap">{formatWeight(bol.weight_kg)}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
                           </div>
                         )}
                       </CardContent>
@@ -1239,7 +1243,7 @@ const UsTradeIntelligence = () => {
                   </SpotlightCard>
 
                   {/* Companies List */}
-                  <Card className="border border-slate-200 rounded-2xl shadow-sm">
+                  <Card className="border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
                     <CardContent className="p-5 space-y-4">
                       <div className="flex items-center justify-between gap-2 flex-wrap">
                         <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
@@ -1264,73 +1268,75 @@ const UsTradeIntelligence = () => {
                       )}
 
                       {!loadingImport && importCompanies.length > 0 && (
-                        <div className="overflow-x-auto -mx-5">
-                          <table className="w-full text-left">
-                            <thead>
-                              <tr className="border-b border-slate-100">
-                                <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">#</th>
-                                <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Empresa</th>
-                                <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">BOLs</th>
-                                <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Compradores</th>
-                                <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Portos</th>
-                                <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500"></th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {importCompanies.map((company, i) => (
-                                <motion.tr
-                                  key={company.slug}
-                                  initial={{ opacity: 0, y: 6 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: i * 0.03 }}
-                                  className={cn(
-                                    "border-b border-slate-50 transition-colors",
-                                    expandedCompany === company.slug ? "bg-[#D80E16]/5" : "hover:bg-slate-50/50",
-                                  )}
-                                >
-                                  <td className="px-5 py-4 text-xs font-black text-slate-400">{i + 1}</td>
-                                  <td className="px-5 py-4">
-                                    <p className="text-sm font-bold text-slate-900 truncate max-w-[200px]">{company.name}</p>
-                                    {company.commodities.length > 0 && (
-                                      <p className="text-[10px] text-slate-500 truncate max-w-[200px]">{company.commodities.slice(0, 2).join(", ")}</p>
+                        <div className="overflow-x-auto -mx-5 px-0">
+                          <div className="min-w-[500px]">
+                            <table className="w-full text-left">
+                              <thead>
+                                <tr className="border-b border-slate-100">
+                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">#</th>
+                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Empresa</th>
+                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">BOLs</th>
+                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Compradores</th>
+                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Portos</th>
+                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500"></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {importCompanies.map((company, i) => (
+                                  <motion.tr
+                                    key={company.slug}
+                                    initial={{ opacity: 0, y: 6 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: i * 0.03 }}
+                                    className={cn(
+                                      "border-b border-slate-50 transition-colors",
+                                      expandedCompany === company.slug ? "bg-[#D80E16]/5" : "hover:bg-slate-50/50",
                                     )}
-                                  </td>
-                                  <td className="px-5 py-4">
-                                    <span className="text-sm font-black text-slate-900">{formatNumber(company.bol_count)}</span>
-                                  </td>
-                                  <td className="px-5 py-4">
-                                    <span className="text-sm font-bold text-slate-700">{company.buyer_count}</span>
-                                    {company.top_buyers.length > 0 && (
-                                      <p className="text-[9px] text-slate-500 truncate max-w-[120px]">{company.top_buyers.slice(0, 2).join(", ")}</p>
-                                    )}
-                                  </td>
-                                  <td className="px-5 py-4">
-                                    <div className="flex flex-col gap-0.5">
-                                      {company.dest_ports.slice(0, 2).map((p, pi) => (
-                                        <span key={pi} className="text-[10px] font-medium text-slate-600">{p}</span>
-                                      ))}
-                                    </div>
-                                  </td>
-                                  <td className="px-5 py-4 text-right">
-                                    <Button
-                                      variant="ghost"
-                                      size="sm"
-                                      onClick={() => handleLoadBols(company.slug)}
-                                      className="text-[10px] font-bold h-8 px-2 rounded-lg"
-                                    >
-                                      {loadingBols && expandedCompany === company.slug ? (
-                                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                                      ) : expandedCompany === company.slug ? (
-                                        <ChevronUp className="w-3.5 h-3.5" />
-                                      ) : (
-                                        <ChevronDown className="w-3.5 h-3.5" />
+                                  >
+                                    <td className="px-5 py-4 text-xs font-black text-slate-400">{i + 1}</td>
+                                    <td className="px-5 py-4">
+                                      <p className="text-sm font-bold text-slate-900 truncate max-w-[200px]">{company.name}</p>
+                                      {company.commodities.length > 0 && (
+                                        <p className="text-[10px] text-slate-500 truncate max-w-[200px]">{company.commodities.slice(0, 2).join(", ")}</p>
                                       )}
-                                    </Button>
-                                  </td>
-                                </motion.tr>
-                              ))}
-                            </tbody>
-                          </table>
+                                    </td>
+                                    <td className="px-5 py-4">
+                                      <span className="text-sm font-black text-slate-900">{formatNumber(company.bol_count)}</span>
+                                    </td>
+                                    <td className="px-5 py-4">
+                                      <span className="text-sm font-bold text-slate-700">{company.buyer_count}</span>
+                                      {company.top_buyers.length > 0 && (
+                                        <p className="text-[9px] text-slate-500 truncate max-w-[120px]">{company.top_buyers.slice(0, 2).join(", ")}</p>
+                                      )}
+                                    </td>
+                                    <td className="px-5 py-4">
+                                      <div className="flex flex-col gap-0.5">
+                                        {company.dest_ports.slice(0, 2).map((p, pi) => (
+                                          <span key={pi} className="text-[10px] font-medium text-slate-600">{p}</span>
+                                        ))}
+                                      </div>
+                                    </td>
+                                    <td className="px-5 py-4 text-right">
+                                      <Button
+                                        variant="ghost"
+                                        size="sm"
+                                        onClick={() => handleLoadBols(company.slug)}
+                                        className="text-[10px] font-bold h-8 px-2 rounded-lg"
+                                      >
+                                        {loadingBols && expandedCompany === company.slug ? (
+                                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                        ) : expandedCompany === company.slug ? (
+                                          <ChevronUp className="w-3.5 h-3.5" />
+                                        ) : (
+                                          <ChevronDown className="w-3.5 h-3.5" />
+                                        )}
+                                      </Button>
+                                    </td>
+                                  </motion.tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       )}
                     </CardContent>
@@ -1346,37 +1352,39 @@ const UsTradeIntelligence = () => {
                         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <Card className="border border-slate-200 rounded-2xl shadow-sm">
+                        <Card className="border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
                           <CardContent className="p-5 space-y-4">
                             <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
                               <Ship className="w-5 h-5 text-[#D80E16]" />
                               BOLs Detalhados — {expandedCompany}
                             </h3>
-                            <div className="overflow-x-auto -mx-5">
-                              <table className="w-full text-left">
-                                <thead>
-                                  <tr className="border-b border-slate-100">
-                                    <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Data</th>
-                                    <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">BOL</th>
-                                    <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Navio</th>
-                                    <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Porto US</th>
-                                    <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Origem</th>
-                                    <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500 text-right">Peso</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {bols.slice(0, 15).map((bol, i) => (
-                                    <tr key={i} className="border-b border-slate-50 hover:bg-slate-50/50 transition-colors">
-                                      <td className="px-5 py-3 text-xs font-medium text-slate-800 whitespace-nowrap">{bol.arrival_date || bol.run_date}</td>
-                                      <td className="px-5 py-3 text-[10px] font-mono text-slate-600 max-w-[100px] truncate">{bol.master_bol}</td>
-                                      <td className="px-5 py-3 text-xs font-medium text-slate-700 max-w-[100px] truncate">{bol.vessel}</td>
-                                      <td className="px-5 py-3 text-xs text-slate-600">{bol.us_port}</td>
-                                      <td className="px-5 py-3 text-xs text-slate-600">{bol.foreign_port}</td>
-                                      <td className="px-5 py-3 text-xs font-bold text-right text-slate-800 whitespace-nowrap">{formatWeight(bol.weight_kg)}</td>
+                            <div className="overflow-x-auto -mx-5 px-0">
+                              <div className="min-w-[550px]">
+                                <table className="w-full text-left">
+                                  <thead>
+                                    <tr className="border-b border-slate-100">
+                                      <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Data</th>
+                                      <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">BOL</th>
+                                      <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Navio</th>
+                                      <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Porto US</th>
+                                      <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Origem</th>
+                                      <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500 text-right">Peso</th>
                                     </tr>
-                                  ))}
-                                </tbody>
-                              </table>
+                                  </thead>
+                                  <tbody>
+                                    {bols.slice(0, 15).map((bol, i) => (
+                                      <tr key={i} className="border-b border-slate-50 hover:bg-slate-50/50 transition-colors">
+                                        <td className="px-5 py-3 text-xs font-medium text-slate-800 whitespace-nowrap">{bol.arrival_date || bol.run_date}</td>
+                                        <td className="px-5 py-3 text-[10px] font-mono text-slate-600 max-w-[100px] truncate">{bol.master_bol}</td>
+                                        <td className="px-5 py-3 text-xs font-medium text-slate-700 max-w-[100px] truncate">{bol.vessel}</td>
+                                        <td className="px-5 py-3 text-xs text-slate-600">{bol.us_port}</td>
+                                        <td className="px-5 py-3 text-xs text-slate-600">{bol.foreign_port}</td>
+                                        <td className="px-5 py-3 text-xs font-bold text-right text-slate-800 whitespace-nowrap">{formatWeight(bol.weight_kg)}</td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
                             </div>
                             {bols.length > 15 && (
                               <p className="text-[10px] font-bold text-slate-500 text-center">
@@ -1402,11 +1410,11 @@ const UsTradeIntelligence = () => {
         {/* ═══ EMPTY STATE ═══ */}
         {!loading && results.length === 0 && searched && (
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm p-12 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl mb-4 border border-amber-200">
-                <Search className="w-8 h-8 text-amber-500" />
+            <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm p-6 sm:p-12 text-center">
+              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl mb-4 border border-amber-200">
+                <Search className="w-6 h-6 sm:w-8 sm:h-8 text-amber-500" />
               </div>
-              <h3 className="text-xl font-black text-slate-900 mb-2">
+              <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-2">
                 Nenhum resultado
               </h3>
               <p className="text-sm font-medium text-slate-500 max-w-md mx-auto leading-relaxed">
@@ -1430,11 +1438,11 @@ const UsTradeIntelligence = () => {
         {/* ═══ INITIAL STATE ═══ */}
         {!loading && results.length === 0 && !searched && (
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl overflow-hidden shadow-xl p-10 text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-2xl mb-5 border border-white/10 backdrop-blur-sm">
-                <Globe className="w-10 h-10 text-white/60" />
+            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl overflow-hidden shadow-xl p-6 sm:p-10 text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white/10 rounded-2xl mb-5 border border-white/10 backdrop-blur-sm">
+                <Globe className="w-8 h-8 sm:w-10 sm:h-10 text-white/60" />
               </div>
-              <h2 className="text-2xl font-black text-white mb-3">
+              <h2 className="text-xl sm:text-2xl font-black text-white mb-3">
                 Inteligencia EUA
               </h2>
               <p className="text-sm font-medium text-slate-400 max-w-lg mx-auto leading-relaxed mb-6">
