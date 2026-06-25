@@ -47,7 +47,7 @@ def escape_meta(s):
 def build_meta_entry(p):
     slug, title, excerpt, read_time, tags = p
     tags_str = ", ".join(f'"{t}"' for t in tags)
-    return f'  {{ slug: "{slug}", title: "{escape_meta(title)}", excerpt: "{escape_meta(excerpt)}", date: "{DATE}", readTime: {read_time}, tags: [{tags_str}] }}'
+    return f'  {{ slug: "{slug}", title: "{escape_meta(title)}", excerpt: "{escape_meta(excerpt)}", date: "{DATE}", readTime: {read_time}, tags: [{tags_str}] }},'
 
 def build_content_map_entry(p):
     slug = p[0]
