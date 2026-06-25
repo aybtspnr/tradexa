@@ -178,8 +178,8 @@ function convertAllToHtml(contentMap) {
   let h2Added = 0;
   for (const [slug, html] of Object.entries(result)) {
     if (!html) continue;
-    const hasH2 = /<h2[\\s>]/i.test(html);
-    const hasH3 = /<h3[\\s>]/i.test(html);
+    const hasH2 = /<h2[\s>]/i.test(html);
+    const hasH3 = /<h3[\s>]/i.test(html);
     if (!hasH2 && !hasH3) {
       // Add introductory h2 to give the page proper heading structure
       result[slug] = `<h2>Introdução</h2>\n${html}`;

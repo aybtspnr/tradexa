@@ -103,7 +103,6 @@ const NAV_GROUPS: NavGroup[] = [
     items: [
       { to: "/importadores", icon: Building2, label: "Diretório de Importadores" },
       { to: "/potential-importers", icon: Building2, label: "Importadores Potenciais" },
-      { to: "/importers-map", icon: Globe, label: "Mapa Comercial" },
     ],
   },
   {
@@ -111,10 +110,11 @@ const NAV_GROUPS: NavGroup[] = [
     label: "Análise",
     items: [
       { to: "/intelligence", icon: BarChart3, label: "Inteligência Comercial" },
+      { to: "/import-export-data", icon: BarChart3, label: "Export Import Data" },
       { to: "/country-comparison", icon: ArrowLeftRight, label: "Comparar Países" },
       { to: "/us-trade", icon: ArrowLeftRight, label: "Brasil ↔ EUA" },
       { to: "/trade-intelligence", icon: BrainCircuit, label: "Análise Avançada" },
-      { to: "/import-export-data", icon: BarChart3, label: "Export Import Data" },
+      { to: "/importers-map", icon: Globe, label: "Mapa Comercial" },
       { to: "/seasonal-calendar", icon: Calendar, label: "Calendário Sazonal" },
     ],
   },

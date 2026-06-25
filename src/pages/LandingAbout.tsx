@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Logo from "@/components/Logo";
 import { Footer } from "./Index/components/Footer";
+import { useSeo } from "@/hooks/use-seo";
 import { 
   Globe, 
   Target, 
@@ -24,6 +25,12 @@ import { PremiumCard, PremiumButton, PageTransition, StaggerContainer } from "@/
 
 const About = () => {
   const navigate = useNavigate();
+
+  useSeo({
+    title: "Sobre a TRADEXA — Inteligência Comercial Brasileira",
+    description: "Plataforma brasileira de inteligência comercial que transforma a logística global com tecnologia, transparência e eficiência operacional. Dados de 31 países, IA para NCM/HS, milhões de importadores e mapas logísticos.",
+    keywords: "tradexa, sobre, comércio exterior, plataforma exportação, market intelligence Brasil, inteligência comercial",
+  });
 
   const stats = [
     { value: "500+", label: "Empresas Atendidas", icon: Users, color: "from-red-500 to-rose-600" },

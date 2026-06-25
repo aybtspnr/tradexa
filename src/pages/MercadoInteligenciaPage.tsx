@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect, useMemo, useRef, Suspense } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,7 @@ import {
   Sparkles, SlidersHorizontal, Download, ChevronDown, ChevronUp,
 } from "lucide-react";
 import { useSeo } from "@/hooks/use-seo";
+import { useUsage } from "@/hooks/use-usage";
 import { cn } from "@/lib/utils";
 import { getMunicipioNome } from "@/services/ibge";
 import { IntelExportData, exportIntelPDF, IntelExportCsv, exportIntelCSV } from "@/services/pdfExport";
@@ -513,6 +514,8 @@ export default function MercadoInteligenciaPage() {
   useSeo({ title: "Inteligência de Mercado — Análise por NCM | TRADEXA" });
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+  const { plan, consumePercent } = useUsage();
 
   /* ─── State ─── */
   const [latestMonth, setLatestMonth] = useState<{import: {year: number, month: number, fob_usd_millions: number} | null, export: {year: number, month: number, fob_usd_millions: number} | null}>({import: null, export: null});
@@ -720,6 +723,11 @@ export default function MercadoInteligenciaPage() {
             setCityNames(resolved);
           }
           setDetails(result);
+          // Consume usage only on /import-export-data
+          if (location.pathname === "/import-export-data") {
+            const pct = plan === "essential" ? 80 : plan === "growth" ? 20 : 0;
+            if (pct > 0) consumePercent(pct);
+          }
         }
       } finally { setLoadingIntel(false); }
     } catch { setError("Erro de conexão. Verifique sua internet e tente novamente."); }

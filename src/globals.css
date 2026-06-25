@@ -167,21 +167,22 @@
   }
 }
 
+/* PREMIUM SCROLLBAR */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--surface-soft));
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--stroke-strong));
+  background: rgba(216, 14, 22, 0.4);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground));
+  background: rgba(216, 14, 22, 0.7);
 }
 
 *:focus-visible {
@@ -201,24 +202,6 @@
   body.custom-cursor-active * {
     cursor: none !important;
   }
-}
-
-/* PREMIUM SCROLLBAR */
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(216, 14, 22, 0.4);
-  border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(216, 14, 22, 0.7);
 }
 
 /* Hide scrollbar for horizontal scroll on mobile */

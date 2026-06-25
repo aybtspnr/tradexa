@@ -1492,7 +1492,7 @@ const BLOG_POSTS = [
 { slug: "exportar-para-letonia-logistica-baltico", name: "Exportar para a Letônia: Logística no Báltico e Oportunidades de Expor", desc: "A Letônia, situada no coração da região báltica, é um dos destinos mais promissores para o exportador brasileiro que busca expandir seus negócios na Eur..." },
 { slug: "exportar-cachaca-mercados-certificacoes", name: "Exportação de Cachaça: Mercados, Certificações e Tipos", desc: "Guia completo sobre exportação de cachaça brasileira: tipos, certificações MAPA, mercados internacionais e logística para exportadores." },
 { slug: "exportar-frutas-brasileiras-mercados-logistica", name: "Exportação de Frutas Brasileiras: Mercados e Logística", desc: "Guia completo sobre exportação de frutas brasileiras: manga, uva, melão, maçã, certificações fitossanitárias e logística internacional." },
-{ slug: "exportar-mel-brasileiro-certificacoes-mercados", name: "Introdução", desc: "O Brasil é um dos maiores produtores de mel do mundo, ocupando consistentemente uma posição de destaque no ranking global." },
+{ slug: "exportar-mel-brasileiro-certificacoes-mercados", name: "Exportação de Mel Brasileiro: Certificações e Mercados", desc: "O Brasil é um dos maiores produtores de mel do mundo, ocupando consistentemente uma posição de destaque no ranking global." },
 { slug: "exportar-castanhas-brasil-nuts-mercados", name: "Exportação de Castanhas e Nuts Brasileiras: Mercados", desc: "Guia completo sobre exportação de castanhas e nuts brasileiras: castanha-do-Brasil, castanha-de-caju, macadâmia, certificações e logística." },
 { slug: "transporte-carga-projeto-logistica-especial", name: "Transporte de Carga-Projeto: Logística Especial para Grandes Equipamen", desc: "No universo do comércio exterior brasileiro, existe uma modalidade de transporte que foge completamente ao padrão dos contêineres tradicionais." },
 { slug: "transporte-carga-viva-animais-exportacao", name: "Transporte de Carga Viva: Regras e Logística para Exportação de Animai", desc: "O Brasil é um dos maiores players mundiais no agronegócio, e a exportação de animais vivos — bovinos, suínos, aves, ovinos, caprinos, equinos e até anim..." },
@@ -1572,6 +1572,36 @@ const BLOG_POSTS = [
   { slug: "certificacao-globalgap-exportacao", name: "Certificação GlobalGAP para Exportação de Alimentos: Guia...", desc: "Guia completo sobre certificação GlobalGAP para frutas e verduras: requisitos, etapas, custos e benefícios." },
   { slug: "seguros-credito-exportacao-proex", name: "Seguro de Crédito à Exportação: Proex e Soluções de Proteção", desc: "Guia completo sobre seguro de crédito à exportação no Brasil: Proex Equalização, seguro privado, coberturas e como contratar." },
   { slug: "exportar-para-maldivas-turismo", name: "Exportar para Maldivas: Turismo de Luxo, Construção e Opo...", desc: "Guia completo para exportar para as Maldivas: turismo de luxo, materiais de construção, alimentos premium e oportunidades." },
+  { slug: "exportar-para-nicaragua-comercio", name: "Exportar para a Nicarágua: Agricultura, Têxteis e Oportunidades", desc: "Guia completo para exportar para a Nicarágua: café, carne bovina, ouro, zona franca têxtil, logística na América Central e acordos comerciais para exportadores brasileiros." },
+  { slug: "exportar-para-belize-oportunidades", name: "Exportar para Belize: Turismo, Pesca e Oportunidades no Caribe", desc: "Guia completo para exportar para Belize: turismo, pesca, agricultura, logística no Caribe, acordos comerciais e oportunidades para exportadores brasileiros." },
+  { slug: "exportar-para-guiana-francesa", name: "Exportar para a Guiana Francesa: Hub Europeu na América do Sul", desc: "Guia completo para exportar para a Guiana Francesa: território francês na América do Sul, hub espacial, oportunidades em construção civil, alimentos e logística." },
+  { slug: "exportar-para-timor-leste", name: "Exportar para Timor-Leste: Petróleo, Café e Oportunidades", desc: "Guia completo para exportar para Timor-Leste: economia baseada em petróleo, café orgânico, reconstrução, logística no Sudeste Asiático e acordos comerciais." },
+  { slug: "exportar-para-sudao-sul", name: "Exportar para o Sudão do Sul: Petróleo, Reconstrução e Oportunidades", desc: "Guia completo para exportar para o Sudão do Sul: economia baseada em petróleo, oportunidades em reconstrução, infraestrutura, agricultura, logística e acordos comerciais." },
+  { slug: "exportar-para-republica-centro-africana", name: "Exportar para a República Centro-Africana: Desafios e Potencial", desc: "Guia completo para exportar para a República Centro-Africana: economia, mineração, agricultura, oportunidades em reconstrução, logística e acordos comerciais." },
+  { slug: "exportar-para-burundi", name: "Exportar para o Burundi: Café, Agricultura e Oportunidades", desc: "Guia completo para exportar para o Burundi: café arábica, agricultura familiar, mineração, oportunidades de comércio, logística na África Oriental e acordos comerciais." },
+  { slug: "exportar-para-lesoto", name: "Exportar para o Lesoto: Têxteis, Água e Oportunidades Comerciais", desc: "Guia completo para exportar para o Lesoto: indústria têxtil preferencial, recursos hídricos, agricultura, logística no sul da África e acordos comerciais." },
+  { slug: "exportar-para-essuatini", name: "Exportar para Essuatíni: Açúcar, Madeira e Agronegócio", desc: "Guia completo para exportar para Essuatíni (antiga Suazilândia): indústria do açúcar, celulose, madeira, agricultura, logística no sul da África e acordos comerciais." },
+  { slug: "exportar-para-djibouti", name: "Exportar para Djibuti: Hub Logístico do Chifre da África", desc: "Guia completo para exportar para Djibuti: hub logístico estratégico no Chifre da África, porto, zona franca, logística regional e oportunidades para exportadores brasileiros." },
+  { slug: "exportar-para-eritreia", name: "Exportar para a Eritreia: Mineração, Agricultura e Oportunidades", desc: "Guia completo para exportar para a Eritreia: mineração, agricultura, pesca, logística no Chifre da África, portos e acordos comerciais para exportadores brasileiros." },
+  { slug: "exportar-para-somalia", name: "Exportar para a Somália: Pecuária, Pesca e Reconstrução", desc: "Guia completo para exportar para a Somália: pecuária, pesca, agricultura, oportunidades em reconstrução, logística e comércio no Chifre da África." },
+  { slug: "exportar-para-liberia", name: "Exportar para a Libéria: Reconstrução, Borracha e Comércio", desc: "Guia completo para exportar para a Libéria: borracha natural, minério de ferro, reconstrução pós-conflito, logística portuária e oportunidades na África Ocidental." },
+  { slug: "exportar-para-serra-leoa", name: "Exportar para Serra Leoa: Mineração, Agricultura e Oportunidades", desc: "Guia completo para exportar para Serra Leoa: diamantes, minério de ferro, agricultura, pesca, logística na África Ocidental e acordos comerciais." },
+  { slug: "exportar-para-guine-bissau", name: "Exportar para Guiné-Bissau: Castanha de Caju, Pesca e Oportunidades", desc: "Guia completo para exportar para Guiné-Bissau: castanha de caju, pesca, agricultura, logística na África Ocidental e acordos comerciais para exportadores brasileiros." },
+  { slug: "big-data-comex-inteligencia", name: "Big Data no Comércio Exterior: Como Usar Inteligência de Mercado", desc: "Guia completo sobre Big Data no comércio exterior: fontes de dados, análise de mercados, ferramentas de inteligência, trade intelligence e como decidir com base em dados." },
+  { slug: "inteligencia-artificial-classificacao-ncm", name: "Inteligência Artificial na Classificação NCM: Guia de Aplicação", desc: "Guia completo sobre como a inteligência artificial está revolucionando a classificação NCM: algoritmos, ferramentas, redução de erros fiscais e automação." },
+  { slug: "blockchain-contratos-inteligentes-comex", name: "Blockchain e Contratos Inteligentes no Comércio Exterior", desc: "Guia completo sobre blockchain e smart contracts no comércio exterior: cartas de crédito digitais, rastreabilidade, desembaraço aduaneiro e redução de custos." },
+  { slug: "criptomoedas-pagamento-internacional", name: "Criptomoedas e Pagamentos Internacionais para Importadores", desc: "Guia completo sobre criptomoedas para pagamentos internacionais no comércio exterior: stablecoins, remessas, câmbio, vantagens, riscos e regulação no Brasil." },
+  { slug: "open-banking-cambio", name: "Open Banking no Mercado de Câmbio: O que Muda para o Comex", desc: "Guia completo sobre open banking no mercado de câmbio brasileiro: quebra de monopólio bancário, novas plataformas de câmbio e benefícios para importadores e exportadores." },
+  { slug: "tecnologia-iot-cadeia-frio", name: "IoT na Cadeia do Frio: Monitoramento de Cargas Perecíveis", desc: "Guia completo sobre IoT na cadeia do frio: sensores, monitoramento de contêineres refrigerados, redução de perdas, compliance sanitário e logística internacional." },
+  { slug: "cosmeticos-importacao-regulamentacao", name: "Importação de Cosméticos: Regulamentação ANVISA e NCM", desc: "Guia completo para importar cosméticos no Brasil: registro ANVISA, classificação NCM, tributos, certificações, Boas Práticas de Fabricação e regularização de produtos." },
+  { slug: "aco-importacao-dumping", name: "Importação de Aço e Dumping: Medidas Antidumping e Fornecedores", desc: "Guia completo sobre importação de aço no Brasil: tipos de aço, classificação NCM, medidas antidumping, alíquotas, principais fornecedores internacionais e alternativas." },
+  { slug: "biodiesel-exportacao-brasil", name: "Exportação de Biodiesel do Brasil: Mercados e Perspectivas", desc: "Guia completo sobre exportação de biodiesel do Brasil: mercados compradores, certificações, especificações técnicas, logística portuária, ANP e RenovaBio." },
+  { slug: "moda-sustentavel-exportacao-brasil", name: "Moda Sustentável Brasileira: Oportunidades de Exportação", desc: "Guia completo para exportar moda sustentável do Brasil: tecidos ecológicos, certificações, mercado europeu e americano, feiras internacionais e logística." },
+  { slug: "cesta-basica-importacao-reducao-custos", name: "Cesta Básica e Importação: Redução de Custos ao Consumidor", desc: "Guia completo sobre o papel da importação na cesta básica brasileira: redução de custos, alimentos importados, tributos, acordos comerciais e benefícios ao consumidor." },
+  { slug: "produtos-eletronicos-china-qualidade", name: "Produtos Eletrônicos da China: Como Garantir Qualidade", desc: "Guia completo para importar eletrônicos da China com qualidade: certificação INMETRO, compliance, inspeção de fábrica, garantia, logística e classificação NCM." },
+  { slug: "fertilizantes-importacao-russia-bielorrusia", name: "Fertilizantes: Alternativas à Dependência de Rússia e Bielorrússia", desc: "Guia completo sobre o mercado de fertilizantes no Brasil: dependência de Rússia e Bielorrússia, alternativas de fornecimento, classificação NCM e logística." },
+  { slug: "latas-aluminio-reciclagem-comex", name: "Latas de Alumínio e Reciclagem no Comércio Exterior", desc: "Guia completo sobre o comércio exterior de alumínio e reciclagem: exportação de sucata, importação de alumínio primário, logística, classificação NCM e sustentabilidade." },
+  { slug: "franquias-internacionais-comex", name: "Franquias Internacionais no Brasil: Como Importar Modelos de Negócio", desc: "Guia completo sobre franquias internacionais no Brasil: importação de modelos de negócio, tributos, remessa de royalties, contratos, classificação NCM e oportunidades." },
 ];
 
 
@@ -1658,7 +1688,7 @@ function buildHtml(title, desc, keywords, ogTitle, ogDesc, route, baseHtml, seoC
     // Convert Vite's blocking CSS link to non-blocking preload (with noscript fallback)
     .replace(
       /<link rel="stylesheet"[^>]*href="([^"]+\.css)"[^>]*\/?>/g,
-      '<link rel="preload" href="$1" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"><noscript><link rel="stylesheet" href="$1"></noscript>'
+      '<link rel="preload" href="$1" as="style" crossorigin onload="this.onload=null;this.rel=\'stylesheet\'"><noscript><link rel="stylesheet" href="$1"></noscript>'
     )
     .replace(/<title>[^<]*<\/title>/, `<title>${fullTitle}</title>`)
     .replace(
@@ -1710,7 +1740,7 @@ function buildHtml(title, desc, keywords, ogTitle, ogDesc, route, baseHtml, seoC
       /<body[^>]*>/,
       (match) => `${match}
   <!-- SEO Content (visible; hidden when React mounts) -->
-  <div id="seo-prerender" style="background:#f8fafc;color:#1e293b;font-family:system-ui,sans-serif;padding:20px">
+  <div id="seo-prerender" style="display:none">
     ${seoContent}
   </div>
   <script>

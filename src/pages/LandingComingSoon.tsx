@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Logo from "@/components/Logo";
 import { Footer } from "./Index/components/Footer";
+import { useSeo } from "@/hooks/use-seo";
 import { 
   ArrowLeft, 
   Rocket, 
@@ -26,6 +27,13 @@ import { supabase } from "@/integrations/supabase/client";
 const ComingSoon = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
+
+  useSeo({
+    title: "Em Breve — Nova Plataforma TRADEXA | Comércio Exterior",
+    description: "Algo extraordinário está chegando. A revolução da logística internacional começa em breve. Cadastre-se para ser notificado do lançamento.",
+    keywords: "em breve, lançamento, tradexa, comércio exterior, logística internacional, plataforma",
+  });
+
   const [subscribed, setSubscribed] = useState(false);
   const [loading, setLoading] = useState(false);
 
