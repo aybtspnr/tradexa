@@ -56,6 +56,10 @@
       "destination": "https://ocivkbocmywinwqmaqac.supabase.co/functions/v1/send-email"
     },
     {
+      "source": "/api/us-census-trade",
+      "destination": "https://ocivkbocmywinwqmaqac.supabase.co/functions/v1/us-census-trade"
+    },
+    {
       "source": "/api/deepseek-proxy",
       "destination": "https://ocivkbocmywinwqmaqac.supabase.co/functions/v1/deepseek-proxy"
     },

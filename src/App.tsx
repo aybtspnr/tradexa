@@ -122,6 +122,7 @@ const SeasonalCalendar = lazy(() => import("./pages/SeasonalCalendar"));
 const Settings = lazy(() => import("./pages/Settings"));
 const HtsLookup = lazy(() => import("./pages/HtsLookup"));
 const UsTradeOverview = lazy(() => import("./pages/UsTradeOverview"));
+const UsTradeIntelligence = lazy(() => import("./pages/UsTradeIntelligence"));
 const AdminNcmManagement = lazy(() => import("./pages/AdminNcmManagement"));
 const AdminHsManagement = lazy(() => import("./pages/AdminHsManagement"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
@@ -466,6 +467,7 @@ function AnimatedRoutes() {
         <Route path="/hs-lookup" element={<Navigate to="/ai-search" replace />} />
         <Route path="/hts-lookup" element={<ProtectedPage featureKey="hts_lookup"><HtsLookup /></ProtectedPage>} />
         <Route path="/us-trade" element={<ProtectedPage featureKey="us_trade"><UsTradeOverview /></ProtectedPage>} />
+        <Route path="/us-trade-intelligence" element={<ProtectedPage featureKey="us_trade_intelligence"><UsTradeIntelligence /></ProtectedPage>} />
       <Route path="/price-arbitrage" element={<Navigate to="/importadores" replace />} />
         <Route path="/competitor-intel" element={<Navigate to="/importadores" replace />} />
         <Route path="/plans" element={<ProtectedPage><Plans /></ProtectedPage>} />

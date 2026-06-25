@@ -129,6 +129,16 @@ export const FEATURE_MAP: Record<string, FeatureConfig> = {
     monthlyLimit: { essential: null, growth: null, business: null },
     showInMenu: true,
   },
+  "us_trade_intelligence": {
+    key: "us_trade_intelligence",
+    label: "Inteligência EUA",
+    description: "HTS + Importações + Empresas",
+    icon: "Globe",
+    creditCost: 0,
+    allowedPlans: ["essential", "growth", "business"],
+    monthlyLimit: { essential: null, growth: null, business: null },
+    showInMenu: true,
+  },
   "smart_rank": {
     key: "smart_rank",
     label: "Smart Rank",
