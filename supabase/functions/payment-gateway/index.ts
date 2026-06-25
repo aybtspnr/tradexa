@@ -242,6 +242,34 @@ async function handleStripeWebhook(req: Request): Promise<Response> {
 
 /* ─── CREATE MERCADO PAGO PREFERENCE ─── */
 
+async function fetchPayerInfo(userId: string): Promise<{ email: string; lastName: string }> {
+  const supabaseUrl = Deno.env.get('SUPABASE_URL') || ''
+  const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || ''
+  if (!supabaseUrl || !supabaseKey) return { email: '', lastName: '' }
+
+  try {
+    const res = await fetch(`${supabaseUrl}/auth/v1/admin/users/${userId}`, {
+      headers: {
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${supabaseKey}`,
+      },
+    })
+    if (!res.ok) {
+      console.warn('[mp] Failed to fetch user info:', res.status)
+      return { email: '', lastName: '' }
+    }
+    const userData = await res.json()
+    const email = userData.email || ''
+    const fullName = userData.user_metadata?.full_name || userData.user_metadata?.name || ''
+    const nameParts = fullName.trim().split(/\s+/)
+    const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : ''
+    return { email, lastName }
+  } catch (err) {
+    console.warn('[mp] Could not fetch user info:', err)
+    return { email: '', lastName: '' }
+  }
+}
+
 async function createMPPreference(params: {
   plan_id: string; user_id: string; price_cents: number;
   title: string; description?: string; back_urls?: any;
@@ -255,26 +283,39 @@ async function createMPPreference(params: {
   const supabaseUrl = Deno.env.get('SUPABASE_URL') || ''
   const notificationUrl = `${supabaseUrl}/functions/v1/payment-gateway`
 
+  // Fetch payer info for better fraud prevention
+  const { email: payerEmail, lastName: payerLastName } = await fetchPayerInfo(user_id)
+
+  const preferenceBody: Record<string, any> = {
+    items: [{
+      id: plan_id,
+      title,
+      description: description || title,
+      quantity: 1,
+      currency_id: 'BRL',
+      unit_price: price_cents / 100,
+    }],
+    external_reference: `${plan_id}::${user_id}`,
+    notification_url: notificationUrl,
+    back_urls: { success: successUrl, failure: failureUrl, pending: pendingUrl },
+    auto_return: 'approved',
+    statement_descriptor: 'TRADEXA',
+  }
+
+  // Add payer info if available (improves approval rate)
+  if (payerEmail) {
+    preferenceBody.payer = { email: payerEmail }
+    if (payerLastName) {
+      preferenceBody.payer.last_name = payerLastName
+    }
+  }
+
   const preference = await mpFetch('/checkout/preferences', {
     method: 'POST',
-    body: JSON.stringify({
-      items: [{
-        id: plan_id,
-        title,
-        description: description || title,
-        quantity: 1,
-        currency_id: 'BRL',
-        unit_price: price_cents / 100,
-      }],
-      external_reference: `${plan_id}::${user_id}`,
-      notification_url: notificationUrl,
-      back_urls: { success: successUrl, failure: failureUrl, pending: pendingUrl },
-      auto_return: 'approved',
-      statement_descriptor: 'TRADEXA',
-    }),
+    body: JSON.stringify(preferenceBody),
   })
 
-  console.log('[mp] Preference created:', preference.id)
+  console.log('[mp] Preference created:', preference.id, '| payer:', payerEmail || 'none')
 
   // Se o token for de teste (TEST-), usar sandbox_init_point; senão, init_point de produção
   const isTestToken = getMPToken().startsWith('TEST-')
@@ -288,6 +329,7 @@ async function createMPPreference(params: {
     url: checkoutUrl,           // ← campo unificado para frontend
     init_point: preference.init_point,
     sandbox_init_point: preference.sandbox_init_point,
+    public_key: Deno.env.get('MP_PUBLIC_KEY') || '',
   }), {
     status: 200,
     headers: { ...corsHeaders, 'Content-Type': 'application/json' },

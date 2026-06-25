@@ -8,11 +8,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
+  Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription,
+} from "@/components/ui/dialog";
+import {
   Zap, CheckCircle2, Crown, Star, ArrowRight, Loader2,
   Sparkles, Search, BarChart3, Calculator, Percent,
   Trophy, Bell, Globe, Building2, Ship, Anchor, BrainCircuit,
   Calendar, ArrowLeftRight, Code, Shield, Download, InfinityIcon,
-  Database, Lock
+  Database, Lock, X
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { showError, showSuccess, showInfo } from "@/utils/toast";
@@ -20,6 +23,7 @@ import { cn } from "@/lib/utils";
 import { useSeo } from "@/hooks/use-seo";
 import type { PlanType } from "@/lib/plan-features";
 import { PLAN_PRICES, PLAN_LABELS } from "@/lib/usage-costs";
+import MercadoPagoBrick from "@/components/MercadoPagoBrick";
 
 interface PlanDef {
   id: PlanType;
@@ -145,6 +149,11 @@ const Plans = () => {
   const [currentPlan, setCurrentPlan] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [buyPlanId, setBuyPlanId] = useState<string | null>(null);
+  const [showPaymentDialog, setShowPaymentDialog] = useState(false);
+  const [pendingPreferenceId, setPendingPreferenceId] = useState<string | null>(null);
+  const [pendingPublicKey, setPendingPublicKey] = useState<string>("");
+  const [pendingPlanName, setPendingPlanName] = useState<string>("");
+  const [brickReady, setBrickReady] = useState(false);
 
   const canUpgradeTo = (targetPlanId: string): boolean => {
     if (!currentPlan) return true;
@@ -271,9 +280,10 @@ const Plans = () => {
       return;
     }
 
-    // Planos pagos — redireciona para o Mercado Pago
+    // Planos pagos — abre Wallet Brick com Mercado Pago
     setBuyPlanId(planId);
     setLoading(true);
+    setBrickReady(false);
     try {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) throw new Error("Usuário não autenticado");
@@ -300,15 +310,22 @@ const Plans = () => {
             pending: `${origin}/plans?status=pending`,
           },
         },
-      })
+      });
 
-      if (error) throw new Error(error.message)
+      if (error) throw new Error(error.message);
 
-      if (data?.url) {
+      if (data?.preference_id) {
+        // Wallet Brick — show inline payment dialog
+        setPendingPreferenceId(data.preference_id);
+        setPendingPublicKey(data.public_key || "");
+        setPendingPlanName(planId === "business" ? "Business" : "Growth");
+        setShowPaymentDialog(true);
+      } else if (data?.url) {
+        // Fallback: redirect (Stripe or no public key)
         showInfo("Redirecionando para checkout seguro...");
-        setTimeout(() => { window.location.href = data.url }, 800)
+        setTimeout(() => { window.location.href = data.url; }, 800);
       } else {
-        throw new Error("URL de pagamento não retornada")
+        throw new Error("URL de pagamento não retornada");
       }
     } catch (err: any) {
       showError("Erro ao gerar pagamento: " + err.message);
@@ -453,6 +470,59 @@ const Plans = () => {
           </motion.div>
         ))}
       </div>
+
+      {/* Payment Dialog — Mercado Pago Wallet Brick */}
+      <Dialog open={showPaymentDialog} onOpenChange={(open) => {
+        if (!open) {
+          setShowPaymentDialog(false);
+          setPendingPreferenceId(null);
+          setBuyPlanId(null);
+          setBrickReady(false);
+        }
+      }}>
+        <DialogContent className="sm:max-w-md rounded-2xl p-0 gap-0 overflow-hidden">
+          <div className="relative p-6 pb-4 border-b border-slate-100">
+            <button
+              onClick={() => {
+                setShowPaymentDialog(false);
+                setPendingPreferenceId(null);
+                setBuyPlanId(null);
+                setBrickReady(false);
+              }}
+              className="absolute right-4 top-4 rounded-full p-1.5 text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            <DialogHeader className="text-left">
+              <DialogTitle className="text-lg font-black text-slate-900">
+                Plano {pendingPlanName}
+              </DialogTitle>
+              <DialogDescription className="text-sm text-slate-500">
+                Escolha a forma de pagamento abaixo
+              </DialogDescription>
+            </DialogHeader>
+          </div>
+          <div className="p-6">
+            {pendingPreferenceId && (
+              <MercadoPagoBrick
+                preferenceId={pendingPreferenceId}
+                publicKey={pendingPublicKey}
+                onReady={() => setBrickReady(true)}
+                onError={(err) => {
+                  showError(err);
+                  setBrickReady(false);
+                }}
+              />
+            )}
+            <div className="mt-4 pt-4 border-t border-slate-100">
+              <p className="text-[10px] text-slate-400 text-center leading-relaxed">
+                Pagamento processado com segurança pelo Mercado Pago.
+                Seu plano é ativado automaticamente após a confirmação.
+              </p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <div className="text-center">
         <p className="text-sm text-slate-500">
