@@ -4,11 +4,15 @@ import { useState, useCallback, useMemo } from "react";
 import PageHeader from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import {
   Search, Loader2, Globe, Info, Sparkles, ChevronDown, ChevronUp,
   DollarSign, ShieldCheck, AlertTriangle, BookOpen,
   FileText, Hash, Trophy, CheckCircle2,
-  Layers, BarChart3, Zap, Database
+  Layers, BarChart3, Zap, Database,
+  Building2, Ship, Package, MapPin, Users, Flag, Activity,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { showError, showSuccess } from "@/utils/toast";
@@ -42,6 +46,46 @@ interface HtsDetail {
   children: HtsRecord[];
   explanation: string | null;
   aiAvailable: boolean;
+}
+
+interface ImportCompany {
+  name: string;
+  slug: string;
+  bol_count: number;
+  buyer_count: number;
+  top_buyers: string[];
+  commodities: string[];
+  origin_ports: string[];
+  dest_ports: string[];
+}
+
+interface BolRecord {
+  run_date: string;
+  master_bol: string;
+  vessel: string;
+  arrival_date: string;
+  us_port: string;
+  foreign_port: string;
+  foreign_port_country: string;
+  weight_kg: number;
+  quantity: number;
+  shipper: string;
+  consignee: string;
+  commodity: string;
+}
+
+function toSh6(code: string): string {
+  return code.replace(/[^0-9]/g, "").substring(0, 6);
+}
+
+function formatNumber(n: number): string {
+  return new Intl.NumberFormat("en-US").format(n);
+}
+
+function formatWeight(kg: number): string {
+  if (kg >= 1_000_000) return (kg / 1_000_000).toFixed(1) + "M kg";
+  if (kg >= 1_000) return (kg / 1_000).toFixed(1) + "K kg";
+  return Math.round(kg).toLocaleString("en-US") + " kg";
 }
 
 // ── Column Info Card ──
@@ -146,7 +190,12 @@ function ColumnInfoCard() {
 }
 
 // ── Premium Result Card ──
-function ResultCard({ record, index }: { record: HtsRecord; index: number }) {
+function ResultCard({ record, index, selected, onSelect }: {
+  record: HtsRecord;
+  index: number;
+  selected?: boolean;
+  onSelect?: (hts: string) => void;
+}) {
   const [detail, setDetail] = useState<HtsDetail | null>(null);
   const [loadingExplain, setLoadingExplain] = useState(false);
 
@@ -196,8 +245,10 @@ function ResultCard({ record, index }: { record: HtsRecord; index: number }) {
       >
         <div
           className={cn(
-            "bg-white rounded-2xl border transition-all duration-300",
-            "hover:shadow-lg hover:border-[#D80E16]/20",
+            "bg-white rounded-2xl overflow-hidden border transition-all duration-300",
+            selected
+              ? "border-[#D80E16]/40 shadow-md shadow-red-200/20"
+              : "hover:shadow-lg hover:border-[#D80E16]/20",
             indent <= 1 ? "border-slate-200/60 shadow-sm" : "border-slate-100 shadow-[0_1px_6px_-3px_rgba(15,17,26,0.06)]"
           )}
         >
@@ -237,19 +288,19 @@ function ResultCard({ record, index }: { record: HtsRecord; index: number }) {
 
               {/* Rates column */}
               {!isHeader && !isSuperior && hasRates && (
-                <div className="flex gap-2 shrink-0">
+                <div className="flex flex-col sm:flex-row gap-1.5 sm:gap-2 shrink-0 min-w-0 max-w-full">
                   {record.general && (
                     <div className="text-right">
                       <span className="text-[7px] font-black uppercase tracking-[0.15em] text-amber-600 block leading-none mb-0.5">MFN</span>
-                      <span className={cn("text-[11px] font-black px-2 py-0.5 rounded-md border", rateColor(record.general))}>
-                        {record.general}
+                      <span className={cn("text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-md border whitespace-nowrap", rateColor(record.general))}>
+                        {record.general.length > 8 ? record.general.substring(0, 8) + "..." : record.general}
                       </span>
                     </div>
                   )}
                   {record.special && record.special !== record.general && (
                     <div className="text-right">
                       <span className="text-[7px] font-black uppercase tracking-[0.15em] text-emerald-600 block leading-none mb-0.5">Esp.</span>
-                      <span className="text-[11px] font-black px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      <span className="text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 max-w-[180px] truncate block">
                         {record.special}
                       </span>
                     </div>
@@ -257,8 +308,8 @@ function ResultCard({ record, index }: { record: HtsRecord; index: number }) {
                   {record.other && (
                     <div className="text-right">
                       <span className="text-[7px] font-black uppercase tracking-[0.15em] text-red-600 block leading-none mb-0.5">Col.2</span>
-                      <span className="text-[11px] font-black px-2 py-0.5 rounded-md bg-red-50 text-red-700 border border-red-200">
-                        {record.other}
+                      <span className={cn("text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-md border", rateColor(record.other))}>
+                        {record.other.length > 10 ? record.other.substring(0, 10) + "..." : record.other}
                       </span>
                     </div>
                   )}
@@ -305,9 +356,9 @@ function ResultCard({ record, index }: { record: HtsRecord; index: number }) {
               )}
             </div>
 
-            {/* AI Button */}
+            {/* Actions row */}
             {htsno && (
-              <div className="flex items-center gap-2 mt-4 pt-4 border-t border-slate-100">
+              <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-slate-100">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -328,6 +379,22 @@ function ResultCard({ record, index }: { record: HtsRecord; index: number }) {
                       : "Explicação IA"
                   }
                 </Button>
+                {onSelect && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => onSelect(htsno)}
+                    className={cn(
+                      "text-[11px] font-bold h-8 px-3 rounded-lg transition-all gap-1.5",
+                      selected
+                        ? "text-[#D80E16] bg-[#D80E16]/10"
+                        : "text-slate-500 hover:text-[#D80E16] hover:bg-[#D80E16]/5",
+                    )}
+                  >
+                    <BarChart3 className="w-3.5 h-3.5" />
+                    {selected ? "Selecionado" : "Analisar"}
+                  </Button>
+                )}
                 {detail?.explanation && (
                   <span className="text-[9px] font-bold text-slate-400 flex items-center gap-1">
                     <CheckCircle2 className="w-3 h-3 text-emerald-500" />
@@ -385,6 +452,15 @@ const HtsLookup = () => {
   const [results, setResults] = useState<HtsRecord[]>([]);
   const [searched, setSearched] = useState(false);
 
+  // ImportInfo data
+  const [selectedHts, setSelectedHts] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState("tarifas");
+  const [importCompanies, setImportCompanies] = useState<ImportCompany[]>([]);
+  const [loadingImport, setLoadingImport] = useState(false);
+  const [bols, setBols] = useState<BolRecord[]>([]);
+  const [loadingBols, setLoadingBols] = useState(false);
+  const [expandedCompany, setExpandedCompany] = useState<string | null>(null);
+
   useSeo({
     title: "Classificador HTS — TRADEXA",
     description: "Classifique produtos no sistema HTS americano com IA. Compare códigos NCM, HS e HTS automaticamente.",
@@ -404,6 +480,10 @@ const HtsLookup = () => {
 
     setLoading(true);
     setSearched(true);
+    setSelectedHts(null);
+    setImportCompanies([]);
+    setBols([]);
+    setActiveTab("tarifas");
     try {
       const res = await fetch(`/api/hts-search?keyword=${encodeURIComponent(searchQuery)}`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -445,6 +525,100 @@ const HtsLookup = () => {
       withHts: withHts.length,
     };
   }, [results]);
+
+  // ── Select HTS code → Load ImportInfo ──
+  const handleSelectHts = useCallback(async (hts: string) => {
+    setSelectedHts(hts);
+    setActiveTab("importacoes");
+    setImportCompanies([]);
+    setBols([]);
+
+    const sh6 = toSh6(hts);
+    if (sh6.length < 6) {
+      showError("Codigo HTS invalido para analise.");
+      return;
+    }
+
+    setLoadingImport(true);
+    try {
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), 15000);
+      const res = await fetch(`/api/intel/ncm/${sh6}/real-companies`, { signal: ctrl.signal });
+      clearTimeout(t);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const companies = (data?.confirmed_exporters || data?.companies || []).map((c: any) => ({
+        name: c.name || "",
+        slug: c.slug || "",
+        bol_count: c.bol_count || 0,
+        buyer_count: c.buyer_count || 0,
+        top_buyers: c.top_buyers || [],
+        commodities: c.commodities || [],
+        origin_ports: c.origin_ports || [],
+        dest_ports: c.dest_ports || [],
+      }));
+      setImportCompanies(companies);
+    } catch (err: any) {
+      console.error("Erro ao carregar ImportInfo companies:", err);
+      showError("Erro ao carregar dados de importadores.");
+    } finally {
+      setLoadingImport(false);
+    }
+  }, []);
+
+  // ── Load BOLs for a specific company ──
+  const handleLoadBols = useCallback(async (slug: string) => {
+    if (expandedCompany === slug) {
+      setExpandedCompany(null);
+      setBols([]);
+      return;
+    }
+    setExpandedCompany(slug);
+    setLoadingBols(true);
+    setBols([]);
+    try {
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), 15000);
+      const res = await fetch(`/api/intel/company/${slug}/bols`, { signal: ctrl.signal });
+      clearTimeout(t);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const bolList = (data?.bols || []).map((b: any) => ({
+        run_date: b.run_date || "",
+        master_bol: b.master_bol || "",
+        vessel: b.vessel || "",
+        arrival_date: b.arrival_date || "",
+        us_port: b.us_port || "",
+        foreign_port: b.foreign_port || "",
+        foreign_port_country: b.foreign_port_country || "",
+        weight_kg: b.weight_kg || 0,
+        quantity: b.quantity || 0,
+        shipper: b.shipper || "",
+        consignee: b.consignee || "",
+        commodity: b.commodity || "",
+      }));
+      setBols(bolList);
+    } catch (err: any) {
+      console.error("Erro ao carregar BOLs:", err);
+      showError("Erro ao carregar detalhes da empresa.");
+    } finally {
+      setLoadingBols(false);
+    }
+  }, [expandedCompany]);
+
+  // ── Import analysis ──
+  const importAnalysis = useMemo(() => {
+    const totalBols = importCompanies.reduce((s, c) => s + c.bol_count, 0);
+    const totalCompanies = importCompanies.length;
+    const ports = new Set<string>();
+    importCompanies.forEach(c => {
+      c.origin_ports.forEach(p => ports.add(p));
+      c.dest_ports.forEach(p => ports.add(p));
+    });
+    return { totalBols, totalCompanies, totalPorts: ports.size };
+  }, [importCompanies]);
+
+  const showTabs = results.length > 0;
 
   return (
     <PageTransition>

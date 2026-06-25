@@ -350,7 +350,7 @@ function ResultCard({
 
             {/* Actions row */}
             {htsno && (
-              <div className="flex items-center gap-2 mt-4 pt-4 border-t border-slate-100">
+              <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-slate-100">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -831,7 +831,6 @@ const UsTradeIntelligence = () => {
                 {[
                   { label: "Codigo sem pontos", icon: Hash },
                   { label: "Codigo com pontos", icon: FileText },
-                  { label: "Descricao em ingles", icon: BookOpen },
                 ].map((tip, i) => (
                   <span key={i} className="text-[10px] font-semibold text-slate-500 bg-slate-50 px-2.5 py-1 rounded-full border border-slate-200 flex items-center gap-1">
                     <tip.icon className="w-3 h-3 text-slate-400" />
@@ -937,7 +936,7 @@ const UsTradeIntelligence = () => {
                     </h3>
                     <p className="text-sm font-medium text-slate-500 max-w-md mx-auto leading-relaxed">
                       Clique em &quot;Analisar&quot; em um dos resultados da aba Tarifas para ver dados de importacao
-                      e estatisticas do US Census para esse codigo.
+                      para esse codigo.
                     </p>
                   </div>
                 </motion.div>
@@ -1083,61 +1082,78 @@ const UsTradeIntelligence = () => {
                               <p className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">Participacao Brasil</p>
                               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 mt-1">
                                 <p className="text-lg font-black text-slate-900">{formatCurrency(censusAnalysis.brazilValue)}</p>
-                                <BrazilShareBadge total={censusAnalysis.totalValue} brazil={censusAnalysis.brazilValue} />
+                                {censusAnalysis.countries.length > 1 && (
+                                  <BrazilShareBadge total={censusAnalysis.totalValue} brazil={censusAnalysis.brazilValue} />
+                                )}
                               </div>
                             </div>
                           </div>
 
-                          {/* Chart: Top supplying countries */}
-                          {censusAnalysis.countries.length > 0 && (
-                            <div className="pt-2">
-                              <h4 className="text-[11px] font-bold text-slate-700 mb-3 flex items-center gap-2">
-                                <Globe className="w-4 h-4 text-[#D80E16]" />
-                                Top Paises Fornecedores — Valor em USD
-                              </h4>
-                              <ResponsiveContainer width="100%" height={300}>
-                                <BarChart
-                                  data={censusAnalysis.countries.slice(0, 10)}
-                                  layout="vertical"
-                                  margin={{ left: 10, right: 20 }}
-                                >
-                                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                                  <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => v >= 1_000_000 ? (v / 1_000_000).toFixed(1) + "M" : v >= 1_000 ? (v / 1_000).toFixed(0) + "K" : v.toString()} />
-                                  <YAxis dataKey="name" type="category" tick={{ fontSize: 11, fontWeight: 700 }} width={120} />
-                                  <Tooltip
-                                    formatter={(value: any) => [formatCurrency(value), "Valor"]}
-                                    contentStyle={{ borderRadius: 12, fontSize: 12 }}
-                                  />
-                                  <Bar dataKey="value" fill="#D80E16" radius={[0, 4, 4, 0]} />
-                                </BarChart>
-                              </ResponsiveContainer>
+                          {/* Notice when only Brazil data is available */}
+                          {censusAnalysis.countries.length <= 1 && censusAnalysis.countries[0]?.name === "BRAZIL" && (
+                            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-center">
+                              <AlertTriangle className="w-5 h-5 text-amber-500 mx-auto mb-2" />
+                              <p className="text-[11px] font-bold text-amber-700">
+                                Dados Census disponiveis apenas para o Brasil neste momento.
+                              </p>
+                              <p className="text-[10px] text-amber-600 mt-1">
+                                Os dados de importacao dos EUA por pais estao temporariamente limitados.
+                              </p>
                             </div>
                           )}
 
-                          {/* Country list */}
-                          <div className="space-y-1 pt-2">
-                            <h4 className="text-[11px] font-bold text-slate-700 mb-2 flex items-center gap-2">
-                              <Flag className="w-4 h-4 text-[#D80E16]" />
-                              Todos os Paises
-                            </h4>
-                            {censusAnalysis.countries.map((c, i) => (
-                              <motion.div
-                                key={c.name}
-                                initial={{ opacity: 0, x: -5 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: i * 0.02 }}
-                                className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors"
-                              >
-                                <div className="flex items-center gap-2">
-                                  <span className="text-[10px] font-black text-slate-400 w-5">{i + 1}</span>
-                                  <span className="text-sm font-bold text-slate-800">{c.name}</span>
-                                </div>
-                                <div className="text-right">
-                                  <span className="text-sm font-black text-slate-900">{formatCurrency(c.value)}</span>
-                                </div>
-                              </motion.div>
-                            ))}
-                          </div>
+                          {/* Chart: Top supplying countries (hide if only 1 country) */}
+                          {censusAnalysis.countries.length > 1 && (
+                            <>
+                              <div className="pt-2">
+                                <h4 className="text-[11px] font-bold text-slate-700 mb-3 flex items-center gap-2">
+                                  <Globe className="w-4 h-4 text-[#D80E16]" />
+                                  Top Paises Fornecedores — Valor em USD
+                                </h4>
+                                <ResponsiveContainer width="100%" height={300}>
+                                  <BarChart
+                                    data={censusAnalysis.countries.slice(0, 10)}
+                                    layout="vertical"
+                                    margin={{ left: 10, right: 20 }}
+                                  >
+                                    <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                                    <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => v >= 1_000_000 ? (v / 1_000_000).toFixed(1) + "M" : v >= 1_000 ? (v / 1_000).toFixed(0) + "K" : v.toString()} />
+                                    <YAxis dataKey="name" type="category" tick={{ fontSize: 11, fontWeight: 700 }} width={120} />
+                                    <Tooltip
+                                      formatter={(value: any) => [formatCurrency(value), "Valor"]}
+                                      contentStyle={{ borderRadius: 12, fontSize: 12 }}
+                                    />
+                                    <Bar dataKey="value" fill="#D80E16" radius={[0, 4, 4, 0]} />
+                                  </BarChart>
+                                </ResponsiveContainer>
+                              </div>
+
+                              {/* Country list */}
+                              <div className="space-y-1 pt-2">
+                                <h4 className="text-[11px] font-bold text-slate-700 mb-2 flex items-center gap-2">
+                                  <Flag className="w-4 h-4 text-[#D80E16]" />
+                                  Todos os Paises
+                                </h4>
+                                {censusAnalysis.countries.map((c, i) => (
+                                  <motion.div
+                                    key={c.name}
+                                    initial={{ opacity: 0, x: -5 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.02 }}
+                                    className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors"
+                                  >
+                                    <div className="flex items-center gap-2">
+                                      <span className="text-[10px] font-black text-slate-400 w-5">{i + 1}</span>
+                                      <span className="text-sm font-bold text-slate-800">{c.name}</span>
+                                    </div>
+                                    <div className="text-right">
+                                      <span className="text-sm font-black text-slate-900">{formatCurrency(c.value)}</span>
+                                    </div>
+                                  </motion.div>
+                                ))}
+                              </div>
+                            </>
+                          )}
                         </>
                       )}
                     </CardContent>
