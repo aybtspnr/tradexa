@@ -1,6 +1,6 @@
 {
   "installCommand": "npm install --legacy-peer-deps",
-  "buildCommand": "echo 'BUILD_SIG=v13' && node scripts/extract-blog-content.mjs && vite build && node scripts/prerender.mjs && node scripts/generate-sitemap.js && node scripts/indexnow-submit.js",
+  "buildCommand": "echo 'BUILD_SIG=v13' && node scripts/extract-blog-content.mjs && node scripts/generate-sitemap.js && vite build && node scripts/prerender.mjs && node scripts/indexnow-submit.js",
   "outputDirectory": "dist",
   "rewrites": [
     {

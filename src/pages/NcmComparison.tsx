@@ -150,10 +150,17 @@ export default function NcmComparison() {
     if (uf !== "_all") params.uf = uf;
     if (pais !== "_all") params.pais = pais;
 
-    const { data, error: err } = await supabase.functions.invoke('export-data', { body: params });
-    if (err) throw new Error(err.message);
-    if (data?.error) throw new Error(data.error);
-    return { registros: data.registros || [], total: data.registros?.length || 0 };
+    const res = await fetch('/api/export-data-vps', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(params),
+    });
+    if (!res.ok) {
+      const errBody = await res.json().catch(() => ({}));
+      throw new Error(errBody.error || `HTTP ${res.status}`);
+    }
+    const data = await res.json();
+    return { registros: data.registros || [], total: data.total || 0 };
   };
 
   const { consume } = useUsage();

@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "2026-06-25T13:49:44Z",
+  "ultima_atualizacao": "2026-06-26T13:16:35Z",
   "categorias": [
     "tarifas",
     "regulamentacao",
@@ -94,15 +94,7 @@
     ],
     "mercados": [
       {
-        "titulo": "Receita Federal destina equipamentos eletrônicos ao Comitê Gestor do Imposto sobre Bens e Serviços (IBS)",
-        "fonte": "RECEITA FEDERAL",
-        "data": "24/06/2026",
-        "resumo": "A destinação de mercadorias apreendidas ou abandonadas para órgãos públicos constitui importante instrumento de gestão patrimonial e de promoção do interesse público.",
-        "tag": "Comércio Exterior",
-        "link": "#"
-      },
-      {
-        "titulo": "Declaração regularidade e conformidade OSC.pdf",
+        "titulo": "Lista de Devedores Contumazes",
         "fonte": "RECEITA FEDERAL",
         "data": "24/06/2026",
         "resumo": "Sem descrição disponível.",
@@ -110,26 +102,34 @@
         "link": "#"
       },
       {
-        "titulo": "MDIC anuncia parcerias com Enap e Caixa para fortalecer a economia de impacto",
-        "fonte": "MDIC",
-        "data": "18/06/2026",
-        "resumo": "Estão previstos ciclos de inovação aberta com equipes estaduais e municipais para contratação de soluções propostas por negócios de impacto",
+        "titulo": "Uma abordagem de rotina revelou uma carga milionária na BR‑277",
+        "fonte": "RECEITA FEDERAL",
+        "data": "25/06/2026",
+        "resumo": "Fiscalização conjunta em Cascavel desvendou esquema de ocultação de mercadorias estrangeiras avaliadas em mais de R$ 21,5 milhões.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "MDIC lança iniciativa para acelerar tecnologias voltadas à resiliência climática",
-        "fonte": "MDIC",
-        "data": "18/06/2026",
-        "resumo": "Iniciativa conecta empresas, universidades, centros de pesquisa e governos para impulsionar soluções inovadoras de adaptação às mudanças climáticas",
+        "titulo": "Receita Federal participa da Operação Locusta",
+        "fonte": "RECEITA FEDERAL",
+        "data": "26/06/2026",
+        "resumo": "Operação busca combater a exportação ilegal de lagosta adquirida irregularmente e/ou em desconformidade com as exigências sanitárias e ambientais. Fraude pode superar o montante de R$ 300 milhões em 5 cinco anos.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Move Brasil inicia operação de linha de crédito para taxistas e motoristas de aplicativo",
+        "titulo": "MDIC lança Agenda Brasil Mais Competitivo para impulsionar produtividade e ambiente de negócios",
         "fonte": "MDIC",
-        "data": "19/06/2026",
-        "resumo": "Motoristas de aplicativo e taxistas com cadastro aprovado podem procurar a concessionária do veículo escolhido para dar início à análise de crédito. As concessionárias de veículos farão a análise do perfil de crédito dos condutores junto às instituições financeiras credenciadas ao BNDES e, se apr...",
+        "data": "22/06/2026",
+        "resumo": "Iniciativa coordenada pela Secretaria de Competitividade e Política Regulatória reúne ações voltadas ao aumento da competitividade",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Informativo nº 030/2026 - 22/06/2026",
+        "fonte": "MDIC",
+        "data": "22/06/2026",
+        "resumo": "Divulgados os resultados parciais da balança comercial com dados preliminares da 3ª semana de junho/2026",
         "tag": "Comércio Exterior",
         "link": "#"
       }
@@ -178,42 +178,42 @@
     ],
     "cambio": [
       {
-        "titulo": "Com mais de 9,5 milhões de contribuintes contemplados, segundo lote de restituição do IRPF é o maior da história",
+        "titulo": "Operação Rede de Fumaça combate comércio ilegal de cigarros e cigarros eletrônicos",
         "fonte": "RECEITA FEDERAL",
-        "data": "22/06/2026",
-        "resumo": "Receita Federal abre consulta ao segundo lote de restituição do IRPF 2026 nesta terça-feira (23).",
+        "data": "23/06/2026",
+        "resumo": "Servidores da Receita Federal atuam em todo o país, em parceria com a Agência de Vigilância Sanitária (Anvisa) e outros órgãos.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Operação conjunta apreende cerca de 21 toneladas de insumo químico para cocaína",
+        "titulo": "Receita Federal inicia segunda fase da Operação Três Corpos e recolhe equipamentos de academia importados irregularmente",
         "fonte": "RECEITA FEDERAL",
-        "data": "22/06/2026",
-        "resumo": "A operação contou com Receita Federal, PRF, Exército Brasileiro e Garras.",
+        "data": "23/06/2026",
+        "resumo": "Ação realizada com apoio da Polícia Federal ocorre em Quaraí, Bagé e Uruguaiana/RS e visa dar cumprimento às medidas decorrentes da apreensão de equipamentos estrangeiros sem comprovação de regular importação.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Receita Federal lança nova edição da Revista de Estudos Tributários e Aduaneiros",
+        "titulo": "Receita Federal lança página sobre Devedores Contumazes e amplia a transparência e o controle fiscal",
         "fonte": "RECEITA FEDERAL",
-        "data": "22/06/2026",
-        "resumo": "Nova edição discute desafios da área fiscal e incentiva a troca de conhecimento em um cenário de mudanças no sistema tributário.",
+        "data": "23/06/2026",
+        "resumo": "Ferramenta disponibiliza lista de devedores contumazes e orientações para acompanhamento e regularização fiscal.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Receita Federal inicia a publicação dos primeiros contribuintes considerados como Devedores Contumazes",
+        "titulo": "Operação Rede de Fumaça apreende mais de 25 mil cigarros eletrônicos proibidos",
         "fonte": "RECEITA FEDERAL",
-        "data": "24/06/2026",
-        "resumo": "Ação busca coibir inadimplência estruturada e promover concorrência leal na economia.",
+        "data": "23/06/2026",
+        "resumo": "Servidores da Receita Federal atuaram em todo o país, em parceria com Anvisa e outros órgãos.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Receita Federal divulga, nesta quinta-feira (25/6), a arrecadação de maio de 2026 e os grandes números de 2025",
+        "titulo": "Receita Federal reduz litígios desde a adoção do novo modelo de relacionamento com contribuintes",
         "fonte": "RECEITA FEDERAL",
-        "data": "24/06/2026",
-        "resumo": "Evento terá transmissão ao vivo pelo canal do Ministério da Fazenda no YouTube.",
+        "data": "25/06/2026",
+        "resumo": "Cerimônia em Brasília certificou participantes dos programas Receita Confia, Receita Sintonia e Operador Econômico Autorizado.",
         "tag": "Comércio Exterior",
         "link": "#"
       }

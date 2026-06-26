@@ -53,6 +53,9 @@ export function useSeo(config: SeoConfig) {
       <meta property="og:url" content={canonical} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content="pt_BR" />
+      <meta name="author" content="TRADEXA" />
+      <meta name="geo.region" content="BR-SC" />
+      <meta name="geo.placename" content="Florianópolis" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

@@ -81,7 +81,7 @@ export default function SEOMetadata({
           name: "TRADEXA",
           logo: {
             "@type": "ImageObject",
-            url: `${SITE_URL}/favicon.ico`,
+            url: `${SITE_URL}/og-image.png`,
           },
         },
         datePublished: new Date().toISOString().split("T")[0],

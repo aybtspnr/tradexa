@@ -35,9 +35,12 @@ function extractBlogSlugs() {
   const slugs = [];
   try {
     const content = readFileSync(metaPath, "utf-8");
-    const regex = /slug:\s*["']([^"']+)["']/g;
+    // Match only value assignments, not type declarations
+    const regex = /\bslug:\s*["']([^"']+)["']/g;
     let m;
     while ((m = regex.exec(content)) !== null) {
+      // Skip type definition line
+      if (m[1] === "string;") continue;
       slugs.push(m[1]);
     }
   } catch (err) {
@@ -62,6 +65,45 @@ function getStaticPages() {
   const navRegex = /<Navigate[^>]*to="([^"]*)"/g;
   while ((m = navRegex.exec(appContent)) !== null) navTargets.add(m[1]);
 
+  // Routes that redirect or are aliases — should NOT be indexed
+  const REDIRECT_ROUTES = new Set([
+    "/about",            // → /sobre
+    "/maritime_freight", // → /maritime-freight
+    "/landing-index",    // alias
+    "/landing-about",    // alias
+    "/landing-api",      // alias
+    "/landing-privacy",  // alias
+    "/landing-terms",    // alias
+    "/hs-lookup",        // → /ai-search
+    "/credits",          // → /plans
+    "/export-wizard",    // → /ai-search
+    "/export-opportunities", // → /importadores
+    "/freight-calculator",   // → /maritime-freight-map
+    "/global-trade",     // → /trade-intelligence
+    "/cross-data-comparison", // → /trade-intelligence
+    "/competitor-intel", // → /importadores
+    "/export-intelligence", // → /trade-intelligence
+    "/import-intelligence", // → /trade-intelligence
+    "/market-intelligence", // → /trade-intelligence
+    "/trade-news",       // → /importadores
+    "/wizard",           // → /ai-search
+    "/route-optimizer",  // → /maritime-freight-map
+    "/tariff-simulator", // → /global-tariff
+    "/price-arbitrage",  // → /importadores
+    "/suppliers",        // → /importadores
+    "/seasonal-alerts",  // → /seasonal-calendar
+    "/coming-soon",      // placeholder page
+    "/comercio-brasil-eua", // redirect via vercel.json → /us-trade
+    "/comparar-ncm",     // redirect via vercel.json → /ncm-comparison
+    "/comparar-paises",  // redirect via vercel.json → /country-comparison
+    "/simulador-exportacao", // redirect via vercel.json → /export-simulator
+    "/inteligencia-comercial", // redirect via vercel.json → /import-export-data
+    "/ranking-mercados",  // redirect via vercel.json → /smart-rank
+    "/cadeia-suprimentos", // redirect via vercel.json → /supply-chain
+    "/mapa-frete-maritimo", // redirect via vercel.json → /maritime-freight-map
+    "/tarifario-global",  // redirect via vercel.json → /global-tariff
+  ]);
+
   // Filter
   const pages = [];
   for (const route of allRoutes) {
@@ -74,14 +116,10 @@ function getStaticPages() {
     if (route.includes("/client")) continue;
     if (route.includes("/cliente/")) continue;
     if (route.includes("/my-usage")) continue;
+    if (route.includes("/reset-password")) continue;
+    if (route.includes("/forgot-password")) continue;
     if (navTargets.has(route)) continue; // Navigate redirect
-    if (route === "/about") continue; // redirect via vercel.json → /sobre
-    if (route === "/maritime_freight") continue; // alias — canonical is /maritime-freight
-    if (route === "/landing-index") continue; // alias — not a real page
-    if (route === "/landing-about") continue; // alias — not a real page
-    if (route === "/landing-api") continue; // alias — not a real page
-    if (route === "/landing-privacy") continue; // alias — not a real page
-    if (route === "/landing-terms") continue; // alias — not a real page
+    if (REDIRECT_ROUTES.has(route)) continue; // alias/redirect pages
     pages.push(route);
   }
 

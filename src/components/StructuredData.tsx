@@ -51,7 +51,7 @@ export default function StructuredData({ type, data, faqItems }: StructuredDataP
           name: "TRADEXA",
           logo: {
             "@type": "ImageObject",
-            url: "https://www.tradexa.com.br/favicon-48x48.png",
+            url: "https://www.tradexa.com.br/og-image.png",
           },
         },
         mainEntityOfPage: {
@@ -100,7 +100,7 @@ export default function StructuredData({ type, data, faqItems }: StructuredDataP
         "@type": "Organization",
         name: "TRADEXA",
         url: "https://www.tradexa.com.br",
-        logo: "https://www.tradexa.com.br/favicon-48x48.png",
+        logo: "https://www.tradexa.com.br/og-image.png",
         description: "Plataforma de inteligência comercial para comércio exterior brasileiro.",
         address: {
           "@type": "PostalAddress",

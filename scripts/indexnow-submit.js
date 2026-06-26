@@ -41,6 +41,18 @@ function getStaticPages() {
     if (route === "*") continue;
     if (route.includes(":")) continue; // dynamic routes like /blog/:slug
     if (navTargets.has(route)) continue; // route IS a redirect (path matches a Navigate to=)
+    // Additional redirect/alias routes that should NOT be submitted
+    const REDIRECTS = ["/about", "/maritime_freight", "/landing-index", "/landing-about", "/landing-api", "/landing-privacy", "/landing-terms", "/hs-lookup", "/credits", "/export-wizard", "/export-opportunities", "/freight-calculator", "/global-trade", "/cross-data-comparison", "/competitor-intel", "/export-intelligence", "/import-intelligence", "/market-intelligence", "/trade-news", "/wizard", "/route-optimizer", "/tariff-simulator", "/price-arbitrage", "/suppliers", "/seasonal-alerts", "/coming-soon", "/comercio-brasil-eua", "/comparar-ncm", "/comparar-paises", "/simulador-exportacao", "/inteligencia-comercial", "/ranking-mercados", "/cadeia-suprimentos", "/mapa-frete-maritimo", "/tarifario-global"];
+    if (REDIRECTS.includes(route)) continue;
+    if (route.includes("/admin")) continue;
+    if (route.includes("/settings")) continue;
+    if (route.includes("/dashboard")) continue;
+    if (route.includes("/invoices")) continue;
+    if (route.includes("/client")) continue;
+    if (route.includes("/cliente/")) continue;
+    if (route.includes("/my-usage")) continue;
+    if (route.includes("/reset-password")) continue;
+    if (route.includes("/forgot-password")) continue;
     pages.push(route);
   }
 
@@ -53,8 +65,9 @@ function getBlogSlugs() {
   const content = fs.readFileSync(metaPath, "utf-8");
   const slugs = [];
   let match2;
-  const regex = /slug:\s*["']([^"']+)["']/g;
+  const regex = /\bslug:\s*["']([^"']+)["']/g;
   while ((match2 = regex.exec(content)) !== null) {
+    if (match2[1] === "string;") continue;
     slugs.push(match2[1]);
   }
   return [...new Set(slugs)]; // deduplicate

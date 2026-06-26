@@ -1,6 +1,48 @@
+# robots.txt — TRADEXA
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /api/
 
+# Sitemap
 Sitemap: https://www.tradexa.com.br/sitemap.xml
+
+# Disallow private/admin areas
+Disallow: /admin/
+Disallow: /settings
+Disallow: /dashboard
+Disallow: /my-usage
+Disallow: /invoices
+Disallow: /team
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /client
+Disallow: /cliente/
+
+# Disallow redirect/alias pages to avoid duplicate content
+Disallow: /hs-lookup
+Disallow: /about
+Disallow: /landing-index
+Disallow: /landing-about
+Disallow: /landing-api
+Disallow: /landing-privacy
+Disallow: /landing-terms
+Disallow: /credits
+Disallow: /export-wizard
+Disallow: /export-opportunities
+Disallow: /freight-calculator
+Disallow: /global-trade
+Disallow: /cross-data-comparison
+Disallow: /competitor-intel
+Disallow: /export-intelligence
+Disallow: /import-intelligence
+Disallow: /market-intelligence
+Disallow: /trade-news
+Disallow: /wizard
+Disallow: /maritime_freight
+Disallow: /route-optimizer
+Disallow: /tariff-simulator
+Disallow: /price-arbitrage
+Disallow: /suppliers
+Disallow: /seasonal-alerts
+Disallow: /coming-soon
