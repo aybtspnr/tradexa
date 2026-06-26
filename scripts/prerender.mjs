@@ -139,7 +139,6 @@ const PAGES = [
     ogDesc: "Consulte preços de frete marítimo entre os principais portos do mundo. Compare rotas e encontre a melhor cotação para sua carga.",
   },
   {
-  {
     route: "/us-trade-intelligence",
     file: "us-trade-intelligence.html",
     title: "Inteligência EUA — HTS, ImportInfo e Census | TRADEXA",
@@ -157,6 +156,7 @@ const PAGES = [
     ogTitle: "HTS dos EUA — Classificador de Tarifas | TRADEXA",
     ogDesc: "Consulte tarifas HTS dos Estados Unidos com alíquotas atualizadas.",
   },
+  {
     route: "/intelligence",
     file: "intelligence.html",
     title: "Inteligência Comercial — Dados de Importação | TRADEXA",
