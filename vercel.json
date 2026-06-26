@@ -336,6 +336,14 @@
       "destination": "/us-trade.html"
     },
     {
+      "source": "/us-trade-intelligence",
+      "destination": "/us-trade-intelligence.html"
+    },
+    {
+      "source": "/hts-lookup",
+      "destination": "/hts-lookup.html"
+    },
+    {
       "source": "/landing/:path*",
       "destination": "/landing/:path*/index.html"
     },

@@ -329,10 +329,10 @@ function ResultCard({ record, index, selected, onSelect }: {
             {/* Description */}
             <p
               className={cn(
-                "text-[13px] font-semibold leading-snug",
+                "text-[13px] font-semibold leading-snug break-words",
                 isSuperior ? "text-purple-800" : "text-[#0F111A]",
               )}
-              style={{ paddingLeft: indent > 0 ? `${Math.min(indent, 6) * 16}px` : "0" }}
+              style={{ paddingLeft: indent > 0 ? `${Math.min(indent, 4) * 16}px` : "0" }}
             >
               {record.description}
             </p>
@@ -345,8 +345,8 @@ function ResultCard({ record, index, selected, onSelect }: {
                 </span>
               )}
               {record.special && (
-                <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
-                  Especial: <span className="font-black">{record.special}</span>
+                <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200 max-w-full">
+                  Especial: <span className="font-black break-all">{record.special}</span>
                 </span>
               )}
               {record.other && (
@@ -442,6 +442,31 @@ function ResultCard({ record, index, selected, onSelect }: {
         </div>
       </SpotlightCard>
     </motion.div>
+  );
+}
+
+// ── KPI Card ──
+function KpiCard({ icon: Icon, label, value, accentColor = "text-[#D80E16]", bgColor = "bg-[#D80E16]/10" }: {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  value: string;
+  accentColor?: string;
+  bgColor?: string;
+}) {
+  return (
+    <Card className="border border-slate-200 rounded-2xl shadow-sm">
+      <CardContent className="p-5">
+        <div className="flex items-center gap-3">
+          <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center", bgColor)}>
+            <Icon className={cn("w-5 h-5", accentColor)} />
+          </div>
+          <div>
+            <p className="text-xs text-slate-600 font-medium">{label}</p>
+            <p className="text-xl font-black text-slate-900">{value}</p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -606,6 +631,8 @@ const HtsLookup = () => {
     }
   }, [expandedCompany]);
 
+  const showTabs = results.length > 0;
+
   // ── Import analysis ──
   const importAnalysis = useMemo(() => {
     const totalBols = importCompanies.reduce((s, c) => s + c.bol_count, 0);
@@ -618,8 +645,6 @@ const HtsLookup = () => {
     return { totalBols, totalCompanies, totalPorts: ports.size };
   }, [importCompanies]);
 
-  const showTabs = results.length > 0;
-
   return (
     <PageTransition>
       <div className="w-full space-y-6">
@@ -630,6 +655,7 @@ const HtsLookup = () => {
           badges={[
             { label: "US HTS", icon: <Globe className="w-3 h-3 mr-1" /> },
             { label: "35.496 registros", icon: <Hash className="w-3 h-3 mr-1" /> },
+            { label: "ImportInfo", icon: <Ship className="w-3 h-3 mr-1" /> },
             { label: "Dados Oficiais", icon: <CheckCircle2 className="w-3 h-3 mr-1" />, className: "bg-emerald-400/30 text-emerald-200" },
           ]}
         />
@@ -637,9 +663,9 @@ const HtsLookup = () => {
         {/* ═══ SEARCH ═══ */}
         <SpotlightCard className="rounded-2xl">
           <div className="bg-white border border-slate-200/60 rounded-2xl overflow-hidden shadow-sm">
-            <div className="p-6 space-y-4">
+            <div className="p-4 sm:p-6 space-y-4">
               <div className="flex flex-col sm:flex-row gap-3">
-                <div className="flex-1 relative">
+                <div className="flex-1 relative min-w-0">
                   <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-1 pointer-events-none z-10">
                     <Search className="w-5 h-5 text-slate-400" />
                   </div>
@@ -656,7 +682,7 @@ const HtsLookup = () => {
                   disabled={loading}
                   variant="primary"
                   size="lg"
-                  className="shadow-lg shadow-red-200/50 h-14 min-w-[140px]"
+                  className="shadow-lg shadow-red-200/50 h-14 w-full sm:w-auto sm:min-w-[140px]"
                 >
                   {loading ? (
                     <><Loader2 className="w-4 h-4 animate-spin" /> Buscando...</>
@@ -672,7 +698,6 @@ const HtsLookup = () => {
                 {[
                   { label: "Código sem pontos", icon: Hash },
                   { label: "Código com pontos", icon: FileText },
-                  { label: "Descrição em inglês", icon: BookOpen },
                 ].map((tip, i) => (
                   <span key={i} className="text-[10px] font-semibold text-slate-500 bg-slate-50 px-2.5 py-1 rounded-full border border-slate-200 flex items-center gap-1">
                     <tip.icon className="w-3 h-3 text-slate-400" />
@@ -684,58 +709,413 @@ const HtsLookup = () => {
           </div>
         </SpotlightCard>
 
-        {/* ═══ INFO CARD ═══ */}
-        <ColumnInfoCard />
+        {/* ═══ TABS SECTION (only when results loaded) ═══ */}
+        {showTabs && (
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <div className="bg-white border border-slate-200/60 rounded-2xl overflow-hidden shadow-sm p-1">
+              <TabsList className="w-full bg-transparent h-auto p-0 gap-1">
+                <TabsTrigger
+                  value="tarifas"
+                  className={cn(
+                    "flex-1 h-11 rounded-xl text-xs font-black transition-all data-[state=active]:bg-[#D80E16] data-[state=active]:text-white data-[state=inactive]:text-slate-600 data-[state=inactive]:hover:bg-slate-100",
+                  )}
+                >
+                  <BookOpen className="w-4 h-4 mr-2" />
+                  Tarifas
+                </TabsTrigger>
+                <TabsTrigger
+                  value="importacoes"
+                  className={cn(
+                    "flex-1 h-11 rounded-xl text-xs font-black transition-all data-[state=active]:bg-[#D80E16] data-[state=active]:text-white data-[state=inactive]:text-slate-600 data-[state=inactive]:hover:bg-slate-100",
+                  )}
+                >
+                  <Ship className="w-4 h-4 mr-2" />
+                  Importacoes
+                </TabsTrigger>
+                <TabsTrigger
+                  value="empresas"
+                  className={cn(
+                    "flex-1 h-11 rounded-xl text-xs font-black transition-all data-[state=active]:bg-[#D80E16] data-[state=active]:text-white data-[state=inactive]:text-slate-600 data-[state=inactive]:hover:bg-slate-100",
+                  )}
+                >
+                  <Building2 className="w-4 h-4 mr-2" />
+                  Empresas
+                </TabsTrigger>
+              </TabsList>
+            </div>
 
-        {/* ═══ RESULTS ═══ */}
-        {results.length > 0 && (
-          <div className="space-y-4">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex items-center justify-between"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-[#D80E16] to-rose-600 rounded-xl flex items-center justify-center shadow-md shadow-red-200/40">
-                    <Trophy className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-black text-[#0F111A]">
-                      {resultStats.total} resultado{resultStats.total !== 1 ? "s" : ""}
-                    </h3>
-                    <p className="text-[10px] font-bold text-slate-500">
-                      {resultStats.withRates} com tarifas · {resultStats.withHts} códigos HTS
-                    </p>
+            {/* ─── TAB: TARIFAS ─── */}
+            <TabsContent value="tarifas" className="mt-4 space-y-4">
+              <ColumnInfoCard />
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-gradient-to-br from-[#D80E16] to-rose-600 rounded-xl flex items-center justify-center shadow-md shadow-red-200/40 shrink-0">
+                      <Trophy className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-black text-[#0F111A]">
+                        {resultStats.total} resultado{resultStats.total !== 1 ? "s" : ""}
+                      </h3>
+                      <p className="text-[10px] font-bold text-slate-500">
+                        {resultStats.withRates} com tarifas &middot; {resultStats.withHts} codigos HTS
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <PremiumBadge variant="info" className="text-[9px]">
-                <Zap className="w-3 h-3" />
-                HTS Rev 8 · 2026
-              </PremiumBadge>
-            </motion.div>
+                <PremiumBadge variant="info" className="text-[9px]">
+                  <Zap className="w-3 h-3" />
+                  HTS Rev 8 &middot; 2026
+                </PremiumBadge>
+              </motion.div>
 
-            <div className="space-y-2">
-              {results.map((record, i) => (
-                <ResultCard key={record.htsno || `hdr-${i}`} record={record} index={i} />
-              ))}
+              <div className="space-y-2">
+                {results.map((record, i) => (
+                  <ResultCard
+                    key={record.htsno || `hdr-${i}`}
+                    record={record}
+                    index={i}
+                    selected={selectedHts === record.htsno}
+                    onSelect={handleSelectHts}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* ─── TAB: IMPORTACOES ─── */}
+            <TabsContent value="importacoes" className="mt-4 space-y-4">
+              {!selectedHts && (
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+                  <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm p-6 sm:p-12 text-center">
+                    <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-blue-50 rounded-2xl mb-4 border border-blue-200">
+                      <Ship className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-2">
+                      Selecione um codigo HTS
+                    </h3>
+                    <p className="text-sm font-medium text-slate-500 max-w-md mx-auto leading-relaxed">
+                      Clique em &quot;Analisar&quot; em um resultado da aba Tarifas para ver dados de importacao.
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+
+              {selectedHts && (
+                <>
+                  <SpotlightCard className="rounded-2xl">
+                    <div className="bg-white border border-slate-200/60 rounded-2xl shadow-sm p-5">
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <div className="w-10 h-10 bg-[#D80E16]/10 rounded-xl flex items-center justify-center">
+                          <Hash className="w-5 h-5 text-[#D80E16]" />
+                        </div>
+                        <div>
+                          <p className="text-xs font-bold text-slate-600">HS Code Selecionado</p>
+                          <p className="text-lg font-black text-slate-900 font-mono">{selectedHts}</p>
+                        </div>
+                        <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+                          SH6: {toSh6(selectedHts)}
+                        </span>
+                      </div>
+                    </div>
+                  </SpotlightCard>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <KpiCard icon={Ship} label="Total BOLs" value={loadingImport ? "..." : formatNumber(importAnalysis.totalBols)} accentColor="text-blue-600" bgColor="bg-blue-100" />
+                    <KpiCard icon={Users} label="Importadores" value={loadingImport ? "..." : formatNumber(importAnalysis.totalCompanies)} accentColor="text-emerald-600" bgColor="bg-emerald-100" />
+                    <KpiCard icon={MapPin} label="Portos Envolvidos" value={loadingImport ? "..." : formatNumber(importAnalysis.totalPorts)} accentColor="text-amber-600" bgColor="bg-amber-100" />
+                  </div>
+
+                  <Card className="border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+                    <CardContent className="p-5 space-y-4">
+                      <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
+                        <Building2 className="w-5 h-5 text-[#D80E16]" />
+                        Principais Importadores (ImportInfo BOLs)
+                      </h3>
+                      {loadingImport && (
+                        <div className="space-y-2">
+                          {[1,2,3].map(i => (
+                            <div key={i} className="bg-white rounded-2xl border border-slate-200/60 shadow-sm p-5">
+                              <div className="h-6 bg-slate-200 rounded-full w-28 animate-pulse" />
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      {!loadingImport && importCompanies.length === 0 && (
+                        <div className="text-center py-8">
+                          <Package className="w-12 h-12 text-slate-200 mx-auto mb-3" />
+                          <p className="text-sm font-bold text-slate-600">Nenhum importador encontrado para este SH6.</p>
+                        </div>
+                      )}
+                      {!loadingImport && importCompanies.length > 0 && (
+                        <div className="space-y-2">
+                          {importCompanies.slice(0, 10).map((company, i) => (
+                            <motion.div
+                              key={company.slug}
+                              initial={{ opacity: 0, y: 8 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: i * 0.04 }}
+                              className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-3 sm:p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+                            >
+                              <div className="flex items-center gap-3 sm:gap-4">
+                                <div className="w-8 h-8 rounded-lg bg-[#D80E16]/10 flex items-center justify-center text-[#D80E16] font-bold text-sm shrink-0">
+                                  {i + 1}
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <p className="font-bold text-slate-900 text-sm truncate">{company.name}</p>
+                                  <p className="text-xs text-slate-500">
+                                    {company.bol_count} BOLs &middot; {company.buyer_count} compradores
+                                  </p>
+                                </div>
+                              </div>
+                              <div className="text-left sm:text-right shrink-0 ml-11 sm:ml-0">
+                                <span className="text-xs font-bold text-slate-600">
+                                  {company.origin_ports.slice(0, 2).join(", ") || "N/A"}
+                                </span>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                </>
+              )}
+            </TabsContent>
+
+            {/* ─── TAB: EMPRESAS ─── */}
+            <TabsContent value="empresas" className="mt-4 space-y-4">
+              {!selectedHts && (
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+                  <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm p-6 sm:p-12 text-center">
+                    <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-amber-50 rounded-2xl mb-4 border border-amber-200">
+                      <Building2 className="w-6 h-6 sm:w-8 sm:h-8 text-amber-500" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-2">
+                      Selecione um codigo HTS
+                    </h3>
+                    <p className="text-sm font-medium text-slate-500 max-w-md mx-auto leading-relaxed">
+                      Clique em &quot;Analisar&quot; em um resultado HTS para ver as empresas importadoras.
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+
+              {selectedHts && (
+                <>
+                  <Card className="border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+                    <CardContent className="p-5 space-y-4">
+                      <div className="flex items-center justify-between gap-2 flex-wrap">
+                        <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
+                          <Building2 className="w-5 h-5 text-[#D80E16]" />
+                          Importadores dos EUA
+                        </h3>
+                        {importCompanies.length > 0 && (
+                          <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+                            {importCompanies.length} empresas
+                          </span>
+                        )}
+                      </div>
+
+                      {loadingImport && (
+                        <div className="space-y-2">
+                          {[1,2,3].map(i => (
+                            <div key={i} className="bg-white rounded-2xl border border-slate-200/60 shadow-sm p-5">
+                              <div className="h-6 bg-slate-200 rounded-full w-28 animate-pulse" />
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {!loadingImport && importCompanies.length === 0 && (
+                        <div className="text-center py-10">
+                          <Building2 className="w-14 h-14 text-slate-200 mx-auto mb-4" />
+                          <p className="text-lg font-bold text-slate-700">Nenhuma empresa encontrada</p>
+                          <p className="text-sm text-slate-500 mt-1">Tente outro codigo HTS.</p>
+                        </div>
+                      )}
+
+                      {!loadingImport && importCompanies.length > 0 && (
+                        <div className="overflow-x-auto -mx-5 px-0">
+                          <div className="min-w-[500px]">
+                            <table className="w-full text-left">
+                              <thead>
+                                <tr className="border-b border-slate-100">
+                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">#</th>
+                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Empresa</th>
+                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">BOLs</th>
+                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Compradores</th>
+                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Portos</th>
+                                  <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500"></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {importCompanies.map((company, i) => (
+                                  <motion.tr
+                                    key={company.slug}
+                                    initial={{ opacity: 0, y: 6 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: i * 0.03 }}
+                                    className={cn(
+                                      "border-b border-slate-50 transition-colors",
+                                      expandedCompany === company.slug ? "bg-[#D80E16]/5" : "hover:bg-slate-50/50",
+                                    )}
+                                  >
+                                    <td className="px-5 py-4 text-xs font-black text-slate-400">{i + 1}</td>
+                                    <td className="px-5 py-4">
+                                      <p className="text-sm font-bold text-slate-900 truncate max-w-[200px]">{company.name}</p>
+                                      {company.commodities.length > 0 && (
+                                        <p className="text-[10px] text-slate-500 truncate max-w-[200px]">{company.commodities.slice(0, 2).join(", ")}</p>
+                                      )}
+                                    </td>
+                                    <td className="px-5 py-4">
+                                      <span className="text-sm font-black text-slate-900">{formatNumber(company.bol_count)}</span>
+                                    </td>
+                                    <td className="px-5 py-4">
+                                      <span className="text-sm font-bold text-slate-700">{company.buyer_count}</span>
+                                      {company.top_buyers.length > 0 && (
+                                        <p className="text-[9px] text-slate-500 truncate max-w-[120px]">{company.top_buyers.slice(0, 2).join(", ")}</p>
+                                      )}
+                                    </td>
+                                    <td className="px-5 py-4">
+                                      <div className="flex flex-col gap-0.5">
+                                        {company.dest_ports.slice(0, 2).map((p, pi) => (
+                                          <span key={pi} className="text-[10px] font-medium text-slate-600">{p}</span>
+                                        ))}
+                                      </div>
+                                    </td>
+                                    <td className="px-5 py-4 text-right">
+                                      <Button
+                                        variant="ghost"
+                                        size="sm"
+                                        onClick={() => handleLoadBols(company.slug)}
+                                        className="text-[10px] font-bold h-8 px-2 rounded-lg"
+                                      >
+                                        {loadingBols && expandedCompany === company.slug ? (
+                                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                        ) : expandedCompany === company.slug ? (
+                                          <ChevronUp className="w-3.5 h-3.5" />
+                                        ) : (
+                                          <ChevronDown className="w-3.5 h-3.5" />
+                                        )}
+                                      </Button>
+                                    </td>
+                                  </motion.tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+
+                  <AnimatePresence>
+                    {expandedCompany && bols.length > 0 && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <Card className="border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+                          <CardContent className="p-5 space-y-4">
+                            <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
+                              <Ship className="w-5 h-5 text-[#D80E16]" />
+                              BOLs Detalhados — {expandedCompany}
+                            </h3>
+                            <div className="overflow-x-auto -mx-5 px-0">
+                              <div className="min-w-[550px]">
+                                <table className="w-full text-left">
+                                  <thead>
+                                    <tr className="border-b border-slate-100">
+                                      <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Data</th>
+                                      <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">BOL</th>
+                                      <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Navio</th>
+                                      <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Porto US</th>
+                                      <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500">Origem</th>
+                                      <th className="px-5 py-3 text-[9px] font-black uppercase tracking-wider text-slate-500 text-right">Peso</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {bols.slice(0, 15).map((bol, i) => (
+                                      <tr key={i} className="border-b border-slate-50 hover:bg-slate-50/50 transition-colors">
+                                        <td className="px-5 py-3 text-xs font-medium text-slate-800 whitespace-nowrap">{bol.arrival_date || bol.run_date}</td>
+                                        <td className="px-5 py-3 text-[10px] font-mono text-slate-600 max-w-[100px] truncate">{bol.master_bol}</td>
+                                        <td className="px-5 py-3 text-xs font-medium text-slate-700 max-w-[100px] truncate">{bol.vessel}</td>
+                                        <td className="px-5 py-3 text-xs text-slate-600">{bol.us_port}</td>
+                                        <td className="px-5 py-3 text-xs text-slate-600">{bol.foreign_port}</td>
+                                        <td className="px-5 py-3 text-xs font-bold text-right text-slate-800 whitespace-nowrap">{formatWeight(bol.weight_kg)}</td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            {bols.length > 15 && (
+                              <p className="text-[10px] font-bold text-slate-500 text-center">
+                                Mostrando 15 de {bols.length} BOLs
+                              </p>
+                            )}
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </>
+              )}
+            </TabsContent>
+          </Tabs>
+        )}
+
+        {/* ═══ NO RESULTS YET (initial) ═══ */}
+        {!loading && results.length === 0 && !searched && (
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl overflow-hidden shadow-xl p-6 sm:p-10 text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white/10 rounded-2xl mb-5 border border-white/10 backdrop-blur-sm">
+                <Globe className="w-8 h-8 sm:w-10 sm:h-10 text-white/60" />
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-white mb-3">
+                HTS dos Estados Unidos
+              </h2>
+              <p className="text-sm font-medium text-slate-400 max-w-lg mx-auto leading-relaxed mb-6">
+                Consulte o Harmonized Tariff Schedule — tarifas de importação dos EUA atualizadas (2026 Rev 8).
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto">
+                {[
+                  { label: "35.496", desc: "Registros indexados", icon: Database },
+                  { label: "EUA", desc: "Tarifário oficial", icon: Globe },
+                  { label: "ImportInfo", desc: "Dados de importação", icon: Ship },
+                  { label: "IA", desc: "Explicações inteligentes", icon: Sparkles },
+                ].map((stat, i) => (
+                  <div key={i} className="bg-white/5 rounded-xl p-4 border border-white/10">
+                    <stat.icon className="w-5 h-5 text-[#D80E16] mx-auto mb-2" />
+                    <p className="text-base font-black text-white">{stat.label}</p>
+                    <p className="text-[9px] font-bold text-slate-500">{stat.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {/* ═══ EMPTY STATE ═══ */}
         {!loading && results.length === 0 && searched && (
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm p-12 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl mb-4 border border-amber-200">
-                <Search className="w-8 h-8 text-amber-500" />
+            <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm p-6 sm:p-12 text-center">
+              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl mb-4 border border-amber-200">
+                <Search className="w-6 h-6 sm:w-8 sm:h-8 text-amber-500" />
               </div>
-              <h3 className="text-xl font-black text-slate-900 mb-2">
+              <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-2">
                 Nenhum resultado
               </h3>
               <p className="text-sm font-medium text-slate-500 max-w-md mx-auto leading-relaxed">
-                Tente buscar por um código HTS de 6 a 10 dígitos ou uma descrição em inglês do produto.
+                Tente buscar por um codigo HTS de 6 a 10 digitos ou uma descricao em ingles do produto.
               </p>
               <div className="flex flex-wrap justify-center gap-2 mt-4">
                 {["6403.12.30", "8471.30.01", "6204.62.30", "electronic integrated circuits"].map((ex, i) => (
@@ -746,37 +1126,6 @@ const HtsLookup = () => {
                   >
                     {ex}
                   </button>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {/* ═══ INITIAL STATE ═══ */}
-        {!loading && results.length === 0 && !searched && (
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl overflow-hidden shadow-xl p-10 text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-2xl mb-5 border border-white/10 backdrop-blur-sm">
-                <Globe className="w-10 h-10 text-white/60" />
-              </div>
-              <h2 className="text-2xl font-black text-white mb-3">
-                HTS dos Estados Unidos
-              </h2>
-              <p className="text-sm font-medium text-slate-400 max-w-lg mx-auto leading-relaxed mb-6">
-                Consulte o Harmonized Tariff Schedule — tarifas de importação dos EUA atualizadas (2026 Rev 8).
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto">
-                {[
-                  { label: "35.496", desc: "Registros indexados", icon: Database },
-                  { label: "EUA", desc: "Tarifário oficial", icon: Globe },
-                  { label: "Rev 8", desc: "Atualização 2026", icon: BarChart3 },
-                  { label: "IA", desc: "Explicações inteligentes", icon: Sparkles },
-                ].map((stat, i) => (
-                  <div key={i} className="bg-white/5 rounded-xl p-4 border border-white/10">
-                    <stat.icon className="w-5 h-5 text-[#D80E16] mx-auto mb-2" />
-                    <p className="text-base font-black text-white">{stat.label}</p>
-                    <p className="text-[9px] font-bold text-slate-500">{stat.desc}</p>
-                  </div>
                 ))}
               </div>
             </div>

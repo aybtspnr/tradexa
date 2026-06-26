@@ -27,7 +27,7 @@ export function useSeo(config: SeoConfig) {
   const ogImage = config.ogImage || DEFAULT_OG_IMAGE;
   const canonical = config.canonical || (typeof window !== "undefined"
     ? `${BASE_URL}${window.location.pathname}${window.location.search}`
-    : BASE_URL);
+    : `${BASE_URL}/`);
   const ogType = config.ogType || "website";
 
   // Auto-noindex on non-production domains (Vercel preview, etc.)

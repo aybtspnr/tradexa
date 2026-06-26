@@ -777,7 +777,7 @@ function CTASection() {
    ═══════════════════════════════════════ */
 export default function HomePage() {
   useSeo({
-    title: "TRADEXA — Plataforma de Comércio Exterior",
+    title: "TRADEXA — Plataforma de Comércio Exterior com Dados de Importação e Exportação",
     description: "Plataforma de comércio exterior: classificação NCM com IA, tarifas de 31 países, rastreamento de cargas ao vivo e serviços de frete. Da análise ao desembaraço.",
     keywords: "comércio exterior, importação, exportação, NCM, frete marítimo, inteligência comercial, trade intelligence, supply chain, rastreamento cargas, classificação fiscal, desembaraço aduaneiro",
     canonical: "https://www.tradexa.com.br",
