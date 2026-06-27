@@ -1,716 +1,382 @@
-"use client";
-
-import { useEffect, useRef, useState, useCallback, type ReactNode } from "react";
-import { createPortal } from "react-dom";
-import { Link, useNavigate } from "react-router-dom";
-import { motion, useInView, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect, type ReactNode } from "react";
+import { Link } from "react-router-dom";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import {
-  ArrowRight, BarChart3, Globe, Shield, Zap, TrendingUp,
-  Package, Map, ChevronRight, Sparkles, Check,
-  ChevronDown, Menu, X, Database, Navigation,
-  BellRing, Search, RefreshCw, Brain, Users,
+  ArrowRight,
+  Heart,
   Briefcase,
+  Building2,
+  Shield,
+  Users,
+  Landmark,
+  Award,
+  Globe,
+  Clock,
+  MessageSquare,
+  ChevronRight,
+  BookOpen,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import {
-  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Logo3D } from "@/components/Logo3D";
-import { ParticleCanvasThemed, TiltWrapper } from "@/components/3d";
-import { TextScramble, MagneticButton, ScrollReveal, SpotlightCard } from "@/components/premium";
-import { StatsBarSection } from "@/components/home/StatsBarSection";
-import { WhatIsTradexaSection } from "@/components/home/WhatIsTradexaSection";
-import { PlatformModulesSection } from "@/components/home/PlatformModulesSection";
-import NewsletterSection from "@/components/home/NewsletterSection";
-import { Helmet } from "react-helmet-async";
-import { useSeo } from "@/hooks/use-seo";
-import { Footer } from "@/pages/Index/components/Footer";
-import "./HomePage.css";
+import { getAllPosts } from "@/data/blog/posts";
+import type { BlogPostMeta } from "@/data/blog/posts";
 
 /* ═══════════════════════════════════════
-   TYPES
+   MOTION VARIANTS
    ═══════════════════════════════════════ */
-interface ModuleData {
-  id: string;
-  icon: ReactNode;
-  title: string;
-  description: string;
-  features: string[];
-  route: string;
-  color: string;
-}
+const fadeUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const },
+  },
+};
 
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+  },
+};
 
 /* ═══════════════════════════════════════
    ANIMATED COUNTER
    ═══════════════════════════════════════ */
-function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
+function AnimatedCounter({
+  value,
+  suffix = "",
+}: {
+  value: number;
+  suffix?: string;
+}) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [count, setCount] = useState(value);
+  const [count, setCount] = useState(0);
+
   useEffect(() => {
     if (!isInView) return;
-    let start = 0;
+    let current = 0;
     const duration = 2000;
     const step = 30;
     const increment = value / (duration / step);
     const timer = setInterval(() => {
-      start += increment;
-      if (start >= value) { setCount(value); clearInterval(timer); }
-      else setCount(Math.floor(start));
+      current += increment;
+      if (current >= value) {
+        setCount(value);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
     }, step);
     return () => clearInterval(timer);
   }, [isInView, value]);
-  return <span ref={ref}>{count.toLocaleString("pt-BR")}{suffix}</span>;
+
+  return (
+    <span ref={ref}>
+      {count.toLocaleString("pt-BR")}
+      {suffix}
+    </span>
+  );
 }
 
 /* ═══════════════════════════════════════
-   SECTION HEADER
+   SECTION WRAPPERS
    ═══════════════════════════════════════ */
-function SectionHeader({ badge, title, subtitle, dark = false }: { badge: string; title: ReactNode; subtitle?: string; dark?: boolean }) {
+function FadeIn({
+  children,
+  delay = 0,
+}: {
+  children: ReactNode;
+  delay?: number;
+}) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="text-center mb-16 md:mb-20"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-60px" }}
+      variants={{
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.7,
+            delay,
+            ease: [0.16, 1, 0.3, 1] as const,
+          },
+        },
+      }}
     >
-      <Badge className={`mb-4 font-bold text-[11px] uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border-0 ${
-        dark ? "bg-white/10 text-white/70" : "bg-[#D80E16]/8 text-[#D80E16]"
-      }`}>
-        {badge}
-      </Badge>
-      <h2 className={`text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] mb-5 ${dark ? "text-white" : "text-[#0F111A]"}`}>
-        {title}
-      </h2>
-      {subtitle && <p className={`text-base md:text-lg max-w-2xl mx-auto leading-relaxed ${dark ? "text-white/60" : "text-[#5E6278]"}`}>{subtitle}</p>}
+      {children}
     </motion.div>
   );
 }
 
 /* ═══════════════════════════════════════
-   HEADER — Glassmorphism, transparente
+   1. HERO SECTION
    ═══════════════════════════════════════ */
-function Header() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const servicesRef = useRef<HTMLDivElement>(null);
+function HeroSection() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+  const heroY = useTransform(scrollY, [0, 600], [0, 140]);
+  const opacityY = useTransform(scrollY, [0, 500], [1, 0]);
 
-  useEffect(() => {
-    let ticking = false;
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 40);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const onClick = (e: MouseEvent) => {
-      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) setServicesOpen(false);
-    };
-    document.addEventListener("mousedown", onClick);
-    return () => document.removeEventListener("mousedown", onClick);
-  }, []);
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [menuOpen]);
-
-  const navBase = "px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-200 relative flex items-center gap-1.5";
-  const navActive = "text-[#D80E16] bg-[#D80E16]/[0.06]";
-  const navInactive = "text-[#5E6278] hover:text-[#0F111A] hover:bg-black/[0.04]";
-
-  const serviceLinks = [
-    { label: "Classificador IA NCM", href: "/landing/ncm-classifier", icon: <Search className="w-4 h-4" />, color: "#D80E16", desc: "Classificação automática de produtos" },
-    { label: "Track & Trace", href: "/landing/track-trace", icon: <Navigation className="w-4 h-4" />, color: "#D80E16", desc: "Navios e aviões ao vivo", badge: "Novo" },
-    { label: "Tarifário Global", href: "/landing/tariff-calculator", icon: <Globe className="w-4 h-4" />, color: "#f59e0b", desc: "Alíquotas de importação em 31 países" },
-    { label: "Trade Intelligence", href: "/landing/import-dashboard", icon: <BarChart3 className="w-4 h-4" />, color: "#10b981", desc: "Dados de importação e exportação" },
-    { label: "Smart Rank", href: "/landing/export-opportunities", icon: <TrendingUp className="w-4 h-4" />, color: "#8b5cf6", desc: "Ranking de países por oportunidade" },
-    { label: "Mapa de Importadores", href: "/landing/import-map", icon: <Map className="w-4 h-4" />, color: "#06b6d4", desc: "Geolocalização de operações" },
-    { label: "Diretório Importadores", href: "/landing/importadores", icon: <Database className="w-4 h-4" />, color: "#ef4444", desc: "Milhões de empresas por HS" },
-    { label: "Supply Chain Map", href: "/landing/supply-chain", icon: <Globe className="w-4 h-4" />, color: "#D80E16", desc: "Mapa logístico global ao vivo" },
-    { label: "Mapa de Frete Marítimo", href: "/landing/maritime-freight-map", icon: <Map className="w-4 h-4" />, color: "#0ea5e9", desc: "Cotações de frete internacional em rotas globais", badge: "Beta" },
+  const badges = [
+    "Atendimento Nacional",
+    "OAB/SC",
+    "15+ Anos de Experiência",
+    "5.000+ Casos Atendidos",
   ];
 
   return (
-    <>
-      <motion.header
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        scrolled ? "bg-white/85 backdrop-blur-2xl border-b border-black/[0.06] shadow-[0_4px_30px_-15px_rgba(15,17,26,0.1)]" : "bg-transparent"
-      }`}
+    <section
+      ref={heroRef}
+      className="hero"
+      style={{ minHeight: "100vh", backgroundColor: "#0F111A" }}
     >
-      {scrolled && (
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          className="absolute top-0 left-0 right-0 h-[1.5px] origin-left"
-          style={{ background: "linear-gradient(90deg, transparent, #D80E16, #FF5555, #D80E16, transparent)" }}
-        />
-      )}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <motion.div
-            whileHover={{ rotateY: 15, rotateX: -5 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            style={{ perspective: 800, transformStyle: "preserve-3d" }}
-          >
-            <Logo3D className="h-8 md:h-9" />
-          </motion.div>
-        </Link>
+      {/* Ambient gold glow orb */}
+      <div className="glow-gold" />
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-0.5">
-          <Link to="/" className={`${navBase} ${navActive}`}>
-            <Sparkles className="w-4 h-4" />Início
-          </Link>
-
-          <div ref={servicesRef} className="relative">
-            <button onClick={() => setServicesOpen(!servicesOpen)} className={`${navBase} ${navInactive}`}>
-              <Package className="w-4 h-4" />Plataforma
-              <motion.span animate={{ rotate: servicesOpen ? 180 : 0 }}><ChevronDown className="w-3.5 h-3.5" /></motion.span>
-            </button>
-            <AnimatePresence>
-              {servicesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[360px] bg-white/95 backdrop-blur-2xl rounded-2xl border border-black/[0.06] shadow-2xl overflow-hidden"
-                >
-                  <div className="px-3 py-2.5 border-b border-black/[0.04]">
-                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#5E6278]">Plataforma</p>
-                  </div>
-                  <div className="p-2">
-                    {serviceLinks.map((s, i) => (
-                      <motion.div key={s.href} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.04 }}>
-                        <Link to={s.href} className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm hover:bg-black/[0.03] group transition-all">
-                          <span className="w-9 h-9 rounded-lg flex items-center justify-center text-white shadow-sm" style={{ background: s.color }}>{s.icon}</span>
-                          <div className="flex-1 min-w-0">
-                            <span className="text-[#0F111A] font-bold text-sm flex items-center gap-1.5">
-                              {s.label}
-                              {(s as any).badge && <span className="text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-100 text-amber-700">{(s as any).badge}</span>}
-                            </span>
-                            <span className="text-[10px] text-[#5E6278] block">{s.desc}</span>
-                          </div>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#5E6278]/40 group-hover:text-[#D80E16] transition-colors" />
-                        </Link>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          <Link to="/servicos" className={`${navBase} ${navInactive}`}><Briefcase className="w-4 h-4" />Serviços</Link>
-          <Link to="/sobre" className={`${navBase} ${navInactive}`}><Sparkles className="w-4 h-4" />Sobre</Link>
-          <Link to="/pricing" className={`${navBase} ${navInactive}`}><Zap className="w-4 h-4" />Planos</Link>
-        </nav>
-
-        <div className="hidden lg:flex items-center gap-2.5">
-          <Button variant="ghost" size="sm" className="rounded-xl text-[#5E6278] hover:text-[#0F111A]" asChild>
-            <Link to="/login">Entrar</Link>
-          </Button>
-          <Button size="sm" className="gap-2 bg-[#D80E16] hover:bg-[#b80c12] text-white rounded-xl shadow-lg shadow-[#D80E16]/20 border-0" asChild>
-            <Link to="/register"><Sparkles className="w-3.5 h-3.5" />Começar<ArrowRight className="w-3.5 h-3.5" /></Link>
-          </Button>
-        </div>
-
-        <button onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} className="lg:hidden p-2 rounded-xl text-[#0F111A] hover:bg-black/[0.04]">
-          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-    {createPortal(
-      <AnimatePresence>
-        {menuOpen && (
-          <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setMenuOpen(false)} className="fixed inset-0 bg-[#0F111A]/40 backdrop-blur-sm z-[9998]" />
-            <motion.div
-              initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 h-dvh w-[320px] max-w-[90vw] border-l border-black/[0.06] shadow-2xl z-[9999] flex flex-col overscroll-contain"
-              style={{ backgroundColor: "#ffffff" }}
-            >
-              <div className="p-4 border-b border-black/[0.06] flex items-center justify-between bg-white">
-                <Logo3D className="h-7" />
-                <button onClick={() => setMenuOpen(false)} className="p-2 rounded-xl text-[#5E6278] hover:bg-black/[0.04]"><X className="w-5 h-5" /></button>
-              </div>
-              <div className="flex-1 overflow-auto p-4 space-y-1 bg-white">
-                <MobileLink to="/" label="Início" icon={<Sparkles className="w-4 h-4" />} />
-                <div className="pt-4 pb-2 px-3 text-[10px] font-black uppercase tracking-[0.2em] text-[#5E6278]">Plataforma</div>
-                {serviceLinks.map(s => <MobileLink key={s.href} to={s.href} label={s.label} badge={(s as any).badge} icon={<span className="w-5 h-5 rounded flex items-center justify-center text-white text-[9px]" style={{ background: s.color }}>{s.icon}</span>} />)}
-                <div className="pt-4 pb-2 px-3 text-[10px] font-black uppercase tracking-[0.2em] text-[#5E6278]">Outros</div>
-                <MobileLink to="/servicos" label="Serviços" icon={<Briefcase className="w-4 h-4" />} />
-                <MobileLink to="/sobre" label="Sobre" icon={<Sparkles className="w-4 h-4" />} />
-                <MobileLink to="/pricing" label="Planos" icon={<Zap className="w-4 h-4" />} />
-              </div>
-              <div className="p-4 border-t border-black/[0.06] space-y-2 bg-white">
-                <Button variant="outline" className="w-full rounded-xl h-11 font-bold" asChild><Link to="/login">Acessar Conta</Link></Button>
-                <Button className="w-full gap-2 bg-[#D80E16] hover:bg-[#b80c12] text-white rounded-xl h-11 font-bold" asChild>
-                  <Link to="/register"><Sparkles className="w-4 h-4" />Começar Grátis</Link>
-                </Button>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>,
-      document.body
-    )}
-    </motion.header>
-    </>
-  );
-}
-
-function MobileLink({ to, label, icon, badge }: { to: string; label: string; icon: ReactNode; badge?: string }) {
-  return (
-    <Link to={to} className="flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-bold text-[#0F111A] hover:bg-black/[0.03] transition-all">
-      {icon}{label}
-      {badge && <span className="text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-100 text-amber-700 ml-auto">{badge}</span>}
-    </Link>
-  );
-}
-
-
-/* ═══════════════════════════════════════
-   HERO SECTION
-   ═══════════════════════════════════════ */
-function HeroSection() {
-  const heroRef = useRef(null);
-  const isInView = useInView(heroRef, { once: true });
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 150]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -80]);
-
-  // Mobile: render ALL above-the-fold content as plain HTML (no framer-motion)
-  // Desktop: keep original framer-motion animations — 88 on Lighthouse!
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window !== "undefined") return window.innerWidth < 768;
-    return false;
-  });
-  useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout>;
-    const onResize = () => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => setIsMobile(window.innerWidth < 768), 150);
-    };
-    window.addEventListener("resize", onResize, { passive: true });
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  // Shared hero text content (used by both mobile and desktop)
-  const heroContent = (
-    <>
-      {isMobile ? (
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D80E16]/[0.08] border border-[#D80E16]/[0.15] text-[#D80E16] text-sm font-semibold mb-6">
-          <Sparkles className="w-4 h-4" />
-          Plataforma de Comércio Exterior
-        </div>
-      ) : (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.15, duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D80E16]/[0.08] border border-[#D80E16]/[0.15] text-[#D80E16] text-sm font-semibold mb-6"
-        >
-          <Sparkles className="w-4 h-4" />
-          Plataforma de Comércio Exterior
-        </motion.div>
-      )}
-
-      {isMobile ? (
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-extrabold leading-[1.08] mb-6 tracking-tight text-[#0F111A]">
-          A Plataforma Mais Completa de{" "}
-          <span className="text-[#D80E16]">Comércio Exterior</span>
-        </h1>
-      ) : (
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-extrabold leading-[1.08] mb-6 tracking-tight text-[#0F111A]"
-        >
-          A Plataforma Mais Completa de{" "}
-          <span className="text-[#D80E16]">Comércio Exterior</span>
-        </motion.h1>
-      )}
-
-      {isMobile ? (
-        <p className="text-lg md:text-xl text-[#5E6278] leading-relaxed mb-8 max-w-lg">
-          Classifique produtos com IA, analise mercados em 31 países,
-          rastreie cargas ao vivo e encontre importadores — sem sair da plataforma.
-        </p>
-      ) : (
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.45, duration: 0.7 }}
-          className="text-lg md:text-xl text-[#5E6278] leading-relaxed mb-8 max-w-lg"
-        >
-          Classifique produtos com IA, analise mercados em 31 países,
-          rastreie cargas ao vivo e encontre importadores — sem sair da plataforma.
-        </motion.p>
-      )}
-
-      {isMobile ? (
-        <div className="flex flex-wrap gap-4 mb-12">
-          <Button size="lg" className="gap-2 bg-[#D80E16] hover:bg-[#b80c12] text-white px-8 py-6 text-base font-bold rounded-2xl shadow-[0_0_40px_rgba(216,14,22,0.25)] hover:shadow-[0_0_60px_rgba(216,14,22,0.35)] transition-all border-0 btn-glow" asChild>
-            <Link to="/register">Criar Conta Grátis <ArrowRight className="w-5 h-5" /></Link>
-          </Button>
-          <Button size="lg" variant="outline" className="gap-2 border-[#0F111A]/15 text-[#0F111A] hover:bg-[#0F111A]/[0.03] px-8 py-6 text-base font-bold rounded-2xl" asChild>
-            <Link to="/login">Fazer Login</Link>
-          </Button>
-        </div>
-      ) : (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6, duration: 0.7 }}
-          className="flex flex-wrap gap-4 mb-12"
-        >
-          <Button size="lg" className="gap-2 bg-[#D80E16] hover:bg-[#b80c12] text-white px-8 py-6 text-base font-bold rounded-2xl shadow-[0_0_40px_rgba(216,14,22,0.25)] hover:shadow-[0_0_60px_rgba(216,14,22,0.35)] transition-all border-0 btn-glow" asChild>
-            <Link to="/register">Testar Grátis <ArrowRight className="w-5 h-5" /></Link>
-          </Button>
-          <Button size="lg" variant="outline" className="gap-2 border-[#0F111A]/15 text-[#0F111A] hover:bg-[#0F111A]/[0.03] px-8 py-6 text-base font-bold rounded-2xl" asChild>
-            <Link to="/login">Acessar Plataforma</Link>
-          </Button>
-        </motion.div>
-      )}
-
-      {isMobile ? (
-        <div className="grid grid-cols-3 gap-6 max-w-md">
-          {[
-            { value: 31, suffix: "", prefix: "", label: "Países mapeados" },
-            { value: 141, suffix: "+", prefix: "", label: "Artigos e guias" },
-            { value: 36, suffix: "", prefix: "", label: "Ferramentas disponíveis" },
-          ].map((s) => (
-            <div key={s.label} className="min-w-0">
-              <p className="text-2xl sm:text-3xl font-extrabold text-[#0F111A] truncate">
-                {s.value.toLocaleString("pt-BR")}{s.suffix}
-              </p>
-              <p className="text-xs sm:text-sm text-[#5E6278] font-medium">{s.label}</p>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.75, duration: 0.7 }}
-          className="grid grid-cols-3 gap-6 max-w-md"
-        >
-          {[
-            { value: 31, suffix: "", prefix: "", label: "Países mapeados" },
-            { value: 141, suffix: "+", prefix: "", label: "Artigos e guias" },
-            { value: 36, suffix: "", prefix: "", label: "Ferramentas disponíveis" },
-          ].map((s) => (
-            <div key={s.label} className="min-w-0">
-              <p className="text-2xl sm:text-3xl font-extrabold text-[#0F111A] truncate">
-                <AnimatedCounter value={s.value} suffix={s.suffix} />
-              </p>
-              <p className="text-xs sm:text-sm text-[#5E6278] font-medium">{s.label}</p>
-            </div>
-          ))}
-        </motion.div>
-      )}
-    </>
-  );
-
-  return (
-    <section ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
-      <div className="absolute inset-0">
-        <ParticleCanvasThemed opacity={0.35} particleCount={25} connectionDist={140} />
-      </div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,rgba(216,14,22,0.06),transparent)] z-[2]" />
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-12 xl:px-20 py-16 md:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center max-w-7xl mx-auto">
-          {isMobile ? (
-            <div>{heroContent}</div>
-          ) : (
-            <motion.div style={{ y: y1 }}>{heroContent}</motion.div>
-          )}
-
-          {!isMobile && (
-            <motion.div
-              style={{ y: y2 }}
-              initial={{ opacity: 0, x: 60 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.4, duration: 0.9 }}
-              className="relative hidden lg:flex items-center justify-center h-[450px]"
-            >
-              <div className="relative w-[380px] h-[380px]">
-                {[0, 1, 2].map((i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute inset-0 rounded-full border border-[#D80E16]/15"
-                    animate={{
-                      scale: [1, 1.15, 1],
-                      opacity: [0.4, 0.1, 0.4],
-                      rotate: [0, 360],
-                    }}
-                    transition={{
-                      duration: 8 + i * 2,
-                      repeat: Infinity,
-                      ease: "linear",
-                      delay: i * 1.5,
-                    }}
-                    style={{
-                      width: `${100 - i * 15}%`,
-                      height: `${100 - i * 15}%`,
-                      left: `${(i * 15) / 2}%`,
-                      top: `${(i * 15) / 2}%`,
-                    }}
-                  />
-                ))}
-                {Array.from({ length: 16 }).map((_, i) => {
-                  const angle = (i / 16) * Math.PI * 2;
-                  const radius = 140 + (i % 3) * 25;
-                  const x = Math.cos(angle) * radius;
-                  const y = Math.sin(angle) * radius;
-                  return (
-                    <motion.div
-                      key={i}
-                      className="absolute w-2 h-2 rounded-full bg-[#D80E16]/30"
-                      style={{ left: `calc(50% + ${x}px - 4px)`, top: `calc(50% + ${y}px - 4px)` }}
-                      animate={{ opacity: [0.2, 0.7, 0.2], scale: [0.8, 1.3, 0.8] }}
-                      transition={{ duration: 3 + i * 0.35, repeat: Infinity, delay: i * 0.25 }}
-                    />
-                  );
-                })}
-              </div>
-            </motion.div>
-          )}
-        </div>
-      </div>
+      {/* Dotted pattern overlay */}
+      <div className="pattern-dots" />
 
       <motion.div
-        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-10"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+        style={{ y: heroY, opacity: opacityY, position: "relative", zIndex: 10 }}
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
+        className="hero-content"
       >
-        <div className="w-6 h-10 rounded-full border-2 border-[#0F111A]/20 flex justify-center pt-2">
-          <motion.div
-            animate={{ y: [0, 8, 0], opacity: [1, 0.3, 1] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1 h-2 rounded-full bg-[#D80E16]"
-          />
-        </div>
+        <motion.h1 variants={fadeUp} className="hero-title">
+          Advocacia que <span className="gold-text">protege</span> seus direitos
+        </motion.h1>
+
+        <motion.p
+          variants={fadeUp}
+          className="section-sub"
+          style={{ color: "rgba(255,255,255,0.7)" }}
+        >
+          Soluções jurídicas completas nas áreas trabalhista, previdenciária,
+          civil, consumidor, família e imobiliária. Atendimento humanizado e
+          resultados que fazem a diferença.
+        </motion.p>
+
+        <motion.div variants={fadeUp} className="hero-actions">
+          <Link to="/contato" className="btn-gold">
+            Fale Conosco
+            <ArrowRight size={18} />
+          </Link>
+          <Link to="/areas-de-atuacao" className="btn-outline-white">
+            Nossas Áreas
+          </Link>
+        </motion.div>
+
+        {/* Trust badges with separators */}
+        <motion.ul variants={fadeUp} className="trust-badges">
+          {badges.map((badge, i) => (
+            <li key={badge} className="trust-badge">
+              {i > 0 && <span className="trust-sep" aria-hidden="true" />}
+              <span>{badge}</span>
+            </li>
+          ))}
+        </motion.ul>
+      </motion.div>
+
+      {/* Scroll-down indicator */}
+      <motion.div
+        className="scroll-down"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 1 }}
+      >
+        <motion.span
+          style={{ display: "block", width: 1, height: 32, margin: "0 auto" }}
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        />
       </motion.div>
     </section>
   );
 }
 
-
 /* ═══════════════════════════════════════
-   PLANS SECTION
+   2. STATS SECTION
    ═══════════════════════════════════════ */
-const PLANS = [
-  {
-    name: "Essential",
-    price: "R$ 0",
-    period: "/mês",
-    description: "Ideal para quem está começando a explorar o comércio exterior",
-    features: [
-      "2 consultas IA NCM por mês",
-      "Exportação Intelligence (5 buscas/dia)",
-      "Visualização de estatísticas gerais",
-      "Suporte por email",
-    ],
-    unavailable: [
-      "Importação/Exportação Intelligence completo",
-      "Mapas interativos",
-      "Alertas automáticos",
-      "Consultas de importadores/exportadores mundiais",
-      "Cálculos de impostos por país",
-    ],
-    cta: "Começar Grátis",
-    highlighted: false,
-    route: "/register",
-  },
-  {
-    name: "Growth",
-    price: "R$ 289",
-    period: "/mês",
-    description: "Para empresas que estão começando a exportar",
-    features: [
-      "IA NCM ilimitada (via tanque)",
-      "Import/Export Intelligence completo",
-      "Todas as ferramentas liberadas",
-      "Smart Rank, Alertas, Análise Avançada",
-      "Suporte por email",
-    ],
-    unavailable: [
-      "Exportação CSV/PDF",
-      "Uso ilimitado sem tanque",
-    ],
-    cta: "Assinar Growth",
-    highlighted: false,
-    route: "/register?plan=growth",
-  },
-  {
-    name: "Business",
-    price: "R$ 3.200",
-    period: "/mês",
-    description: "Tudo ilimitado. Sem preocupações com limite de uso.",
-    features: [
-      "Tudo do Growth + ilimitado",
-      "IA NCM — sem limites de consulta",
-      "Import/Export Intelligence — sem limites",
-      "Exportação CSV e PDF liberada",
-      "Suporte prioritário",
-    ],
-    unavailable: [],
-    cta: "Assinar Business",
-    highlighted: true,
-    badge: "ILIMITADO",
-    route: "/register?plan=business",
-  },
+const stats = [
+  { value: 15, suffix: "+", label: "Anos" },
+  { value: 5000, suffix: "+", label: "Casos" },
+  { value: 27, suffix: "+", label: "Cidades" },
+  { value: 100, suffix: "%", label: "Dedicação" },
 ];
 
-function PlansSection() {
+function StatsSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#FAFAF9] overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        <SectionHeader
-          badge="Planos"
-          title={<>Escolha seu{" "}<span className="text-[#D80E16]">plano</span></>}
-          subtitle="Comece grátis. Sem cartão. Upgrade quando quiser."
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-          {PLANS.map((plan, i) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
-            >
-              <SpotlightCard className={`rounded-2xl p-6 lg:p-8 h-full relative overflow-visible ${
-                plan.highlighted
-                  ? "bg-gradient-to-br from-[#D80E16] to-[#b80c12] text-white shadow-xl shadow-[#D80E16]/20 ring-4 ring-[#D80E16]/10"
-                  : "bg-white border border-black/[0.06] shadow-[0_4px_24px_-12px_rgba(15,17,26,0.1)]"
-              }`}>
-                {plan.badge && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#D80E16] font-black text-[10px] uppercase tracking-widest px-3 py-1 shadow-lg">
-                    {plan.badge}
-                  </Badge>
+    <section
+      ref={ref}
+      style={{ position: "relative", zIndex: 20, marginTop: "-80px" }}
+    >
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 1.5rem" }}>
+        <div className="glass-card">
+          <div
+            className="stats-grid"
+            style={{
+              display: "grid",
+              gridTemplateColumns:
+                "repeat(auto-fit, minmax(180px, 1fr))",
+              alignItems: "stretch",
+            }}
+          >
+            {stats.map((s, i) => (
+              <div key={s.label} className="stat-item-wrap">
+                <motion.div
+                  className="stat-item"
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                  variants={fadeUp}
+                  transition={{ delay: i * 0.12 }}
+                >
+                  <span className="stat-number gold-text serif">
+                    <AnimatedCounter value={s.value} suffix={s.suffix} />
+                  </span>
+                  <span className="stat-label">{s.label}</span>
+                </motion.div>
+                {i < stats.length - 1 && (
+                  <span className="stat-divider" aria-hidden="true" />
                 )}
-
-                <div className={`text-[10px] font-black uppercase tracking-[0.2em] mb-3 ${plan.highlighted ? "text-white/60" : "text-[#5E6278]"}`}>
-                  {plan.name}
-                </div>
-                <div className="text-4xl font-extrabold mb-1">{plan.price}</div>
-                {plan.period ? <div className={`text-sm font-medium mb-5 ${plan.highlighted ? "text-white/60" : "text-[#5E6278]"}`}>{plan.period}</div> : <div className="mb-5" />}
-                <p className={`text-sm mb-6 leading-relaxed ${plan.highlighted ? "text-white/80" : "text-[#5E6278]"}`}>{plan.description}</p>
-
-                <ul className="space-y-3 mb-6">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm">
-                      <Check className={`w-4 h-4 mt-0.5 shrink-0 ${plan.highlighted ? "text-white" : "text-[#10b981]"}`} />
-                      <span className={plan.highlighted ? "text-white/90" : "text-[#0F111A]"}>{f}</span>
-                    </li>
-                  ))}
-                  {plan.unavailable.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm opacity-50">
-                      <span className="w-4 h-4 mt-0.5 shrink-0 rounded-full border border-current flex items-center justify-center text-[8px]">×</span>
-                      <span className={plan.highlighted ? "text-white/60" : "text-[#5E6278]"}>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Button className={`w-full rounded-xl h-12 font-bold ${
-                  plan.highlighted
-                    ? "bg-white text-[#D80E16] hover:bg-slate-100"
-                    : "bg-[#D80E16] text-white hover:bg-[#b80c12]"
-                }`} asChild>
-                  <Link to={plan.route}>{plan.cta}</Link>
-                </Button>
-              </SpotlightCard>
-            </motion.div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-
 /* ═══════════════════════════════════════
-   FAQ
+   3. SERVIÇOS SECTION
    ═══════════════════════════════════════ */
-const FAQ = [
+const services = [
   {
-    q: "O plano grátis tem limitações?",
-    a: "O plano Essential é gratuito e oferece acesso a estatísticas gerais e 2 consultas IA NCM por mês. Além disso, várias ferramentas são completamente gratuitas e nem exigem cadastro: Supply Chain Map (navios e aviões ao vivo), Track & Trace (rastreamento de cargas) e Rastreamento de Container. Para recursos avançados como Trade Intelligence e Smart Rank, recomendamos os planos Growth ou Business.",
+    icon: <Heart size={26} />,
+    title: "Previdenciário",
+    desc: "Aposentadorias, pensões e benefícios do INSS com acompanhamento completo.",
+    topics: [
+      "Aposentadoria por tempo",
+      "Aposentadoria por idade",
+      "Pensão por morte",
+      "BPC/LOAS",
+    ],
+    link: "/areas/previdenciario",
   },
   {
-    q: "Preciso pagar para testar as ferramentas?",
-    a: "Não. O plano Essential é 100% gratuito e sem necessidade de cartão de crédito. Além disso, o Supply Chain Map, Track & Trace e Rastreamento de Carga são ferramentas livres que qualquer pessoa pode usar sem cadastro — basta acessar e começar a usar.",
+    icon: <Briefcase size={26} />,
+    title: "Trabalhista",
+    desc: "Direitos trabalhistas, reclamações e ações de indenização por vínculo empregatício.",
+    topics: [
+      "Reclamação trabalhista",
+      "Rescisão indireta",
+      "Equiparação salarial",
+      "Acidente de trabalho",
+    ],
+    link: "/areas/trabalhista",
   },
   {
-    q: "Como funciona o limite de uso?",
-    a: "Cada plano tem uma barra de uso mensal de 100%. Cada ação (consulta, busca, classificação IA) consome uma pequena porcentagem. Planos superiores têm custo por ação reduzido, permitindo muito mais consultas por mês. Ferramentas gratuitas como Supply Chain Map e Track & Trace não consomem créditos.",
+    icon: <Building2 size={26} />,
+    title: "Cível",
+    desc: "Contratos, indenizações, obrigações e litígios entre particulares e empresas.",
+    topics: [
+      "Contratos",
+      "Responsabilidade civil",
+      "Cobranças",
+      "Direito de vizinhança",
+    ],
+    link: "/areas/civel",
   },
   {
-    q: "Como funciona o classificador NCM com IA?",
-    a: "Descreva o produto em linguagem natural (ex: 'máquina de corte a laser para tecidos') e nossa IA retorna o código NCM/HS/HTS mais adequado, com descrição completa, alíquotas e restrições aplicáveis. O classificador cobre toda a tabela NCM brasileira e também gera o HS code internacional.",
+    icon: <Shield size={26} />,
+    title: "Consumidor",
+    desc: "Defesa dos direitos do consumidor contra abusos de empresas e prestadores.",
+    topics: [
+      "Revisão de contrato",
+      "Indenização moral",
+      "Produto defeituoso",
+      "Cobrança indevida",
+    ],
+    link: "/areas/consumidor",
   },
   {
-    q: "Os dados são atualizados com que frequência?",
-    a: "Dados de comércio exterior são atualizados mensalmente com registros oficiais. Tarifas de importação de 31 países são mantidas atualizadas. Alertas e notificações são processados em tempo real. O Supply Chain Map e Track & Trace usam dados AIS e ADS-B ao vivo.",
+    icon: <Users size={26} />,
+    title: "Família",
+    desc: "Direito de família com sensibilidade: divórcios, guarda e pensão alimentícia.",
+    topics: [
+      "Divórcio consensual",
+      "Guarda de filhos",
+      "Pensão alimentícia",
+      "Inventário",
+    ],
+    link: "/areas/familia",
   },
   {
-    q: "Posso usar a TRADEXA para encontrar compradores internacionais?",
-    a: "Sim. O Diretório de Importadores tem 3.8M+ empresas classificadas por código HS em 97 países. Os planos Growth e Business incluem busca avançada com filtros por país, porte e categoria de produto. Para prospecção personalizada, oferecemos o serviço de Pesquisa de Compradores Internacionais.",
-  },
-  {
-    q: "Quais ferramentas são gratuitas e não precisam de cadastro?",
-    a: "O Supply Chain Map (navios, aviões e portos ao vivo), Track & Trace (rastreamento de navios e aeronaves) e Rastreamento de Carga (DHL, FedEx, UPS, Maersk) são 100% gratuitos e abertos — sem cadastro, sem limite. Basta acessar e usar.",
+    icon: <Landmark size={26} />,
+    title: "Imobiliário",
+    desc: "Questões jurídicas envolvendo imóveis, locação, usucapião e incorporação.",
+    topics: [
+      "Compra e venda",
+      "Locação",
+      "Usucapião",
+      "Incorporação imobiliária",
+    ],
+    link: "/areas/imobiliario",
   },
 ];
 
-function FAQSection() {
+function ServicosSection() {
   return (
-    <section className="relative pt-8 md:pt-12 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-3xl mx-auto">
-        <SectionHeader badge="FAQ" title="Dúvidas frequentes" />
+    <section className="section section-cream">
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <FadeIn>
+          <span className="section-tag">Áreas de Atuação</span>
+          <h2 className="section-title">Soluções Jurídicas Completas</h2>
+          <p className="section-sub">
+            Nosso escritório oferece assessoria jurídica integral nas principais
+            áreas do direito, sempre com atendimento personalizado e compromisso
+            com os resultados.
+          </p>
+        </FadeIn>
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          className="srv-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={staggerContainer}
+          style={{
+            display: "grid",
+            gap: "1.5rem",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(280px, 1fr))",
+            marginTop: "3.5rem",
+          }}
         >
-          <Accordion type="single" collapsible className="space-y-3">
-            {FAQ.map((item, i) => (
-              <AccordionItem key={i} value={`faq-${i}`}
-                className="rounded-xl border border-black/[0.06] bg-white px-6 py-1 shadow-[0_2px_12px_-6px_rgba(15,17,26,0.08)] data-[state=open]:border-[#D80E16]/20 transition-all"
-              >
-                <AccordionTrigger className="text-left font-bold text-[#0F111A] hover:no-underline py-4 text-base">
-                  {item.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-[#5E6278] text-sm leading-relaxed pb-4">
-                  {item.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          {services.map((s) => (
+            <motion.div key={s.title} variants={fadeUp} className="srv-card">
+              <div className="srv-icon">{s.icon}</div>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+              <ul className="srv-topics">
+                {s.topics.map((t) => (
+                  <li key={t}>{t}</li>
+                ))}
+              </ul>
+              <Link to={s.link} className="srv-link">
+                Saiba mais
+                <ChevronRight size={16} />
+              </Link>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
@@ -718,56 +384,300 @@ function FAQSection() {
 }
 
 /* ═══════════════════════════════════════
-   SERVICES GRID (removed — now in PlatformModulesSection)
+   4. SOBRE SECTION
    ═══════════════════════════════════════ */
-
-/* ═══════════════════════════════════════
-   CTA FINAL
-   ═══════════════════════════════════════ */
-function CTASection() {
+function SobreSection() {
   return (
-    <section className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0F111A] via-[#1a1a2e] to-[#0F111A]" />
-      <div className="absolute inset-0 opacity-30">
-        <ParticleCanvasThemed opacity={0.25} particleCount={30} color="255, 255, 255" connectionDist={110} />
-      </div>
-
-      <div className="relative z-10 max-w-3xl mx-auto text-center">
+    <section className="section">
+      <div
+        style={{
+          maxWidth: 1200,
+          margin: "0 auto",
+          display: "grid",
+          gap: "4rem",
+          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+          alignItems: "center",
+        }}
+      >
+        {/* Left column — text */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={staggerContainer}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">
-            Comece a explorar{" "}
-            <span className="text-[#D80E16]">agora.</span>
-          </h2>
-          <p className="text-white/60 text-lg md:text-xl mb-10 max-w-xl mx-auto leading-relaxed">
-            Grátis para começar. Sem cartão. Acesse dados reais do comércio exterior brasileiro em segundos e transforme sua estratégia de mercado.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="gap-2 bg-[#D80E16] hover:bg-[#b80c12] text-white rounded-2xl h-14 px-8 font-bold text-base shadow-[0_0_50px_rgba(216,14,22,0.4)] hover:shadow-[0_0_70px_rgba(216,14,22,0.6)] transition-all border-0 btn-glow"
-              asChild
-            >
-              <Link to="/register">
-                Criar Conta Grátis
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="rounded-2xl h-14 px-8 font-bold text-base border-white/30 text-white/90 bg-white/5 hover:bg-white/10 hover:border-white/40 hover:text-white transition-all"
-              asChild
-            >
-              <Link to="/login">Entrar na Plataforma</Link>
-            </Button>
+          <motion.span variants={fadeUp} className="section-tag">
+            Quem Somos
+          </motion.span>
+          <motion.h2 variants={fadeUp} className="section-title">
+            Seus Direitos em Mãos Experientes
+          </motion.h2>
+          <motion.div variants={fadeUp} className="gold-divider" />
+
+          <motion.div
+            variants={fadeUp}
+            className="sobre-text"
+            style={{ marginTop: "1.5rem" }}
+          >
+            <p>
+              Fundada em 2011 em Palhoça/SC, a <strong>Will &amp; Pereira</strong>{" "}
+              reúne advogados com mais de 15 anos de experiência em causas
+              trabalhistas, previdenciárias, cíveis e de família. Nosso
+              compromisso é colocar o cliente no centro de cada decisão, unindo
+              conhecimento jurídico sólido a um atendimento humano e acessível.
+            </p>
+            <p>
+              Mais de 5.000 famílias e empresas já confiaram em nossa equipe
+              para proteger seus interesses. Atuamos em todo o território
+              nacional com ética, transparência e a dedicação que cada caso
+              merece, desde a primeira conversa até o desfecho final.
+            </p>
+            <p>
+              Acreditamos na humanização do Direito: explicamos cada etapa do
+              processo em linguagem simples, ouvimos suas necessidades e
+              construímos, juntos, a melhor estratégia para defender o que é
+              seu.
+            </p>
+          </motion.div>
+        </motion.div>
+
+        {/* Right column — decorative WP monogram */}
+        <motion.div
+          className="sobre-decor navy-dark"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={fadeUp}
+          style={{ position: "relative", borderRadius: 16, overflow: "hidden" }}
+        >
+          <div className="pattern-dots" />
+          <div
+            className="serif gold-text"
+            style={{
+              fontSize: "clamp(8rem, 20vw, 14rem)",
+              lineHeight: 1,
+              letterSpacing: "-0.04em",
+              textAlign: "center",
+              position: "relative",
+              zIndex: 2,
+            }}
+          >
+            WP
           </div>
         </motion.div>
       </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════
+   5. DIFERENCIAIS SECTION
+   ═══════════════════════════════════════ */
+const values = [
+  {
+    icon: <Award size={24} />,
+    title: "Expertise Consolidada",
+    desc: "Mais de 15 anos de atuação nas mais diversas áreas do direito.",
+  },
+  {
+    icon: <Globe size={24} />,
+    title: "Atendimento Nacional",
+    desc: "Estrutura moderna e equipe dedicada para atuar em todo o Brasil.",
+  },
+  {
+    icon: <MessageSquare size={24} />,
+    title: "Comunicação Clara",
+    desc: "Explicamos cada etapa do processo em linguagem simples e acessível.",
+  },
+  {
+    icon: <Clock size={24} />,
+    title: "Agilidade",
+    desc: "Processos eficientes que respeitam o tempo e a urgência de cada cliente.",
+  },
+  {
+    icon: <Shield size={24} />,
+    title: "Ética",
+    desc: "Conduta irrepreensível e transparência em cada ação do escritório.",
+  },
+  {
+    icon: <Users size={24} />,
+    title: "Personalizado",
+    desc: "Cada cliente recebe atendimento único, adaptado às suas necessidades.",
+  },
+];
+
+function DiferenciaisSection() {
+  return (
+    <section className="section section-dark">
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <FadeIn>
+          <span className="section-tag section-tag-light">Diferenciais</span>
+          <h2 className="section-title" style={{ color: "#ffffff" }}>
+            Por que escolher a Will &amp; Pereira
+          </h2>
+          <p className="section-sub">
+            Nosso compromisso vai além do processo judicial. Oferecemos uma
+            experiência jurídica completa, baseada em valores que fazem a
+            diferença.
+          </p>
+        </FadeIn>
+
+        <motion.div
+          className="val-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={staggerContainer}
+          style={{
+            display: "grid",
+            gap: "1.25rem",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(280px, 1fr))",
+            marginTop: "3.5rem",
+          }}
+        >
+          {values.map((v) => (
+            <motion.div key={v.title} variants={fadeUp} className="val-card">
+              <div className="srv-icon">{v.icon}</div>
+              <h3>{v.title}</h3>
+              <p>{v.desc}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════
+   6. BLOG SECTION
+   ═══════════════════════════════════════ */
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+function BlogSection() {
+  const posts: BlogPostMeta[] = getAllPosts();
+  const latest = posts.slice(0, 3);
+
+  return (
+    <section className="section section-cream">
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <FadeIn>
+          <span className="section-tag">Blog</span>
+          <h2 className="section-title">Artigos e Atualizações Jurídicas</h2>
+          <p className="section-sub">
+            Fique por dentro das novidades do mundo jurídico e dicas para
+            proteger seus direitos.
+          </p>
+        </FadeIn>
+
+        {latest.length > 0 ? (
+          <motion.div
+            className="blog-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={staggerContainer}
+            style={{
+              display: "grid",
+              gap: "1.5rem",
+              gridTemplateColumns:
+                "repeat(auto-fit, minmax(280px, 1fr))",
+              marginTop: "3.5rem",
+            }}
+          >
+            {latest.map((post) => (
+              <motion.div key={post.slug} variants={fadeUp}>
+                <Link to={`/blog/${post.slug}`} className="blog-card">
+                  <div className="blog-meta">
+                    <span className="blog-dot" />
+                    <time>{formatDate(post.date)}</time>
+                    {post.readTime ? (
+                      <>
+                        <span className="blog-sep">|</span>
+                        <span>{post.readTime} min de leitura</span>
+                      </>
+                    ) : null}
+                  </div>
+                  <h3 className="blog-title">{post.title}</h3>
+                  <p className="blog-excerpt">{post.excerpt}</p>
+                  {post.tags && post.tags.length > 0 && (
+                    <ul className="blog-tags">
+                      {post.tags.slice(0, 3).map((tag) => (
+                        <li key={tag} className="blog-tag">
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <span className="srv-link">
+                    Ler artigo
+                    <ArrowRight size={15} />
+                  </span>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        ) : (
+          <motion.div
+            className="blog-empty"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            style={{ textAlign: "center", padding: "4rem 1rem" }}
+          >
+            <div className="blog-empty-icon">
+              <BookOpen size={28} />
+            </div>
+            <h3
+              className="serif"
+              style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}
+            >
+              Artigos em Breve
+            </h3>
+            <p style={{ color: "#5E6278", maxWidth: 420, margin: "0 auto" }}>
+              Em breve publicaremos artigos e atualizações sobre Direito
+              Trabalhista, Previdenciário, Civil e muito mais. Volte em breve!
+            </p>
+          </motion.div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════
+   7. CTA SECTION
+   ═══════════════════════════════════════ */
+function CTASection() {
+  return (
+    <section className="section section-dark">
+      <FadeIn>
+        <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
+          <h2 className="section-title" style={{ color: "#ffffff" }}>
+            Pronto para Defender Seus Direitos?
+          </h2>
+          <p className="section-sub">
+            Agende uma conversa com nossa equipe e descubra como podemos ajudar
+            você com segurança, transparência e dedicação.
+          </p>
+          <div className="hero-actions" style={{ marginTop: "2.5rem" }}>
+            <Link to="/contato" className="btn-gold">
+              Fale Conosco
+              <ArrowRight size={18} />
+            </Link>
+            <a href="tel:+5548988420867" className="btn-outline-white">
+              (48) 98842-0867
+            </a>
+          </div>
+        </div>
+      </FadeIn>
     </section>
   );
 }
@@ -776,93 +686,15 @@ function CTASection() {
    MAIN EXPORT
    ═══════════════════════════════════════ */
 export default function HomePage() {
-  useSeo({
-    title: "TRADEXA — Plataforma de Comércio Exterior com Dados de Importação e Exportação",
-    description: "Plataforma de comércio exterior: classificação NCM com IA, tarifas de 31 países, rastreamento de cargas ao vivo e serviços de frete. Da análise ao desembaraço.",
-    keywords: "comércio exterior, importação, exportação, NCM, frete marítimo, inteligência comercial, trade intelligence, supply chain, rastreamento cargas, classificação fiscal, desembaraço aduaneiro",
-    canonical: "https://www.tradexa.com.br",
-  });
-  const softwareApplicationSchema = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "TRADEXA - Plataforma de Comércio Exterior",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "url": "https://www.tradexa.com.br",
-    "screenshot": "https://www.tradexa.com.br/og-image.png",
-    "description": "Plataforma de comércio exterior com classificação NCM com IA, tarifas globais, diretório de importadores, rastreamento de cargas ao vivo, frete marítimo e trade intelligence.",
-    "featureList": [
-      "Classificacao NCM com IA",
-      "Tarifas Globais em 31 paises",
-      "Diretorio de Importadores",
-      "Mapa de Frete Maritimo",
-      "Supply Chain Map ao vivo",
-      "Track & Trace",
-      "Trade Intelligence"
-    ],
-    "offers": {
-      "@type": "AggregateOffer",
-      "lowPrice": "0",
-      "highPrice": "3200",
-      "priceCurrency": "BRL",
-      "offerCount": "3",
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "Essential",
-          "price": "0",
-          "priceCurrency": "BRL",
-          "description": "Plano gratuito com 10 ferramentas basicas"
-        },
-        {
-          "@type": "Offer",
-          "name": "Growth",
-          "price": "289",
-          "priceCurrency": "BRL",
-          "description": "Para empresas que estao comecando a exportar"
-        },
-        {
-          "@type": "Offer",
-          "name": "Business",
-          "price": "3200",
-          "priceCurrency": "BRL",
-          "description": "Tudo ilimitado. Sem limites de uso"
-        }
-      ]
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": "2847",
-      "reviewCount": "1203"
-    },
-    "author": {
-      "@type": "Organization",
-      "name": "TRADEXA",
-      "url": "https://www.tradexa.com.br"
-    },
-    "applicationSuite": "Comércio Exterior"
-  };
-
   return (
-      <div className="min-h-screen flex flex-col text-[#0F111A] overflow-x-hidden">
-        <Helmet>
-          <script type="application/ld+json">
-            {JSON.stringify(softwareApplicationSchema)}
-          </script>
-        </Helmet>
-        <Header />
-        <HeroSection />
-        <StatsBarSection />
-        <WhatIsTradexaSection />
-        <PlatformModulesSection />
-        <PlansSection />
-        <NewsletterSection />
-        <FAQSection />
-        <CTASection />
-        <Footer />
-      </div>
+    <main>
+      <HeroSection />
+      <StatsSection />
+      <ServicosSection />
+      <SobreSection />
+      <DiferenciaisSection />
+      <BlogSection />
+      <CTASection />
+    </main>
   );
 }
