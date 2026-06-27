@@ -250,7 +250,7 @@ const PAGES = [
     route: "/logistica-internacional",
     file: "logistica-internacional.html",
     title: "Logística Internacional — Frete e Transporte | TRADEXA",
-    desc: "Guia de logística internacional: modalidades de frete (marítimo, aéreo, rodoviário), principais portos, tipos de container, seguro de carga e índices de frete.",
+    desc: "Guia de logística internacional: modalidades de frete, principais portos, tipos de container, seguro de carga e índices de frete atualizados.",
     keywords: "logística internacional, frete marítimo, portos, container, WCI, frete aéreo, seguro carga, comércio exterior",
     ogTitle: "Logística Internacional — Guia Completo",
     ogDesc: "Domine a logística do comércio exterior: modais de transporte, custos de frete, documentação e os principais portos e aeroportos do mundo.",
@@ -726,7 +726,7 @@ const LANDING_ROUTES = [
   { route: "export-dashboard", name: "Dashboard de Exportação | TRADEXA", desc: "Acompanhe exportações brasileiras por produto, destino e período. Dashboards interativos com market share Brasil, preços médios e sazonalidade." },
   { route: "import-map", name: "Mapa de Importações Brasileiras | TRADEXA", desc: "Visualize a distribuição geográfica das importações brasileiras por estado, município e porto. Mapa interativo com dados de comércio exterior." },
   { route: "import-search", name: "Busca Inteligente de Importadores por NCM | TRADEXA", desc: "Encontre importadores brasileiros por NCM, produto ou empresa. Busca inteligente com filtros por país, estado, porto e período." },
-  { route: "export-wizard", name: "Wizard de Exportação — Guia Passo a Passo | TRADEXA", desc: "Guia passo a passo para novos exportadores: classificação de produtos, documentação, match com compradores, simulação financeira e compliance. Do zero à primeira venda internacional." },
+  { route: "export-wizard", name: "Wizard de Exportação — Guia Passo a Passo | TRADEXA", desc: "Guia passo a passo para novos exportadores com classificação de produtos, match com compradores e simulação financeira. Do zero à primeira exportação." },
   { route: "smart-alerts", name: "Alertas Inteligentes de Comércio Exterior | TRADEXA", desc: "Configure alertas personalizados de mercado, tarifas e sazonalidade. Notificações em tempo real sobre oportunidades e riscos no comércio exterior." },
   { route: "global-explorer", name: "Explorador Global de Comércio | TRADEXA", desc: "Visualize rotas de comércio exterior brasileiro em mapa interativo. Dados bilaterais, balança comercial, modais de transporte e indicadores macroeconômicos." },
   { route: "market-intelligence", name: "Comércio Exterior para Exportação | TRADEXA", desc: "Análise competitiva com dados cruzados de importação, exportação e indicadores de mercado. Insights de IA para tomada de decisão estratégica." },
@@ -737,6 +737,15 @@ const LANDING_ROUTES = [
   { route: "calculadora-importacao", name: "Calculadora de Tributos de Importação por Estado | TRADEXA", desc: "Calculadora de imposto de importação. Calcule II, IPI, PIS, COFINS e ICMS por estado brasileiro. Simule custos aduaneiros completos antes de importar." },
   { route: "calculadora-incoterms", name: "Comparador de Incoterms — Quem Paga o Quê | TRADEXA", desc: "Simule e compare todos os 11 Incoterms 2020: EXW, FOB, CIF, DDP e mais. Veja quem paga frete, seguro e desembaraço em cada termo com comparação lado a lado." },
   { route: "lista-ncm", name: "Lista NCM Completa — Busca por Código ou Descrição | TRADEXA", desc: "Lista completa de códigos NCM com busca por código ou descrição. Classificação fiscal de mercadorias com alíquotas e regulamentações. Atualizada 2026." },
+  { route: "calculadora-acc-ace", name: "Calculadora ACC/ACE — Financiamento à Exportação | TRADEXA", desc: "Simule ACC e ACE: compare taxas, juros, spread cambial e prazos de antecipação de até 360 dias para financiar suas exportações." },
+  { route: "calculadora-carbono", name: "Calculadora de Carbono — Pegada de CO₂ na Logística | TRADEXA", desc: "Calcule emissões de CO₂ por modal de transporte: marítimo, aéreo e rodoviário. Dados para ESG, sustentabilidade e compliance ambiental." },
+  { route: "calculadora-drawback", name: "Calculadora de Drawback — Suspensão de Tributos | TRADEXA", desc: "Simule a economia com drawback: suspensão de II, IPI, PIS e COFINS na importação de insumos para produtos exportados. Resultado em segundos." },
+  { route: "comparador-portos", name: "Comparador de Portos Brasileiros — Custos e Eficiência | TRADEXA", desc: "Compare Santos, Paranaguá, Itajaí, Rio Grande e mais portos brasileiros: custo por container, tempo de desembaraço e volume anual." },
+  { route: "conformidade-regulatoria", name: "Conformidade Regulatória — ANVISA, INMETRO, MAPA | TRADEXA", desc: "Verifique exigências de ANVISA, INMETRO, MAPA e IBAMA para seu produto. Certificações obrigatórias antes de importar." },
+  { route: "gerador-documentos", name: "Gerador de Documentos de Importação e Exportação | TRADEXA", desc: "Gere Declaração de Importação (DI), Licença de Importação (LI) e documentos aduaneiros prontos para impressão em PDF." },
+  { route: "noticias-comex", name: "Notícias do Comércio Exterior — Últimas Novidades | TRADEXA", desc: "Notícias atualizadas sobre comércio exterior: tarifas, acordos, regulamentação aduaneira, mercados e câmbio." },
+  { route: "precificacao-exportacao", name: "Precificação de Exportação — Calcule Margens | TRADEXA", desc: "Simule todos os custos de exportação: frete internacional, seguro, impostos no destino e taxas para chegar ao preço final competitivo." },
+  { route: "simulador-acordos-comerciais", name: "Simulador de Acordos Comerciais — Mercosul, ALADI, SGP | TRADEXA", desc: "Simule reduções tarifárias de acordos comerciais: Mercosul, ALADI, SGP. Compare alíquotas com e sem preferência tarifária." },
 ];
 
 // ── Blog posts ──
@@ -2108,10 +2117,10 @@ function main() {
   // Render main pages
   for (const page of PAGES) {
     const html = buildHtml(
-      trunc(page.title, 60),
+      trunc(page.title, 74),
       trunc(page.desc, 155),
       page.keywords || "",
-      trunc(page.ogTitle || page.title, 60),
+      trunc(page.ogTitle || page.title, 74),
       trunc(page.ogDesc || page.desc, 155),
       page.route,
       baseHtml,
@@ -2127,8 +2136,8 @@ function main() {
   // Render landing pages
   for (const lp of LANDING_ROUTES) {
     const route = `/landing/${lp.route}`;
-    const title = trunc(lp.name, 60);
-    const desc = trunc(lp.desc, 150);
+    const title = trunc(lp.name, 74);
+    const desc = trunc(lp.desc, 155);
     const keywords = `landing, ${lp.route}, tradexa, comércio exterior, inteligência comercial`;
     const html = buildHtml(title, desc, keywords, title, desc, route, baseHtml, SEO_CONTENT[route] || "");
     const dir = path.join(DIST, "landing", lp.route);
