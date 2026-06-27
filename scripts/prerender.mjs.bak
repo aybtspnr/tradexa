@@ -250,7 +250,7 @@ const PAGES = [
     route: "/logistica-internacional",
     file: "logistica-internacional.html",
     title: "Logística Internacional — Frete e Transporte | TRADEXA",
-    desc: "Guia de logística internacional: modalidades de frete (marítimo, aéreo, rodoviário), principais portos, tipos de container, seguro de carga e índices de frete.",
+    desc: "Guia de logística internacional: modalidades de frete, principais portos, tipos de container, seguro de carga e índices de frete atualizados.",
     keywords: "logística internacional, frete marítimo, portos, container, WCI, frete aéreo, seguro carga, comércio exterior",
     ogTitle: "Logística Internacional — Guia Completo",
     ogDesc: "Domine a logística do comércio exterior: modais de transporte, custos de frete, documentação e os principais portos e aeroportos do mundo.",
@@ -726,7 +726,7 @@ const LANDING_ROUTES = [
   { route: "export-dashboard", name: "Dashboard de Exportação | TRADEXA", desc: "Acompanhe exportações brasileiras por produto, destino e período. Dashboards interativos com market share Brasil, preços médios e sazonalidade." },
   { route: "import-map", name: "Mapa de Importações Brasileiras | TRADEXA", desc: "Visualize a distribuição geográfica das importações brasileiras por estado, município e porto. Mapa interativo com dados de comércio exterior." },
   { route: "import-search", name: "Busca Inteligente de Importadores por NCM | TRADEXA", desc: "Encontre importadores brasileiros por NCM, produto ou empresa. Busca inteligente com filtros por país, estado, porto e período." },
-  { route: "export-wizard", name: "Wizard de Exportação — Guia Passo a Passo | TRADEXA", desc: "Guia passo a passo para novos exportadores: classificação de produtos, documentação, match com compradores, simulação financeira e compliance. Do zero à primeira venda internacional." },
+  { route: "export-wizard", name: "Wizard de Exportação — Guia Passo a Passo | TRADEXA", desc: "Guia passo a passo para novos exportadores com classificação de produtos, match com compradores e simulação financeira. Do zero à primeira exportação." },
   { route: "smart-alerts", name: "Alertas Inteligentes de Comércio Exterior | TRADEXA", desc: "Configure alertas personalizados de mercado, tarifas e sazonalidade. Notificações em tempo real sobre oportunidades e riscos no comércio exterior." },
   { route: "global-explorer", name: "Explorador Global de Comércio | TRADEXA", desc: "Visualize rotas de comércio exterior brasileiro em mapa interativo. Dados bilaterais, balança comercial, modais de transporte e indicadores macroeconômicos." },
   { route: "market-intelligence", name: "Comércio Exterior para Exportação | TRADEXA", desc: "Análise competitiva com dados cruzados de importação, exportação e indicadores de mercado. Insights de IA para tomada de decisão estratégica." },
@@ -737,6 +737,15 @@ const LANDING_ROUTES = [
   { route: "calculadora-importacao", name: "Calculadora de Tributos de Importação por Estado | TRADEXA", desc: "Calculadora de imposto de importação. Calcule II, IPI, PIS, COFINS e ICMS por estado brasileiro. Simule custos aduaneiros completos antes de importar." },
   { route: "calculadora-incoterms", name: "Comparador de Incoterms — Quem Paga o Quê | TRADEXA", desc: "Simule e compare todos os 11 Incoterms 2020: EXW, FOB, CIF, DDP e mais. Veja quem paga frete, seguro e desembaraço em cada termo com comparação lado a lado." },
   { route: "lista-ncm", name: "Lista NCM Completa — Busca por Código ou Descrição | TRADEXA", desc: "Lista completa de códigos NCM com busca por código ou descrição. Classificação fiscal de mercadorias com alíquotas e regulamentações. Atualizada 2026." },
+  { route: "calculadora-acc-ace", name: "Calculadora ACC/ACE — Financiamento à Exportação | TRADEXA", desc: "Simule ACC e ACE: compare taxas, juros, spread cambial e prazos de antecipação de até 360 dias para financiar suas exportações." },
+  { route: "calculadora-carbono", name: "Calculadora de Carbono — Pegada de CO₂ na Logística | TRADEXA", desc: "Calcule emissões de CO₂ por modal de transporte: marítimo, aéreo e rodoviário. Dados para ESG, sustentabilidade e compliance ambiental." },
+  { route: "calculadora-drawback", name: "Calculadora de Drawback — Suspensão de Tributos | TRADEXA", desc: "Simule a economia com drawback: suspensão de II, IPI, PIS e COFINS na importação de insumos para produtos exportados. Resultado em segundos." },
+  { route: "comparador-portos", name: "Comparador de Portos Brasileiros — Custos e Eficiência | TRADEXA", desc: "Compare Santos, Paranaguá, Itajaí, Rio Grande e mais portos brasileiros: custo por container, tempo de desembaraço e volume anual." },
+  { route: "conformidade-regulatoria", name: "Conformidade Regulatória — ANVISA, INMETRO, MAPA | TRADEXA", desc: "Verifique exigências de ANVISA, INMETRO, MAPA e IBAMA para seu produto. Certificações obrigatórias antes de importar." },
+  { route: "gerador-documentos", name: "Gerador de Documentos de Importação e Exportação | TRADEXA", desc: "Gere Declaração de Importação (DI), Licença de Importação (LI) e documentos aduaneiros prontos para impressão em PDF." },
+  { route: "noticias-comex", name: "Notícias do Comércio Exterior — Últimas Novidades | TRADEXA", desc: "Notícias atualizadas sobre comércio exterior: tarifas, acordos, regulamentação aduaneira, mercados e câmbio." },
+  { route: "precificacao-exportacao", name: "Precificação de Exportação — Calcule Margens | TRADEXA", desc: "Simule todos os custos de exportação: frete internacional, seguro, impostos no destino e taxas para chegar ao preço final competitivo." },
+  { route: "simulador-acordos-comerciais", name: "Simulador de Acordos Comerciais — Mercosul, ALADI, SGP | TRADEXA", desc: "Simule reduções tarifárias de acordos comerciais: Mercosul, ALADI, SGP. Compare alíquotas com e sem preferência tarifária." },
 ];
 
 // ── Blog posts ──
@@ -1894,8 +1903,58 @@ const BLOG_POSTS = [
   { slug: "direito-aduaneiro-infracoes", name: "Infrações Aduaneiras: Penalidades, Defesa e Prevenção", desc: "Guia completo sobre infrações aduaneiras no Brasil: tipos de penalidades, multas, perdimento, processo administrativo fiscal, defesa e estratégias de prevenção." },
   { slug: "propriedade-intelectual-patentes-marcas-comex", name: "Propriedade Intelectual no Comércio Exterior: Patentes, Marcas e Indicações Geográficas", desc: "Guia completo sobre propriedade intelectual no comércio exterior: patentes, marcas, indicações geográficas, registro no INPI e estratégias para exportadores brasileiros." },
   { slug: "protecionismo-comercial-tarifas", name: "Protecionismo Comercial: Tarifas, Cotas, Subsídios e Estratégias de Navegação", desc: "Guia completo sobre protecionismo comercial: tarifas, cotas, subsídios, barreiras não tarifárias, antidumping e estratégias para exportadores brasileiros no comércio internacional." },
+  { slug: "desembolso-aduaneiro-prazos-procedimentos", name: "Desembolso Aduaneiro: Prazos, Procedimentos e Como Acelerar a Liberação de Mercadorias", desc: "Guia completo sobre desembolso aduaneiro no Brasil: prazos por canal de parametrização, documentos, Siscomex, como acelerar a liberação e evitar multas. Inclui checklist prático para importadores." },
+  { slug: "corretor-cambio-importacao-exportacao", name: "Corretor de Câmbio no Comércio Exterior: Como Escolher e Reduzir Custos Financeiros", desc: "Guia sobre contratação de corretora de câmbio para importação e exportação: taxas comparativas, spread cambial, como negociar melhores condições e documentos para operações cambiais." },
+  { slug: "porto-suape-operacoes-logistica", name: "Porto de Suape: Guia Completo de Operações, Logística e Oportunidades", desc: "Guia completo sobre o Porto de Suape (PE): infraestrutura portuária, terminais especializados, principais cargas, conexões logísticas, SCT e vantagens competitivas do complexo industrial-portuário." },
+  { slug: "credito-rural-comercio-exterior-agricultura", name: "Crédito Rural para Exportação Agrícola: Linhas de Financiamento e Como Acessar", desc: "Guia completo sobre linhas de crédito rural para exportadores agrícolas: Pronaf, Pronamp, FUNGET, BNDES, equalização de taxas, custeio e integração com plano de exportação." },
+  { slug: "harmonizacao-sistema-ncm-mercosul", name: "Harmonização do Sistema NCM no Mercosul: Estrutura, Regras e Impactos no Comércio", desc: "Guia completo sobre a harmonização do Sistema Harmonizado e NCM no Mercosul: estrutura de capítulos, regras de classificação, diferenças entre países-membros e como evitar erros." },
+  { slug: "associacoes-setoriais-comex-pmes", name: "Associações Setoriais no Comércio Exterior: Como PMEs Podem Crescer com Apoio Coletivo", desc: "Guia sobre como associações setoriais e consórcios de exportação ajudam PMEs brasileiras a acessar mercados internacionais, com cases reais e estratégias práticas de internacionalização." },
+  { slug: "ecommerce-transfronteirico-brasil-tributacao", name: "E-commerce Transfronteiriço no Brasil: Tributação, Logística e Oportunidades para Pequenos Importadores", desc: "Guia completo sobre cross-border e-commerce no Brasil: Remessa Conforme, ICMS, II, logística courier vs Correios, compliance em marketplaces e como pequenos retailers podem importar." },
+  { slug: "carnet-ata-amostras-feiras-eventos", name: "Carnê ATA: Admissão Temporária para Amostras, Feiras e Eventos Internacionais", desc: "Guia completo sobre o Carnê ATA para admissão temporária: como funciona, 80+ países membros, mercadorias elegíveis, solicitação via CCBC, garantias, custos e cenários práticos." },
+  { slug: "lean-logistics-reducao-desperdicios", name: "Lean Logistics no Comércio Exterior: Como Reduzir Desperdícios na Cadeia Logística", desc: "Guia sobre aplicação de princípios Lean na logística de comércio exterior: 7+1 desperdícios, VSM, Just-in-Time, Kanban, Kaizen e KPIs para reduzir custos e prazos." },
+  { slug: "conflito-interesses-agente-carga-freight", name: "Conflito de Interesses na Contratação de Agentes de Carga: Como Identificar e Evitar", desc: "Guia sobre conflito de interesses ao contratar freight forwarders e despachantes: representação dual, contratos preferenciais, comissões, ANTAQ e boas práticas de procurement." },
+  { slug: "taxa-container-vazio-reposicionamento", name: "Taxa de Reposicionamento de Contêiner Vazio: Custos, Estratégias e Negociação", desc: "Guia completo sobre a taxa de reposicionamento de contêiner vazio no transporte marítimo: causas, cálculo, impacto no custo total de importação e estratégias para minimizar custos." },
+  { slug: "inspecao-nao-intrusiva-carga-portos", name: "Inspeção Não Intrusiva de Carga nos Portos Brasileiros: Scanners e Procedimentos", desc: "Guia sobre inspeção não intrusiva (scanners de raios-X e gama) nos portos brasileiros: tipos, processo, impacto no tempo de liberação, preparação da carga e estatísticas." },
+  { slug: "despacho-simultaneo-importacao-exportacao", name: "Despacho Simultâneo de Importação e Exportação: Guia Completo", desc: "Guia completo sobre despacho aduaneiro simultâneo no Brasil: regimes elegíveis (Drawback, RECOF, Entreposto), benefícios, step by step e exemplos práticos para importadores e exportadores." },
+  { slug: "termometro-cadeia-frio-iot-logistica", name: "Termômetro IoT na Cadeia do Frio: Monitoramento de Temperatura em Tempo Real", desc: "Guia sobre monitoramento IoT de temperatura na logística cold chain para comércio exterior: sensores, data loggers, compliance ANVISA/MAPA e gestão de excursões térmicas." },
+  { slug: "certificado-fumigacao-madeira-embalagem", name: "Certificado de Fumigação para Embalagens de Madeira: NIMF-15 e Procedimentos", desc: "Guia completo sobre certificado de fumigação NIMF-15 (ISPM-15) para embalagens de madeira: tratamentos HT e MB, marcação IPPC, fiscalização em portos e consequências da não conformidade." },
+  { slug: "leasing-importacao-arrendamento-mercantil", name: "Leasing de Importação: Guia Completo de Arrendamento Mercantil Internacional", desc: "Guia sobre arrendamento mercantil internacional no Brasil: leasing operacional vs financeiro, tratamento tributário, IFRS 16, ativos elegíveis e comparação com financiamento BNDES." },
+  { slug: "visto-consular-fatura-comercial-exportacao", name: "Visto Consular em Fatura Comercial: Países que Exigem e Como Obter", desc: "Guia completo sobre visto consular em faturas comerciais para exportação: países que exigem (Oriente Médio, África, Ásia), processo, custos, prazos e alternativas digitais." },
+  { slug: "bl-master-house-conhecimento-embarque-diferencas", name: "BL Master vs House: Diferenças no Conhecimento de Embarque Marítimo", desc: "Guia completo sobre as diferenças entre Master BL e House BL: quando usar cada um, responsabilidades do carrier vs NVOCC, telex release, carta de crédito e cenários práticos." },
+  { slug: "vistoria-aduaneira-mercearia-fisica", name: "Vistoria Aduaneira e Conferência Física de Mercadorias: Procedimentos e Prazos", desc: "Guia completo sobre vistoria aduaneira no canal vermelho: processo de conferência física, amostragem, testes laboratoriais, prazos, custos e como preparar a carga para inspeção." },
+  { slug: "drawback-generico-suspensao-multiplos", name: "Drawback Genérico na Suspensão: Regime para Múltiplos Produtos e Fornecedores", desc: "Guia sobre drawback genérico na modalidade suspensão: diferenças do drawback específico, quem pode usar, produtos elegíveis, tabelas de vinculação e prestação de contas no Siscomex." },
+  { slug: "aduana-fronteira-terrestre-brasil-procedimentos", name: "Aduana nas Fronteiras Terrestres do Brasil: Postos, Procedimentos e Desafios", desc: "Guia completo sobre procedimentos aduaneiros nas fronteiras terrestres brasileiras: principais postos (Uruguaiana, Foz, Santana do Livramento), trânsito aduaneiro e infraestrutura." },
+  { slug: "rendimento-mercadoria-drawback-variacao", name: "Rendimento de Mercadoria no Drawback: Vinculação Quantitativa e Variação Aceitável", desc: "Guia completo sobre tabelas de rendimento (vinculação quantitativa) no regime de drawback: cálculo, margens de variação, critérios de auditoria da RFB e melhores práticas setoriais." },
+  { slug: "entreposto-aereo-carga-internacional", name: "Entreposto Aéreo de Carga Internacional: Armazenagem Alfandegada em Aeroportos", desc: "Guia completo sobre entreposto aéreo (DAC) em aeroportos brasileiros: GRU, Viracopos, Galeão, serviços, tipos de carga, documentação AWB, prazos de liberação e custos vs via marítima." },
+  { slug: "deposito-afins-lloyd-armazenagem-maritima", name: "Depósito Afins (Lloyd): Armazenagem de Carga sob Responsabilidade do Armador", desc: "Guia completo sobre depósito afins (Lloyd's deposit) de carga marítima: quando se aplica, custos, prazos, marco legal, direitos do dono da carga e como evitar situações de depósito forçado." },
+  { slug: "processo-penal-aduaneiro-contravencoes", name: "Processo Penal Aduaneiro: Crimes, Contravenções e Defesa no Comércio Exterior", desc: "Guia completo sobre crimes e contravenções aduaneiras no Brasil: descaminho, contrabando, sonegação fiscal, Lei 8.137/90, penalidades, defesa e estratégias de compliance preventivo." },
+  { slug: "trading-company-importacao-exportacao-terceiros", name: "Trading Company: Importação e Exportação por Conta e Ordem de Terceiros", desc: "Guia completo sobre trading companies no Brasil: Lei 9.716/98, operações por conta e ordem de terceiros, benefícios fiscais, estruturação de parcerias e riscos contratuais." },
+  { slug: "tributacao-nao-cumulativa-pis-cofins-cadeia-producao", name: "Tributação Não Cumulativa de PIS/COFINS na Cadeia de Produção do Comércio Exterior", desc: "Guia completo sobre o regime não cumulativo de PIS e COFINS no comércio exterior: crédito básico, insumos elegíveis, PIS/COFINS Importação, Reintegra e transição para o IBS/CBS." },
+  { slug: "jurisdicao-contratos-internacionais-foro-eleicao", name: "Jurisdição e Foro de Eleição em Contratos Internacionais: Guia para Exportadores e Importadores", desc: "Guia completo sobre escolha de jurisdição e foro em contratos de comércio exterior: arbitragem vs litígio, Convenção de Nova York, Lei de Arbitragem brasileira, CISG e cláusulas contratuais." },
+  { slug: "compliance-antissuborno-fcpa-comex-brasil", name: "Compliance Antissuborno no Comércio Exterior: FCPA, UK Bribery Act e Lei 12.846/2013", desc: "Guia completo sobre compliance antissuborno aplicado ao comércio exterior: FCPA, UK Bribery Act, Lei Anticorrupção brasileira, pilares do programa de integridade e due diligence em parceiros." },
+  { slug: "aproveitamento-credito-pis-cofins-ipi-exportacao", name: "Aproveitamento de Créditos de PIS, COFINS e IPI na Exportação: Guia de Recuperação Tributária", desc: "Guia completo sobre recuperação de créditos tributários de PIS, COFINS e IPI para exportadores: manutenção de créditos, Reintegra, procedimentos administrativos e estratégias de maximização." },
+  { slug: "como-importar-da-china-guia-definitivo-2026", name: "Como Importar da China em 2026: Guia Definitivo Passo a Passo", desc: "Guia definitivo para importar da China em 2026: desde encontrar fornecedores até o desembaraço aduaneiro. NCM, tributos, frete, documentos, custos totais e dicas práticas." },
+  { slug: "brinquedos-china-inmetro-ncm", name: "Importar Brinquedos da China: Guia Completo INMETRO e NCM 2026", desc: "Guia completo para importar brinquedos da China: certificação INMETRO obrigatória, classificação NCM Capítulo 95, etiquetagem, ensaios laboratoriais, fornecedores confiáveis e custos." },
+  { slug: "pecas-automotivas-china-ncm", name: "Importar Peças Automotivas da China: NCM, Tributação e Fornecedores", desc: "Guia completo para importar peças automotivas da China: classificação NCM Capítulo 87, tributação, certificação INMETRO/CONTRAN, fornecedores, garantia e logística." },
+  { slug: "ferramentas-china-ncm-classificacao", name: "Importar Ferramentas da China: Classificação NCM e Guia de Fornecedores", desc: "Guia completo para importar ferramentas manuais e elétricas da China: NCM Capítulo 82, certificação INMETRO, fornecedores, margem de revenda e logística." },
+  { slug: "cosmeticos-china-anvisa-ncm", name: "Importar Cosméticos da China: ANVISA, NCM e Regulamentação", desc: "Guia completo para importar cosméticos da China: registro ANVISA, NCM Capítulo 33, BPF, rotulagem e tributação." },
+  { slug: "moveis-china-ncm-frete", name: "Importar Móveis da China: NCM, Frete Marítimo e Fornecedores", desc: "Guia completo para importar móveis da China: NCM Capítulo 94, frete marítimo, custos, fornecedores certificados e dicas de revenda." },
+  { slug: "construcao-china-materiais-ncm", name: "Importar Materiais de Construção da China: NCM e Logística", desc: "Guia completo para importar materiais de construção da China: NCM 68-70, revestimentos, louças, tributação e logística marítima." },
+  { slug: "embalagens-china-ncm-fornecedores", name: "Importar Embalagens da China: NCM, Fornecedores e Custos", desc: "Guia completo para importar embalagens da China: NCM 39 e 48, tipos, fornecedores, personalização e custos." },
+  { slug: "iluminacao-china-luminarias-inmetro", name: "Importar Luminárias da China: INMETRO e NCM", desc: "Guia completo para importar luminárias da China: certificação INMETRO, NCM 85.05 e 94.05, eficiência energética e fornecedores." },
+  { slug: "esportivos-china-artigos-ncm", name: "Importar Artigos Esportivos da China: NCM e Fornecedores", desc: "Guia completo para importar artigos esportivos da China: NCM 95, equipamentos de academia, vestuário, fornecedores e logística." },
+  { slug: "pet-china-produtos-ncm", name: "Importar Produtos Pet da China: NCM, ANVISA e Fornecedores", desc: "Guia completo para importar produtos pet da China: rações, brinquedos, ANVISA, fornecedores e tributação." },
+  { slug: "utilidades-china-descartaveis-ncm", name: "Importar Utilidades Domésticas da China: NCM e Fornecedores", desc: "Guia completo para importar utilidades domésticas da China: NCM 39, 73 e 96, produtos, fornecedores, tributação e margens." },
+  { slug: "papelaria-china-material-escolar-ncm", name: "Importar Papelaria da China: NCM e Fornecedores", desc: "Guia completo para importar papelaria e material escolar da China: NCM 48, 95, 96, fornecedores, sazonalidade e margens." },
+  { slug: "instrumentos-musicais-china-ncm", name: "Importar Instrumentos Musicais da China: NCM e Fornecedores", desc: "Guia completo para importar instrumentos musicais da China: NCM 92, tipos, fornecedores, qualidade e tributação." },
+  { slug: "equipamentos-medicos-china-anvisa-ncm", name: "Importar Equipamentos Médicos da China: ANVISA e NCM", desc: "Guia completo para importar equipamentos médico-hospitalares da China: registro ANVISA, NCM 90, INMETRO, fornecedores." },
+  { slug: "produtos-beleza-china-cosmeticos-ncm", name: "Importar Produtos de Beleza da China: ANVISA e NCM", desc: "Guia completo para importar produtos de beleza da China: alisantes, mega hair, ANVISA, NCM e tributação." },
+  { slug: "aliexpress-china-tributacao-remessa-conforme", name: "Importar pelo Aliexpress: Tributação Remessa Conforme", desc: "Guia completo para importar pelo Aliexpress da China: Remessa Conforme, tributação, alíquotas, prazos e dicas." },
+  { slug: "revender-china-mercado-livre-shopee", name: "Importar da China para Revender em Marketplaces", desc: "Guia completo para importar da China e revender no Mercado Livre, Shopee e Amazon: estratégia fiscal, margens e logística." },
+  { slug: "importar-china-sem-cnpj-pessoa-fisica", name: "Importar da China sem CNPJ: Guia para Pessoa Física", desc: "Guia completo para importar da China como pessoa física: limites, tributação, courier, documentos e passo a passo." },
+  { slug: "roupas-china-importacao-ncm", name: "Importar Roupas e Confecções da China: NCM e Fornecedores", desc: "Guia completo para importar roupas, tecidos e confecções da China: NCM 61-63, fornecedores, tributação e qualidade." },
+  { slug: "maquinas-industriais-china-ncm", name: "Importar Máquinas Industriais da China: NCM e Guia", desc: "Guia completo para importar máquinas e equipamentos industriais da China: NCM 84-85, tributação, inspeção e logística." },
 ];
-
 
 function escapeXml(str) {
   return str
@@ -2078,10 +2137,10 @@ function main() {
   // Render main pages
   for (const page of PAGES) {
     const html = buildHtml(
-      trunc(page.title, 60),
+      trunc(page.title, 74),
       trunc(page.desc, 155),
       page.keywords || "",
-      trunc(page.ogTitle || page.title, 60),
+      trunc(page.ogTitle || page.title, 74),
       trunc(page.ogDesc || page.desc, 155),
       page.route,
       baseHtml,
@@ -2097,8 +2156,8 @@ function main() {
   // Render landing pages
   for (const lp of LANDING_ROUTES) {
     const route = `/landing/${lp.route}`;
-    const title = trunc(lp.name, 60);
-    const desc = trunc(lp.desc, 150);
+    const title = trunc(lp.name, 74);
+    const desc = trunc(lp.desc, 155);
     const keywords = `landing, ${lp.route}, tradexa, comércio exterior, inteligência comercial`;
     const html = buildHtml(title, desc, keywords, title, desc, route, baseHtml, SEO_CONTENT[route] || "");
     const dir = path.join(DIST, "landing", lp.route);
