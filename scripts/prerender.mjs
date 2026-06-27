@@ -19,6 +19,17 @@ function trunc(str, max) {
   if (!str) return '';
   return str.length > max ? str.substring(0, max - 3) + '...' : str;
 }
+// Word-aware truncation — cuts at the last space before the limit
+function truncateAtWord(str, max) {
+  if (!str) return '';
+  if (str.length <= max) return str;
+  const truncated = str.substring(0, max - 3);
+  const lastSpace = truncated.lastIndexOf(' ');
+  if (lastSpace > 0) {
+    return truncated.substring(0, lastSpace) + '...';
+  }
+  return truncated + '...';
+}
 const PUBLIC = path.join(__dirname, "..", "public");
 
 const BASE_URL = "https://www.tradexa.com.br";
@@ -712,6 +723,13 @@ const PAGES = [
   { route: "/services/maps", file: "services/maps.html", title: "Mapas e Rastreamento Logístico | TRADEXA", desc: "Mapas interativos de comércio exterior: Supply Chain Map ao vivo, mapa de importações, explorador global e rastreamento de cargas.", keywords: "mapas, rastreamento, logística, supply chain, navios, aviões, TRADEXA", ogTitle: "Mapas e Rastreamento Logístico | TRADEXA", ogDesc: "Mapas interativos e rastreamento ao vivo de navios, aviões e cargas para sua cadeia de suprimentos." },
   { route: "/services/alertas", file: "services/alertas.html", title: "Alertas de Comércio Exterior | TRADEXA", desc: "Configure alertas personalizados de tarifas, oportunidades de mercado e mudanças regulatórias no comércio exterior.", keywords: "alertas, tarifas, oportunidades, mercado, comércio exterior, TRADEXA", ogTitle: "Alertas de Comércio Exterior | TRADEXA", ogDesc: "Receba alertas personalizados de tarifas, oportunidades e mudanças no comércio exterior." },
   { route: "/services/api", file: "services/api.html", title: "API de Dados de Comércio Exterior | TRADEXA", desc: "API REST para integração de dados de comércio exterior em seus sistemas. NCM, tarifas, dados de importação e exportação.", keywords: "API, dados, comércio exterior, integração, REST, TRADEXA", ogTitle: "API de Dados de Comércio Exterior | TRADEXA", ogDesc: "API REST para integrar dados de comércio exterior nos seus sistemas. NCM, tarifas e dados de importação." },
+  // ── SPA pages (SEO) ──
+  { route: "/classificador-ncm", file: "classificador-ncm.html", title: "Classificador NCM com IA — Classificação Fiscal Automática | TRADEXA", desc: "Classifique produtos no NCM (Nomenclatura Comum do Mercosul) usando inteligência artificial. Ferramenta gratuita para importadores e exportadores brasileiros.", keywords: "classificador NCM, classificação fiscal, IA, comércio exterior, NCM automático", ogTitle: "Classificador NCM com IA — TRADEXA", ogDesc: "Classificação fiscal automática de produtos no NCM usando inteligência artificial. Precisão de 98% para importadores e exportadores." },
+  { route: "/diretorio-importadores", file: "diretorio-importadores.html", title: "Diretório de Importadores — Encontre Compradores | TRADEXA", desc: "Diretório com milhões de importadores no Brasil e exterior. Pesquise por NCM, produto, país e encontre compradores qualificados para exportar.", keywords: "diretório importadores, compradores, exportação, prospecção, B2B, comércio exterior", ogTitle: "Diretório de Importadores — TRADEXA", ogDesc: "Encontre importadores qualificados no Brasil e exterior. Pesquise por NCM, produto ou país de origem e descubra novos compradores." },
+  { route: "/importers-map", file: "importers-map.html", title: "Mapa de Importadores — Distribuição Geográfica | TRADEXA", desc: "Mapa interativo mostrando a distribuição geográfica de importadores brasileiros por município, estado e produto.", keywords: "mapa importadores, distribuição, geográfica, importação, Brasil, comércio exterior", ogTitle: "Mapa de Importadores — TRADEXA", ogDesc: "Visualize a distribuição geográfica de importadores brasileiros no mapa. Filtre por NCM, estado e município." },
+  // ── No-index pages ──
+  { route: "/login", file: "login.html", title: "Login — TRADEXA", desc: "Acesse sua conta TRADEXA para usar as ferramentas de comércio exterior.", keywords: "login, tradexa, comércio exterior, entrar", ogTitle: "Login — TRADEXA", ogDesc: "Acesse sua conta TRADEXA para usar as ferramentas de comércio exterior.", noIndex: true },
+  { route: "/dashboard", file: "dashboard.html", title: "Dashboard — TRADEXA", desc: "Painel do usuário TRADEXA com ferramentas de comércio exterior.", keywords: "dashboard, tradexa, comércio exterior", ogTitle: "Dashboard — TRADEXA", ogDesc: "Painel do usuário TRADEXA com ferramentas de comércio exterior.", noIndex: true },
 ];
 
 // ── Landing pages ──
@@ -982,7 +1000,7 @@ const BLOG_POSTS = [
 { slug: "futuro-portos-brasileiros", name: "O Futuro dos Portos Brasileiros", desc: "Conheça os principais investimentos e a transformação digital em curso nos portos brasileiros. Infraestrutura, capacidade, custos e eficiencia para esco..." },
 { slug: "digitalizacao-aduaneira-tecnologia-despacho", name: "Digitalização Aduaneira no Despacho", desc: "Como a digitalização aduaneira está revolucionando o despacho de importação e exportação. Documentacao, prazos e procedimentos para liberacao de cargas ..." },
 { slug: "crescimento-ecommerce-cross-border-brasil", name: "Crescimento E-commerce Cross-Border", desc: "Análise do crescimento do e-commerce cross-border no Brasil e oportunidades para importadores. Analise dos dados mais recentes com graficos, tabelas e p..." },
-{ slug: "acordos-comerciais-beneficiam-brasil", name: "Acordos Comerciais que Beneficiam Brasil", desc: "Guia completo sobre os acordos comerciais que beneficiam o Brasil: Mercosul, ALADI, União Europeia, margem de preferência, certificados de origem e redução de tarifas." },
+{ slug: "acordos-comerciais-beneficiam-brasil", name: "Acordos Comerciais que Beneficiam Brasil", desc: "Acordos comerciais que beneficiam o Brasil: Mercosul, ALADI, União Europeia, margem de preferência, certificados de origem e redução de tarifas." },
 { slug: "tensoes-geopoliticas-cadeias-suprimentos", name: "Tensões Geopolíticas e Cadeias de Suprimentos", desc: "Como as tensões geopolíticas estão reconfigurando as cadeias de suprimentos globais. Guia completo com informacoes atualizadas, dados e dicas para comer..." },
 { slug: "impacto-real-digital-comercio-exterior", name: "Impacto do Real Digital no Comex", desc: "Como o Drex promete transformar pagamentos internacionais e financiamento no comércio exterior. Guia completo com informacoes atualizadas, dados e dicas..." },
 { slug: "retrospectiva-comex-2026-licoes-tendencias", name: "Retrospectiva Comex 2026", desc: "Balanço completo do comércio exterior brasileiro em 2026: análise de exportações, importações, principais produtos, parceiros comerciais e lições para o próximo ano." },
@@ -1433,7 +1451,7 @@ const BLOG_POSTS = [
 { slug: "exportacao-castanhas-oleaginosas", name: "Exportação de Castanhas e Oleaginosas: Potencial Brasileiro", desc: "Guia completo para exportação de castanhas e oleaginosas brasileiras: castanha-do-Brasil, castanha-de-caju, macadâmia, certificações orgânicas, aflatoxinas, NCM 0801-0802 e mercados internacionais." },
 { slug: "ipi-importacao-calculo-aliquotas", name: "IPI na Importação: Cálculo e Alíquotas", desc: "Guia completo do IPI na importação brasileira: base de cálculo, alíquotas TIPI de 0% a 330%, não cumulatividade, crédito, regimes ZFM e RECOF, exemplos numéricos e diferenças com ICMS." },
 { slug: "ex-tarifario-reducao-passo-a-passo", name: "Ex-tarifário: Redução do Imposto de Importação Passo a Passo", desc: "Guia completo do Ex-tarifário: redução do II para BK e BIT, critérios de elegibilidade, processo CAMEX, documentação, prazos e exemplos práticos." },
-{ slug: "admissao-temporaria-importacao-regras", name: "Admissão Temporária na Importação: Regras e Aplicações", desc: "Guia completo da Admissão Temporária no Brasil: suspensão total e parcial, bens elegíveis, ATA Carnet, garantias, prazos, DUIMP, reexportação e exemplos práticos com cálculos tributários." },
+{ slug: "admissao-temporaria-importacao-regras", name: "Admissão Temporária na Importação: Regras e Aplicações", desc: "Admissão Temporária no Brasil: suspensão total e parcial, bens elegíveis, ATA Carnet, garantias, prazos, DUIMP, reexportação e exemplos práticos." },
 { slug: "recof-regime-drawback-automotivo", name: "RECOF: Regime Especial para o Setor Automotivo", desc: "Guia completo do RECOF automotivo: suspensão de tributos na importação de insumos para exportação de veículos, Siscomex RECOF, balanço, BOM, perdas industriais, compliance e economia de custos." },
 { slug: "nve-novo-via-entrega-importacao", name: "NVE — Nova Via de Entrega na Importação: Guia Prático", desc: "Guia completo da NVE (Nova Via de Entrega) na importação: quando e como solicitar, diferenças de redestinação, documentação, implicações tributárias, MTIC e passo a passo no Siscomex DUIMP." },
 { slug: "transito-aduaneiro-mercadorias", name: "Trânsito Aduaneiro: Transporte sob Controle Aduaneiro", desc: "Guia completo do Trânsito Aduaneiro: tipos de trânsito, CCT vs DTA vs DTC, EADIs, lacres, garantias, Siscomex Trânsito, prazos, penalidades e passo a passo de Santos a EADI em São Paulo." },
@@ -2014,6 +2032,36 @@ const BLOG_POSTS = [
   { slug: "praticas-logistica-verde-sustentabilidade-comex", name: "Práticas de Logística Verde no Comércio Exterior: Guia de Sustentabilidade", desc: "Guia completo sobre logística verde e sustentável no comércio exterior: redução de emissões de CO2, otimização de rotas, embalagens ecológicas, certificações ambientais, carbon footprint cálculo e relatórios ESG na supply chain internacional." },
   { slug: "documentacao-embarque-erros-correcao-consequencias", name: "Erros na Documentação de Embarque: Consequências e Como Corrigir sem Prejuízos", desc: "Guia completo sobre os erros mais comuns na documentação de embarque internacional: conhecimento marítimo BL, fatura comercial, packing list e certificados de origem. Consequências legais e financeiras e procedimentos de correção." },
   { slug: "carga-solta-conteinerizada-diferencas-quando-usar", name: "Carga Solta vs Conteinerizada: Diferenças e Quando Usar Cada Modalidade", desc: "Guia completo comparando carga solta LCL e carga conteinerizada FCL no comércio exterior: vantagens e desvantagens de cada modal, custos comparativos por volume, quando escolher LCL vs FCL, unitização e dicas de consolidação." },
+  { slug: "ipi-importacao-guia-completo", name: "O Que é o IPI e Sua Aplicação na Importação", desc: "O Imposto sobre Produtos Industrializados (IPI) é um tributo federal regido pela Lei nº 11.196/2005 (Lei do Bem) e regulamentado pelo Decreto nº 7.212/2..." },
+  { slug: "importacao-eletronicos-consumo-smartphones", name: "Panorama da Importação de Eletrônicos de Consumo", desc: "A importação de eletrônicos de consumo é um dos segmentos mais dinâmicos do comércio exterior brasileiro." },
+  { slug: "cptpp-brasil-perspectivas-adesao", name: "O Que é o CPTPP", desc: "O Acordo Abrangente e Progressivo para a Parceria Trans-Pacífico (CPTPP, na sigla em inglês) é um dos maiores acordos de livre comércio do mundo, abrang..." },
+  { slug: "brics-expansao-oportunidades-comercio", name: "O Que é o BRICS+ e a Expansão do Bloco", desc: "O BRICS (Brazil, Russia, India, China, South Africa) é um mecanismo de cooperação intergovernamental que reúne as principais economias emergentes do mun..." },
+  { slug: "bbc-clausula-compra-governo-comercio", name: "O Que é a Cláusula de Compra Governamental em Acordos Comerciais", desc: "A cláusula de compra governamental (Government Procurement) é um dos capítulos mais sensíveis e disputados nos acordos de livre comércio modernos." },
+  { slug: "acordo-comercial-eua-brasil-perspectivas", name: "Contexto das Relações Comerciais Brasil-EUA", desc: "O Brasil e os Estados Unidos mantêm uma das maiores relações comerciais bilaterais do mundo, com fluxo de comércio bilateral superior a US$ 80 bilhões a..." },
+  { slug: "valor-aduaneiro-omc-calculo-elementos-deducoes", name: "Valor Aduaneiro OMC: Cálculo, Elementos, Deduções e Métodos", desc: "O valor aduaneiro é a base de cálculo sobre a qual incidem os principais tributos na importação: Imposto de Importação (II), IPI, PIS/PASEP-Importação, ..." },
+  { slug: "transporte-multimodal-integrado-vantagens-comex", name: "Transporte Multimodal: Vantagens e Integração no Comércio Exterior", desc: "## Transporte Multimodal: Vantagens e Integração no Comércio Exterior" },
+  { slug: "terminais-portuarios-especializados-brasil-carga", name: "Terminais Portuários Especializados no Brasil: Tipos, Operações e Eficiência", desc: "## Terminais Portuários Especializados no Brasil: Tipos, Operações e Eficiência" },
+  { slug: "seguranca-cadeia-logistica-internacional-c-t-pat", name: "Segurança na Cadeia Logística Internacional: C-TPAT, AEO e Certificações", desc: "## Segurança na Cadeia Logística Internacional: C-TPAT, AEO e Certificações" },
+  { slug: "royalty-importacao-tributacao-calculo-deducoes", name: "Royalties na Importação: Tributação, Cálculo e Deduções no Valor Aduaneiro", desc: "## Royalties na Importação: Tributação, Cálculo e Deduções no Valor Aduaneiro" },
+  { slug: "regimes-aduaneiros-especiais-entreposto-recof-ex-tarifario", name: "Regimes Aduaneiros Especiais: Entreposto, RECOF, Ex-tarifário e Reporto", desc: "## Regimes Aduaneiros Especiais: Entreposto, RECOF, Ex-tarifário e Reporto" },
+  { slug: "rastreamento-carga-maritima-internacional-tecnologia", name: "Rastreamento de Carga Marítima Internacional: Tecnologia, IoT e Blockchain", desc: "## Rastreamento de Carga Marítima Internacional: Tecnologia, IoT e Blockchain" },
+  { slug: "pis-cofins-credito-importacao-regime-nao-cumulativo", name: "PIS e COFINS na Importação: Crédito no Regime Não Cumulativo", desc: "O PIS/PASEP e a COFINS são contribuições sociais federais que incidem sobre a receita das empresas e, no caso das importações, também sobre a entrada de..." },
+  { slug: "operador-economico-autorizado-oas-certificacao", name: "Operador Econômico Autorizado (OEA): Certificação, Requisitos e Vantagens", desc: "## Operador Econômico Autorizado (OEA): Certificação, Requisitos e Vantagens" },
+  { slug: "logistica-reversa-internacional-retorno-mercadorias", name: "Logística Reversa no Comércio Exterior: Retorno de Mercadorias e Devoluções", desc: "## Logística Reversa no Comércio Exterior: Retorno de Mercadorias e Devoluções" },
+  { slug: "licenciamento-importacao-guia-completo-2026", name: "Licenciamento de Importação: LPCO, LI e Licenças Não Automáticas — Guia 2026", desc: "## Licenciamento de Importação: LPCO, LI e Licenças Não Automáticas — Guia 2026" },
+  { slug: "leasing-internacional-arrendamento-mercantil-importacao", name: "Leasing Internacional: Arrendamento Mercantil na Importação de Máquinas", desc: "## Leasing Internacional: Arrendamento Mercantil na Importação de Máquinas" },
+  { slug: "importar-do-mexico-autopecas-eletronicos", name: "Importar do México: Autopeças, Eletrônicos e Produtos Industrializados", desc: "O México consolidou-se como um dos principais polos industriais da América Latina, com destaque para os setores automotivo, eletroeletrônico e de máquin..." },
+  { slug: "importar-da-turquia-textil-confeccoes-maquinas", name: "Importar da Turquia: Têxtil, Confecções e Máquinas Industriais", desc: "A Turquia ocupa uma posição geopolítica e econômica privilegiada, funcionando como ponte entre a Europa e a Ásia." },
+  { slug: "importar-da-india-farmacos-genericos-software", name: "Importar da Índia: Oportunidades e Desafios para o Importador Brasileiro", desc: "A Índia consolidou-se como um dos maiores e mais estratégicos parceiros comerciais do Brasil no século XXI." },
+  { slug: "importar-da-argentina-vinho-trigo-oleos", name: "Importar da Argentina: Vinho, Trigo, Oleaginosas e Insumos Industriais", desc: "A Argentina é o principal parceiro comercial do Brasil na América do Sul e um dos fornecedores mais estratégicos para o mercado brasileiro." },
+  { slug: "green-logistics-sustentabilidade-cadeia-suprimentos", name: "Green Logistics: Sustentabilidade na Cadeia de Suprimentos Internacional", desc: "## Green Logistics: Sustentabilidade na Cadeia de Suprimentos Internacional" },
+  { slug: "erros-classificacao-ncm-consequencias-multas-correcao", name: "Erros de Classificação NCM: Consequências, Multas e Procedimentos de Correção", desc: "A classificação tarifária de mercadorias na Nomenclatura Comum do Mercosul (NCM) é uma das etapas mais críticas do processo de importação." },
+  { slug: "drawback-isencao-suspensao-restituicao-guia", name: "Drawback: Isenção, Suspensão e Restituição — Guia Completo 2026", desc: "## Drawback: Isenção, Suspensão e Restituição — Guia Completo 2026" },
+  { slug: "digitalizacao-processos-aduaneiros-siscomex-portal", name: "Digitalização dos Processos Aduaneiros: Siscomex, Portal Único e Blockchain", desc: "## Digitalização dos Processos Aduaneiros: Siscomex, Portal Único e Blockchain" },
+  { slug: "calculo-icms-importacao-difal-recolhimento", name: "Cálculo do ICMS na Importação: Difal, Base de Cálculo e Recolhimento por Estado", desc: "O ICMS (Imposto sobre Circulação de Mercadorias e Serviços) é um dos tributos mais complexos e impactantes na importação brasileira." },
+  { slug: "barreiras-tecnicas-comercio-exterior-requisitos", name: "Barreiras Técnicas ao Comércio Exterior: Requisitos, Certificações e Compliance", desc: "## Barreiras Técnicas ao Comércio Exterior: Requisitos, Certificações e Compliance" },
+  { slug: "armazem-alfandegado-recinato-zona-secundaria", name: "Armazéns Alfandegados e Recintos Especiais: Zona Primária e Secundária", desc: "## Armazéns Alfandegados e Recintos Especiais: Zona Primária e Secundária" },
+  { slug: "acordo-bitributacao-brasil-paises-imposto-renda", name: "Acordos de Bitributação: Países com Acordo com o Brasil e Benefícios", desc: "## Acordos de Bitributação: Países com Acordo com o Brasil e Benefícios" },
 ];
 
 function escapeXml(str) {
@@ -2087,15 +2135,24 @@ function generateBreadcrumbSchema(route, pageTitle) {
 
 // ── SEO Content blocks for each page (loaded from JSON) ──
 const SEO_CONTENT = JSON.parse(fs.readFileSync(path.join(__dirname, "seo-content.json"), "utf-8"));
-function buildHtml(title, desc, keywords, ogTitle, ogDesc, route, baseHtml, seoContent = "", extraSchema = "") {
+function buildHtml(title, desc, keywords, ogTitle, ogDesc, route, baseHtml, seoContent = "", extraSchema = "", noIndex = false, datePublished = "") {
   const fullTitle = title;
   const ogTitleFinal = ogTitle || title;
   const ogDescFinal = ogDesc || desc;
+  const noindexTag = noIndex ? '<meta name="robots" content="noindex, nofollow" />\n    ' : '';
+  const articleMetaTags = datePublished ? '    <meta property="article:published_time" content="' + datePublished + '" />\n    <meta property="article:modified_time" content="' + datePublished + '" />\n  ' : '';
   const canonical = `${BASE_URL}${route}`;
   const breadcrumbSchema = generateBreadcrumbSchema(route, title);
-  const allSchema = breadcrumbSchema + extraSchema;
+  const organizationSchema = `\n    <script type="application/ld+json">\n    {\n      "@context": "https://schema.org",\n      "@type": "Organization",\n      "name": "TRADEXA",\n      "url": "${BASE_URL}",\n      "logo": "${OG_IMAGE}",\n      "description": "Plataforma brasileira de inteligência comercial para importação e exportação.",\n      "email": "help@tradexa.com.br",\n      "address": {\n        "@type": "PostalAddress",\n        "addressCountry": "BR"\n      },\n      "sameAs": []\n    }\n    </script>`;
+  const allSchema = breadcrumbSchema + organizationSchema + extraSchema;
 
-  return baseHtml
+  let html = baseHtml;
+  // When noIndex, strip existing robots meta from base HTML first
+  if (noIndex) {
+    html = html.replace(/<meta\s+name="robots"[^>]*\/?>/gi, '');
+  }
+
+  return html
     // Convert Vite's blocking CSS link to non-blocking preload (with noscript fallback)
     .replace(
       /<link rel="stylesheet"[^>]*href="([^"]+\.css)"[^>]*\/?>/g,
@@ -2134,19 +2191,7 @@ function buildHtml(title, desc, keywords, ogTitle, ogDesc, route, baseHtml, seoC
       /<meta name="twitter:description"[^>]*\/?>/,
       `<meta name="twitter:description" content="${ogDescFinal}" />`
     )
-    .replace(/<\/head>/, `    <link rel="alternate" hreflang="pt-BR" href="${canonical}" />
-    <link rel="alternate" hreflang="x-default" href="${canonical}" />
-  <style>
-      /* Critical CSS — unblocks first paint while external CSS loads */
-      *,*::before,*::after{box-sizing:border-box}
-      body{margin:0;padding:0;background:#f8fafc;color:#1e293b;font-family:system-ui,-apple-system,sans-serif}
-      h1,h2,h3,h4,h5,h6,p{margin:0}
-      a{color:#DC2626}
-      img,svg{max-width:100%;height:auto}
-      #seo-prerender{contain:content}
-    </style>
-    ${allSchema}
-  </head>`)
+    .replace(/<\/head>/, `    ${noindexTag}${articleMetaTags}<link rel="alternate" hreflang="pt-BR" href="${canonical}" />\n    <link rel="alternate" hreflang="x-default" href="${canonical}" />\n  <style>\n      /* Critical CSS — unblocks first paint while external CSS loads */\n      *,*::before,*::after{box-sizing:border-box}\n      body{margin:0;padding:0;background:#f8fafc;color:#1e293b;font-family:system-ui,-apple-system,sans-serif}\n      h1,h2,h3,h4,h5,h6,p{margin:0}\n      a{color:#DC2626}\n      img,svg{max-width:100%;height:auto}\n      #seo-prerender{contain:content}\n    </style>\n    ${allSchema}\n  </head>`)
     .replace(
       /<body[^>]*>/,
       (match) => `${match}
@@ -2198,13 +2243,15 @@ function main() {
   for (const page of PAGES) {
     const html = buildHtml(
       trunc(page.title, 74),
-      trunc(page.desc, 155),
+      truncateAtWord(page.desc, 155),
       page.keywords || "",
       trunc(page.ogTitle || page.title, 74),
-      trunc(page.ogDesc || page.desc, 155),
+      truncateAtWord(page.ogDesc || page.desc, 155),
       page.route,
       baseHtml,
-      SEO_CONTENT[page.route] || ""
+      SEO_CONTENT[page.route] || "",
+      "",
+      page.noIndex || false
     );
     const outPath = path.join(DIST, page.file);
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
@@ -2217,7 +2264,7 @@ function main() {
   for (const lp of LANDING_ROUTES) {
     const route = `/landing/${lp.route}`;
     const title = trunc(lp.name, 74);
-    const desc = trunc(lp.desc, 155);
+    const desc = truncateAtWord(lp.desc, 155);
     const keywords = `landing, ${lp.route}, tradexa, comércio exterior, inteligência comercial`;
     const html = buildHtml(title, desc, keywords, title, desc, route, baseHtml, SEO_CONTENT[route] || "");
     const dir = path.join(DIST, "landing", lp.route);
@@ -2235,7 +2282,7 @@ function main() {
     const MAX_BLOG_TITLE = 84; // allows names up to 69 chars + " | Blog TRADEXA" (15) = 84 (updated 2026-06-24)
     const shortName = trunc(bp.name, MAX_BLOG_TITLE - 15);
     const title = trunc(`${shortName} | Blog TRADEXA`, MAX_BLOG_TITLE);
-    const desc = trunc(bp.desc, 155);
+    const desc = truncateAtWord(bp.desc, 155);
     const keywords = `blog, ${bp.slug}, TRADEXA, comércio exterior, inteligência comercial`;
     const seoContent = (() => {
       const rawHtml = BLOG_CONTENT_MAP[bp.slug] || '';
@@ -2324,7 +2371,7 @@ ${rawHtml}
       "dateModified": "${today}"
     }
     </script>`;
-    const html = buildHtml(title, desc, keywords, title, desc, route, baseHtml, seoContent, articleSchema);
+    const html = buildHtml(title, desc, keywords, title, desc, route, baseHtml, seoContent, articleSchema, false, today);
     const dir = path.join(DIST, "blog", bp.slug);
     fs.mkdirSync(dir, { recursive: true });
     const outPath = path.join(dir, "index.html");
