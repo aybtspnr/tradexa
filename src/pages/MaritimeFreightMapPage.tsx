@@ -187,7 +187,7 @@ export default function MaritimeFreightMapPage() {
     fetch("/api/wci")
       .then(r => r.json())
       .then(d => setWciData({ wci: d.wci, trend: d.trend }))
-      .catch(() => setWciData({ wci: 2950, trend: "stable" }));
+      .catch(() => setWciData({ wci: 4166, trend: "stable" }));
   }, []);
 
   // ─── Load data ──────────────────────────────────────────────────

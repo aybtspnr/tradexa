@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "2026-06-26T17:00:23.511320+00:00",
+  "ultima_atualizacao": "2026-06-26T23:00:34.309607+00:00",
   "moedas": {
     "USD": {
       "nome": "Dólar Americano",
@@ -8,7 +8,7 @@
       "compra": 5.1689,
       "venda": 5.1695,
       "data": "2026-06-26",
-      "variacao": -0.38
+      "variacao": 0.0
     },
     "EUR": {
       "nome": "Euro",
@@ -17,7 +17,7 @@
       "compra": 5.8941,
       "venda": 5.8953,
       "data": "2026-06-26",
-      "variacao": -0.21
+      "variacao": 0.0
     }
   }
 }
