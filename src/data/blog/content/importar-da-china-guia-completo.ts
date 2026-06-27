@@ -251,6 +251,8 @@ Além das questões documentais, produtos chineses podem enfrentar riscos regula
 - **[Diretório de Importadores](/landing/importadores)** — Encontre fornecedores verificados por país
 - **[Classificador NCM com IA](/landing/ncm-classifier)** — Classifique produtos em segundos
 - **[Calculadora de Importação](/ferramentas/calculadora-importacao)** — Calcule todos os custos da importação
+- **[Pesquisa de Mercado](/pesquisa-mercado-produtos-importados)** — Valide oportunidades de importação e exportação com dados reais
+- **[Como Encontrar Compradores](/como-encontrar-compradores-internacionais)** — Prospecte importadores e distribuidores no exterior
 
 > Importe com inteligência de dados — [teste grátis em tradexa.com.br](https://tradexa.com.br)
 `;

@@ -393,5 +393,5 @@ Importar móveis da China é um negócio de alto potencial, especialmente em um 
 
 Com as ferramentas da TRADEXA — [Classificador NCM com IA](/classificador-ncm), [Mapa Frete Marítimo](/mapa-frete-maritimo), [Diretório de Importadores](/diretorio-importadores) e os serviços de [Despacho Aduaneiro](https://www.tradexa.com.br/servicos/despacho-aduaneiro), [Agenciamento de Carga](https://www.tradexa.com.br/servicos/agenciamento-carga) e [Fulfillment](https://www.tradexa.com.br/servicos/fulfillment) — você pode importar móveis da China com segurança, eficiência e máxima rentabilidade.
 
-O mercado moveleiro brasileiro está aquecido e carente de opções com bom custo-benefício. Se você fizer o dever de casa — classificação NCM correta, fornecedor confiável, logística otimizada e distribuição eficiente — as oportunidades são imensas.
+Com as ferramentas certas — [Classificador NCM com IA](/classificador-ncm), [Mapa Frete Marítimo](/mapa-frete-maritimo), [Despacho Aduaneiro](/servicos/despacho-aduaneiro), [Agenciamento de Carga](/servicos/agenciamento-carga) e [Fulfillment](/servicos/fulfillment) — você tem tudo que precisa para transformar a importação de móveis em um negócio de alto retorno.
 `;

@@ -244,6 +244,30 @@
       "destination": "/servicos.html"
     },
     {
+      "source": "/classificador-ncm",
+      "destination": "/classificador-ncm.html"
+    },
+    {
+      "source": "/diretorio-importadores",
+      "destination": "/diretorio-importadores.html"
+    },
+    {
+      "source": "/importers-map",
+      "destination": "/importers-map.html"
+    },
+    {
+      "source": "/login",
+      "destination": "/login.html"
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/dashboard.html"
+    },
+    {
+      "source": "/mapa-frete-maritimo",
+      "destination": "/maritime-freight-map.html"
+    },
+    {
       "source": "/blog",
       "destination": "/blog/index.html"
     },

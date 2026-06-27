@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server.js",
-    "postbuild": "node scripts/indexnow-submit.js",
+    "postbuild": "node scripts/prerender.mjs && node scripts/indexnow-submit.js",
     "indexnow": "node scripts/indexnow-submit.js"
   },
   "dependencies": {

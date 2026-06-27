@@ -412,5 +412,5 @@ Importar peças automotivas da China é um negócio de alta rentabilidade potenc
 
 A TRADEXA oferece suporte completo em todas as etapas do processo, desde a classificação fiscal com inteligência artificial até o despacho aduaneiro e fulfillment. Utilize o [Diretório de Importadores](/diretorio-importadores) para identificar fornecedores, o [Mapa Frete Marítimo](/mapa-frete-maritimo) para otimizar custos logísticos e o [Trade Intelligence](/trade-intelligence) para análise de fluxos comerciais.
 
-Com planejamento adequado e as ferramentas certas, importar autopeças da China pode transformar-se em um negócio altamente lucrativo e escalável.
+Com planejamento adequado e o apoio de ferramentas como o [Classificador NCM com IA](/classificador-ncm), [Mapa Frete Marítimo](/mapa-frete-maritimo) e serviços especializados em [Despacho Aduaneiro](/servicos/despacho-aduaneiro), [Agenciamento de Carga](/servicos/agenciamento-carga) e [Auditoria de Classificação Fiscal](/servicos/auditoria-classificacao-fiscal) da TRADEXA, importar autopeças da China pode transformar-se em um negócio altamente lucrativo e escalável.
 `;

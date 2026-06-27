@@ -341,5 +341,5 @@ Fique atento às tendências que moldam o mercado de papelaria:
 
 Importar papelaria e material escolar da China oferece um potencial de margens atrativas, especialmente em categorias como cadernos, canetas, mochilas e kits escolares. O segredo está em entender o ciclo sazonal, escolher fornecedores confiáveis, classificar corretamente os NCMs e estruturar uma logística eficiente de distribuição.
 
-Com mais de 15 bilhões de reais em movimentação anual e crescimento contínuo impulsionado pela volta às aulas e pelo consumo corporativo, o mercado de papelaria no Brasil é uma oportunidade real para importadores de todos os portes. Use as ferramentas certas, planeje-se com antecedência e aproveite o potencial desse segmento.
+Conte com as soluções da TRADEXA — [Classificador NCM com IA](/classificador-ncm), [Diretório de Importadores](/diretorio-importadores), [Despacho Aduaneiro](/servicos/despacho-aduaneiro) e [Fulfillment](/servicos/fulfillment) — para importar papelaria e material escolar da China com segurança, agilidade e máxima rentabilidade.
 `;

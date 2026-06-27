@@ -1,221 +1,55 @@
 #!/usr/bin/env python3
-"""Integration script for 30 new blog posts — updates postMeta.ts, postContentMap.ts, prerender.mjs"""
+"""
+Integration script for 30 blog posts — June 27 09:00 run.
+Line-based insertion to avoid all offset bugs.
+Usage: python3 scripts/integrate-30-posts.py
+"""
+import os
+
+DATE = "2026-06-27"
+BASE = "/home/nuh_tapinar/tmp-build/project-clean"
 
 NEW_POSTS = [
-    {
-        "slug": "exportacao-servicos-engenharia-projetos-internacionais",
-        "title": "Exportacao de Servicos de Engenharia: Guia para Projetos Internacionais",
-        "excerpt": "Guia completo sobre exportacao de servicos de engenharia brasileiros: modelos de operacao internacional, tributacao, contratos FIDIC, financiamento e gestao de riscos.",
-        "readTime": 21,
-        "tags": ["Servicos", "Engenharia", "Exportacao", "Projetos Internacionais", "Comercio Exterior"]
-    },
-    {
-        "slug": "servicos-digitais-importacao-classificacao-tributacao",
-        "title": "Importacao de Servicos Digitais: Classificacao NCM e Tributacao",
-        "excerpt": "Guia completo sobre importacao de servicos digitais: classificacao NCM/NBS, tributacao IRRF/CIDE, obrigacoes Siscoserv e planejamento tributario internacional.",
-        "readTime": 19,
-        "tags": ["Servicos Digitais", "Importacao", "NCM", "Tributacao", "Comercio Exterior"]
-    },
-    {
-        "slug": "outsourcing-terceirizacao-servicos-comex-brasil",
-        "title": "Outsourcing e BPO no Comercio Exterior: Como Terceirizar com Seguranca",
-        "excerpt": "Guia completo sobre outsourcing e BPO no comercio exterior: como terceirizar processos de importacao e exportacao com seguranca juridica e reducao de custos.",
-        "readTime": 15,
-        "tags": ["Outsourcing", "BPO", "Terceirizacao", "Gestao", "Comercio Exterior"]
-    },
-    {
-        "slug": "gestao-cadeia-fornecedores-internacional-estrategica",
-        "title": "Gestao Estrategica da Cadeia de Fornecedores Internacionais",
-        "excerpt": "Guia completo sobre gestao estrategica de fornecedores internacionais: selecao, avaliacao, riscos, negociacao e tecnologia aplicada a supply chain global.",
-        "readTime": 16,
-        "tags": ["Fornecedores", "Supply Chain", "Gestao", "Estrategia", "Comercio Exterior"]
-    },
-    {
-        "slug": "holding-internacional-planejamento-tributario-comex",
-        "title": "Holding Internacional no Comex: Planejamento Tributario e Estrutura Societaria",
-        "excerpt": "Guia completo sobre holding internacional para comercio exterior: planejamento tributario, jurisdicoes, tratados, transfer pricing e estruturacao societaria.",
-        "readTime": 15,
-        "tags": ["Holding", "Tributacao", "Planejamento Tributario", "Estrutura Societaria", "Comercio Exterior"]
-    },
-    {
-        "slug": "erp-gestao-importacao-exportacao-software-comex",
-        "title": "ERP para Comercio Exterior: Software de Gestao de Importacao e Exportacao",
-        "excerpt": "Guia completo sobre ERP para comercio exterior: funcionalidades essenciais, integracao Siscomex, automacao de processos e criterios de selecao de software.",
-        "readTime": 14,
-        "tags": ["ERP", "Software", "Gestao", "Tecnologia", "Comercio Exterior"]
-    },
-    {
-        "slug": "automacao-processos-aduaneiros-digitais",
-        "title": "Automacao de Processos Aduaneiros: Digitalizacao no Despacho",
-        "excerpt": "Guia completo sobre automacao de processos aduaneiros: RPA, inteligencia artificial, blockchain e digitalizacao do despacho aduaneiro no Brasil.",
-        "readTime": 13,
-        "tags": ["Automacao", "Aduana", "Digitalizacao", "Despacho Aduaneiro", "Comercio Exterior"]
-    },
-    {
-        "slug": "confirming-exportacao-antecipacao-recebiveis",
-        "title": "Confirming na Exportacao: Antecipacao de Recebiveis",
-        "excerpt": "Guia completo sobre confirming na exportacao: como funciona, diferencas para ACC/ACE, custos, estrutura juridica e tendencias como blockchain e tokenizacao.",
-        "readTime": 16,
-        "tags": ["Confirming", "Exportacao", "Financiamento", "Recebiveis", "Comercio Exterior"]
-    },
-    {
-        "slug": "forfaiting-mercado-secundario-credito-exportacao",
-        "title": "Forfaiting no Comercio Exterior: Credito em Mercado Secundario",
-        "excerpt": "Guia completo sobre forfaiting no comercio exterior: mercado secundario de credito, instrumentos cambiais, comparacao com ACC/ACE e factoring, e implementacao.",
-        "readTime": 19,
-        "tags": ["Forfaiting", "Credito", "Exportacao", "Financiamento", "Comercio Exterior"]
-    },
-    {
-        "slug": "recof-regime-aduaneiro-entreposto-industrial",
-        "title": "RECOF: Regime Aduaneiro de Entreposto Industrial",
-        "excerpt": "Guia completo sobre o RECOF (Regime Aduaneiro de Entreposto Industrial): beneficios, fases de operacao, requisitos, comparacao com Drawback e implementacao.",
-        "readTime": 20,
-        "tags": ["RECOF", "Regime Aduaneiro", "Entreposto Industrial", "Importacao", "Comercio Exterior"]
-    },
-    {
-        "slug": "reporto-incentivos-ferroviario-portuario",
-        "title": "REPORTO: Incentivos ao Setor Ferroviario e Portuario",
-        "excerpt": "Guia completo sobre o REPORTO: beneficios fiscais para ferrovias e portos, bens elegiveis, processo de habilitacao e impacto na competitividade brasileira.",
-        "readTime": 20,
-        "tags": ["REPORTO", "Ferroviario", "Portuario", "Incentivos Fiscais", "Comercio Exterior"]
-    },
-    {
-        "slug": "certificacao-carbono-neutro-exportacao-brasil",
-        "title": "Certificacao Carbono Neutro na Exportacao Brasileira",
-        "excerpt": "Guia completo sobre certificacao carbono neutro na exportacao brasileira: metodologias, processo de certificacao, CBAM, custos e tendencias para 2027.",
-        "readTime": 20,
-        "tags": ["Carbono Neutro", "Sustentabilidade", "Exportacao", "Certificacao", "Comercio Exterior"]
-    },
-    {
-        "slug": "acordo-paris-mudancas-climaticas-regulacao-comex",
-        "title": "Acordo de Paris e o Impacto nas Regulacoes de Comercio Exterior",
-        "excerpt": "Guia completo sobre o impacto do Acordo de Paris no comercio exterior: CBAM, barreiras tecnicas verdes, precificacao de carbono e estrategias para exportadores.",
-        "readTime": 14,
-        "tags": ["Acordo de Paris", "Mudancas Climaticas", "Regulacao", "Sustentabilidade", "Comercio Exterior"]
-    },
-    {
-        "slug": "iso-9001-qualidade-cadeia-fornecedores-internacional",
-        "title": "ISO 9001 na Cadeia de Fornecedores Internacionais",
-        "excerpt": "Guia completo sobre ISO 9001 na cadeia de fornecedores internacionais: principios, beneficios, desafios culturais, avaliacao multicamadas e tendencias.",
-        "readTime": 15,
-        "tags": ["ISO 9001", "Qualidade", "Fornecedores", "Certificacao", "Comercio Exterior"]
-    },
-    {
-        "slug": "marketplace-alibaba-mercado-livre-shopee-exportacao",
-        "title": "Marketplaces Internacionais: Alibaba, Mercado Livre e Shopee na Exportacao",
-        "excerpt": "Guia completo sobre marketplaces internacionais para exportadores brasileiros: Alibaba.com, Mercado Livre e Shopee, estrategias, precificacao e documentacao.",
-        "readTime": 21,
-        "tags": ["Marketplace", "E-commerce", "Alibaba", "Mercado Livre", "Shopee", "Exportacao"]
-    },
-    {
-        "slug": "site-exportador-multilingue-captacao-leads",
-        "title": "Site Exportador Multilingue: Captacao de Leads Internacionais",
-        "excerpt": "Guia completo sobre site exportador multilingue: estrutura tecnica, SEO internacional, hreflang, estrategia de conteudo, CRM e metricas de captacao de leads.",
-        "readTime": 21,
-        "tags": ["Site", "Multilingue", "Captacao de Leads", "Marketing Digital", "Exportacao"]
-    },
-    {
-        "slug": "sandbox-regulatorio-inovacao-startup-comex",
-        "title": "Sandbox Regulatorio no Comex: Inovacao para Startups",
-        "excerpt": "Guia completo sobre sandbox regulatorio no comercio exterior: Marco Legal das Startups, experiencias internacionais, oportunidades e desafios para inovacao.",
-        "readTime": 16,
-        "tags": ["Sandbox", "Inovacao", "Startups", "Regulacao", "Comercio Exterior"]
-    },
-    {
-        "slug": "startup-comex-primeiros-passos-importacao-exportacao",
-        "title": "Startup no Comex: Primeiros Passos para Importar e Exportar",
-        "excerpt": "Guia completo para startups no comercio exterior: primeiros passos para importar e exportar, planejamento, documentacao, tributacao, logistica e ferramentas.",
-        "readTime": 18,
-        "tags": ["Startup", "Comex", "Importacao", "Exportacao", "Inovacao", "Comercio Exterior"]
-    },
-    {
-        "slug": "seguro-carga-importacao-exportacao-coberturas",
-        "title": "Seguro de Carga na Importacao e Exportacao: Coberturas e Contratacao",
-        "excerpt": "Guia completo sobre seguro de carga no comercio exterior: tipos de cobertura, riscos, contratacao, regulacao de sinistros e tendencias do mercado segurador.",
-        "readTime": 19,
-        "tags": ["Seguro", "Carga", "Importacao", "Exportacao", "Logistica", "Comercio Exterior"]
-    },
-    {
-        "slug": "conhecimento-embarque-aereo-aeb-documentacao",
-        "title": "Conhecimento de Embarque Aereo (AEB): Guia Completo de Documentacao",
-        "excerpt": "Guia completo sobre o Conhecimento de Embarque Aereo (AEB): estrutura, tipos, diferencas para BL maritimo, documentacao complementar e erros comuns.",
-        "readTime": 21,
-        "tags": ["AEB", "Conhecimento de Embarque", "Transporte Aereo", "Documentacao", "Comercio Exterior"]
-    },
-    {
-        "slug": "incoterms-2020-tabela-completa-responsabilidades",
-        "title": "Incoterms 2020: Tabela Completa de Responsabilidades no Comercio Internacional",
-        "excerpt": "Guia completo sobre Incoterms 2020 com tabela detalhada de responsabilidades: todos os 11 termos, criterios de escolha, erros comuns e calculo de custos.",
-        "readTime": 21,
-        "tags": ["Incoterms", "Logistica", "Responsabilidades", "Comercio Internacional", "Frete"]
-    },
-    {
-        "slug": "consolidador-carga-frete-maritimo-lcl-fcl",
-        "title": "Consolidador de Carga no Frete Maritimo: LCL e FCL na Pratica",
-        "excerpt": "Guia completo sobre consolidacao de carga maritima: LCL vs FCL, papel do consolidador, custos por rota, documentacao HBL/MBL e criterios de selecao.",
-        "readTime": 22,
-        "tags": ["Consolidacao", "Frete Maritimo", "LCL", "FCL", "Logistica", "Comercio Exterior"]
-    },
-    {
-        "slug": "operador-logistico-3pl-cadeia-suprimentos",
-        "title": "Operador Logistico 3PL na Cadeia de Suprimentos Internacional",
-        "excerpt": "Guia completo sobre operadores logisticos 3PL no comercio exterior: servicos, beneficios, criterios de selecao, tecnologia e tendencias como automacao e IA.",
-        "readTime": 16,
-        "tags": ["3PL", "Operador Logistico", "Supply Chain", "Logistica", "Comercio Exterior"]
-    },
-    {
-        "slug": "reforma-tributaria-2026-ec-132-impacto-comex",
-        "title": "Reforma Tributaria 2026 (EC 132): Impactos no Comercio Exterior",
-        "excerpt": "Guia completo sobre a Reforma Tributaria EC 132 e seus impactos no comercio exterior brasileiro: IBS, CBS, IS, regimes aduaneiros e cronograma de transicao.",
-        "readTime": 17,
-        "tags": ["Reforma Tributaria", "EC 132", "Tributacao", "IBS", "CBS", "Comercio Exterior"]
-    },
-    {
-        "slug": "ncm-classificacao-fiscal-mercadorias-dominio",
-        "title": "NCM: Dominio da Classificacao Fiscal de Mercadorias",
-        "excerpt": "Guia completo sobre dominio da classificacao fiscal NCM: estrutura SH, RGI, notas explicativas, desafios praticos e tecnologia com classificadores de IA.",
-        "readTime": 14,
-        "tags": ["NCM", "Classificacao Fiscal", "Mercadorias", "SH", "Tributacao", "Comercio Exterior"]
-    },
-    {
-        "slug": "classificacao-ncm-maquinas-cap-84",
-        "title": "Classificacao NCM de Maquinas e Equipamentos: Capitulo 84",
-        "excerpt": "Guia completo sobre classificacao NCM do Capitulo 84: estruturas, regras especificas, posicoes criticas e tratamento tributario para maquinas e equipamentos.",
-        "readTime": 15,
-        "tags": ["NCM", "Maquinas", "Capitulo 84", "Classificacao Fiscal", "Equipamentos", "Comercio Exterior"]
-    },
-    {
-        "slug": "classificacao-ncm-eletronicos-cap-85",
-        "title": "Classificacao NCM de Eletronicos: Capitulo 85",
-        "excerpt": "Guia completo sobre classificacao NCM do Capitulo 85: estrutura, desafios tecnologics, erros comuns, casos praticos e uso de IA na classificacao de eletronicos.",
-        "readTime": 12,
-        "tags": ["NCM", "Eletronicos", "Capitulo 85", "Classificacao Fiscal", "Comercio Exterior"]
-    },
-    {
-        "slug": "classificacao-ncm-veiculos-cap-87",
-        "title": "Classificacao NCM de Veiculos e Autopecas: Capitulo 87",
-        "excerpt": "Guia completo sobre classificacao NCM do Capitulo 87: veiculos, autopecas, regras especiais, tratamento tributario e casos praticos de classificacao.",
-        "readTime": 13,
-        "tags": ["NCM", "Veiculos", "Autopecas", "Capitulo 87", "Classificacao Fiscal", "Comercio Exterior"]
-    },
-    {
-        "slug": "regras-origem-acordos-comerciais-mercosul",
-        "title": "Regras de Origem em Acordos Comerciais: Mercosul e Preferencias Tarifarias",
-        "excerpt": "Guia completo sobre regras de origem no comercio exterior: criterios Mercosul, conteudo regional, certificacao, acumulacao e tecnologia na gestao de origem.",
-        "readTime": 14,
-        "tags": ["Regras de Origem", "Mercosul", "Acordos Comerciais", "Preferencias Tarifarias", "Comercio Exterior"]
-    },
-    {
-        "slug": "selo-qualidade-exportacao-brasil-certificacao",
-        "title": "Selo de Qualidade para Exportacao: Certificacoes Brasileiras Reconhecidas",
-        "excerpt": "Guia completo sobre selos de qualidade para exportacao brasileira: Inmetro, ISO, CE, USDA Organic, FSC, BRCGS, Halal, Kosher e processo de obtencao.",
-        "readTime": 14,
-        "tags": ["Qualidade", "Certificacao", "Selo", "Exportacao", "Padroes Internacionais", "Comercio Exterior"]
-    },
-]
+    # ── Batch 1: Importação Especializada ──
+    {"slug": "importacao-obras-arte-antiguidades-colecao", "title": "Importação de Obras de Arte, Antiguidades e Itens de Coleção: Regras e Tributação", "excerpt": "Guia completo para importar obras de arte, antiguidades e itens de coleção para o Brasil: classificação NCM, tributos incidentes, documentação exigida, IPI, ICMS e os requisitos do IPHAN para bens culturais.", "readTime": 14, "tags": ["Importação", "Obras de Arte", "Antiguidades", "IPHAN", "Tributação"]},
+    {"slug": "importacao-instrumentos-musicais-guia-completo", "title": "Importação de Instrumentos Musicais: NCM, Tributação e Fornecedores", "excerpt": "Guia prático para importar instrumentos musicais: classificação NCM dos Capítulos 92 e 85, alíquotas de II e IPI, países com melhores preços, certificações INMETRO e como escolher fornecedores confiáveis.", "readTime": 13, "tags": ["Importação", "Instrumentos Musicais", "NCM", "INMETRO", "Fornecedores"]},
+    {"slug": "importacao-aeronaves-pecas-manutencao-anac", "title": "Importação de Aeronaves e Peças: Guia Completo de Regulamentação ANAC", "excerpt": "Guia completo sobre importação de aeronaves, helicópteros e peças de manutenção: certificação ANAC, categoria experimental, tributação, Registro Aeronáutico Brasileiro (RAB) e despacho aduaneiro especial.", "readTime": 15, "tags": ["Importação", "Aeronaves", "ANAC", "Aviação", "Tributação"]},
+    {"slug": "importacao-veiculos-antigos-classicos-colecao", "title": "Importação de Veículos Antigos e Clássicos: Guia do Colecionador", "excerpt": "Guia definitivo para importar veículos antigos e clássicos no Brasil: regras do DENATRAN, categoria de coleção, tributação reduzida, documentação de origem, anos de fabricação aceitos e custos totais do processo.", "readTime": 14, "tags": ["Importação", "Veículos Antigos", "Carros Clássicos", "DENATRAN", "Colecionador"]},
+    {"slug": "importacao-produtos-luxo-relogios-joias", "title": "Importação de Produtos de Luxo: Relógios, Joias, Bolsas e Acessórios", "excerpt": "Guia completo para importar produtos de luxo no Brasil: classificação NCM de relógios, joias e acessórios, tributação elevada, regimes especiais, certificações de autenticidade e canais de venda no mercado brasileiro.", "readTime": 13, "tags": ["Importação", "Produtos de Luxo", "Joias", "Relógios", "Tributação"]},
+    {"slug": "importacao-armas-municoes-regras-autorizacao", "title": "Importação de Armas e Munições: Regras, Licenças e Tributação", "excerpt": "Guia completo sobre importação de armas de fogo, munições e acessórios: licenciamento no Exército (Sigma), classificação NCM, documentação SIGMA, medidas de segurança, tributos e regras para pessoa física e jurídica.", "readTime": 15, "tags": ["Importação", "Armas", "Munições", "Exército", "Licenciamento"]},
 
-DATE = "2026-06-26"
-BASE = "/home/nuh_tapinar/tmp-build/project-clean"
+    # ── Batch 2: Exportação e Serviços ──
+    {"slug": "exportacao-servicos-educacionais-consultoria", "title": "Exportação de Serviços Educacionais: Cursos, Treinamentos e Consultoria Internacional", "excerpt": "Guia completo para exportar serviços educacionais brasileiros: cursos online presenciais, treinamentos corporativos e consultoria internacional para pessoas físicas e jurídicas no exterior com suporte legal.", "readTime": 14, "tags": ["Exportação", "Serviços", "Educação", "Consultoria", "Comércio Exterior"]},
+    {"slug": "exportacao-servicos-medicos-saude-turismo", "title": "Exportação de Serviços Médicos e Turismo de Saúde: Guia Regulatório", "excerpt": "Guia completo para exportar serviços médicos e atrair turismo de saúde para o Brasil: regulamentação da ANVISA, convênios internacionais, procedimentos estéticos, transplantes e cirurgias eletivas.", "readTime": 14, "tags": ["Exportação", "Serviços Médicos", "Turismo de Saúde", "ANVISA", "Comércio Exterior"]},
+    {"slug": "exportacao-alimentos-processados-certificacoes", "title": "Exportação de Alimentos Processados: Certificações, Mercados e Oportunidades", "excerpt": "Guia completo para exportar alimentos processados brasileiros: certificações internacionais (FDA, EU Organic, BRC, IFS), requisitos do MAPA, barreiras sanitárias, validade comercial e logística cold chain.", "readTime": 15, "tags": ["Exportação", "Alimentos Processados", "Certificações", "MAPA", "Mercados Internacionais"]},
+    {"slug": "exportacao-agricultura-familiar-cooperativas", "title": "Exportação para Agricultura Familiar e Cooperativas: Oportunidades e Programas de Apoio", "excerpt": "Guia completo para agricultores familiares e cooperativas brasileiras exportarem: programas do MDA, Sebrae e MAPA, certificação orgânica, Selo Nacional da Agricultura Familiar, financiamento Pronaf e logística compartilhada.", "readTime": 14, "tags": ["Exportação", "Agricultura Familiar", "Cooperativas", "Agronegócio", "Programas de Apoio"]},
+    {"slug": "exportacao-produtos-artesanais-brasil", "title": "Exportação de Produtos Artesanais Brasileiros: Caminhos e Desafios", "excerpt": "Guia completo para exportar artesanato brasileiro: certificação de origem, Programa do Artesanato Brasileiro, feiras internacionais, classificação NCM, barreiras fitossanitárias para peças naturais e estratégias de precificação.", "readTime": 13, "tags": ["Exportação", "Artesanato", "Cultura", "Pequenos Produtores", "Comércio Exterior"]},
+    {"slug": "exportacao-produtos-reciclados-sustentaveis", "title": "Exportação de Produtos Reciclados e Sustentáveis: Regras e Mercados", "excerpt": "Guia completo para exportar materiais reciclados e produtos sustentáveis: licenciamento ambiental, classificação NCM de resíduos, regras IBAMA, certificações de conteúdo reciclado e mercados compradores internacionais.", "readTime": 14, "tags": ["Exportação", "Reciclagem", "Sustentabilidade", "IBAMA", "Economia Circular"]},
+
+    # ── Batch 3: Gestão Estratégica ──
+    {"slug": "controladoria-gestao-custos-resultados-comex", "title": "Controladoria para Comércio Exterior: Gestão de Custos e Resultados", "excerpt": "Guia completo de controladoria aplicada ao comércio exterior: indicadores de desempenho para importação e exportação, formação de custos completos, margem líquida internacional, análise de rentabilidade por produto e mercado.", "readTime": 15, "tags": ["Controladoria", "Gestão", "Custos", "Planejamento Financeiro", "Comércio Exterior"]},
+    {"slug": "auditoria-aduaneira-interna-gestao-riscos", "title": "Auditoria Aduaneira Interna: Como Preparar sua Empresa e Evitar Multas", "excerpt": "Guia completo de auditoria aduaneira interna para importadores e exportadores: procedimentos de compliance, verificação de classificação NCM, valuation aduaneiro, conferência de drawdown e preparação para fiscalização da Receita Federal.", "readTime": 15, "tags": ["Auditoria", "Compliance", "Aduana", "Gestão de Riscos", "Fiscalização"]},
+    {"slug": "reducao-custos-operacionais-comex-estrategias", "title": "Redução de Custos Operacionais no Comércio Exterior: 15 Estratégias Práticas", "excerpt": "Guia com 15 estratégias práticas para reduzir custos operacionais em importação e exportação: otimização tributária, escolha de incoterm, consolidação de carga, drawback e negociação de frete. Exemplos reais com economia comprovada.", "readTime": 14, "tags": ["Custos", "Operações", "Estratégia", "Otimização", "Comércio Exterior"]},
+    {"slug": "terceirizacao-importacao-exportacao-trading", "title": "Terceirização de Importação e Exportação: Quando Contratar uma Trading Company", "excerpt": "Guia completo sobre terceirização de operações de comércio exterior: trading company vs comercial exportadora, vantagens da terceirização, custos envolvidos, due diligence na escolha do parceiro e modelos de contrato.", "readTime": 14, "tags": ["Terceirização", "Trading Company", "Importação", "Exportação", "Gestão"]},
+    {"slug": "gestao-estoques-importacao-reposicao-curva-abc", "title": "Gestão de Estoques na Importação: Ponto de Reposição, Curva ABC e Estoques de Segurança", "excerpt": "Guia completo de gestão de estoques para importadores: cálculo de ponto de reposição considerando lead time internacional, Curva ABC aplicada a produtos importados, estoque de segurança contra atrasos e giro de estoque ideal.", "readTime": 15, "tags": ["Gestão de Estoques", "Importação", "Logística", "Planejamento", "Suprimentos"]},
+    {"slug": "planejamento-tributario-estrategias-globais-comex", "title": "Planejamento Tributário Internacional: Estratégias Globais para Importadores e Exportadores", "excerpt": "Guia completo de planejamento tributário internacional no comércio exterior: regimes aduaneiros especiais, acordos de bitributação, preços de transferência, holding internacional, ZPE e estratégias legais de redução da carga tributária.", "readTime": 16, "tags": ["Planejamento Tributário", "Tributação", "Internacional", "Estratégia", "Compliance"]},
+
+    # ── Batch 4: Tecnologia e Inovação ──
+    {"slug": "marketing-conteudo-comex-exportadores-internacional", "title": "Marketing de Conteúdo para Exportadores: Como Atrair Clientes Internacionais", "excerpt": "Guia completo de marketing de conteúdo para exportadores brasileiros: SEO internacional, blog multilingue, LinkedIn para prospecção B2B, estudos de caso, webinars e como usar o analytics para atrair compradores do exterior.", "readTime": 14, "tags": ["Marketing de Conteúdo", "Exportação", "Marketing Digital", "SEO", "Vendas B2B"]},
+    {"slug": "inteligencia-artificial-aplicada-comex-pratica", "title": "Inteligência Artificial no Comércio Exterior: Ferramentas e Casos de Uso Práticos", "excerpt": "Guia completo sobre aplicações de IA no comércio exterior: classificação NCM automática, previsão de demanda, análise de risco cambial, chatbots para despachantes, otimização de rotas logísticas e trade intelligence com machine learning.", "readTime": 15, "tags": ["Inteligência Artificial", "Tecnologia", "Inovação", "Automação", "Comércio Exterior"]},
+    {"slug": "robotica-automacao-industrial-importacao-maquinas", "title": "Importação de Robôs e Máquinas de Automação Industrial: Guia Completo", "excerpt": "Guia completo para importar robôs industriais e máquinas de automação: classificação NCM dos capítulos 84 e 85, EX-tarifário para bens de capital, certificações de segurança, fornecedores globais e custos totais de importação.", "readTime": 15, "tags": ["Importação", "Robótica", "Automação Industrial", "EX-Tarifário", "Indústria 4.0"]},
+    {"slug": "automacao-processos-rpa-comex-avancado", "title": "Automação de Processos com RPA no Comércio Exterior: Guia Tecnológico", "excerpt": "Guia completo de automação robótica de processos RPA aplicada ao comércio exterior: bots para Siscomex, emissão de DU-E e DI, conferência de documentos, monitoramento de parametrização aduaneira e cálculo automático de tributos.", "readTime": 14, "tags": ["RPA", "Automação", "Tecnologia", "Siscomex", "Inovação"]},
+    {"slug": "plataformas-digitais-b2b-alibaba-tradekey-globalsources", "title": "Plataformas Digitais B2B para Exportação: Guia de Marketplaces Globais", "excerpt": "Guia completo dos principais marketplaces B2B globais para exportadores brasileiros: Alibaba, TradeKey, Global Sources, Made-in-China e EC21. Estratégias de cadastro, anúncio, negociação e logística integrada para cada plataforma.", "readTime": 15, "tags": ["Marketplaces", "B2B", "Exportação", "Alibaba", "Plataformas Digitais"]},
+    {"slug": "api-integracao-sistemas-siscomex-gestao", "title": "APIs e Integração de Sistemas no Comércio Exterior: Guia para Conectar seu ERP ao Siscomex", "excerpt": "Guia completo sobre APIs e integração de sistemas no comércio exterior: conexão entre ERPs e o Siscomex, webservices da Receita Federal, integração com trading companies, logtechs e plataformas de trade finance.", "readTime": 15, "tags": ["APIs", "Integração", "ERP", "Siscomex", "Tecnologia"]},
+
+    # ── Batch 5: Logística Avançada ──
+    {"slug": "logistica-pereciveis-cadeia-frio-transporte-internacional", "title": "Logística de Perecíveis: Transporte Internacional de Alimentos na Cadeia do Frio", "excerpt": "Guia completo de logística cold chain para alimentos perecíveis no comércio exterior: containers reefer, documentação fitossanitária, monitoramento IoT de temperatura, termógrafos, certificações HACCP e prazos de validade internacional.", "readTime": 15, "tags": ["Logística", "Cadeia do Frio", "Perecíveis", "Alimentos", "Cold Chain"]},
+    {"slug": "transporte-cargas-perigosas-imdg-iata-regras", "title": "Transporte de Cargas Perigosas: Regras IMDG, IATA e ADR para Importação e Exportação", "excerpt": "Guia completo para transporte de cargas perigosas no comércio exterior: classificação ONU, regras IMDG para marítimo, IATA DGR para aéreo, ADR para rodoviário, documentação MSDS, embalagens certificadas e treinamento obrigatório.", "readTime": 15, "tags": ["Cargas Perigosas", "IMDG", "IATA", "Logística", "Segurança"]},
+    {"slug": "seguros-obrigatorios-comex-modalidades-cobertura", "title": "Seguros Obrigatórios no Comércio Exterior: Guia Completo de Modalidades e Coberturas", "excerpt": "Guia completo dos seguros obrigatórios e recomendados para importadores e exportadores: seguro internacional de carga (RCC), seguro de crédito à exportação, seguros obrigatórios por modo de transporte e coberturas adicionais.", "readTime": 14, "tags": ["Seguros", "Comércio Exterior", "Carga", "Risco", "Logística"]},
+    {"slug": "praticas-logistica-verde-sustentabilidade-comex", "title": "Práticas de Logística Verde no Comércio Exterior: Guia de Sustentabilidade", "excerpt": "Guia completo sobre logística verde e sustentável no comércio exterior: redução de emissões de CO2, otimização de rotas, embalagens ecológicas, certificações ambientais, carbon footprint cálculo e relatórios ESG na supply chain internacional.", "readTime": 14, "tags": ["Logística Verde", "Sustentabilidade", "ESG", "Meio Ambiente", "Transporte"]},
+    {"slug": "documentacao-embarque-erros-correcao-consequencias", "title": "Erros na Documentação de Embarque: Consequências e Como Corrigir sem Prejuízos", "excerpt": "Guia completo sobre os erros mais comuns na documentação de embarque internacional: conhecimento marítimo BL, fatura comercial, packing list e certificados de origem. Consequências legais e financeiras e procedimentos de correção.", "readTime": 14, "tags": ["Documentação", "Embarque", "Erros", "Correção", "Logística"]},
+    {"slug": "carga-solta-conteinerizada-diferencas-quando-usar", "title": "Carga Solta vs Conteinerizada: Diferenças e Quando Usar Cada Modalidade", "excerpt": "Guia completo comparando carga solta LCL e carga conteinerizada FCL no comércio exterior: vantagens e desvantagens de cada modal, custos comparativos por volume, quando escolher LCL vs FCL, unitização e dicas de consolidação.", "readTime": 13, "tags": ["Carga Solta", "LCL", "FCL", "Conteinerização", "Logística"]},
+]
 
 def build_meta_entry(p):
     tags_str = ", ".join(f'"{t}"' for t in p["tags"])
@@ -224,72 +58,59 @@ def build_meta_entry(p):
 def build_prerender_entry(p):
     return f'  {{ slug: "{p["slug"]}", name: "{p["title"]}", desc: "{p["excerpt"]}" }},'
 
-def insert_before_line(lines, marker, entries):
-    """Find marker line and insert entries before it."""
+def insert_before_line(lines, marker):
     for i in range(len(lines) - 1, -1, -1):
         if lines[i].strip() == marker:
-            pos = i
-            break
-    else:
-        raise ValueError(f"Marker '{marker}' not found")
-    for j, entry in enumerate(entries):
-        lines.insert(pos + j, entry + "\n")
+            return i
+    raise ValueError(f"Marker '{marker}' not found in file")
 
-# --- STEP 1: postMeta.ts ---
-meta_path = f"{BASE}/src/data/blog/postMeta.ts"
+def insert_before_map(lines):
+    """Find }; that closes the map object (near getPostContent)."""
+    for i in range(len(lines) - 1, -1, -1):
+        if lines[i].strip() == "};":
+            # Verify proximity to getPostContent
+            for j in range(i + 1, min(i + 4, len(lines))):
+                if "export async function getPostContent" in lines[j]:
+                    return i
+    raise ValueError("Could not find map }; near getPostContent")
+
+# Step 1: postMeta.ts
+meta_path = os.path.join(BASE, "src/data/blog/postMeta.ts")
 with open(meta_path) as f:
     meta_lines = f.readlines()
-meta_entries = [build_meta_entry(p) for p in NEW_POSTS]
-insert_before_line(meta_lines, "];", meta_entries)
+pos = insert_before_line(meta_lines, "];")
+entries = [build_meta_entry(p) for p in NEW_POSTS]
+for j, entry in enumerate(entries):
+    meta_lines.insert(pos + j, entry + "\n")
 with open(meta_path, "w") as f:
     f.writelines(meta_lines)
-print(f"✅ postMeta.ts: inserted {len(meta_entries)} entries")
+print(f"✅ postMeta.ts: {len(NEW_POSTS)} entries inserted")
 
-# --- STEP 2: postContentMap.ts ---
-map_path = f"{BASE}/src/data/blog/postContentMap.ts"
+# Step 2: postContentMap.ts
+map_path = os.path.join(BASE, "src/data/blog/postContentMap.ts")
 with open(map_path) as f:
     map_lines = f.readlines()
-# Find the }; that closes the map object (has getPostContent nearby)
-close_map = None
-for i in range(len(map_lines) - 1, -1, -1):
-    if map_lines[i].strip() == "};":
-        # Check if getPostContent is within next 4 lines
-        for j in range(i + 1, min(i + 4, len(map_lines))):
-            if "export async function getPostContent" in map_lines[j]:
-                close_map = i
-                break
-        if close_map is not None:
-            break
-if close_map is None:
-    raise ValueError("Could not find map closing }; near getPostContent")
+close_map = insert_before_map(map_lines)
 map_entries = [f'  "{p["slug"]}": () => import("./content/{p["slug"]}"),' for p in NEW_POSTS]
 for j, entry in enumerate(map_entries):
     map_lines.insert(close_map + j, entry + "\n")
 with open(map_path, "w") as f:
     f.writelines(map_lines)
-print(f"✅ postContentMap.ts: inserted {len(map_entries)} entries")
+print(f"✅ postContentMap.ts: {len(NEW_POSTS)} entries inserted")
 
-# --- STEP 3: prerender.mjs ---
-prerender_path = f"{BASE}/scripts/prerender.mjs"
-with open(prerender_path) as f:
+# Step 3: prerender.mjs — BLOG_POSTS (last ];)
+pre_path = os.path.join(BASE, "scripts/prerender.mjs")
+with open(pre_path) as f:
     pre_lines = f.readlines()
-# Find the LAST ]; (BLOG_POSTS array)
-last_close = None
-for i in range(len(pre_lines) - 1, -1, -1):
-    if pre_lines[i].strip() == "];":
-        last_close = i
-        break
-if last_close is None:
-    raise ValueError("Could not find ]; in prerender.mjs")
-prerender_entries = [build_prerender_entry(p) for p in NEW_POSTS]
-for j, entry in enumerate(prerender_entries):
+last_close = insert_before_line(pre_lines, "];")
+entries = [build_prerender_entry(p) for p in NEW_POSTS]
+for j, entry in enumerate(entries):
     pre_lines.insert(last_close + j, entry + "\n")
-with open(prerender_path, "w") as f:
+with open(pre_path, "w") as f:
     f.writelines(pre_lines)
-print(f"✅ prerender.mjs: inserted {len(prerender_entries)} entries")
+print(f"✅ prerender.mjs: {len(NEW_POSTS)} entries inserted")
 
-print("\n=== POST-INTEGRATION COUNTS ===")
-print(f"postMeta: {sum(1 for l in meta_lines if 'slug: ' in l) + len(NEW_POSTS)}")
-print(f"contentMap: {sum(1 for l in map_lines if ': () => import' in l) + len(NEW_POSTS)}")
-print(f"prerender BLOG_POSTS: {sum(1 for l in pre_lines if 'slug: ' in l) + len(NEW_POSTS)}")
-print(f"content files: {len(NEW_POSTS) + 1030}")
+print("\n✅ Integration complete! Verify with:")
+print("  grep -c 'slug:' src/data/blog/postMeta.ts")
+print("  grep -c ': () => import' src/data/blog/postContentMap.ts")
+print("  grep -c 'desc:' scripts/prerender.mjs")

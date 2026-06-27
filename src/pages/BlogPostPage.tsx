@@ -892,6 +892,8 @@ export default function BlogPostPage() {
     [post],
   );
 
+  const todayISO = new Date().toISOString().split("T")[0];
+
   useSeo({
     title: post
       ? `${post.title} | Blog TRADEXA`
@@ -901,6 +903,8 @@ export default function BlogPostPage() {
     canonical: post
       ? `https://www.tradexa.com.br/blog/${post.slug}`
       : undefined,
+    publishedTime: post?.date || todayISO,
+    modifiedTime: todayISO,
   });
 
   // Inject FAQPage structured data

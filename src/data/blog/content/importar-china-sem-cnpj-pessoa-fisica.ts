@@ -281,4 +281,6 @@ Use as ferramentas da TRADEXA para facilitar sua importação:
 E para operações mais complexas, conte com os serviços profissionais da TRADEXA: [Despacho Aduaneiro](/servicos/despacho-aduaneiro), [Agenciamento de Carga](/servicos/agenciamento-carga), [Cotação de Frete](/servicos/cotacao-frete-internacional) e [Representação no Brasil](/servicos/representacao-brasil).
 
 > Lembre-se: importar como pessoa física é para **uso próprio**. Se você quer revender, regularize-se como empresa — a multa por exercício irregular é muito maior que o custo de abrir um CNPJ.
+
+Quer dar o passo seguinte? A TRADEXA pode ajudar sua empresa nascente com [Despacho Aduaneiro](/servicos/despacho-aduaneiro), [Agenciamento de Carga](/servicos/agenciamento-carga) e [Fulfillment](/servicos/fulfillment) — tudo que você precisa para começar a importar com o pé direito.
 `;

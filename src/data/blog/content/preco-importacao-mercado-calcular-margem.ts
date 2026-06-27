@@ -284,7 +284,7 @@ Para importadores, a precificação baseada em valor é particularmente relevant
 
 A plataforma TRADEXA oferece um conjunto de ferramentas integradas que tornam o processo de precificação muito mais preciso e eficiente. A Calculadora de Custos de Importação permite simular o landed cost completo de qualquer produto em minutos, com alíquotas atualizadas automaticamente por NCM e por estado. Você pode testar diferentes cenários de frete, câmbio e despesas para encontrar a configuração mais vantajosa para sua operação.
 
-Além disso, o Trade Intelligence da TRADEXA fornece dados reais de mercado — preços médios de importação, volumes, origens e concorrentes — que ajudam a calibrar sua estratégia de precificação com base em informações concretas, não em suposições. E o diretório de importadores permite identificar quem está comprando produtos similares e a que preço, oferecendo insights valiosos para seu posicionamento competitivo.
+Além disso, o [Trade Intelligence](/inteligencia-mercado-analise-dados-importacao) da TRADEXA fornece dados reais de mercado — preços médios de importação, volumes, origens e concorrentes — que ajudam a calibrar sua estratégia de precificação com base em informações concretas, não em suposições. E o diretório de importadores permite identificar quem está comprando produtos similares e a que preço, oferecendo insights valiosos para seu posicionamento competitivo.
 
 ## Erros Comuns na Precificação de Produtos Importados
 
@@ -308,7 +308,7 @@ Os custos de importação mudam com frequência: alíquotas tributárias são al
 
 Calcular a margem de um produto importado é um exercício que exige precisão, conhecimento tributário e visão estratégica. O landed cost é apenas o ponto de partida — a partir dele, é preciso considerar a estrutura de markup, as margens de cada elo da cadeia, o posicionamento competitivo e as políticas de preço como o MAP.
 
-O segredo do sucesso na importação não está em encontrar o produto mais barato do mundo, mas em calcular corretamente todos os custos e definir um preço que seja competitivo no mercado e ao mesmo tempo sustentável para o seu negócio. Com as ferramentas certas — como a Calculadora de Custos de Importação e o Trade Intelligence da TRADEXA — e uma metodologia sólida de precificação, você pode transformar a importação em uma operação previsível, controlada e consistentemente lucrativa.
+O segredo do sucesso na importação não está em encontrar o produto mais barato do mundo, mas em calcular corretamente todos os custos e definir um preço que seja competitivo no mercado e ao mesmo tempo sustentável para o seu negócio. Com as ferramentas certas — como a Calculadora de Custos de Importação e o [Trade Intelligence](/inteligencia-mercado-analise-dados-importacao) da TRADEXA — e uma metodologia sólida de precificação, você pode transformar a importação em uma operação previsível, controlada e consistentemente lucrativa.
 
 Lembre-se: margem não é ganância — é a garantia de que seu negócio vai sobreviver aos imprevistos e continuar crescendo. Invista tempo em calcular corretamente, e sua operação de importação será muito mais segura e rentável.`;
 

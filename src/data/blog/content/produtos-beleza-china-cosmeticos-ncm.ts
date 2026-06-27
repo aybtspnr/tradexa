@@ -391,7 +391,7 @@ O mercado de beleza e cuidados pessoais no Brasil é uma oportunidade extraordin
 
 No entanto, o setor exige atenção redobrada com a regulação da ANVISA, especialmente para cosméticos de Grau 2 (alisantes, tinturas, protetores). A classificação fiscal também é complexa, com produtos se espalhando por múltiplos capítulos da NCM.
 
-Comece por acessórios de baixo risco regulatório (unhas, cílios, mega hair), construa marca, invista em embalagem e use os canais digitais para alavancar suas vendas. Com planejamento, fornecedores de qualidade e as ferramentas certas da Tradexa, sua importação de produtos de beleza pode se transformar em um negócio altamente lucrativo.
+Independentemente do seu estágio — seja começando com acessórios de baixo risco regulatório ou expandindo linhas com registro ANVISA — a TRADEXA tem as soluções certas para você. Use o [Classificador NCM com IA](/classificador-ncm) para classificação fiscal precisa, o [Despacho Aduaneiro](/servicos/despacho-aduaneiro) para liberação alfandegária especializada e o [Fulfillment](/servicos/fulfillment) para distribuição capilar em todo o Brasil.
 
 O Brasil ama beleza — e a China tem a escala para abastecer esse amor com produtos de qualidade a preços competitivos.
 `;

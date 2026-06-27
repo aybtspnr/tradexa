@@ -6,9 +6,12 @@ interface SeoConfig {
   keywords?: string;
   ogType?: string;
   ogImage?: string;
+  ogImageAlt?: string;
   canonical?: string;
   noIndex?: boolean;
   jsonLd?: object;
+  publishedTime?: string;
+  modifiedTime?: string;
 }
 
 const BASE_URL = "https://www.tradexa.com.br";
@@ -49,7 +52,7 @@ export function useSeo(config: SeoConfig) {
       <meta property="og:image" content={ogImage.startsWith("http") ? ogImage : `${BASE_URL}${ogImage.startsWith("/") ? "" : "/"}${ogImage}`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={fullTitle} />
+      <meta property="og:image:alt" content={config.ogImageAlt || fullTitle} />
       <meta property="og:url" content={canonical} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content="pt_BR" />
@@ -57,12 +60,17 @@ export function useSeo(config: SeoConfig) {
       <meta name="geo.region" content="BR-SC" />
       <meta name="geo.placename" content="Florianópolis" />
 
+      {/* Article timestamps */}
+      {config.publishedTime && <meta property="article:published_time" content={config.publishedTime} />}
+      {config.modifiedTime && <meta property="article:modified_time" content={config.modifiedTime} />}
+
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage.startsWith("http") ? ogImage : `${BASE_URL}${ogImage.startsWith("/") ? "" : "/"}${ogImage}`} />
-      <meta name="twitter:image:alt" content={fullTitle} />
+      <meta name="twitter:image:alt" content={config.ogImageAlt || fullTitle} />
+      <meta name="twitter:site" content="@tradexa" />
 
       {/* Hreflang */}
       <link rel="alternate" hrefLang="pt-BR" href={canonical} />

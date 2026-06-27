@@ -343,7 +343,7 @@ O **Tarifário Global 31 Países** da TRADEXA permite consultar as alíquotas de
 
 ### Trade Intelligence
 
-A ferramenta **Trade Intelligence** da TRADEXA monitora em tempo real volumes, preços e tendências do comércio global, permitindo que o importador identifique:
+A ferramenta **[Trade Intelligence](/inteligencia-mercado-analise-dados-importacao)** da TRADEXA monitora em tempo real volumes, preços e tendências do comércio global, permitindo que o importador identifique:
 
 - Sazonalidades de preços e volumes;
 - Novos fornecedores e mercados;
@@ -362,9 +362,9 @@ Os principais pontos a serem observados pelos importadores são:
 4. **Regimes especiais como RECOF, REPORTO e incentivos da ZFM** podem reduzir significativamente ou até eliminar o IPI na importação.
 5. **A modalidade de importação (conta e ordem vs. encomenda)** afeta o direito ao crédito do IPI.
 6. **O IPI e o ICMS são tributos distintos**, com bases de cálculo e sistemas de apuração diferentes.
-7. **O uso de ferramentas tecnológicas** como o Classificador NCM com IA e a Calculadora de Impostos da TRADEXA reduz riscos, otimiza custos e aumenta a eficiência operacional.
+7. **O uso de ferramentas tecnológicas** como o [Classificador NCM com IA](/classificador-ncm) e a [Calculadora de Impostos](/calculadora-imposto-importacao-2026) da TRADEXA reduz riscos, otimiza custos e aumenta a eficiência operacional.
 
 Dominar o IPI na importação não é apenas uma obrigação fiscal — é uma vantagem competitiva. Empresas que compreendem profundamente a tributação de suas operações conseguem precificar corretamente seus produtos, aproveitar créditos tributários, escolher os regimes mais vantajosos e, acima de tudo, operar com segurança jurídica.
 
-> **Quer simplificar a gestão do IPI na sua importação? Acesse a TRADEXA e utilize o Classificador NCM com IA e a Calculadora de Impostos para cálculos precisos e otimização tributária.**`;
+> **Quer simplificar a gestão do IPI na sua importação? Acesse a TRADEXA e utilize o [Classificador NCM com IA](/classificador-ncm) e a [Calculadora de Impostos](/calculadora-imposto-importacao-2026) para cálculos precisos e otimização tributária.**`;
 export const keyPoints: string[] | undefined = undefined;

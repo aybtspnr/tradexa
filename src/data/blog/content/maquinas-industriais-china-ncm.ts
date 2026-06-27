@@ -405,5 +405,5 @@ A TRADEXA oferece suporte completo para importadores de máquinas:
 - **[Agenciamento de Carga](/servicos/agenciamento-carga)** — Logística de carga de projeto
 - **[Auditoria Classificação Fiscal](/servicos/auditoria-classificacao-fiscal)** — Garanta a classificação correta
 
-> Invista em planejamento, use as ferramentas certas e conte com profissionais especializados. A máquina certa, importada da China, pode ser o diferencial competitivo que sua indústria precisa para crescer em 2026.
+Garanta o diferencial competitivo da sua indústria com a TRADEXA. Use o [Classificador NCM com IA](/classificador-ncm) para classificar máquinas nos Capítulos 84 e 85, o [Mapa Frete Marítimo](/mapa-frete-maritimo) para containers especiais, [Despacho Aduaneiro](/servicos/despacho-aduaneiro) especializado em bens de capital, [Agenciamento de Carga](/servicos/agenciamento-carga) para logística de carga de projeto e [Auditoria de Classificação Fiscal](/servicos/auditoria-classificacao-fiscal) para garantir a conformidade total da sua importação.
 `;

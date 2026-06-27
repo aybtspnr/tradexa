@@ -233,6 +233,26 @@ O mercado de eletrônicos evolui rapidamente. Acompanhe lançamentos, tendência
 
 ## Conclusão
 
-A importação de eletrônicos de consumo é um negócio de alto volume e margens desafiadoras, onde o conhecimento técnico e a eficiência operacional fazem a diferença entre o sucesso e o fracasso. A correta classificação NCM, a obtenção de certificações (ANATEL, INMETRO), o planejamento tributário e a gestão de garantia são elementos essenciais para operar de forma legal e lucrativa. Ferramentas como o classificador NCM com IA, o tarifário de 31 países e o diretório de importadores da TRADEXA fornecem a infraestrutura de inteligência necessária para que importadores de eletrônicos tomem decisões informadas, reduzam custos e maximizem margens. O mercado de eletrônicos de consumo no Brasil continuará crescendo, e os importadores que investirem em conhecimento, ferramentas e compliance estarão posicionados para capturar uma fatia deste mercado dinâmico e lucrativo.`;
+A importação de eletrônicos de consumo é um negócio de alto volume e margens desafiadoras, onde o conhecimento técnico e a eficiência operacional fazem a diferença entre o sucesso e o fracasso. A correta classificação NCM, a obtenção de certificações (ANATEL, INMETRO), o planejamento tributário e a gestão de garantia são elementos essenciais para operar de forma legal e lucrativa. Ferramentas como o classificador NCM com IA, o tarifário de 31 países e o diretório de importadores da TRADEXA fornecem a infraestrutura de inteligência necessária para que importadores de eletrônicos tomem decisões informadas, reduzam custos e maximizem margens. O mercado de eletrônicos de consumo no Brasil continuará crescendo, e os importadores que investirem em conhecimento, ferramentas e compliance estarão posicionados para capturar uma fatia deste mercado dinâmico e lucrativo.
 
-export const keyPoints: string[] | undefined = undefined;
+## Classificacao NCM para Eletronicos
+
+Cada dispositivo possui enquadramento NCM especifico. Smartphones classificam-se no NCM 8517.12.00 com IPI de 15%. Tablets podem ter aliquotas diferentes dependendo de funcionalidades.
+
+O Classificador NCM com IA da TRADEXA simplifica este processo, permitindo encontrar a NCM correta por descricao em linguagem natural.
+
+## Regulamentacao ANATEL
+
+Todo equipamento de telecomunicacoes importado deve ser certificado pela ANATEL. O processo inclui testes laboratoriais em certificadoras acreditadas.
+
+## Tributacao
+
+A tributacao total pode atingir 60-80% do valor aduaneiro. A Calculadora de Impostos da TRADEXA permite simular a tributacao total para eletronicos importados.
+`;
+
+export const keyPoints: string[] | undefined = [
+  "Smartphones classificam-se no NCM 8517.12.00 com IPI de 15% e PIS/COFINS de 9,25%.",
+  "Equipamentos de telecomunicacao importados exigem homologacao ANATEL antes da comercializacao.",
+  "A tributacao total na importacao de eletronicos pode atingir 60-80% do valor aduaneiro.",
+  "O Classificador NCM com IA da TRADEXA identifica a NCM correta por descricao em linguagem natural.",
+];

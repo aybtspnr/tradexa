@@ -199,6 +199,33 @@ Acompanhe as discussões sobre a adesão do Brasil. Quando a decisão for formal
 
 ## Conclusão
 
-A adesão do Brasil ao CPTPP representa uma oportunidade estratégica de diversificar mercados, acessar economias de alto poder aquisitivo e posicionar o país em um dos maiores blocos comerciais do mundo. Os benefícios potenciais — aumento de exportações, crescimento do PIB, criação de empregos — são significativos, especialmente para o agronegócio e setores com vantagem competitiva. No entanto, a adesão exige preparação: negociação complexa, adaptação regulatória e suporte político. Exportadores que se anteciparem, utilizando ferramentas como o tarifário de 31 países, o classificador NCM com IA, o Smart Rank e o trade intelligence da TRADEXA, estarão posicionados para capturar as oportunidades do CPTPP assim que a adesão se concretizar. O futuro do comércio exterior brasileiro dependerá cada vez mais da capacidade de acessar mercados diversificados, e o CPTPP é uma porta estratégica para a Ásia-Pacífico e além.`;
+A adesão do Brasil ao CPTPP representa uma oportunidade estratégica de diversificar mercados, acessar economias de alto poder aquisitivo e posicionar o país em um dos maiores blocos comerciais do mundo. Os benefícios potenciais — aumento de exportações, crescimento do PIB, criação de empregos — são significativos, especialmente para o agronegócio e setores com vantagem competitiva. No entanto, a adesão exige preparação: negociação complexa, adaptação regulatória e suporte político. Exportadores que se anteciparem, utilizando ferramentas como o tarifário de 31 países, o classificador NCM com IA, o Smart Rank e o trade intelligence da TRADEXA, estarão posicionados para capturar as oportunidades do CPTPP assim que a adesão se concretizar. O futuro do comércio exterior brasileiro dependerá cada vez mais da capacidade de acessar mercados diversificados, e o CPTPP é uma porta estratégica para a Ásia-Pacífico e além.
 
-export const keyPoints: string[] | undefined = undefined;
+## Beneficios da Adesao ao CPTPP para o Brasil
+
+O CPTPP abriria acesso preferencial a economias do Pacifico com as quais o Brasil nao possui acordos bilaterais. Para o agronegocio, o acordo eliminaria tarifas sobre carnes brasileiras, acucar, cafe e etanol. Para a industria, abriria mercado para manufaturados.
+
+## Desafios Regulatorios
+
+A entrada exige adequacao a padroes de propriedade intelectual, regras de origem, trabalho e meio ambiente. Para o importador brasileiro, significa acesso a insumos de alta tecnologia com tarifas reduzidas.
+
+## Cronograma de Adesao
+
+O processo pode levar de 2 a 4 anos. O Reino Unido tornou-se o primeiro novo membro em 2023.
+
+
+## Impacto Setorial da Adesao ao CPTPP
+
+Diferentes setores da economia brasileira seriam afetados de maneiras distintas pela adesao ao CPTPP. O setor de carnes (bovina, suina e de frango) seria um dos grandes beneficiados, com acesso preferencial a mercados como Japao (tarifa atual de 30-40% para carne bovina), Canada e Australia.
+
+O setor sucroenergetico (acucar e etanol) tambem ganharia acesso preferencial a estes mercados. Ja setores como o de eletronicos e maquinas poderiam enfrentar concorrencia de produtos vietnamitas e malaios, mas se beneficiariam de insumos mais baratos para suas cadeias produtivas.
+
+Para se preparar para este cenario, os profissionais de comercio exterior podem utilizar o Trade Intelligence da TRADEXA para analisar os fluxos comerciais entre o Brasil e cada pais do CPTPP.
+`;
+
+export const keyPoints: string[] | undefined = [
+  "O CPTPP abrange 11 paises do Pacifico com 13% da economia global e 500 milhoes de consumidores.",
+  "A adesao do Brasil eliminaria tarifas de ate 30% sobre carnes brasileiras no Japao e Canada.",
+  "A entrada exige adequacao a padroes de propriedade intelectual, trabalho e meio ambiente.",
+  "O processo de adesao pode levar de 2 a 4 anos apos o pedido formal do Brasil.",
+];

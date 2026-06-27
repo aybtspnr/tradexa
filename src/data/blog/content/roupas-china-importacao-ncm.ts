@@ -328,5 +328,5 @@ A TRADEXA oferece suporte completo para importadores de roupas:
 - **[Agenciamento de Carga](/servicos/agenciamento-carga)** — Logística completa da China ao Brasil
 - **[Fulfillment](/servicos/fulfillment)** — Armazenagem e distribuição para e-commerce de moda
 
-> A moda brasileira tem potencial gigantesco. Com planejamento e as ferramentas certas, importar roupas da China pode ser o diferencial competitivo que seu negócio precisa.
+Prepare sua coleção para o próximo verão com a TRADEXA. Use o [Classificador NCM com IA](/classificador-ncm) para classificar suas peças nos Capítulos 61-63 da NCM, o [Mapa Frete Marítimo](/mapa-frete-maritimo) para encontrar a melhor rota de tecidos e confecções, e conte com [Despacho Aduaneiro](/servicos/despacho-aduaneiro), [Agenciamento de Carga](/servicos/agenciamento-carga) e [Fulfillment](/servicos/fulfillment) para uma importação completa e sem complicações.
 `;
