@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "2026-06-26T13:16:35Z",
+  "ultima_atualizacao": "2026-06-27T13:24:09Z",
   "categorias": [
     "tarifas",
     "regulamentacao",
@@ -52,6 +52,14 @@
     ],
     "regulamentacao": [
       {
+        "titulo": "Obrigatoriedade de inscrição de pessoas físicas no CNPJ para emissão de documentos fiscais é prorrogada para 2027",
+        "fonte": "RECEITA FEDERAL",
+        "data": "26/06/2026",
+        "resumo": "Novo sistema de inscrição simplificada trata mais facilidade aos usuários",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
         "titulo": "Reforma Tributária: Receita Federal e CGIBS aprovam a documentação técnica da segunda fase da DeRE – Balancete Mensal",
         "fonte": "RECEITA FEDERAL",
         "data": "24/06/2026",
@@ -82,19 +90,19 @@
         "resumo": "Contribuições poderão ser enviadas de 18 de junho a 8 de julho pela plataforma Brasil Participativo.",
         "tag": "Importação",
         "link": "#"
-      },
-      {
-        "titulo": "Receita Federal oficializa identidade do Programa Confia e reforça regras para uso da marca e do selo de conformidade Confia",
-        "fonte": "RECEITA FEDERAL",
-        "data": "12/06/2026",
-        "resumo": "Nova portaria padroniza a comunicação do programa e detalha regras para uso da marca e concessão do selo às empresas.",
-        "tag": "Comércio Exterior",
-        "link": "#"
       }
     ],
     "mercados": [
       {
-        "titulo": "Lista de Devedores Contumazes",
+        "titulo": "Receita Federal destina equipamentos eletrônicos ao Comitê Gestor do Imposto sobre Bens e Serviços (IBS)",
+        "fonte": "RECEITA FEDERAL",
+        "data": "24/06/2026",
+        "resumo": "A destinação de mercadorias apreendidas ou abandonadas para órgãos públicos constitui importante instrumento de gestão patrimonial e de promoção do interesse público.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Declaração regularidade e conformidade OSC.pdf",
         "fonte": "RECEITA FEDERAL",
         "data": "24/06/2026",
         "resumo": "Sem descrição disponível.",
@@ -102,34 +110,26 @@
         "link": "#"
       },
       {
-        "titulo": "Uma abordagem de rotina revelou uma carga milionária na BR‑277",
-        "fonte": "RECEITA FEDERAL",
-        "data": "25/06/2026",
-        "resumo": "Fiscalização conjunta em Cascavel desvendou esquema de ocultação de mercadorias estrangeiras avaliadas em mais de R$ 21,5 milhões.",
-        "tag": "Comércio Exterior",
-        "link": "#"
-      },
-      {
-        "titulo": "Receita Federal participa da Operação Locusta",
+        "titulo": "Dia 24/07/2026",
         "fonte": "RECEITA FEDERAL",
         "data": "26/06/2026",
-        "resumo": "Operação busca combater a exportação ilegal de lagosta adquirida irregularmente e/ou em desconformidade com as exigências sanitárias e ambientais. Fraude pode superar o montante de R$ 300 milhões em 5 cinco anos.",
+        "resumo": "Sem descrição disponível.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "MDIC lança Agenda Brasil Mais Competitivo para impulsionar produtividade e ambiente de negócios",
-        "fonte": "MDIC",
-        "data": "22/06/2026",
-        "resumo": "Iniciativa coordenada pela Secretaria de Competitividade e Política Regulatória reúne ações voltadas ao aumento da competitividade",
+        "titulo": "Dia 14/07/2026",
+        "fonte": "RECEITA FEDERAL",
+        "data": "26/06/2026",
+        "resumo": "Sem descrição disponível.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Informativo nº 030/2026 - 22/06/2026",
-        "fonte": "MDIC",
-        "data": "22/06/2026",
-        "resumo": "Divulgados os resultados parciais da balança comercial com dados preliminares da 3ª semana de junho/2026",
+        "titulo": "Dia 27/07/2026",
+        "fonte": "RECEITA FEDERAL",
+        "data": "26/06/2026",
+        "resumo": "Sem descrição disponível.",
         "tag": "Comércio Exterior",
         "link": "#"
       }
@@ -178,42 +178,42 @@
     ],
     "cambio": [
       {
+        "titulo": "Receita Federal inicia a publicação dos primeiros contribuintes considerados como Devedores Contumazes",
+        "fonte": "RECEITA FEDERAL",
+        "data": "24/06/2026",
+        "resumo": "Ação busca coibir inadimplência estruturada e promover concorrência leal na economia.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Receita Federal divulga, nesta quinta-feira (25/6), a arrecadação de maio de 2026 e os grandes números de 2025",
+        "fonte": "RECEITA FEDERAL",
+        "data": "24/06/2026",
+        "resumo": "Evento terá transmissão ao vivo pelo canal do Ministério da Fazenda no YouTube.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Receita Federal aprova acervo nacional de materiais de Cidadania e Educação Fiscal para apoio aos sistemas de educação e à extensão universitária",
+        "fonte": "RECEITA FEDERAL",
+        "data": "26/06/2026",
+        "resumo": "A iniciativa integra o Projeto “Cidadania Fiscal da RFB na Extensão Universitária e no Currículo Escolar” no âmbito do Programa de Cidadania Fiscal da Receita Federal.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
+        "titulo": "Receita Atende começa em 6 de julho.",
+        "fonte": "RECEITA FEDERAL",
+        "data": "26/06/2026",
+        "resumo": "Fale Conosco será o primeiro canal a migrar para o canal único de atendimento da Receita Federal.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
         "titulo": "Operação Rede de Fumaça combate comércio ilegal de cigarros e cigarros eletrônicos",
         "fonte": "RECEITA FEDERAL",
         "data": "23/06/2026",
         "resumo": "Servidores da Receita Federal atuam em todo o país, em parceria com a Agência de Vigilância Sanitária (Anvisa) e outros órgãos.",
-        "tag": "Comércio Exterior",
-        "link": "#"
-      },
-      {
-        "titulo": "Receita Federal inicia segunda fase da Operação Três Corpos e recolhe equipamentos de academia importados irregularmente",
-        "fonte": "RECEITA FEDERAL",
-        "data": "23/06/2026",
-        "resumo": "Ação realizada com apoio da Polícia Federal ocorre em Quaraí, Bagé e Uruguaiana/RS e visa dar cumprimento às medidas decorrentes da apreensão de equipamentos estrangeiros sem comprovação de regular importação.",
-        "tag": "Comércio Exterior",
-        "link": "#"
-      },
-      {
-        "titulo": "Receita Federal lança página sobre Devedores Contumazes e amplia a transparência e o controle fiscal",
-        "fonte": "RECEITA FEDERAL",
-        "data": "23/06/2026",
-        "resumo": "Ferramenta disponibiliza lista de devedores contumazes e orientações para acompanhamento e regularização fiscal.",
-        "tag": "Comércio Exterior",
-        "link": "#"
-      },
-      {
-        "titulo": "Operação Rede de Fumaça apreende mais de 25 mil cigarros eletrônicos proibidos",
-        "fonte": "RECEITA FEDERAL",
-        "data": "23/06/2026",
-        "resumo": "Servidores da Receita Federal atuaram em todo o país, em parceria com Anvisa e outros órgãos.",
-        "tag": "Comércio Exterior",
-        "link": "#"
-      },
-      {
-        "titulo": "Receita Federal reduz litígios desde a adoção do novo modelo de relacionamento com contribuintes",
-        "fonte": "RECEITA FEDERAL",
-        "data": "25/06/2026",
-        "resumo": "Cerimônia em Brasília certificou participantes dos programas Receita Confia, Receita Sintonia e Operador Econômico Autorizado.",
         "tag": "Comércio Exterior",
         "link": "#"
       }
