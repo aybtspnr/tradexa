@@ -141,6 +141,8 @@ export default function LandingPage() {
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       <Toaster />
       <StructuredData type="FAQ" faqItems={FAQ.map(item => ({ question: item.q, answer: item.a }))} />
+      <StructuredData type="Organization" />
+      <StructuredData type="WebSite" />
 
       {/* ═══════ HERO ═══════ */}
       <section className="relative min-h-[95vh] flex flex-col items-center justify-center px-4 overflow-hidden mesh-hero">

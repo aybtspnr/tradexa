@@ -21,7 +21,7 @@ export default function ContatoPage() {
     title: "Contato — Fale com a TRADEXA",
     description: "Dúvidas sobre planos, funcionalidades ou suporte? Entre em contato com a TRADEXA. Email help@tradexa.com.br. Resposta em até 24 horas úteis.",
     keywords: "contato tradexa, suporte tradexa, ajuda comércio exterior, falar com tradexa",
-    canonical: "https://www.tradexa.com.br/contact",
+    canonical: "https://www.tradexa.com.br/contato",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {

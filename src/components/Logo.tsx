@@ -12,7 +12,7 @@ const Logo = ({ className, variant = "default", to }: LogoProps) => {
   const content = (
     <img
       src={logoImg}
-      alt="Tradexa"
+      alt="Tradexa — Inteligência de Mercado para Comércio Exterior"
       width={691}
       height={124}
       className={cn("h-full w-auto object-contain block", variant === "white" && "brightness-0 invert")}
