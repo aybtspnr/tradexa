@@ -40,3 +40,8 @@ data/
 .vercel/output/
 *.bak
 *.bak
+
+# Env files with secrets
+.env.test
+.env.vercel.pull
+.env.vercel.tmp
