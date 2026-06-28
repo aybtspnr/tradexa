@@ -118,6 +118,8 @@ function getStaticPages() {
     if (route.includes("/my-usage")) continue;
     if (route.includes("/reset-password")) continue;
     if (route.includes("/forgot-password")) continue;
+    if (route === "/login") continue;
+    if (route === "/register") continue;
     if (navTargets.has(route)) continue; // Navigate redirect
     if (REDIRECT_ROUTES.has(route)) continue; // alias/redirect pages
     pages.push(route);

@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "2026-06-27T13:24:09Z",
+  "ultima_atualizacao": "2026-06-28T13:25:32Z",
   "categorias": [
     "tarifas",
     "regulamentacao",
@@ -94,41 +94,41 @@
     ],
     "mercados": [
       {
-        "titulo": "Receita Federal destina equipamentos eletrônicos ao Comitê Gestor do Imposto sobre Bens e Serviços (IBS)",
+        "titulo": "Uma abordagem de rotina revelou uma carga milionária na BR‑277",
         "fonte": "RECEITA FEDERAL",
-        "data": "24/06/2026",
-        "resumo": "A destinação de mercadorias apreendidas ou abandonadas para órgãos públicos constitui importante instrumento de gestão patrimonial e de promoção do interesse público.",
+        "data": "25/06/2026",
+        "resumo": "Fiscalização conjunta em Cascavel desvendou esquema de ocultação de mercadorias estrangeiras avaliadas em mais de R$ 21,5 milhões.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Declaração regularidade e conformidade OSC.pdf",
-        "fonte": "RECEITA FEDERAL",
-        "data": "24/06/2026",
-        "resumo": "Sem descrição disponível.",
-        "tag": "Comércio Exterior",
-        "link": "#"
-      },
-      {
-        "titulo": "Dia 24/07/2026",
+        "titulo": "Receita Federal participa da Operação Locusta",
         "fonte": "RECEITA FEDERAL",
         "data": "26/06/2026",
-        "resumo": "Sem descrição disponível.",
+        "resumo": "Operação busca combater a exportação ilegal de lagosta adquirida irregularmente e/ou em desconformidade com as exigências sanitárias e ambientais. Fraude pode superar o montante de R$ 300 milhões em 5 cinco anos.",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Dia 14/07/2026",
-        "fonte": "RECEITA FEDERAL",
-        "data": "26/06/2026",
-        "resumo": "Sem descrição disponível.",
+        "titulo": "Brasil é um dos primeiros países a ter plano de descarbonização industrial aprovado por fundo climático global",
+        "fonte": "MDIC",
+        "data": "23/06/2026",
+        "resumo": "Iniciativa articulada pelo MDIC apoiará projetos de baixa emissão de carbono em setores responsáveis por cerca de 65% das emissões industriais do país",
         "tag": "Comércio Exterior",
         "link": "#"
       },
       {
-        "titulo": "Dia 27/07/2026",
-        "fonte": "RECEITA FEDERAL",
-        "data": "26/06/2026",
+        "titulo": "Ministro destaca NIB e novos acordos comerciais no II Fórum de Investimentos Brasil-UE",
+        "fonte": "MDIC",
+        "data": "23/06/2026",
+        "resumo": "Sem descrição disponível.",
+        "tag": "Acordo Comercial",
+        "link": "#"
+      },
+      {
+        "titulo": "Deliberações da 238ª Reunião Ordinária do Comitê-Executivo de Gestão (Gecex)",
+        "fonte": "MDIC",
+        "data": "23/06/2026",
         "resumo": "Sem descrição disponível.",
         "tag": "Comércio Exterior",
         "link": "#"
@@ -178,6 +178,14 @@
     ],
     "cambio": [
       {
+        "titulo": "Receita Federal reduz litígios desde a adoção do novo modelo de relacionamento com contribuintes",
+        "fonte": "RECEITA FEDERAL",
+        "data": "25/06/2026",
+        "resumo": "Cerimônia em Brasília certificou participantes dos programas Receita Confia, Receita Sintonia e Operador Econômico Autorizado.",
+        "tag": "Comércio Exterior",
+        "link": "#"
+      },
+      {
         "titulo": "Receita Federal inicia a publicação dos primeiros contribuintes considerados como Devedores Contumazes",
         "fonte": "RECEITA FEDERAL",
         "data": "24/06/2026",
@@ -206,14 +214,6 @@
         "fonte": "RECEITA FEDERAL",
         "data": "26/06/2026",
         "resumo": "Fale Conosco será o primeiro canal a migrar para o canal único de atendimento da Receita Federal.",
-        "tag": "Comércio Exterior",
-        "link": "#"
-      },
-      {
-        "titulo": "Operação Rede de Fumaça combate comércio ilegal de cigarros e cigarros eletrônicos",
-        "fonte": "RECEITA FEDERAL",
-        "data": "23/06/2026",
-        "resumo": "Servidores da Receita Federal atuam em todo o país, em parceria com a Agência de Vigilância Sanitária (Anvisa) e outros órgãos.",
         "tag": "Comércio Exterior",
         "link": "#"
       }

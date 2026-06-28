@@ -21,13 +21,19 @@ interface ArticleData {
   image?: string;
 }
 
-interface StructuredDataProps {
-  type: "Article" | "BlogPosting" | "FAQ" | "WebSite" | "Organization";
-  data?: ArticleData;
-  faqItems?: FAQItem[];
+interface BreadcrumbItem {
+  name: string;
+  url: string;
 }
 
-export default function StructuredData({ type, data, faqItems }: StructuredDataProps) {
+interface StructuredDataProps {
+  type: "Article" | "BlogPosting" | "FAQ" | "WebSite" | "Organization" | "BreadcrumbList";
+  data?: ArticleData;
+  faqItems?: FAQItem[];
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+export default function StructuredData({ type, data, faqItems, breadcrumbs }: StructuredDataProps) {
   let jsonLd: Record<string, unknown>;
 
   switch (type) {
@@ -116,6 +122,20 @@ export default function StructuredData({ type, data, faqItems }: StructuredDataP
           email: "contato@tradexa.com.br",
           availableLanguage: "Portuguese",
         },
+      };
+      break;
+
+    case "BreadcrumbList":
+      if (!breadcrumbs || breadcrumbs.length === 0) return null;
+      jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.name,
+          item: item.url,
+        })),
       };
       break;
 

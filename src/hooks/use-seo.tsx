@@ -7,6 +7,7 @@ interface SeoConfig {
   ogType?: string;
   ogImage?: string;
   ogImageAlt?: string;
+  ogUrl?: string;
   canonical?: string;
   noIndex?: boolean;
   jsonLd?: object;
@@ -28,9 +29,13 @@ export function useSeo(config: SeoConfig) {
     config.description ||
     "Plataforma de Market Intelligence para Comércio Exterior com classificação NCM, consulta HTS, tarifas globais e análise de mercado.";
   const ogImage = config.ogImage || DEFAULT_OG_IMAGE;
-  const canonical = config.canonical || (typeof window !== "undefined"
-    ? `${BASE_URL}${window.location.pathname}${window.location.search}`
-    : `${BASE_URL}/`);
+  // Determine canonical: prefer explicit config, then window pathname, fallback to root
+  const currentPath = typeof window !== "undefined"
+    ? `${window.location.pathname}${window.location.search}`
+    : "/";
+  const canonical = config.canonical || `${BASE_URL}${currentPath}`;
+  // Determine og:url: prefer explicit, then canonical, then window location
+  const ogUrl = config.ogUrl || canonical;
   const ogType = config.ogType || "website";
 
   // Auto-noindex on non-production domains (Vercel preview, etc.)
@@ -53,7 +58,7 @@ export function useSeo(config: SeoConfig) {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={config.ogImageAlt || fullTitle} />
-      <meta property="og:url" content={canonical} />
+      <meta property="og:url" content={ogUrl} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content="pt_BR" />
       <meta name="author" content="TRADEXA" />
