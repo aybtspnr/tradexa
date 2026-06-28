@@ -78,11 +78,10 @@ Outra tendência é a automação do próprio processo de mapeamento. Em vez de 
 
 Por fim, a transparência da cadeia está se tornando uma exigência regulatória e de mercado. Legislações como a CSDDD europeia (Corporate Sustainability Due Diligence Directive) exigem que empresas mapeiem e monitorem não apenas seus fornecedores diretos, mas toda a cadeia, incluindo critérios ambientais e de direitos humanos. O Brasil, como exportador de commodities e importador de insumos industriais, será profundamente impactado por essa tendência. As empresas que começarem agora a construir essa capacidade de mapeamento profundo estarão não apenas em conformidade, mas à frente da concorrência.`;
 
-const keyPoints = [
+export const keyPoints = [
   "Por que o mapeamento da cadeia de fornecedores é estratégico",
   "Os dados de comércio exterior como matéria-prima do mapeamento",
   "Como construir o mapa: metodologia passo a passo",
   "Ferramentas e fontes de dados para o mapeamento",
   "Estudo de caso: mapeamento da cadeia de componentes eletrônicos"
 ];
-

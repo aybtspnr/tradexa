@@ -128,12 +128,10 @@ Seja você um empreendedor que está considerando sua primeira importação no s
 
 O mercado pet brasileiro continuará crescendo nos próximos anos. As oportunidades estarão lá. A pergunta é: você estará pronto para aproveitá-las?`;
 
-const keyPoints = [
+export const keyPoints = [
   "O Brasil e o Mercado Pet: Um Gigante que Não Para de Crescer",
   "Panorama e Tendências do Mercado Pet Brasileiro em 2026",
   "O Arcabouço Regulatório: MAPA, ANVISA e Outros Órgãos",
   "Classificação Fiscal: O Labirinto dos NCMs para Produtos Pet",
   "Produtos de Origem Animal: O Capítulo Mais Complexo da Importação Pet"
 ];
-
-

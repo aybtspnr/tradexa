@@ -146,11 +146,10 @@ A TRADEXA está comprometida em oferecer aos importadores brasileiros as ferrame
 
 Lembre-se: a Receita Federal não é sua inimiga — ela é o órgão responsável por garantir que o comércio exterior brasileiro opere dentro da legalidade. Quanto mais sua empresa demonstrar compromisso com a conformidade, menor será o escrutínio e mais rápido será o desembaraço. Invista em compliance, conheça seus direitos, cumpra seus deveres e faça da fiscalização aduaneira não um problema, mas uma etapa previsível e gerenciável da sua operação.`;
 
-const keyPoints = [
+export const keyPoints = [
   "Introdução: O Momento Mais Crítico da Importação",
   "Canais de Parametrização: O Que Significa Cada Cor",
   "Canal Verde: Liberação Automática",
   "Canal Amarelo: Conferência Documental",
   "Canal Vermelho: Conferência Documental e Física"
 ];
-

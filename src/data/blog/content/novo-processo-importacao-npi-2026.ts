@@ -80,14 +80,19 @@ O Novo Processo de Importação representa uma mudança de paradigma no comérci
 
 Para os importadores brasileiros, a mensagem é clara: o momento de se adaptar é agora. Em 2026, a janela de transição está se fechando, e as empresas que não concluíram sua migração para o NPI correm o risco de sofrer interrupções operacionais, atrasos no desembaraço e custos adicionais que poderiam ter sido evitados com planejamento.
 
-Felizmente, a tecnologia está a serviço do importador. Ferramentas modernas de classificação fiscal, inteligência de mercado e monitoramento logístico — como as oferecidas pela TRADEXA — permitem que mesmo empresas de médio porte realizem uma transição tranquila e eficiente para o novo ambiente regulatório, transformando uma obrigação burocrática em vantagem competitiva.`;
+Felizmente, a tecnologia está a serviço do importador. Ferramentas modernas de classificação fiscal, inteligência de mercado e monitoramento logístico — como as oferecidas pela TRADEXA — permitem que mesmo empresas de médio porte realizem uma transição tranquila e eficiente para o novo ambiente regulatório, transformando uma obrigação burocrática em vantagem competitiva.
 
-const keyPoints = [
+## Conclusão
+
+O Novo Processo de Importação representa uma mudança de paradigma para o comércio exterior brasileiro. Mais do que uma simples atualização tecnológica, o NPI redefine a forma como importadores, despachantes, transportadores e órgãos anuentes interagem entre si e com o Estado brasileiro. A eliminação gradual do papel, a padronização dos dados através do Catálogo de Produtos, a automação dos fluxos de licenciamento e a consolidação de todas as informações em uma única declaração — a DUIMP — são avanços que colocam o Brasil na vanguarda da modernização aduaneira global.
+
+Para as empresas, o recado é claro: o momento de se preparar é agora. Investir em capacitação da equipe, atualização dos sistemas de gestão (ERP) para integração com os novos módulos do Portal Único e revisão dos processos internos de classificação fiscal e cadastro de produtos não é mais uma opção — é um requisito para manter a competitividade. A TRADEXA, com suas ferramentas de classificação NCM com IA, Tarifário Global e dashboards de inteligência comercial, está preparada para apoiar sua empresa nessa jornada de transformação digital do comércio exterior brasileiro.`;
+
+export const keyPoints = [
   "O Fim da DI e a Chegada da DUIMP",
   "O Catálogo de Produtos: A Pedra Angular do NPI",
   "Licenciamento Integrado e Tratamento Administrativo",
   "Pagamento Centralizado e Novo Regime Tributário",
   "Cronograma de Implementação: Onde Estamos em 2026"
 ];
-
 

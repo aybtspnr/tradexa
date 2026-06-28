@@ -204,11 +204,10 @@ A inteligência artificial está mudando esse paradigma. Com o Classificador NCM
 
 A pergunta que fica é: em um mercado cada vez mais competitivo, fiscalizado e digitalizado, sua empresa ainda pode se dar ao luxo de classificar NCM manualmente? Ou está na hora de colocar a inteligência artificial para trabalhar a seu favor?`;
 
-const keyPoints = [
+export const keyPoints = [
   "Introdução: O Pesadelo Chamado Classificação Fiscal",
   "Por Que a Classificação Manual de NCM é Tão Problemática?",
   "Complexidade Estrutural da NCM",
   "Subjetividade e Divergências",
   "Velocidade das Inovações Tecnológicas"
 ];
-

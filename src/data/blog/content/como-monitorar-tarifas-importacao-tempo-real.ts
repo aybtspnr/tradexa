@@ -92,5 +92,4 @@ As ferramentas modernas, como a plataforma TRADEXA com seu Tarifário Global, tr
 
 Investir em monitoramento tarifário em tempo real não é um custo — é uma proteção de margem, uma ferramenta de competitividade e, em última análise, um seguro contra surpresas desagradáveis que podem custar muito caro.`;
 
-const keyPoints = ["Por Que o Monitoramento Tarifário em Tempo Real se Tornou Indispensável", "O Cenário Tarifário Brasileiro: Camadas de Complexidade", "Métodos Tradicionais e Suas Limitações", "Ferramentas Modernas de Monitoramento Tarifário", "O Tarifário Global da TRADEXA e o Monitoramento em Tempo Real"];
-
+export const keyPoints = ["Por Que o Monitoramento Tarifário em Tempo Real se Tornou Indispensável", "O Cenário Tarifário Brasileiro: Camadas de Complexidade", "Métodos Tradicionais e Suas Limitações", "Ferramentas Modernas de Monitoramento Tarifário", "O Tarifário Global da TRADEXA e o Monitoramento em Tempo Real"];

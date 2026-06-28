@@ -201,35 +201,6 @@ Acompanhe as discussões sobre um eventual acordo. O governo brasileiro e entida
 
 ## Conclusão
 
-Um acordo comercial entre Brasil e EUA representaria uma transformação significativa no comércio exterior brasileiro, abrindo o maior mercado consumidor do mundo com tarifas reduzidas ou eliminadas. Os benefícios potenciais — aumento de exportações, diversificação de mercados, acesso a tecnologia — são substanciais, especialmente para o agronegócio e setores com vantagem competitiva. No entanto, a negociação enfrenta desafios políticos, econômicos e regulatórios que tornam o horizonte incerto. Exportadores que se prepararem antecipadamente, utilizando ferramentas como o tarifário de 31 países, o classificador NCM com IA e o trade intelligence da TRADEXA, estarão posicionados para capitalizar as oportunidades de um acordo assim que ele se concretize. A relação comercial Brasil-EUA é too importante para ser deixada ao acaso — a preparação estratégica é a melhor forma de garantir que os benefícios potenciais sejam realizados, independentemente do timing da negociação.
+Um acordo comercial entre Brasil e EUA representaria uma transformação significativa no comércio exterior brasileiro, abrindo o maior mercado consumidor do mundo com tarifas reduzidas ou eliminadas. Os benefícios potenciais — aumento de exportações, diversificação de mercados, acesso a tecnologia — são substanciais, especialmente para o agronegócio e setores com vantagem competitiva. No entanto, a negociação enfrenta desafios políticos, econômicos e regulatórios que tornam o horizonte incerto. Exportadores que se prepararem antecipadamente, utilizando ferramentas como o tarifário de 31 países, o classificador NCM com IA e o trade intelligence da TRADEXA, estarão posicionados para capitalizar as oportunidades de um acordo assim que ele se concretize. A relação comercial Brasil-EUA é too importante para ser deixada ao acaso — a preparação estratégica é a melhor forma de garantir que os benefícios potenciais sejam realizados, independentemente do timing da negociação.`;
 
-## Perspectivas Setoriais para um Acordo EUA-Brasil
-
-Cada setor da economia brasileira teria impactos distintos com um eventual acordo comercial com os EUA. O agronegocio brasileiro poderia se beneficiar da reducao de barreiras tarifarias para carnes, suco de laranja, acucar e etanol. Atualmente, o Brasil enfrenta cotas restritivas e tarifas elevadas em diversos produtos agricolas nos EUA.
-
-O setor industrial enfrentaria pressao competitiva de produtos manufaturados americanos em segmentos como maquinas, equipamentos, quimicos e produtos farmaceuticos.
-
-Para o importador brasileiro, um acordo EUA-Brasil representaria reducao de custos em insumos industriais e componentes eletronicos. Com o Classificador NCM com IA da TRADEXA, seria possivel identificar rapidamente os produtos com maiores reducoes tarifarias.
-
-## Desafios Politicos e Economicos
-
-A negociacao enfrenta obstaculos significativos. Do lado americano, ha resistencia do Congresso. Do lado brasileiro, setores industriais protecionistas temem a concorrencia.
-
-A competicao geopolitica entre EUA e China pode criar incentivos para um acordo. O Brasil emerge como alternativa natural para alimentos, energia limpa e minerais criticos.
-
-Com o Tarifario Global de 31 paises da TRADEXA, exportadores e importadores podem simular o impacto de diferentes cenarios tarifarios.
-
-
-## Impacto no Agronegocio e na Industria
-
-Para o agronegocio brasileiro, um acordo com os EUA abriria oportunidades especialmente nos segmentos de carnes processadas, etanol, suco de laranja concentrado e cafe soluvel. Atualmente, estes produtos enfrentam barreiras tarifarias elevadas nos EUA, que chegam a 30% para cortes especificos de carne bovina. Com um acordo de livre comercio, estas tarifas seriam eliminadas progressivamente, aumentando a competitividade dos produtos brasileiros no mercado americano.
-
-Ja para o setor industrial, a abertura comercial exige planejamento e preparacao. Empresas que importam insumos dos EUA se beneficiariam de tarifas reduzidas, melhorando sua competitividade tanto no mercado interno quanto em exportacoes para terceiros paises. O Smart Rank da TRADEXA ajuda a identificar quais produtos tem maior potencial de competitividade internacional.
-`;
-
-export const keyPoints: string[] | undefined = [
-  "O Brasil e os EUA possuem um fluxo comercial de US$ 80 bilhoes anuais, mas nao tem acordo de livre comercio formal.",
-  "Setores como agronegocio seriam os mais beneficiados com tarifas reduzidas para carnes, acucar e etanol.",
-  "A competicao geopolitica entre EUA e China pode acelerar as negociacoes de um acordo bilateral.",
-  "O Classificador NCM da TRADEXA permite identificar produtos com maior potencial de reducao tarifaria.",
-];
+export const keyPoints: string[] | undefined = undefined;

@@ -176,11 +176,10 @@ O essencial é planejar com antecedência. O período de conversão para orgâni
 
 Lembre-se: cada certificação é um passaporte para um mercado específico. Fair Trade abre as portas do varejo ético europeu. Orgânico permite acessar o maior mercado de alimentos saudáveis do mundo. Rainforest Alliance conecta você às grandes indústrias de café e cacau. FSC é o bilhete de entrada para o mercado de madeira responsável. Escolha com inteligência, invista com planejamento e colha os frutos de um comércio exterior mais sustentável e lucrativo.`;
 
-const keyPoints = [
+export const keyPoints = [
   "Introdução: Por que as Certificações Sustentáveis Definem o Comércio Exterior em 2026",
   "Fair Trade (Comércio Justo): Muito Além de um Selo",
   "O que o Fair Trade Garante?",
   "Como Obter a Certificação Fair Trade?",
   "Mercados que Exigem Fair Trade"
 ];
-

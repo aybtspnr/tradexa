@@ -957,7 +957,7 @@ export default function BlogPostPage() {
     <SiteLayout>
       {/* Structured data */}
       <StructuredData
-        type="Article"
+        type="BlogPosting"
         data={{
           headline: post.title,
           description: post.excerpt,

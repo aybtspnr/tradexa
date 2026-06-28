@@ -122,7 +122,11 @@ O rastreamento de cargas marítimas internacionais evoluiu de uma simples ferram
 A escolha das tecnologias adequadas depende das necessidades específicas de cada empresa e de cada operação. No entanto, a tendência é clara: quanto mais visibilidade a empresa tiver sobre sua cadeia de suprimentos, melhor será sua capacidade de planejar, reagir a imprevistos e atender seus clientes.
 
 A TRADEXA se posiciona como a plataforma de referência para rastreamento e visibilidade da cadeia de suprimentos no comércio exterior brasileiro, oferecendo uma solução completa, integrada e de fácil utilização. Com a TRADEXA, importadores e exportadores brasileiros podem transformar o rastreamento de cargas em uma vantagem competitiva estratégica.
-`;
+
+<h2>Principais Desafios ao Trabalhar com Rastreamento de Carga Marítima Internacional: Tecnologia, IoT e Blockchain</h2>
+<p>Profissionais de comércio exterior que atuam com rastreamento de carga marítima internacional: tecnologia, iot e blockchain enfrentam desafios específicos que exigem preparo e conhecimento técnico. O primeiro grande desafio é a classificação fiscal correta dos produtos — um erro na NCM pode gerar multas que chegam a 1% do valor da operação por item classificado incorretamente, além de atrasos no desembaraço aduaneiro que podem durar semanas.</p>
+<p>Outro desafio relevante é o acompanhamento das constantes mudanças na legislação. O Brasil publica centenas de atos normativos por ano relacionados ao comércio exterior, desde alterações de alíquotas do Imposto de Importação até novas exigências documentais de órgãos anuentes como ANVISA, MAPA e INMETRO. Uma empresa que não acompanha essas mudanças pode ter sua carga retida na alfândega ou ser autuada em fiscalização posterior.</p>
+<p>A logística internacional também apresenta desafios significativos: a escolha do modal de transporte adequado, a negociação de fretes competitivos, o seguro de carga, o acompanhamento do trânsito aduaneiro e a gestão de prazos de entrega são pontos críticos que impactam diretamente a rentabilidade da operação e a satisfação do cliente no destino.</p>`;
 
 export const keyPoints: string[] | undefined = [
   "GPS, RFID e IoT são as principais tecnologias de rastreamento marítimo, cada uma com aplicações específicas para diferentes tipos de carga e operação",

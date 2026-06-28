@@ -216,11 +216,10 @@ Incorporar ESG à política de importação não é um destino, é uma jornada. 
 
 O comércio exterior do futuro é sustentável, ético e transparente. E o futuro já começou.`;
 
-const keyPoints = [
+export const keyPoints = [
   "Introdução: ESG Deixou de Ser Tendência e Virou Requisito Regulatório",
   "O Pilar Ambiental (Environmental): Carbono, Água, Biodiversidade e Resíduos",
   "Pegada de Carbono e o CBAM",
   "Gestão Hídrica e Pegada de Água",
   "Biodiversidade e Desmatamento: O Impacto do EUDR"
 ];
-

@@ -102,7 +102,7 @@ A segunda funcionalidade é a capacidade de cross docking em tempo real — o si
 
 A terceira funcionalidade é a integração com o TMS para otimização de rotas e carregamento. O TMS define quais veículos serão carregados, em que ordem e com que peso, garantindo que a capacidade de transporte seja aproveitada ao máximo.
 
-Para o importador que utiliza plataformas de inteligência de mercado como a **TRADEXA**, a integração dos dados de comércio exterior com o WMS e o TMS permite um nível de visibilidade e previsibilidade que transforma a operação logística. Com o **[Trade Intelligence](/inteligencia-mercado-analise-dados-importacao)** da TRADEXA, é possível cruzar dados de importação, tarifas, frete marítimo e desempenho de fornecedores para alimentar o planejamento logístico com informações precisas e atualizadas.
+Para o importador que utiliza plataformas de inteligência de mercado como a **TRADEXA**, a integração dos dados de comércio exterior com o WMS e o TMS permite um nível de visibilidade e previsibilidade que transforma a operação logística. Com o **Trade Intelligence** da TRADEXA, é possível cruzar dados de importação, tarifas, frete marítimo e desempenho de fornecedores para alimentar o planejamento logístico com informações precisas e atualizadas.
 
 ### Tecnologia de Identificação e Rastreamento
 

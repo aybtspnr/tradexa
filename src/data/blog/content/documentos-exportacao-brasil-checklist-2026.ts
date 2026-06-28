@@ -88,5 +88,9 @@ Plataformas de inteligência de mercado como a TRADEXA oferecem funcionalidades 
 
 ## Conclusão
 
-A documentação de exportação é frequentemente vista como obstáculo burocrático. Mas, encarada com preparo adequado, torna-se um ativo competitivo. Invista em capacitação, padronize processos, automatize o possível e mantenha-se atualizado. A exportação brasileira vive transformação digital acelerada — quem se adapta primeiro colhe os melhores resultados.`;
+A documentação de exportação é frequentemente vista como obstáculo burocrático. Mas, encarada com preparo adequado, torna-se um ativo competitivo. Invista em capacitação, padronize processos, automatize o possível e mantenha-se atualizado. A exportação brasileira vive transformação digital acelerada — quem se adapta primeiro colhe os melhores resultados.
+<h2>Principais Desafios ao Trabalhar com Introdução</h2>
+<p>Profissionais de comércio exterior que atuam com introdução enfrentam desafios específicos que exigem preparo e conhecimento técnico. O primeiro grande desafio é a classificação fiscal correta dos produtos — um erro na NCM pode gerar multas que chegam a 1% do valor da operação por item classificado incorretamente, além de atrasos no desembaraço aduaneiro que podem durar semanas.</p>
+<p>Outro desafio relevante é o acompanhamento das constantes mudanças na legislação. O Brasil publica centenas de atos normativos por ano relacionados ao comércio exterior, desde alterações de alíquotas do Imposto de Importação até novas exigências documentais de órgãos anuentes como ANVISA, MAPA e INMETRO. Uma empresa que não acompanha essas mudanças pode ter sua carga retida na alfândega ou ser autuada em fiscalização posterior.</p>
+<p>A logística internacional também apresenta desafios significativos: a escolha do modal de transporte adequado, a negociação de fretes competitivos, o seguro de carga, o acompanhamento do trânsito aduaneiro e a gestão de prazos de entrega são pontos críticos que impactam diretamente a rentabilidade da operação e a satisfação do cliente no destino.</p>`;
 export const keyPoints: string[] | undefined = undefined;

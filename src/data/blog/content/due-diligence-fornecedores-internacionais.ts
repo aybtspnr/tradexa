@@ -202,11 +202,10 @@ A TRADEXA está comprometida em fornecer as ferramentas de inteligência comerci
 
 Lembre-se: no comércio exterior, a confiança é boa, mas a verificação é melhor. Invista em due diligence. Sua empresa, seu patrimônio e sua tranquilidade agradecem.`;
 
-const keyPoints = [
+export const keyPoints = [
   "Introdução: Por Que a Due Diligence é a Etapa Mais Importante da Importação",
   "Os Cinco Pilares da Due Diligence Internacional",
   "Pilar 1 — Due Diligence Documental e Registral",
   "Pilar 2 — Due Diligence de Reputação e Histórico",
   "Pilar 3 — Due Diligence Financeira"
 ];
-

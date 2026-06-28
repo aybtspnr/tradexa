@@ -96,14 +96,16 @@ Blockchain, IoT e inteligência artificial não são tecnologias do futuro — s
 
 O caminho recomendado para importadores e exportadores não é tentar implementar tudo de uma vez, mas seguir uma abordagem progressiva: comece pelo IoT para ganhar visibilidade sobre sua cadeia logística; em seguida, incorpore IA para transformar dados em decisões; e, quando a maturidade digital permitir, integre blockchain para compartilhar informações de forma segura com parceiros e autoridades.
 
-A TRADEXA está à disposição como parceira nessa jornada, oferecendo soluções de inteligência comercial, classificação fiscal automatizada e dashboards analíticos que materializam os benefícios dessas tecnologias para a realidade prática do importador e exportador brasileiro. O futuro da logística internacional é digital, inteligente e descentralizado — e ele já começou.`;
+A TRADEXA está à disposição como parceira nessa jornada, oferecendo soluções de inteligência comercial, classificação fiscal automatizada e dashboards analíticos que materializam os benefícios dessas tecnologias para a realidade prática do importador e exportador brasileiro. O futuro da logística internacional é digital, inteligente e descentralizado — e ele já começou.
 
-const keyPoints = [
+## Conclusão
+
+A convergência entre blockchain, IoT e inteligência artificial está redefinindo os padrões de eficiência, segurança e transparência na logística internacional. As empresas que adotam essas tecnologias não apenas reduzem custos operacionais e riscos — elas ganham vantagem competitiva real em um mercado global cada vez mais exigente. O futuro da logística internacional é digital, conectado e inteligente, e as ferramentas para construir esse futuro já estão disponíveis hoje.`;
+
+export const keyPoints = [
   "Introdução: A Nova Era da Logística Internacional",
   "Blockchain na Logística: Transparência e Confiança Descentralizada",
   "Internet das Coisas (IoT): Olhos e Ouvidos na Carga",
   "Inteligência Artificial: O Cérebro da Logística Moderna",
   "A Convergência: Blockchain + IoT + IA"
 ];
-
-

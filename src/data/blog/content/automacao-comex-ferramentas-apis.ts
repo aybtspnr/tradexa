@@ -94,5 +94,4 @@ A Internet das Coisas aplicada à logística internacional — contêineres inte
 
 O comércio exterior brasileiro, apesar de sua reputação de complexidade e burocracia, está na verdade em uma posição privilegiada para se beneficiar da automação. Quanto mais complexo e baseado em regras é um processo, maior o potencial de ganho com a automação inteligente. As empresas que abraçarem essa transformação agora estarão anos-luz à frente dos concorrentes que insistirem nos métodos manuais do século passado.`;
 
-const keyPoints = ["A Nova Era da Automação no Comércio Exterior", "Os Principais Processos Automatizáveis no Comex", "APIs no Ecossistema de Comércio Exterior", "Automação da Classificação Fiscal com Inteligência Artificial", "Automação de Cotação de Frete e Logística Internacional"];
-
+export const keyPoints = ["A Nova Era da Automação no Comércio Exterior", "Os Principais Processos Automatizáveis no Comex", "APIs no Ecossistema de Comércio Exterior", "Automação da Classificação Fiscal com Inteligência Artificial", "Automação de Cotação de Frete e Logística Internacional"];

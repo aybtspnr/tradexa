@@ -162,8 +162,6 @@ R: Apenas para produtos de alto valor agregado e baixo peso (ex: smartphones pre
 > - [Classificador NCM com IA](/landing/ncm-classifier) — Identifique o NCM correto de qualquer eletrônico e veja alíquotas completas em segundos
 > - [Calculadora de Importação](/landing/calculadora-importacao) — Simule todos os custos: FOB + frete + tributos + certificações
 > - [Diretório de Importadores](/importadores) — Encontre fornecedores verificados de eletrônicos por categoria e país
-> - [Pesquisa de Mercado](/pesquisa-mercado-produtos-importados) — Valide a demanda do seu produto antes de importar
-> - [Como Encontrar Compradores](/como-encontrar-compradores-internacionais) — Prospecte distribuidores e revendedores no exterior
 >
 > Simplifique sua importação com a TRADEXA — [teste grátis em tradexa.com.br](https://tradexa.com.br)
 >

@@ -181,11 +181,10 @@ Para o importador que quer transformar essas tendências em negócios concretos,
 
 As tendências estão nos dados. Quem as lê primeiro, age primeiro. E quem age primeiro — com informação de qualidade — colhe os melhores resultados.`;
 
-const keyPoints = [
+export const keyPoints = [
   "Introdução",
   "Cenário Macroeconômico da Importação Brasileira em 2026",
   "Taxa de Câmbio e Competitividade",
   "Demanda Doméstica e PIB",
   "Política Comercial e Acordos"
 ];
-

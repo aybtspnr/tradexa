@@ -156,12 +156,10 @@ Se você está começando agora, comece pelo básico: defina corretamente o NCM 
 
 Em ambos os casos, lembre-se: informação de qualidade é o ativo mais valioso do exportador moderno. E nunca houve um momento melhor para acessá-la.`;
 
-const keyPoints = [
+export const keyPoints = [
   "Introdução: O Mapa da Exportação Começa com a Escolha Certa",
   "Por Que a Maioria dos Exportadores Erra na Escolha do Mercado",
   "Os Quatro Pilares da Escolha de Mercado: Demanda, Acesso, Concorrência e Margem",
   "Pilar 1: Demanda Real e Potencial",
   "Pilar 2: Condições de Acesso ao Mercado"
 ];
-
-

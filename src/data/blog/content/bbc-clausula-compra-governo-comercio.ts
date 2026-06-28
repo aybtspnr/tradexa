@@ -191,39 +191,6 @@ O Brasil adere ao Acordo sobre Compras Governamentais da OMC, abrindo suas compr
 
 ## Conclusão
 
-A cláusula de compra governamental é um dos pontos mais complexos e sensíveis dos acordos comerciais modernos. Para o Brasil, o equilíbrio entre proteger a política industrial de desenvolvimento e abrir mercados para empresas nacionais no exterior é delicado. A experiência internacional mostra que a abertura pode trazer benefícios (redução de custos, modernização, acesso a mercados) mas também riscos (erosão de política industrial, desigualdade competitiva). A estratégia ótima é uma abertura gradual e setorial, com salvaguardas para setores sensíveis e investimentos em competitividade das empresas nacionais. Ferramentas como o trade intelligence e o diretório de importadores da TRADEXA fornecem às empresas brasileiras a inteligência necessária para navegar este novo cenário, independentemente do grau de abertura que venha a ser negociado. A preparação é a melhor estratégia — empresas que investirem em qualidade, tecnologia e compliance estarão posicionadas para competir, tanto no mercado interno quanto no internacional, quando as oportunidades surgirem.
+A cláusula de compra governamental é um dos pontos mais complexos e sensíveis dos acordos comerciais modernos. Para o Brasil, o equilíbrio entre proteger a política industrial de desenvolvimento e abrir mercados para empresas nacionais no exterior é delicado. A experiência internacional mostra que a abertura pode trazer benefícios (redução de custos, modernização, acesso a mercados) mas também riscos (erosão de política industrial, desigualdade competitiva). A estratégia ótima é uma abertura gradual e setorial, com salvaguardas para setores sensíveis e investimentos em competitividade das empresas nacionais. Ferramentas como o trade intelligence e o diretório de importadores da TRADEXA fornecem às empresas brasileiras a inteligência necessária para navegar este novo cenário, independentemente do grau de abertura que venha a ser negociado. A preparação é a melhor estratégia — empresas que investirem em qualidade, tecnologia e compliance estarão posicionadas para competir, tanto no mercado interno quanto no internacional, quando as oportunidades surgirem.`;
 
-## Impactos da Clausula BBC para Empresas Brasileiras
-
-Se o Brasil negociar acordos comerciais incluindo disposicoes sobre compras governamentais, as empresas brasileiras precisarao se preparar para competir com fornecedores estrangeiros em licitacoes publicas. O governo brasileiro e o maior comprador do pais, com aproximadamente R$ 800 bilhoes anuais em contratacoes publicas.
-
-Para setores como construcao pesada, TI, saude, engenharia e defesa, a abertura das compras governamentais pode representar tanto ameaca quanto oportunidade.
-
-## O Modelo do GPA-OMC
-
-O GPA-OMC estabelece principios de transparencia e nao discriminacao nas licitacoes publicas. O Brasil precisaria equilibrar a abertura com a protecao de setores estrategicos.
-
-O Diretorio de Importadores da TRADEXA com mais de 3,8 milhoes de empresas auxilia na identificacao de compradores governamentais no exterior.
-
-## Estrategias para Empresas Brasileiras
-
-Empresas interessadas devem buscar certificacoes de compliance internacionais, dominar praticas contratuais locais e formar parcerias com empresas nos paises-alvo.
-
-
-## Exemplos Internacionais de Compras Governamentais
-
-Paises como Canada, Australia e Coreia do Sul incluem disposicoes de compras governamentais em seus acordos comerciais. No acordo USMCA (antigo NAFTA), Canada e Mexico tem acesso ao mercado de compras governamentais dos EUA, enquanto o Brasil, sem acordo bilateral, nao possui este acesso preferencial.
-
-Para empresas brasileiras que desejam participar de licitacoes internacionais, ferramentas de inteligencia de mercado como as oferecidas pela TRADEXA sao essenciais para mapear oportunidades, analisar concorrentes e preparar propostas competitivas em mercados regulados por clausulas BBC.
-
-
-## Licitações Internacionais e o Papel das Plataformas Digitais
-
-Plataformas como a TRADEXA têm papel fundamental na preparação de empresas brasileiras para competir em licitações internacionais. Com ferramentas de inteligência de mercado, análise de concorrentes e mapeamento de oportunidades em mais de 30 países, os profissionais de comércio exterior podem identificar editais de licitação, preparar propostas competitivas e acompanhar tendências regulatórias em tempo real.`;
-
-export const keyPoints: string[] | undefined = [
-  "As compras governamentais representam 10-15% do PIB dos paises desenvolvidos, mercado de trilhoes de dolares.",
-  "A Clausula BBC em acordos comerciais define se empresas estrangeiras podem participar de licitacoes publicas.",
-  "O Brasil nao faz parte do GPA-OMC, mantendo preferencias para empresas nacionais em compras publicas.",
-  "O Diretorio de Importadores da TRADEXA auxilia empresas a identificar compradores governamentais no exterior.",
-];
+export const keyPoints: string[] | undefined = undefined;

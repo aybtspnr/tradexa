@@ -98,5 +98,9 @@ Revisar todas as abas antes de clicar em "Registrar DU-E". Após o registro, o s
 
 ## Conclusão
 
-A DU-E representou um avanço monumental para o comércio exterior brasileiro, eliminando redundâncias e reduzindo burocracia. Mas exige conhecimento e atenção aos detalhes. Com preparo, documentação organizada e as ferramentas certas, preencher a DU-E torna-se um processo previsível e controlável — uma vantagem competitiva real para exportadores brasileiros.`;
+A DU-E representou um avanço monumental para o comércio exterior brasileiro, eliminando redundâncias e reduzindo burocracia. Mas exige conhecimento e atenção aos detalhes. Com preparo, documentação organizada e as ferramentas certas, preencher a DU-E torna-se um processo previsível e controlável — uma vantagem competitiva real para exportadores brasileiros.
+<h2>Principais Desafios ao Trabalhar com O que é a DU-E?</h2>
+<p>Profissionais de comércio exterior que atuam com o que é a du-e? enfrentam desafios específicos que exigem preparo e conhecimento técnico. O primeiro grande desafio é a classificação fiscal correta dos produtos — um erro na NCM pode gerar multas que chegam a 1% do valor da operação por item classificado incorretamente, além de atrasos no desembaraço aduaneiro que podem durar semanas.</p>
+<p>Outro desafio relevante é o acompanhamento das constantes mudanças na legislação. O Brasil publica centenas de atos normativos por ano relacionados ao comércio exterior, desde alterações de alíquotas do Imposto de Importação até novas exigências documentais de órgãos anuentes como ANVISA, MAPA e INMETRO. Uma empresa que não acompanha essas mudanças pode ter sua carga retida na alfândega ou ser autuada em fiscalização posterior.</p>
+<p>A logística internacional também apresenta desafios significativos: a escolha do modal de transporte adequado, a negociação de fretes competitivos, o seguro de carga, o acompanhamento do trânsito aduaneiro e a gestão de prazos de entrega são pontos críticos que impactam diretamente a rentabilidade da operação e a satisfação do cliente no destino.</p>`;
 export const keyPoints: string[] | undefined = undefined;

@@ -227,30 +227,6 @@ Utilize ferramentas que integram II, IPI, PIS/COFINS e ICMS em uma única plataf
 
 ## Conclusão
 
-O IPI na importação é um tributo complexo, com base de cálculo interdependente e alíquotas variáveis por NCM. A correta apuração exige conhecimento técnico, atenção aos regimes especiais e ferramentas adequadas para evitar erros de cálculo e maximizar benefícios fiscais. O investimento em automação e inteligência fiscal — como as ferramentas oferecidas pela TRADEXA — transforma o cálculo do IPI de uma fonte de risco em uma vantagem competitiva, permitindo decisões de importação mais precisas e econômicas. Importadores que dominam o IPI reduzem custos, evitam autuações e ganham agilidade no desembaraço aduaneiro.
+O IPI na importação é um tributo complexo, com base de cálculo interdependente e alíquotas variáveis por NCM. A correta apuração exige conhecimento técnico, atenção aos regimes especiais e ferramentas adequadas para evitar erros de cálculo e maximizar benefícios fiscais. O investimento em automação e inteligência fiscal — como as ferramentas oferecidas pela TRADEXA — transforma o cálculo do IPI de uma fonte de risco em uma vantagem competitiva, permitindo decisões de importação mais precisas e econômicas. Importadores que dominam o IPI reduzem custos, evitam autuações e ganham agilidade no desembaraço aduaneiro.`;
 
-## Aliquotas de IPI por Categoria
-
-As aliquotas variam conforme a classificacao NCM. Produtos essenciais como alimentos e medicamentos podem ter aliquota zero, enquanto superfluos podem chegar a 300%.
-
-O Classificador NCM com IA da TRADEXA permite consultar rapidamente as aliquotas de IPI associadas a cada NCM.
-
-## Base de Calculo
-
-O IPI tem como base o valor aduaneiro acrescido do II, PIS e COFINS. E calculado por fora da base dos demais tributos.
-
-## Credito de IPI
-
-Empresas do lucro real podem creditar o IPI pago na importacao, reduzindo o custo efetivo do tributo.
-
-## Regimes Especiais
-
-Ex-tarifario reduz o II para bens de capital, mas nao afeta o IPI. RECOF pode suspender o IPI. Drawback pode reduzir o IPI sobre insumos para exportacao.
-`;
-
-export const keyPoints: string[] | undefined = [
-  "O IPI na importacao tem como base o valor aduaneiro acrescido do II, PIS e COFINS.",
-  "As aliquotas variam de 0% (produtos essenciais) ate 300%+ (produtos superfluos) na TIPI.",
-  "Empresas do lucro real podem creditar o IPI pago na importacao contra IPI devido nas saidas.",
-  "O Classificador NCM da TRADEXA permite consultar aliquotas de IPI associadas a cada NCM.",
-];
+export const keyPoints: string[] | undefined = undefined;

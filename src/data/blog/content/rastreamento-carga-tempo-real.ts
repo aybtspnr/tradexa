@@ -92,12 +92,10 @@ O futuro do rastreamento de cargas internacionais aponta para uma integração c
 
 **Plataformas integradas de trade intelligence.** A convergência entre rastreamento logístico e inteligência comercial é uma tendência particularmente relevante para o mercado brasileiro. Plataformas como a TRADEXA estão unificando em uma só interface dados de NCM, tarifas de 31 países, diretório de importadores, dashboards de comércio exterior e ferramentas de visualização como o Mapa de Frete Marítimo 3D. Essa integração permite que o profissional de comércio exterior não apenas rastreie sua carga, mas também analise o contexto comercial completo: qual o volume de importações daquela NCM pelo Brasil, quem são os principais players, quais as tarifas aplicáveis, qual o frete médio naquela rota. A visibilidade deixa de ser apenas operacional e se torna estratégica.`;
 
-const keyPoints = [
+export const keyPoints = [
   "A revolução da visibilidade no comércio exterior",
   "Tecnologias fundamentais de rastreamento marítimo",
   "Rastreamento aéreo e multimodal",
   "APIs de monitoramento e integração com sistemas corporativos",
   "Dashboards e visualização: do dado bruto à decisão"
 ];
-
-

@@ -140,11 +140,10 @@ O caminho passa por classificação fiscal precisa, seleção criteriosa de forn
 
 No final, a pergunta que fica não é "vale a pena importar?", mas sim "você está preparado para importar com inteligência?". Se a resposta for sim, o mercado internacional de acabamentos está de portas abertas — e o seu próximo diferencial competitivo pode estar em um contêiner que acaba de zarpar de Gênova, Valência ou Xangai.`;
 
-const keyPoints = [
+export const keyPoints = [
   "A Importação de Acabamentos no Cenário Atual da Construção Civil Brasileira",
   "Por Que Importar Materiais de Acabamento?",
   "Classificação Fiscal: O Alicerce de Toda Importação",
   "Fornecedores e Feiras: Onde Encontrar os Melhores Produtos",
   "Cálculo de Custos: Do Preço FOB ao Custo na Porta da Obra"
 ];
-

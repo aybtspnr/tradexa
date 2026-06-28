@@ -132,12 +132,10 @@ A pergunta não é mais se você deve usar trade intelligence, mas como está us
 
 O futuro do comércio exterior é data-driven. E ele começa na sua próxima reunião de estratégia.`;
 
-const keyPoints = [
+export const keyPoints = [
   "O Que é Trade Intelligence e Por Que Ela Importa Agora",
   "Os Dados que Alimentam o Trade Intelligence",
   "Análise de Concorrência: O Uso Mais Imediato do Trade Intelligence",
   "Identificação de Fornecedores e Diversificação de Sourcing",
   "Precificação Inteligente e Posicionamento de Mercado"
 ];
-
-

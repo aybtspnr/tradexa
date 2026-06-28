@@ -266,12 +266,10 @@ Com as ferramentas certas e uma metodologia consistente, é possível transforma
 
 Não deixe sua margem ao acaso. Calcule, simule e negocie com informação — esse é o caminho para construir um negócio de importação sólido e rentável.`;
 
-const keyPoints = [
+export const keyPoints = [
   "Introdução",
   "Entendendo os Componentes do Custo de Importação",
   "Preço FOB (Free On Board)",
   "Frete Internacional",
   "Seguro Internacional"
 ];
-
-

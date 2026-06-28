@@ -251,9 +251,11 @@ Além das questões documentais, produtos chineses podem enfrentar riscos regula
 - **[Diretório de Importadores](/landing/importadores)** — Encontre fornecedores verificados por país
 - **[Classificador NCM com IA](/landing/ncm-classifier)** — Classifique produtos em segundos
 - **[Calculadora de Importação](/ferramentas/calculadora-importacao)** — Calcule todos os custos da importação
-- **[Pesquisa de Mercado](/pesquisa-mercado-produtos-importados)** — Valide oportunidades de importação e exportação com dados reais
-- **[Como Encontrar Compradores](/como-encontrar-compradores-internacionais)** — Prospecte importadores e distribuidores no exterior
 
 > Importe com inteligência de dados — [teste grátis em tradexa.com.br](https://tradexa.com.br)
-`;
+
+<h2>Continue Aprofundando seus Conhecimentos em Por que Importar da China?</h2>
+<p>O mercado de comércio exterior está em constante evolução, e profissionais que investem em conhecimento técnico e ferramentas atualizadas têm uma vantagem competitiva significativa. A TRADEXA recomenda que os profissionais da área dediquem tempo regular ao estudo de tendências, mudanças regulatórias e novas oportunidades de mercado.</p>
+<p>Além do conteúdo disponível em nosso blog, a plataforma TRADEXA oferece dados atualizados mensalmente, permitindo que você tome decisões baseadas em informações reais e não em suposições. Nossos algoritmos de inteligência artificial processam milhões de registros de comércio exterior para entregar classificações fiscais precisas, análises de mercado profundas e recomendações estratégicas personalizadas para o seu negócio.</p>
+<p>Comece hoje mesmo a explorar as funcionalidades da TRADEXA e transforme a maneira como sua empresa opera no comércio exterior brasileiro e global. Com dados confiáveis, ferramentas inteligentes e suporte especializado, você estará preparado para enfrentar os desafios e aproveitar as oportunidades do mercado internacional.</p>`;
 export const keyPoints: string[] | undefined = undefined;

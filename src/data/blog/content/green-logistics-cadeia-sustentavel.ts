@@ -114,12 +114,10 @@ As ferramentas e conhecimentos para essa transição estão disponíveis. Plataf
 
 A jornada para uma logística verdadeiramente sustentável é contínua e incremental. Cada contêiner otimizado, cada rota mais eficiente, cada embalagem redesenhada e cada certificação conquistada representam um passo nessa direção. As empresas que iniciarem agora sua transição para green logistics não apenas contribuirão para um planeta mais saudável — estarão construindo vantagens competitivas duradouras em um mercado global em rápida transformação.`;
 
-const keyPoints = [
+export const keyPoints = [
   "Introdução: Sustentabilidade Como Vantagem Competitiva",
   "O Cenário Regulatório e as Pressões de Mercado",
   "Modais de Transporte Sustentáveis: Escolhas que Fazem Diferença",
   "Otimização de Rotas e Consolidação de Cargas",
   "Embalagens Verdes e Logística Reversa"
 ];
-
-

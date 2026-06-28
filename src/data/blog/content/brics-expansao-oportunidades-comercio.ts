@@ -210,26 +210,6 @@ Feiras comerciais e missões empresariais organizadas no âmbito do BRICS+ são 
 
 ## Conclusão
 
-A expansão do BRICS+ representa uma das transformações mais significativas no comércio internacional das últimas décadas, criando um bloco que engloba 45% da população mundial e 35% do PIB global. Para o Brasil, a inclusão de Arábia Saudita, EAU, Irã, Egito e Etiópia abre mercados de grande demanda por alimentos, bens manufaturados e serviços, onde o Brasil tem vantagem competitiva natural. O sucesso na captura destas oportunidades depende de planejamento estratégico, conhecimento das regulamentações locais e utilização de ferramentas de inteligência de mercado. A plataforma TRADEXA, com seu diretório de importadores, tarifário de 31 países, Smart Rank e trade intelligence, oferece aos exportadores brasileiros a infraestrutura necessária para identificar, avaliar e acessar os novos mercados do BRICS+ com confiança e eficiência. O futuro do comércio exterior brasileiro passa inevitavelmente pela aproximação com os mercados emergentes do BRICS+.
+A expansão do BRICS+ representa uma das transformações mais significativas no comércio internacional das últimas décadas, criando um bloco que engloba 45% da população mundial e 35% do PIB global. Para o Brasil, a inclusão de Arábia Saudita, EAU, Irã, Egito e Etiópia abre mercados de grande demanda por alimentos, bens manufaturados e serviços, onde o Brasil tem vantagem competitiva natural. O sucesso na captura destas oportunidades depende de planejamento estratégico, conhecimento das regulamentações locais e utilização de ferramentas de inteligência de mercado. A plataforma TRADEXA, com seu diretório de importadores, tarifário de 31 países, Smart Rank e trade intelligence, oferece aos exportadores brasileiros a infraestrutura necessária para identificar, avaliar e acessar os novos mercados do BRICS+ com confiança e eficiência. O futuro do comércio exterior brasileiro passa inevitavelmente pela aproximação com os mercados emergentes do BRICS+.`;
 
-## Oportunidades Comerciais para o Brasil no BRICS+
-
-A expansao abre novas frentes para exportadores brasileiros. O Oriente Medio representa um mercado de alta renda com demanda por alimentos halal, carnes, cafe e produtos processados.
-
-A Arabia Saudita tem investido na diversificacao economica, criando demanda por servicos de engenharia e tecnologia. Os Emirados Arabes Unidos consolidaram-se como hub logistico global.
-
-## O Novo Banco de Desenvolvimento
-
-O NDB financia projetos de infraestrutura nos paises-membros. A discussao sobre mecanismos alternativos de pagamento entre paises BRICS reduziria a dependencia do dolar.
-
-## Como a TRADEXA Apoia Negocios no BRICS+
-
-O Trade Intelligence mapeia importacoes e exportacoes entre o Brasil e cada pais do bloco. O Diretorio de Importadores permite encontrar compradores qualificados. O Tarifario Global cobre todos os membros do BRICS.
-`;
-
-export const keyPoints: string[] | undefined = [
-  "O BRICS+ expandido incorporou Arabia Saudita, Emirados Arabes, Ira, Egito e Etiopia em 2024.",
-  "O bloco representa 45% da populacao mundial e 35% do PIB global em paridade de poder de compra.",
-  "O Novo Banco de Desenvolvimento financia projetos de infraestrutura nos paises-membros do BRICS.",
-  "O Trade Intelligence da TRADEXA mapeia oportunidades comerciais entre Brasil e cada pais do BRICS+.",
-];
+export const keyPoints: string[] | undefined = undefined;

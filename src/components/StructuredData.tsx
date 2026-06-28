@@ -22,7 +22,7 @@ interface ArticleData {
 }
 
 interface StructuredDataProps {
-  type: "Article" | "FAQ" | "WebSite" | "Organization";
+  type: "Article" | "BlogPosting" | "FAQ" | "WebSite" | "Organization";
   data?: ArticleData;
   faqItems?: FAQItem[];
 }
@@ -31,11 +31,13 @@ export default function StructuredData({ type, data, faqItems }: StructuredDataP
   let jsonLd: Record<string, unknown>;
 
   switch (type) {
+    case "BlogPosting":
     case "Article":
       if (!data) return null;
+      const schemaType = type === "BlogPosting" ? "BlogPosting" : "Article";
       jsonLd = {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": schemaType,
         headline: data.headline,
         description: data.description,
         datePublished: data.datePublished,

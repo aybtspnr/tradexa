@@ -235,11 +235,10 @@ Mas, como toda ferramenta, o Smart Rank só entrega valor quando é usado com di
 
 A pergunta que fica para você, exportador brasileiro, é: na próxima vez em que precisar decidir para onde exportar, você vai confiar no palpite — ou vai consultar o Smart Rank?`;
 
-const keyPoints = [
+export const keyPoints = [
   "Introdução: A Difícil Arte de Escolher para Onde Exportar",
   "O Problema que o Smart Rank Resolve",
   "A Metodologia por Trás do Smart Rank",
   "Arquitetura Geral do Algoritmo",
   "As Dezenas de Variáveis Analisadas"
 ];
-

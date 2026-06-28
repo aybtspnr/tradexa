@@ -97,11 +97,10 @@ O segredo está em três pilares: qualidade dos dados (um Catálogo de Produtos 
 
 Se a sua empresa ainda não iniciou a migração, não espere mais. Comece pelo inventário de produtos ainda esta semana. Acione seu despachante. Invista no treinamento da equipe. E conte com parceiros tecnológicos que possam acelerar e dar segurança a essa jornada. O tempo que você investe agora em preparação será devolvido com juros na forma de desembaraços mais rápidos, menos multas e uma operação de importação verdadeiramente competitiva.`;
 
-const keyPoints = [
+export const keyPoints = [
   "Passo 1: Mapeie Todos os Produtos que Sua Empresa Importa",
   "Passo 2: Cadastre os Produtos no Catálogo com Precisão Máxima",
   "Passo 3: Revise e Adeque seus Processos de Licenciamento",
   "Passo 4: Integre seus Sistemas com o Portal Único",
   "Passo 5: Treine sua Equipe — Mas Treine de Verdade"
 ];
-
