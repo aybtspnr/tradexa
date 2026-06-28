@@ -1,0 +1,110 @@
+{
+  "audit_date": "2026-06-28",
+  "target": "https://www.tradexa.com.br",
+  "sitemap_urls_found": 694,
+  "http_status_summary": {
+    "200_OK": 694,
+    "3xx_redirects": 0,
+    "4xx_errors": 0,
+    "5xx_errors": 0,
+    "connection_errors": 0
+  },
+  "architecture": "React SPA (Vite + React) — CSR (Client-Side Rendering)",
+  "html_shell_size_bytes": 4093,
+  "all_pages_identical_shell": true,
+  "sample_size_analyzed": 50,
+  "detailed_results": {
+    "title_tag": {
+      "present": "50/50 (100%)",
+      "identical_across_all_pages": true,
+      "value": "TRADEXA — Plataforma de Comércio Exterior",
+      "length_chars": 41,
+      "length_ok": true
+    },
+    "meta_description": {
+      "present": "50/50 (100%)",
+      "identical_across_all_pages": true,
+      "value": "Plataforma de comércio exterior com classificação NCM com IA, tarifas de 31 países, rastreamento de cargas ao vivo e serviços operacionais. Importe e exporte com confiança.",
+      "length_chars": 172,
+      "length_ok": false,
+      "length_issue": "Ultrapassa o limite recomendado de 160 caracteres (excesso de 12 chars). O Google geralmente trunca em ~160."
+    },
+    "canonical_tag": {
+      "present": "50/50 (100%)",
+      "always_points_to_root": true,
+      "value": "https://www.tradexa.com.br",
+      "mismatch_count": "49/50 (98%)",
+      "mismatch_detail": "Apenas a homepage tem canonical condizente. Todas as demais 49 páginas — blog, ferramentas, sobre, etc. — apontam canonical para a raiz, o que é incorreto para SEO pois desautoriza o conteúdo individual."
+    },
+    "json_ld": {
+      "present": "50/50 (100%)",
+      "identical_across_all_pages": true,
+      "types_found": [
+        "WebSite"
+      ],
+      "type_ok_for_homepage": true,
+      "missing_types_for_other_pages": true,
+      "missing_types_detail": "Blog posts deveriam ter Article ou BlogPosting. Ferramentas/páginas de serviço poderiam ter Service ou Product. Páginas institucionais poderiam ter AboutPage, ContactPage, etc. Apenas o WebSite genérico está presente.",
+      "search_action_present": true,
+      "search_action_url": "https://www.tradexa.com.br/ai-search?q={search_term_string}"
+    },
+    "h1_tag": {
+      "present": "0/6 verificadas (0%)",
+      "note": "Nenhuma página testada possui H1 server-side. Títulos são injetados via JS."
+    },
+    "og_tags": {
+      "og_title": "TRADEXA — Plataforma de Comércio Exterior (fixo)",
+      "og_description": "Dados oficiais, classificação NCM com IA, tarifas de 31 países e rastreamento de cargas ao vivo. Tudo para importar e exportar com confiança.",
+      "og_image": "https://www.tradexa.com.br/og-image.png",
+      "og_url": "https://www.tradexa.com.br (fixo — sempre aponta para raiz)",
+      "identical_across_pages": true
+    },
+    "twitter_cards": {
+      "present": true,
+      "identical_across_pages": true
+    }
+  },
+  "key_patterns_and_problems": [
+    {
+      "severity": "CRITICAL",
+      "issue": "SPA com CSR sem SSR/SSG — Todo o conteúdo é renderizado via JavaScript no cliente. Crawlers que não executam JS (ou executam parcialmente) veem apenas um shell HTML vazio (<div id=\"root\">). Isso prejudica severamente o SEO de todas as 694 URLs."
+    },
+    {
+      "severity": "CRITICAL",
+      "issue": "Canonical tag apontando sempre para raiz — 49 de 50 páginas amostradas têm canonical=\"https://www.tradexa.com.br\" ao invés da URL específica. Isso instrui os mecanismos de busca a ignorar o conteúdo individual e consolidar tudo na homepage."
+    },
+    {
+      "severity": "HIGH",
+      "issue": "Title tag idêntico em todas as páginas — 'TRADEXA — Plataforma de Comércio Exterior' não reflete o conteúdo específico de cada página (ex: blog posts, ferramentas, páginas de serviço). Cada página deveria ter um title único e descritivo (ideal 30-60 chars)."
+    },
+    {
+      "severity": "HIGH",
+      "issue": "Meta description idêntica em todas as páginas — 172 caracteres, excedendo o limite de 160. Além do truncamento, o conteúdo genérico não incentiva o clique nos resultados de busca para páginas específicas."
+    },
+    {
+      "severity": "HIGH",
+      "issue": "JSON-LD limitado ao tipo WebSite — Ausência de tipos estruturados como Article (blog posts), Service (ferramentas/serviços), FAQPage, BreadcrumbList, AboutPage, ContactPage. Isso reduz a elegibilidade para rich snippets."
+    },
+    {
+      "severity": "MEDIUM",
+      "issue": "Open Graph / Twitter Card URLs fixas — og:url e og:image são idênticas para todas as páginas. Ao compartilhar um link de blog post no Facebook/WhatsApp, o preview exibe o conteúdo da homepage."
+    },
+    {
+      "severity": "MEDIUM",
+      "issue": "Ausência de H1 server-side — Nenhuma página testada possui tag H1 no HTML servido. Isso é um problema de acessibilidade e SEO estrutural."
+    },
+    {
+      "severity": "INFO",
+      "issue": "Sitemap contém 694 URLs, todas retornando 200 — bom, mas o conteúdo servido é idêntico para todas."
+    }
+  ],
+  "recommendations": [
+    "Implementar SSR (Server-Side Rendering) ou SSG (Static Site Generation) com Next.js, Nuxt ou similar para que cada URL sirva HTML único com meta tags apropriadas.",
+    "Corrigir canonical tags: cada página deve ter self-referencing canonical apontando para sua própria URL.",
+    "Gerar titles e meta descriptions dinâmicos e exclusivos por página, respeitando os limites de caracteres (title: 30-60, description: 50-160).",
+    "Adicionar JSON-LD estruturado por tipo de página: Article/BlogPosting para posts, Service para ferramentas, AboutPage/ContactPage para páginas institucionais, BreadcrumbList globalmente.",
+    "Adicionar H1 tags relevantes no HTML server-side para cada página.",
+    "Corrigir og:url e og:image para refletir a página específica ao compartilhar em redes sociais.",
+    "Considerar adicionar Organization e LocalBusiness JSON-LD com dados da empresa."
+  ]
+}
