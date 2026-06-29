@@ -32,8 +32,8 @@ import { CityPriceChart } from "@/components/intel/CityPriceChart";
 import { MobileFilterDrawer } from "@/components/intel/MobileFilterDrawer";
 import { MobileBottomNav } from "@/components/intel/MobileBottomNav";
 import { MobileDataTable } from "@/components/intel/MobileDataTable";
-// [REMOVED] import { ScoredCompaniesPanel } from "@/components/intel/ScoredCompaniesPanel";
-// [REMOVED] import { CountryCompaniesPanel } from "@/components/intel/CountryCompaniesPanel";
+import { ScoredCompaniesPanel } from "@/components/intel/ScoredCompaniesPanel";
+import { CountryCompaniesPanel } from "@/components/intel/CountryCompaniesPanel";
 
 /* ═══════════════════════════════════════════
    TYPES
@@ -78,6 +78,9 @@ interface IntelCompany {
   price_per_kg_export?: number;
   city_trade?: { import_fob: number; import_kg: number; export_fob: number; export_kg: number };
   evidence?: string[]; // Which matching strategies hit (from backend)
+  telefone?: string;
+  email?: string;
+  endereco?: string;
 }
 interface IntelDetails {
   ncm: string;
@@ -314,7 +317,7 @@ async function fetchIntelDetails(ncm: string, month?: string, year?: string, mon
         nome_municipio: e.nome_municipio || "",
         capital_social: e.capital_social || 0,
         likely_flow: e.likely_flow || e.flow_type || "unknown",
-        confidence_score: e.confidence_score || 0,
+        confidence_score: e.confidence_score || e.score || 0,
         confidence_label: e.confidence_label || "",
         flow_type: e.flow_type || "",
         cnaes_secundarios: e.cnaes_secundarios || [],
@@ -394,24 +397,24 @@ function TruckSvg({ className }: { className?: string }) {
   return <svg className={className || "w-4 h-4"} viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>;
 }
 
-function ViaIcon({ viaName, className }: { viaName: string; className?: string }) {
-  const name = viaName.toLowerCase();
+function ViaIcon({ viaName, className }: { viaName?: string; className?: string }) {
+  const name = (viaName || "").toLowerCase();
   if (name.includes("mar") || name.includes("maritimo") || name.includes("marítimo") || name.includes("ocean")) return <ShipSvg className={className} />;
   if (name.includes("aer") || name.includes("aereo") || name.includes("aéreo") || name.includes("air")) return <PlaneSvg className={className} />;
   if (name.includes("rod") || name.includes("rodoviario") || name.includes("rodoviário") || name.includes("road") || name.includes("truck")) return <TruckSvg className={className} />;
   return <ShipSvg className={className} />;
 }
 
-function getTransportLabel(viaName: string): string {
-  const name = viaName.toLowerCase();
+function getTransportLabel(viaName?: string): string {
+  const name = (viaName || "").toLowerCase();
   if (name.includes("mar") || name.includes("maritimo") || name.includes("marítimo") || name.includes("ocean")) return "Marítimo";
   if (name.includes("aer") || name.includes("aereo") || name.includes("aéreo") || name.includes("air")) return "Aéreo";
   if (name.includes("rod") || name.includes("rodoviario") || name.includes("rodoviário") || name.includes("road") || name.includes("truck")) return "Rodoviário";
   return viaName;
 }
 
-function normalizeViaKey(viaName: string): string {
-  const name = viaName.toLowerCase();
+function normalizeViaKey(viaName?: string): string {
+  const name = (viaName || "").toLowerCase();
   if (name.includes("mar") || name.includes("maritimo") || name.includes("marítimo") || name.includes("ocean")) return "Maritimo";
   if (name.includes("aer") || name.includes("aereo") || name.includes("aéreo") || name.includes("air")) return "Aereo";
   if (name.includes("rod") || name.includes("rodoviario") || name.includes("rodoviário") || name.includes("road") || name.includes("truck")) return "Rodoviario";
@@ -504,8 +507,17 @@ function CityCountryRow({ cc, ncm, tab, setSelectedPais }: {
           <ChevronDown className="h-3.5 w-3.5 text-slate-400 shrink-0" />
         )}
       </div>
-      {showCC && null}
-      {/* [REMOVED] CountryCompaniesPanel */}
+      {showCC && <CountryCompaniesPanel ncm={ncm} country={cc.cod_pais} />}
+      {showCC && (
+        <ScoredCompaniesPanel
+          ncm={ncm}
+          country={cc.cod_pais}
+          flow={tab}
+          isOpen={showCC}
+          onToggle={() => setShowCC(!showCC)}
+        />
+      )}
+      {/* Country companies end */}
     </div>
   );
 }
@@ -782,7 +794,7 @@ export default function MercadoInteligenciaPage() {
     for (const [key, list] of Object.entries(details.empresas)) {
       const parts = key.split("_");
       if (parts.length < 2 || !list.length) continue;
-      const empUf = parts[0];
+      const empUf = list[0]?.uf || parts[0];
       if (ufs.length && !ufs.includes(empUf)) continue;
       const codMun = parts[1];
       // Match by IBGE code — reliable, no accent issues
@@ -845,7 +857,7 @@ export default function MercadoInteligenciaPage() {
 
   // City options for filter dropdown
   const cityOptions = useMemo(() => {
-    return flowCities.map(c => ({ cod_mun: c.cod_mun || "", nome: c.nome_mun, uf: c.uf }))
+    return flowCities.map(c => ({ cod_mun: c.cod_mun || "", nome: c.nome_mun || "", uf: c.uf || "" }))
       .filter((v, i, a) => a.findIndex(x => x.cod_mun === v.cod_mun) === i)
       .sort((a, b) => a.nome.localeCompare(b.nome));
   }, [flowCities]);

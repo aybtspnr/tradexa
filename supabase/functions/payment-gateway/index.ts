@@ -204,15 +204,10 @@ async function handleMPWebhookFromBody(body: any): Promise<Response> {
 
 /* ─── WEBHOOK: STRIPE ─── */
 
-async function handleStripeWebhook(req: Request): Promise<Response> {
-  const sig = req.headers.get('stripe-signature') || ''
-  const body = await req.text()
-
-  // In production, verify webhook signature with STRIPE_WEBHOOK_SECRET
-  // For now, parse the raw body
+async function handleStripeWebhook(bodyText: string, sig: string): Promise<Response> {
   let event: any
   try {
-    event = JSON.parse(body)
+    event = JSON.parse(bodyText)
   } catch {
     return new Response('Invalid JSON', { status: 400, headers: corsHeaders })
   }
@@ -397,17 +392,31 @@ serve(async (req) => {
   if (path.includes('webhook') || path.includes('stripe-webhook')) {
     const stripeSig = req.headers.get('stripe-signature')
     if (stripeSig) {
-      return handleStripeWebhook(req)
+      const bodyText = await req.text()
+      return handleStripeWebhook(bodyText, stripeSig)
     }
     return handleMPWebhook(req)
   }
 
-  // Parse body — but first check if it looks like a webhook (MP IPN)
+  // Parse body — but first check if it looks like a webhook (MP IPN or Stripe)
   const body = await req.json()
 
-  // Detect webhook by body format: Mercado Pago sends { type, action, data } or { action, data }
+  // Detect Mercado Pago webhook by body format
   if (body.type === 'payment' || body.action?.startsWith('payment.')) {
     return handleMPWebhookFromBody(body)
+  }
+
+  // Detect Stripe webhook by body format (sends to same endpoint without /webhook path)
+  const isStripeWebhook = body.type === 'checkout.session.completed' ||
+    body.type === 'checkout.session.async_payment_succeeded' ||
+    body.type === 'checkout.session.async_payment_failed' ||
+    body.type === 'charge.succeeded' ||
+    body.type === 'payment_intent.succeeded' ||
+    (body.data?.object?.object === 'checkout.session')
+
+  if (isStripeWebhook) {
+    const stripeSig = req.headers.get('stripe-signature') || ''
+    return handleStripeWebhook(JSON.stringify(body), stripeSig)
   }
 
   // Create checkout

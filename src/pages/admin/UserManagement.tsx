@@ -73,7 +73,8 @@ export default function UserManagement() {
         .limit(500);
 
       if (!error && data) {
-        setUsers(data as UserRow[]);
+        // Map user_id → id (view returns user_id, code expects id)
+        setUsers(data.map((u: any) => ({ ...u, id: u.user_id })) as UserRow[]);
       } else {
         // Fallback: join manually
         await fetchUsersFallback();

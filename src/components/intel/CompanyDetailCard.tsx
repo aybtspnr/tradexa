@@ -36,6 +36,9 @@ export interface CompanyData {
   _score?: number;
   _scoreLabel?: string;
   evidence?: string[];
+  telefone?: string;
+  email?: string;
+  endereco?: string;
 }
 
 export interface PartnerInfo {
@@ -115,8 +118,8 @@ const PT_TO_EN: Record<string, string> = {
   "vietna": "vietnam",
 };
 
-function normalizeCountry(name: string): string {
-  return name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+function normalizeCountry(name?: string): string {
+  return (name || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
 }
 
 function partnerMatchesCity(partnerCountry: string, cityCountries: string[]): boolean {
@@ -321,6 +324,8 @@ export const CompanyDetailCard: React.FC<Props> = ({
                 {c.capital_social ? (
                   <DetailField icon={TrendingUp} label="Capital Social" value={`R$ ${(c.capital_social / 1e6).toFixed(2)}M`} color="text-emerald-500" />
                 ) : null}
+                {c.telefone && <DetailField icon={FileText} label="Telefone" value={c.telefone} />}
+                {c.email && <DetailField icon={FileText} label="Email" value={c.email} />}
               </div>
 
               {/* Partners */}

@@ -25,15 +25,15 @@ export function Header({ scrolled, onScrollToSection }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleLogin = () => {
-    navigate("/coming-soon");
+    navigate("/");
   };
 
   const handleRegister = () => {
-    navigate("/coming-soon");
+    navigate("/");
   };
 
   const handleComingSoon = () => {
-    navigate("/coming-soon");
+    navigate("/");
   };
 
   return (

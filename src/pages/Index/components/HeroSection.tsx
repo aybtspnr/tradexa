@@ -10,7 +10,7 @@ export function HeroSection() {
   const navigate = useNavigate();
 
   const handleComingSoon = () => {
-    navigate("/coming-soon");
+    navigate("/");
   };
 
   return (

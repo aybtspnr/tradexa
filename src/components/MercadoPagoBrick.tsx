@@ -32,7 +32,7 @@ interface MercadoPagoBrickProps {
 
 export default function MercadoPagoBrick({
   preferenceId,
-  publicKey,
+  publicKey: publicKeyProp,
   onReady,
   onError,
 }: MercadoPagoBrickProps) {
@@ -41,6 +41,9 @@ export default function MercadoPagoBrick({
   const [error, setError] = useState<string | null>(null);
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const initializedRef = useRef(false);
+
+  // Fallback public key — stored here so Wallet Brick works without Supabase env var
+  const publicKey = publicKeyProp || "APP_USR-6206c74c-7b08-4c80-9207-7134c3fc641f";
 
   // Load MercadoPago.js V2 SDK
   useEffect(() => {
@@ -92,20 +95,13 @@ export default function MercadoPagoBrick({
         const brickContainer = containerRef.current;
         if (!brickContainer) return;
 
-        await mp.bricks().create("wallet", brickContainer, {
+        const brickSettings: Record<string, any> = {
           initialization: {
             preference_id: preferenceId,
           },
-          customization: {
-            texts: {
-              action: "pay",
-              valueProp: "security_details",
-            },
-            visual: {
-              buttonHeight: 48,
-            },
-          },
-        });
+        };
+
+        await mp.bricks().create("wallet", brickContainer, brickSettings);
 
         if (!cleanup) {
           setLoading(false);

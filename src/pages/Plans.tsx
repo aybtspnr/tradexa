@@ -315,11 +315,14 @@ const Plans = () => {
       if (error) throw new Error(error.message);
 
       if (data?.preference_id) {
-        // Wallet Brick — show inline payment dialog
-        setPendingPreferenceId(data.preference_id);
-        setPendingPublicKey(data.public_key || "");
-        setPendingPlanName(planId === "business" ? "Business" : "Growth");
-        setShowPaymentDialog(true);
+        // Redirect to Mercado Pago Checkout Pro (more reliable than Wallet Brick SDK)
+        showInfo("Redirecionando para checkout seguro...");
+        const checkoutUrl = data.url || data.init_point;
+        if (checkoutUrl) {
+          setTimeout(() => { window.location.href = checkoutUrl; }, 800);
+        } else {
+          throw new Error("URL de pagamento não retornada");
+        }
       } else if (data?.url) {
         // Fallback: redirect (Stripe or no public key)
         showInfo("Redirecionando para checkout seguro...");

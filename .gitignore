@@ -45,3 +45,5 @@ data/
 .env.test
 .env.vercel.pull
 .env.vercel.tmp
+
+.vercel/output/

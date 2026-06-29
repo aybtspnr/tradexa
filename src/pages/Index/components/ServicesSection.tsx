@@ -17,7 +17,7 @@ export function ServicesSection() {
   };
 
   const handleComingSoon = () => {
-    navigate("/coming-soon");
+    navigate("/");
   };
 
   return (

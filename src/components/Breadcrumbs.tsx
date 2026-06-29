@@ -47,8 +47,8 @@ const ROUTE_LABELS: Record<string, string> = {
   // Landing pages
   "landing-about": "Sobre",
   "landing-api": "API Docs",
-  "coming-soon": "Em Breve",
-  "landing-index": "Plataforma",
+  // "coming-soon": "Em Breve",
+  // "landing-index": "Plataforma",
   "landing-privacy": "Privacidade",
   "landing-terms": "Termos",
   // Landing de ferramentas

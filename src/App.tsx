@@ -68,8 +68,8 @@ const SobrePage = lazy(() => import("./pages/SobrePage"));
 const TermosPage = lazy(() => import("./pages/TermosPage"));
 const LandingAbout = lazy(() => import("./pages/LandingAbout"));
 const LandingApiDocs = lazy(() => import("./pages/LandingApiDocs"));
-const LandingComingSoon = lazy(() => import("./pages/LandingComingSoon"));
-const LandingIndex = lazy(() => import("./pages/LandingIndex"));
+// const LandingComingSoon = lazy(() => import("./pages/LandingComingSoon"));
+// const LandingIndex = lazy(() => import("./pages/LandingIndex"));
 const LandingPrivacy = lazy(() => import("./pages/LandingPrivacy"));
 const LandingTerms = lazy(() => import("./pages/LandingTerms"));
 const TrabalheConoscoPage = lazy(() => import("./pages/TrabalheConoscoPage"));
@@ -345,8 +345,8 @@ function AnimatedRoutes() {
         <Route path="/termos" element={<AnimatedPage><TermosPage /></AnimatedPage>} />
         <Route path="/landing-about" element={<AnimatedPage><LandingAbout /></AnimatedPage>} />
         <Route path="/landing-api" element={<AnimatedPage><LandingApiDocs /></AnimatedPage>} />
-        <Route path="/coming-soon" element={<AnimatedPage><LandingComingSoon /></AnimatedPage>} />
-        <Route path="/landing-index" element={<AnimatedPage><LandingIndex /></AnimatedPage>} />
+        {/* <Route path="/coming-soon" element={<AnimatedPage><LandingComingSoon /></AnimatedPage>} />
+        <Route path="/landing-index" element={<AnimatedPage><LandingIndex /></AnimatedPage>} /> */}
         <Route path="/landing-privacy" element={<AnimatedPage><LandingPrivacy /></AnimatedPage>} />
         <Route path="/landing-terms" element={<AnimatedPage><LandingTerms /></AnimatedPage>} />
         <Route path="/trabalhe-conosco" element={<AnimatedPage><TrabalheConoscoPage /></AnimatedPage>} />
