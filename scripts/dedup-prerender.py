@@ -13,6 +13,10 @@ before = content[:blog_start]
 blog_section = content[blog_start:blog_end]
 after = content[blog_end:]
 
+# Count before
+before_total = len(re.findall(r'slug:\s*"([^"]+)"', blog_section))
+before_unique = len(set(re.findall(r'slug:\s*"([^"]+)"', blog_section)))
+
 # Extract unique entries by slug
 entries = re.findall(r'(\s*\{[^}]+\}),?', blog_section)
 seen = set()
@@ -39,9 +43,8 @@ with open("scripts/prerender.mjs", "w") as f:
     f.write(content)
 
 # Verify
-import subprocess
-unique_count = subprocess.run(["bash", "-c", "awk '/^const BLOG_POSTS/,/^];/' scripts/prerender.mjs | grep -oP 'slug: \"\\K[^\"]+' | sort -u | wc -l"], capture_output=True, text=True).stdout.strip()
-total_count = subprocess.run(["bash", "-c", "awk '/^const BLOG_POSTS/,/^];/' scripts/prerender.mjs | grep -c 'slug:'"], capture_output=True, text=True).stdout.strip()
-print(f"Before fix: 849 total", flush=True)
-print(f"After fix: {total_count} total, {unique_count} unique", flush=True)
-print(f"Duplicates removed: {849 - int(total_count)}", flush=True)
+after_total = len(re.findall(r'slug:\s*"([^"]+)"', new_section))
+after_unique = len(set(re.findall(r'slug:\s*"([^"]+)"', new_section)))
+print(f"Before: {before_total} total, {before_unique} unique")
+print(f"After:  {after_total} total, {after_unique} unique")
+print(f"Duplicates removed: {before_total - after_total}")

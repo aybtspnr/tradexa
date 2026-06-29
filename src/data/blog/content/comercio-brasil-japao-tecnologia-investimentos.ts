@@ -1,0 +1,101 @@
+export const content = `## Panorama do Comércio Brasil-Japão: Uma Relação Centenária
+
+O Japão é a terceira maior economia do mundo, com um Produto Interno Bruto de aproximadamente US$ 4,2 trilhões e uma população de 125 milhões de consumidores de alto poder aquisitivo. Para o Brasil, o Japão representa um parceiro comercial estratégico, com uma relação que completa mais de 120 anos de história. Desde a assinatura do Tratado de Amizade, Comércio e Navegação em 1895, os dois países construíram uma parceria sólida baseada em complementaridade econômica, cooperação tecnológica e laços culturais profundos — afinal, o Brasil abriga a maior comunidade nikkei fora do Japão, com mais de 1,9 milhão de descendentes de japoneses.
+
+Em 2024, a corrente de comércio bilateral entre Brasil e Japão superou a marca de US$ 12 bilhões, com o Brasil exportando principalmente commodities agropecuárias e minerais, enquanto o Japão envia ao Brasil máquinas, equipamentos eletrônicos, veículos, autopeças e produtos químicos de alta tecnologia. O superávit comercial tem sido favorável ao Brasil nos últimos anos, refletindo a forte demanda japonesa por alimentos e matérias-primas brasileiras. No entanto, há um enorme potencial de crescimento nas exportações brasileiras de produtos industrializados e semimanufaturados, especialmente nos setores de tecnologia, biocombustíveis, cosméticos e fármacos.
+
+Para o exportador brasileiro que deseja acessar o mercado japonês, a TRADEXA oferece um conjunto completo de ferramentas de inteligência comercial. O classificador NCM com inteligência artificial permite identificar corretamente a posição tarifária de cada produto, enquanto o diretório de mais de 3,8 milhões de importadores inclui centenas de empresas japonesas interessadas em produtos brasileiros. Além disso, os dados tarifários para 31 países — incluindo o Japão — possibilitam simular custos de importação e exportação com precisão, evitando surpresas na hora de precificar a mercadoria.
+
+## Principais Setores de Exportação Brasileira para o Japão
+
+A pauta de exportações brasileiras para o Japão é historicamente concentrada em commodities, mas vem se diversificando gradualmente. O principal item exportado é o minério de ferro, essencial para a siderurgia japonesa, uma das mais avançadas do mundo. A Vale, maior mineradora do Brasil, mantém contratos de longo prazo com siderúrgicas japonesas como Nippon Steel, JFE Steel e Kobe Steel, fornecendo minério de alta qualidade extraído principalmente de Carajás, no Pará. Esse fluxo responde por aproximadamente 35% do total exportado para o Japão.
+
+O agronegócio é o segundo pilar das exportações. O Japão importa volumes expressivos de carne de frango brasileira — o país é o terceiro maior comprador mundial do produto. A carne de frango brasileira é preferida pelos japoneses pela qualidade, pela rastreabilidade e pela competitividade de preços frente à produção local, que é muito mais cara. As exportações de carne suína e bovina também têm crescido, impulsionadas pela abertura de novos mercados e pela certificação sanitária concedida pelo Ministério da Agricultura japonês.
+
+A soja e seus derivados ocupam posição de destaque, com o Japão importando farelo de soja brasileiro para alimentação animal e grãos para processamento local. O café verde brasileiro, especialmente o arábica de alta qualidade, é muito apreciado pelos japoneses — o Japão é um dos maiores consumidores per capita de café do mundo e possui uma indústria de torrefação sofisticada que valoriza cafés especiais brasileiros. A celulose brasileira, produzida a partir de eucalipto renovável, também encontra mercado crescente no Japão, que busca diversificar suas fontes de fibra para a indústria papeleira.
+
+Um segmento de alto potencial pouco explorado é o de alimentos processados e bebidas. A cachaça brasileira, por exemplo, está ganhando espaço no mercado japonês, especialmente em coquetéis e bares especializados. O açaí, fruta amazônica reconhecida como superalimento, tem conquistado consumidores japoneses preocupados com saúde e bem-estar. As castanhas, mel, polpas de frutas e óleos vegetais brasileiros também têm mercado promissor. A TRADEXA pode ajudar o exportador brasileiro a identificar os NCMs mais adequados para cada produto alimentício, consultar as tarifas de importação japonesas e encontrar compradores qualificados por meio do diretório de importadores.
+
+## Tecnologia e Inovação: O Coração da Parceria Japonesa
+
+O Japão é sinônimo de tecnologia. Empresas como Sony, Panasonic, Toshiba, Hitachi, Canon, Nikon, Toyota, Honda e Nintendo são referências globais em seus segmentos e movimentam bilhões de dólares em exportações para o Brasil. Os principais produtos tecnológicos importados do Japão incluem semicondutores, componentes eletrônicos, equipamentos de precisão, instrumentos ópticos, máquinas-ferramenta com controle numérico computadorizado, robôs industriais e equipamentos para automação industrial.
+
+A indústria 4.0 é uma fronteira particularmente promissora na relação bilateral. O Japão é líder mundial em robótica, inteligência artificial aplicada à manufatura e sistemas ciberfísicos. Empresas brasileiras que buscam modernizar suas linhas de produção encontram no Japão fornecedores de ponta em braços robóticos, sensores inteligentes, sistemas de visão computacional e softwares de gestão industrial. A importação desses equipamentos exige classificação NCM precisa, pois robôs industriais (NCM 8479.50) e componentes eletrônicos (capítulo 85) têm alíquotas e regimes tributários distintos.
+
+O Brasil, por sua vez, exporta para o Japão alguns produtos tecnológicos de nicho. A Embraer, terceira maior fabricante de aeronaves comerciais do mundo, mantém parcerias com empresas japonesas no fornecimento de componentes aeronáuticos e serviços de engenharia. Startups brasileiras de tecnologia, especialmente nos setores de fintech, agritech e healthtech, têm atraído investimento japonês e estabelecido escritórios em Tóquio para acessar o mercado asiático.
+
+Para quem trabalha com tecnologia no comércio Brasil-Japão, a TRADEXA é uma aliada indispensável. O classificador NCM com inteligência artificial lida com a complexidade dos capítulos 84, 85 e 90 do Sistema Harmonizado, que abrangem máquinas, equipamentos eletrônicos e instrumentos de precisão — áreas notorious por sua alta densidade de subposições e notas explicativas. A ferramenta sugere o código mais adequado com base na descrição detalhada do produto, minimizando o risco de erros que podem gerar multas e atrasos alfandegários.
+
+## O Setor Automotivo e a Indústria de Autopeças
+
+O setor automotivo é um dos pilares do comércio bilateral. Montadoras japonesas como Toyota, Honda, Nissan, Mitsubishi e Suzuki têm presença consolidada no Brasil, com fábricas em diversos estados. A Toyota, maior montadora do mundo, produz veículos em Indaiatuba (SP), Sorocaba (SP) e Porto Feliz (SP), além de motores e componentes. A Honda fabrica automóveis em Sumaré (SP) e motocicletas em Manaus (AM). Essas empresas importam do Japão componentes eletrônicos, motores, transmissões, sistemas de injeção, turbocompressores e peças de acabamento.
+
+Do lado brasileiro, a exportação de autopeças para o Japão é um segmento em crescimento. O Brasil fornece peças de reposição, componentes de suspensão, sistemas de freio, partes de carroceria, assentos e bancos, além de peças fundidas e forjadas de ferro e aço. Muitas dessas peças são produzidas por subsidiárias brasileiras de fornecedores japoneses, como Denso, Aisin, NSK, NTN, Sumitomo Electric e Hitachi Automotive, gerando um fluxo de comércio intrafirma significativo.
+
+A classificação NCM no setor automotivo é reconhecidamente uma das mais complexas do comércio exterior. O capítulo 87 do Sistema Harmonizado abrange veículos automóveis, tratores, ciclos e suas partes e acessórios, com dezenas de subposições que distinguem veículos por cilindrada do motor, tipo de combustível, número de passageiros, finalidade de uso e sistema de tração. Uma autopeça pode ser classificada em diferentes NCMs dependendo de seu material constitutivo, função específica e aplicação. A TRADEXA auxilia importadores e exportadores com seu classificador NCM inteligente, que sugere a posição correta e exibe as alíquotas aplicáveis para cada mercado.
+
+## Classificação NCM e Tarifas no Comércio com o Japão
+
+O Japão adota o Sistema Harmonizado (SH) da Organização Mundial das Alfândegas, com 9 dígitos em sua tarifa nacional. A classificação correta da mercadoria é fundamental para determinar a alíquota do imposto de importação japonês, que varia conforme o produto e o NCM. Produtos como minério de ferro e celulose têm alíquotas reduzidas ou zeradas, enquanto alimentos processados, têxteis e calçados enfrentam tarifas mais elevadas, muitas vezes com proteção sazonal ou cotas específicas.
+
+Além do imposto de importação, o Japão aplica o Imposto sobre Consumo (Consumption Tax) de 10% sobre a maioria dos bens importados, incidente sobre o valor CIF acrescido do imposto de importação. Produtos alimentícios básicos têm alíquota reduzida de 8%. É essencial considerar todos esses tributos no cálculo do custo total da importação para formar corretamente o preço de venda no mercado japonês.
+
+O Japão possui um regime de preferências tarifárias para países em desenvolvimento, incluindo o Brasil, por meio do Sistema Geral de Preferências (SGP). Alguns produtos brasileiros podem se beneficiar de redução parcial ou total do imposto de importação, desde que cumpram as regras de origem estabelecidas. A comprovação da origem brasileira é feita por meio do Certificado de Origem, emitido por entidades credenciadas como a Federação das Indústrias.
+
+A TRADEXA oferece dados tarifários atualizados para 31 países, incluindo o Japão. O usuário pode consultar as alíquotas aplicáveis a cada NCM, verificar as preferências tarifárias do SGP, identificar exigências de licenciamento e simular o custo total de importação com todos os tributos incidentes. Essa funcionalidade é especialmente valiosa para o exportador brasileiro que deseja precificar seus produtos de forma competitiva no mercado japonês.
+
+## Logística e Transporte na Rota Brasil-Japão
+
+A logística internacional entre Brasil e Japão apresenta desafios específicos devido à distância geográfica — são mais de 18 mil quilômetros separando os dois países. O transporte marítimo é o modal predominante, responsável por cerca de 95% do volume de carga. O tempo médio de trânsito marítimo é de aproximadamente 25 a 35 dias, dependendo da rota, das escalas e do armador contratado.
+
+Os principais portos de origem no Brasil são Santos (SP), Paranaguá (PR), Rio de Janeiro (RJ) e Vitória (ES). No Japão, os portos de Tóquio, Yokohama, Nagoya, Osaka e Kobe são os principais pontos de entrada, com Nagoya se destacando como o maior porto do país em volume de carga. Os armadores que operam na rota incluem MSC, Maersk, ONE (Ocean Network Express), NYK, Mitsui OSK Lines e Evergreen, com frequência de sailings que varia de 2 a 4 partidas por mês.
+
+O custo do frete marítimo na rota Brasil-Japão é influenciado pelo tipo de contêiner, pela sazonalidade, pelos preços dos combustíveis e pela demanda global. Cargas refrigeradas (reefer) para carne de frango e café têm custos mais elevados devido ao uso de contêineres especiais com controle de temperatura. A TRADEXA oferece um mapa de frete marítimo interativo que permite ao usuário comparar tarifas de diferentes armadores, escolher a rota mais econômica e simular custos logísticos com base em dados reais.
+
+Para cargas urgentes ou de alto valor agregado, como componentes eletrônicos e instrumentos de precisão, o transporte aéreo é uma alternativa viável. O Aeroporto Internacional de Guarulhos (GRU) e o Aeroporto de Narita (NRT) em Tóquio são os principais hubs, com voos de carga operados por companhias como Lufthansa Cargo, Atlas Air e cargueiros dedicados das companhias japonesas Nippon Cargo Airlines e ANA Cargo.
+
+## Acordos Comerciais e Parcerias Estratégicas
+
+Diferentemente da Alemanha e de outros parceiros europeus, o Japão não possui um acordo de livre comércio com o Mercosul. As trocas comerciais entre Brasil e Japão são regidas pelas regras da Organização Mundial do Comércio (OMC) e pelos acordos bilaterais existentes. O principal instrumento bilateral é o Acordo de Cooperação Técnica entre Brasil e Japão, firmado em 1970, que estabelece as bases para a cooperação em ciência, tecnologia, agricultura, saúde e educação.
+
+O Brasil e o Japão também mantêm um Acordo para Evitar a Dupla Tributação (ADT), assinado em 1967, que é um dos mais antigos do Brasil. Esse acordo é fundamental para investidores e empresas que operam nos dois países, pois define regras claras sobre a tributação de rendimentos, dividendos, juros e royalties, evitando que a mesma receita seja tributada em ambas as jurisdições.
+
+A Parceria Econômica Brasil-Japão (BJPEP) é um fórum bilateral que visa aprofundar a cooperação econômica em setores estratégicos como infraestrutura, energia, meio ambiente, agricultura, inovação e comércio. O governo japonês, por meio da JICA (Agência de Cooperação Internacional do Japão), financia projetos de infraestrutura no Brasil, incluindo portos, aeroportos, ferrovias e saneamento. O JBIC (Banco Japonês para Cooperação Internacional) oferece linhas de crédito para investimentos japoneses no Brasil e brasileiros no Japão.
+
+O acordo Mercosul-Japão está em fase de negociação preliminar. Em 2024, os governos do Mercosul e do Japão anunciaram a intenção de iniciar estudos conjuntos para um acordo de parceria econômica, que poderia reduzir substancialmente as barreiras tarifárias e não tarifárias entre os blocos. Se concretizado, esse acordo abriria novas oportunidades para exportadores brasileiros nos setores de alimentos processados, bebidas, cosméticos, fármacos e máquinas agrícolas.
+
+A TRADEXA monitora constantemente as mudanças nas relações comerciais e tarifárias entre os países. O smart rank de competitividade da plataforma permite que o exportador brasileiro compare seu desempenho com o de concorrentes de outros países no mercado japonês, identificando produtos com potencial de crescimento e ajustando sua estratégia de acordo com as condições de acesso ao mercado.
+
+## Oportunidades em Investimentos e Negócios Bilaterais
+
+O Japão é um dos maiores investidores estrangeiros no Brasil, com um estoque de investimentos que ultrapassa US$ 30 bilhões em setores como automotivo, eletroeletrônico, químico, siderúrgico, papel e celulose, e infraestrutura. Empresas japonesas como Toyota, Honda, Nissan, Mitsubishi, Toshiba, Panasonic, Sony, Sumitomo, Itochu, Mitsui e Mitsubishi Corporation têm operações robustas no Brasil e continuam expandindo seus investimentos.
+
+A agenda de sustentabilidade e economia verde abre novas frentes de cooperação. O Japão é líder global em tecnologias de energias renováveis, armazenamento de energia, hidrogênio verde, captura de carbono e eficiência energética. O Brasil, com sua matriz energética limpa, seu potencial eólico e solar e sua vasta extensão territorial, oferece oportunidades únicas para projetos conjuntos nessas áreas.
+
+O hidrogênio verde (H2V) é uma das apostas mais promissoras. O Japão lançou sua Estratégia Básica de Hidrogênio em 2023, com metas ambiciosas de ampliar a oferta de hidrogênio de 2 milhões de toneladas atuais para 3 milhões em 2030 e 20 milhões em 2050. O Brasil, com seu potencial de produção de H2V a custos competitivos, é um parceiro natural para suprir parte dessa demanda. Projetos no Porto do Pecém (CE), no Porto de Suape (PE) e no Porto de Açu (RJ) já estão em desenvolvimento com participação de empresas japonesas.
+
+O mercado de carbono é outro campo com enorme potencial. O Japão é signatário do Acordo de Paris e busca créditos de carbono de alta qualidade para cumprir suas metas de redução de emissões. O Brasil, com sua vasta cobertura florestal e sua capacidade de gerar créditos de carbono por meio de projetos de REDD+, reflorestamento e energia limpa, pode se tornar um dos maiores fornecedores globais de créditos de carbono para o Japão.
+
+Para o empresário brasileiro interessado em atrair investimentos japoneses, a TRADEXA oferece relatórios de inteligência comercial que identificam setores com maior fluxo de investimento japonês, mapeiam concorrentes e fornecem dados sobre o ambiente regulatório e tributário. A plataforma também permite consultar tarifas, barreiras não tarifárias e exigências técnicas para produtos brasileiros no Japão, facilitando a elaboração de planos de negócio e a prospecção de parceiros.
+
+## Como a TRADEXA Potencializa seus Negócios com o Japão
+
+A TRADEXA foi desenvolvida para resolver os principais desafios enfrentados por exportadores e importadores brasileiros: acesso a informação de qualidade, classificação fiscal precisa, dados tarifários atualizados e prospecção qualificada de compradores. Para quem faz negócios com o Japão, a plataforma oferece funcionalidades especialmente relevantes.
+
+O classificador NCM com inteligência artificial é uma das ferramentas mais valiosas. A classificação de produtos nos capítulos 84, 85, 87 e 90 do SH — que correspondem a grande parte do comércio com o Japão — é complexa e sujeita a erros. O classificador da TRADEXA utiliza machine learning treinado com milhões de classificações reais para sugerir o NCM mais adequado com base na descrição do produto, características técnicas e imagens.
+
+Os dados tarifários de 31 países permitem consultar as alíquotas aplicáveis a cada NCM no Japão, incluindo preferências do SGP, cotas e exigências de licenciamento. O usuário pode simular o custo total de importação, considerando imposto de importação, consumption tax, custos logísticos e taxas portuárias, obtendo uma estimativa precisa do preço final da mercadoria no mercado japonês.
+
+O diretório de mais de 3,8 milhões de importadores inclui milhares de empresas japonesas de todos os setores, com dados cadastrais completos, histórico de importações, produtos de interesse e contatos qualificados. O exportador brasileiro pode segmentar a busca por NCM, setor, região e porte da empresa, identificando os compradores com maior potencial para seus produtos.
+
+O smart rank de competitividade compara o desempenho do exportador brasileiro com o de concorrentes de outros países no mercado japonês, indicando onde há espaço para crescimento e quais produtos têm maior potencial. O mapa de frete marítimo interativo ajuda a escolher a rota mais eficiente e econômica. E os relatórios de inteligência comercial oferecem análises aprofundadas sobre tendências de mercado, sazonalidade, preços e movimentação de concorrentes.
+
+## Conclusão: O Futuro da Parceria Brasil-Japão
+
+O comércio entre Brasil e Japão é uma relação centenária que combina tradição e inovação. O Japão, com sua economia altamente tecnológica e sua demanda por alimentos e matérias-primas, é um parceiro natural para o Brasil. As oportunidades são vastas e abrangem desde a exportação de commodities tradicionais até a cooperação em tecnologias de ponta como hidrogênio verde, inteligência artificial e robótica.
+
+Para o exportador brasileiro que deseja ingressar ou expandir sua presença no mercado japonês, a informação de qualidade é o ativo mais valioso. A TRADEXA oferece as ferramentas necessárias para navegar com segurança e eficiência no comércio bilateral: classificação NCM inteligente, dados tarifários atualizados, diretório de importadores e inteligência comercial integrada. Com a TRADEXA, o exportador brasileiro transforma dados em decisões e potencial em resultados concretos.
+
+O futuro da parceria Brasil-Japão é promissor. O avanço das negociações para um acordo Mercosul-Japão, a agenda da economia verde e a crescente demanda japonesa por alimentos seguros e sustentáveis criam um ambiente favorável para a expansão do comércio bilateral. As empresas brasileiras que se prepararem agora, com inteligência comercial de ponta, estarão na melhor posição para aproveitar as oportunidades que surgirão nos próximos anos. A TRADEXA está pronta para ser a parceira de cada passo dessa jornada.`;
+
+export const keyPoints: string[] | undefined = undefined;
