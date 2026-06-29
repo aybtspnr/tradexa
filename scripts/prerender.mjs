@@ -768,7 +768,7 @@ const LANDING_ROUTES = [
 
 // ── Blog posts ──
 const BLOG_POSTS = [
-{ slug: "classificacao-ncm-guia-completo", name: "Classificação NCM: Guia Completo", desc: "Classificacao NCM: estrutura do código, diferenças entre NCM, HS e HTS, erros comuns e classificação automática por inteligência artificial." },
+{ slug: "classificacao-ncm-guia-completo", name: "Classificação NCM: Guia Completo para Importadores e Exportadores", desc: "Classificacao NCM: estrutura do código, diferenças entre NCM, HS e HTS, erros comuns e classificação automática por inteligência artificial." },
 { slug: "calcular-imposto-importacao-brasil", name: "Como Calcular o Imposto de Importação no Brasil: Guia 2026", desc: "Tributos na importação brasileira: II, IPI, PIS, COFINS e ICMS. Saiba calcular alíquotas atualizadas com nossa calculadora gratuita." },
 { slug: "frete-maritimo-como-funciona", name: "Frete Marítimo: Cotações FCL e LCL", desc: "Entenda as diferenças entre FCL e LCL, como interpretar cotações, índices WCI, taxas portuárias e dicas para reduzir custos logísticos." },
 { slug: "tarifas-importacao-31-paises", name: "Tarifas em 31 Países: Alíquotas 2026", desc: "Compare alíquotas de importação entre 31 países. Entenda tarifas MFN, preferenciais, VAT e descubra os melhores mercados para seu produto." },
