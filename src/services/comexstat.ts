@@ -3,10 +3,37 @@ import { proxyUrl } from './apiProxy';
 
 export const comexstat = {
   // Dados gerais de exportação
-  queryGeneral: (body: any) => postCached(proxyUrl("comexstat", "general"), body),
+  queryGeneral: async (body: any) => {
+    const raw = await postCached(proxyUrl("comexstat", "general"), body);
+    // Normalize response: VPS returns data.list{country,metricFOB,metricKg}
+    // MDIC returned data.list{country,metricFOB,metricKG}
+    if (raw?.data?.list) {
+      raw.data.list = raw.data.list.map((r: any) => ({
+        ...r,
+        metricKG: r.metricKG ?? r.metricKg ?? 0,
+      }));
+    }
+    return raw;
+  },
 
   // Dados por município
-  queryCities: (body: any) => postCached(proxyUrl("comexstat", "cities"), body),
+  queryCities: async (body: any) => {
+    const raw = await postCached(proxyUrl("comexstat", "cities"), body);
+    // VPS returns {cities: [{cod_mun, nome_mun, uf, vl_fob, kg_liquido}]}
+    // Normalize to {data: {list: [{noMunMinsgUf, metricFOB, metricKG}]}}
+    if (raw?.cities && !raw?.data?.list) {
+      raw.data = {
+        list: raw.cities.map((c: any) => ({
+          noMunMinsgUf: `${c.nome_mun} - ${c.uf}`,
+          co_mun: c.cod_mun,
+          sg_uf_mun: c.uf,
+          metricFOB: c.vl_fob || c.metricFOB || 0,
+          metricKG: c.kg_liquido || c.metricKG || c.metricKg || 0,
+        })),
+      };
+    }
+    return raw;
+  },
 
   // Tabelas de referência
   getCountries: () => getCached(proxyUrl("comexstat", "tables/countries")),

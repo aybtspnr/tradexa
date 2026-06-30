@@ -90,10 +90,10 @@ const NAV_GROUPS: NavGroup[] = [
     items: [
       { to: "/ai-search", icon: Sparkles, label: "Classificar NCM/HS" },
       { to: "/hts-lookup", icon: Search, label: "Código HTS EUA" },
-      { to: "/ncm-comparison", icon: BarChart3, label: "Comparar NCMs" },
-      { to: "/export-simulator", icon: Calculator, label: "Simular Exportação" },
-      { to: "/smart-rank", icon: Trophy, label: "Smart Rank" },
-      { to: "/tariff-alerts", icon: Bell, label: "Alertas de Tarifas" },
+
+
+
+
       { to: "/global-tariff", icon: Percent, label: "Alíquotas por País" },
     ],
   },
@@ -111,11 +111,11 @@ const NAV_GROUPS: NavGroup[] = [
     items: [
       { to: "/intelligence", icon: BarChart3, label: "Inteligência Comercial" },
       { to: "/import-export-data", icon: BarChart3, label: "Export Import Data" },
-      { to: "/country-comparison", icon: ArrowLeftRight, label: "Comparar Países" },
-      { to: "/us-trade", icon: ArrowLeftRight, label: "Brasil ↔ EUA" },
+
+
       { to: "/trade-intelligence", icon: BrainCircuit, label: "Análise Avançada" },
       { to: "/importers-map", icon: Globe, label: "Mapa Comercial" },
-      { to: "/seasonal-calendar", icon: Calendar, label: "Calendário Sazonal" },
+
     ],
   },
   {

@@ -212,10 +212,12 @@ export default function IntelligenceDashboard() {
   // ─── Load trade data ───
   useEffect(() => {
     const ts = Date.now();
+    const isValid = (d: any): d is ComexData =>
+      d && typeof d === 'object' && d.meta && typeof d.meta.period === 'string' && d.export && d.import;
     fetch(`/api/comex-intelligence?_=${ts}`)
       .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-      .then(setData)
-      .catch(() => { fetch(`/data/comex_intelligence.json?_=${ts}`).then(r=>r.json()).then(setData).catch(()=>setData(null)).finally(()=>setLoading(false)); })
+      .then(d => { if (isValid(d)) setData(d); else throw new Error(); })
+      .catch(() => { fetch(`/data/comex_intelligence.json?_=${ts}`).then(r=>r.json()).then(d => { if (isValid(d)) setData(d); else throw new Error(); }).catch(()=>setData(null)).finally(()=>setLoading(false)); })
       .finally(()=>setLoading(false));
   }, []);
 
@@ -289,7 +291,7 @@ export default function IntelligenceDashboard() {
       <div className="text-center"><Loader2 className="w-8 h-8 animate-spin text-red-500 mx-auto mb-3"/><p className="text-sm text-slate-600">Carregando dados...</p></div>
     </div>;
   }
-  if (!data) {
+  if (!data?.meta || !data?.export || !data?.import) {
     return <div className="min-h-screen bg-gray-50 flex items-center justify-center"><p className="text-slate-600 font-medium">Dados indisponíveis</p></div>;
   }
 

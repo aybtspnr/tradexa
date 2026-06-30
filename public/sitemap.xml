@@ -76,6 +76,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.tradexa.com.br/export-import-data</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.tradexa.com.br/feiras-eventos</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -190,12 +196,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.tradexa.com.br/intelligence</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.tradexa.com.br/landing/calculadora-acc-ace</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -244,25 +244,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.tradexa.com.br/landing/export-opportunities</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.tradexa.com.br/landing/export-wizard</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.tradexa.com.br/landing/gerador-documentos</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.tradexa.com.br/landing/global-explorer</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -352,12 +334,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.tradexa.com.br/landing/smart-alerts</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.tradexa.com.br/landing/supply-chain</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -388,10 +364,34 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.tradexa.com.br/market-report</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/ncm-explorer</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/new-players</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.tradexa.com.br/noticias</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/period-comparison</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.tradexa.com.br/port-intelligence</loc>
@@ -586,12 +586,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.tradexa.com.br/tariff-alerts</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.tradexa.com.br/team</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -634,7 +628,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.tradexa.com.br/trade-intelligence/countries</loc>
+    <loc>https://www.tradexa.com.br/trade-network</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/trade-routes</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -11069,6 +11069,366 @@
   </url>
   <url>
     <loc>https://www.tradexa.com.br/blog/energia-nuclear-brasil-cooperacao-internacional-tecnologia-smr</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-refrigerantes-brasil-mercados-oportunidades</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-biscoitos-massas-panificacao-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-chocolates-confeitaria-brasil-mercados</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-conservas-compotas-geleias-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-hortalicas-processadas-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-oleos-essenciais-aromaticos-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-tintas-vernizes-esmaltes-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-saboes-sabonetes-higiene-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-sal-marinho-industrial-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-areia-industrial-caulim-argilas</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-gesso-drywall-prefabricados-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-telhas-tijolos-ceramica-vermelha</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-sementes-mudas-propagacao-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-flores-ornamentais-tropicais-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-ovos-avicultura-postura-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-caprinos-ovinos-carne-leite-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-calcario-brita-agregados-construcao</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-fibras-txteis-naturais-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-couros-peles-industrializados-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-algodao-colorido-organico-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-drones-vants-brasil-mercados</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-robos-industriais-automacao-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-impressoras-3d-manufatura-aditiva-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-realidade-virtual-aumentada-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-software-saas-cloud-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-equipamentos-hospitalares-alta-tecnologia</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-equipamentos-energia-renovavel-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-embalagens-plasticas-industriais-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-cerveja-industrial-brasil-mercados</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-vinhos-brasileiros-premium-mercados</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/acordo-mercosul-ue-negociacoes-brasil-parceria</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/acos-especiais-brasil-exportacao-automotivo-petroleo</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/adiantamento-contrato-cambio-exportador-capital-giro</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/barreiras-tecnicas-comerciais-ue-exportacao-brasileira</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/brics-nova-moeda-comercio-desdolarizacao-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/cartas-credito-standby-comex-garantias-operacoes</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/certificacoes-ue-produtos-agricolas-brasil-exportacao</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/comercio-brasil-alemanha-setores-oportunidades</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/comercio-brasil-india-farmacos-petroleo-oportunidades</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/compliance-digital-lgpd-comex-protecao-dados</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/cosmeticos-brasil-exportacao-mercado-internacional</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/cursos-online-brasil-exportacao-educacao-distancia</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/dispositivos-medicos-importacao-anvisa-classificacao</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/educacao-superior-brasileira-internacionalizacao-alunos</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-aco-brasil-mercado-global-siderurgia</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-equipamentos-hospitalares-mercado-global</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/exportacao-ferro-gusa-brasil-mercados-internacionais</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/fintechs-cambio-comercio-exterior-pagamentos-internacionais</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/fundo-garantia-exportacao-fge-risco-pais</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/importacao-medicamentos-insumos-farmaceuticos-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/industria-farmaceutica-brasileira-inovacao-exportacao</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/laminados-aco-brasil-exportacao-qualidade-normas</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/logistica-cross-border-ecommerce-desafios-solucoes-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/marketplace-internacional-exportacao-brasil-vendedor-global</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/meios-pagamento-digitais-comex-pix-crypto-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/plataformas-b2b-digitais-exportacao-brasil-negocios</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/portugues-lingua-estrangeira-ensino-internacionalizacao</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/regulamento-deflorestacao-ue-impacto-exportacao-brasil</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/servicos-financeiros-comex-cambio-trade-finance</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/blog/tubos-aco-brasil-exportacao-oleo-gas</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

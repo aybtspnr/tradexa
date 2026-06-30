@@ -149,8 +149,8 @@ export default function GuiaCompletoExportacaoPage() {
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-extrabold mb-4">Pronto para exportar?</h2>
             <p className="text-slate-500 mb-8 max-w-xl mx-auto">Use o Smart Rank da TRADEXA para identificar os melhores mercados para seu produto.</p>
-            <Link to="/smart-rank" className="inline-flex items-center gap-2 bg-[#D80E16] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#b80c12] transition-colors">
-              Explorar Smart Rank <ChevronRight className="w-4 h-4" />
+            <Link to="/intelligence" className="inline-flex items-center gap-2 bg-[#D80E16] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#b80c12] transition-colors">
+              Explorar Inteligência <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
         </section>

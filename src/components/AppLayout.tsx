@@ -3,20 +3,20 @@ import { useLocation } from "react-router-dom";
 import DashboardLayout from "@/components/DashboardLayout";
 
 const routeMeta: Record<string, { title: string; subtitle?: string }> = {
-  "/country-comparison": { title: "Comparador de Países", subtitle: "Compare indicadores lado a lado" },
-  "/export-simulator": { title: "Simulador de Exportação", subtitle: "Calcule o custo total de exportação" },
-  "/smart-rank": { title: "Smart Rank", subtitle: "Melhores destinos para seu produto" },
-  "/tariff-alerts": { title: "Alertas de Tarifas", subtitle: "Monitore variações de alíquotas" },
+
+
+
+
   "/importers-map": { title: "Mapa Comercial", subtitle: "Exportação e importação do Brasil por país, estado e cidade" },
-  "/seasonal-calendar": { title: "Calendário Sazonal", subtitle: "Descubra a melhor época para exportar" },
+
   "/dashboard": { title: "Painel Integrado", subtitle: "Visão geral da plataforma Tradexa" },
   "/intelligence": { title: "Inteligência Comercial", subtitle: "Dados de importação, exportação, frete e mapa interativo" },
   "/ai-search": { title: "Busca IA", subtitle: "Encontre produtos com inteligência artificial" },
   "/hs-lookup": { title: "Consulta HS", subtitle: "Classificação harmonizada" },
   "/hts-lookup": { title: "Consulta HTS", subtitle: "Tarifas dos EUA" },
-  "/us-trade": { title: "Comércio EUA", subtitle: "Panorama do comércio americano" },
+
   "/plans": { title: "Planos", subtitle: "Escolha seu plano" },
-  "/ncm-comparison": { title: "Comparação NCM", subtitle: "Compare classificações" },
+
   "/suppliers": { title: "Fornecedores", subtitle: "Oportunidades de exportação" },
   "/trade-intelligence": { title: "Inteligência Comercial", subtitle: "Dados de comércio" },
   "/import-export-data": { title: "Export Import Data", subtitle: "Dados de exportação e importação por NCM e município" },

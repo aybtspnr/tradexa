@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const [emailConfirmed, setEmailConfirmed] = useState(false);
+  const emailConfirmedRef = useRef(false); // tracks stable value across renders
   const loadingStartedAtRef = useRef(Date.now());
   const loadingTimeoutRef = useRef<number | null>(null);
   const inactivityTimerRef = useRef<number | null>(null);
@@ -122,12 +123,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
+    } =    supabase.auth.onAuthStateChange((event, session) => {
       // TOKEN_REFRESHED é um refresh silencioso — não mostra loading
       // Isso evita que a página inteira desmonte quando a aba volta a ficar visível
       if (event === 'TOKEN_REFRESHED') {
         if (session?.user) {
-          setEmailConfirmed(!!session.user.email_confirmed_at || !!session.user.confirmed_at);
+          const isConfirmed = !!session.user.email_confirmed_at || !!session.user.confirmed_at;
+          // 🔧 Só atualiza se for true. Se o token refresh não trouxer os campos,
+          // mantém o estado anterior (não desmonta children em requireEmailConfirmed)
+          if (isConfirmed) {
+            emailConfirmedRef.current = true;
+            setEmailConfirmed(true);
+          }
         }
         return;
       }
@@ -136,7 +143,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       // para eventos tipo SIGNED_IN que podem disparar ao revalidar sessão
       if (profile && event !== 'SIGNED_OUT') {
         if (session?.user) {
-          setEmailConfirmed(!!session.user.email_confirmed_at || !!session.user.confirmed_at);
+          const isConfirmed = !!session.user.email_confirmed_at || !!session.user.confirmed_at;
+          if (isConfirmed) {
+            emailConfirmedRef.current = true;
+            setEmailConfirmed(true);
+          }
         }
         return;
       }
@@ -144,10 +155,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       beginLoading();
 
       if (session?.user) {
-        setEmailConfirmed(!!session.user.email_confirmed_at || !!session.user.confirmed_at);
+        const isConfirmed = !!session.user.email_confirmed_at || !!session.user.confirmed_at;
+        emailConfirmedRef.current = isConfirmed;
+        setEmailConfirmed(isConfirmed);
         fetchProfile(session.user.id, session.user.user_metadata);
       } else {
         setProfile(null);
+        emailConfirmedRef.current = false;
         setEmailConfirmed(false);
         finishLoading();
       }

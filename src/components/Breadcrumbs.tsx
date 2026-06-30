@@ -23,18 +23,18 @@ const ROUTE_LABELS: Record<string, string> = {
   "supply-chain": "Supply Chain Map",
   "maritime-freight-map": "Mapa de Frete Marítimo",
   services: "Serviços",
-  "country-comparison": "Comparação de Países",
-  "export-simulator": "Simulador de Exportação",
-  "smart-rank": "Smart Rank",
-  "tariff-alerts": "Alertas de Tarifas",
+
+
+
+
   "importers-map": "Mapa Comercial",
-  "seasonal-calendar": "Calendário Sazonal",
+
   "trade-intelligence": "Trade Intelligence",
-  "us-trade": "Comércio EUA",
+
   "ai-search": "Busca IA",
   "hts-lookup": "HTS Lookup",
   "hs-classifier": "Classificador HS",
-  "ncm-comparison": "Comparação NCM",
+
   intelligence: "Intelligence Dashboard",
   plans: "Planos",
   "my-usage": "Meu Uso",

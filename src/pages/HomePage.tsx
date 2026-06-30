@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, useInView, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import {
-  ArrowRight, BarChart3, Globe, Shield, Zap, TrendingUp,
+  ArrowRight, BarChart3, Globe, Shield, Zap,
   Package, Map, ChevronRight, Sparkles, Check,
   ChevronDown, Menu, X, Database, Navigation,
   BellRing, Search, RefreshCw, Brain, Users,
@@ -135,8 +135,7 @@ function Header() {
     { label: "Classificador IA NCM", href: "/landing/ncm-classifier", icon: <Search className="w-4 h-4" />, color: "#D80E16", desc: "Classificação automática de produtos" },
     { label: "Track & Trace", href: "/landing/track-trace", icon: <Navigation className="w-4 h-4" />, color: "#D80E16", desc: "Navios e aviões ao vivo", badge: "Novo" },
     { label: "Tarifário Global", href: "/landing/tariff-calculator", icon: <Globe className="w-4 h-4" />, color: "#f59e0b", desc: "Alíquotas de importação em 31 países" },
-    { label: "Trade Intelligence", href: "/landing/import-dashboard", icon: <BarChart3 className="w-4 h-4" />, color: "#10b981", desc: "Dados de importação e exportação" },
-    { label: "Smart Rank", href: "/landing/export-opportunities", icon: <TrendingUp className="w-4 h-4" />, color: "#8b5cf6", desc: "Ranking de países por oportunidade" },
+    { label: "Intelligence Hub", href: "/intelligence", icon: <BarChart3 className="w-4 h-4" />, color: "#10b981", desc: "Dashboard completo de inteligência comercial" },
     { label: "Mapa de Importadores", href: "/landing/import-map", icon: <Map className="w-4 h-4" />, color: "#06b6d4", desc: "Geolocalização de operações" },
     { label: "Diretório Importadores", href: "/landing/importadores", icon: <Database className="w-4 h-4" />, color: "#ef4444", desc: "Milhões de empresas por HS" },
     { label: "Supply Chain Map", href: "/landing/supply-chain", icon: <Globe className="w-4 h-4" />, color: "#D80E16", desc: "Mapa logístico global ao vivo" },
@@ -552,7 +551,7 @@ const PLANS = [
       "IA NCM ilimitada (via tanque)",
       "Import/Export Intelligence completo",
       "Todas as ferramentas liberadas",
-      "Smart Rank, Alertas, Análise Avançada",
+      "Alertas e Análise Avançada",
       "Suporte por email",
     ],
     unavailable: [
@@ -658,7 +657,7 @@ function PlansSection() {
 const FAQ = [
   {
     q: "O plano grátis tem limitações?",
-    a: "O plano Essential é gratuito e oferece acesso a estatísticas gerais e 2 consultas IA NCM por mês. Além disso, várias ferramentas são completamente gratuitas e nem exigem cadastro: Supply Chain Map (navios e aviões ao vivo), Track & Trace (rastreamento de cargas) e Rastreamento de Container. Para recursos avançados como Trade Intelligence e Smart Rank, recomendamos os planos Growth ou Business.",
+    a: "O plano Essential é gratuito e oferece acesso a estatísticas gerais e 2 consultas IA NCM por mês. Além disso, várias ferramentas são completamente gratuitas e nem exigem cadastro: Supply Chain Map (navios e aviões ao vivo), Track & Trace (rastreamento de cargas) e Rastreamento de Container. Para recursos avançados como Inteligência de Mercado e Análise de Importadores, recomendamos os planos Growth ou Business.",
   },
   {
     q: "Preciso pagar para testar as ferramentas?",

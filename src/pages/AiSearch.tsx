@@ -80,17 +80,41 @@ const AiSearch = () => {
   const [explicandoNcm, setExplicandoNcm] = useState<string | null>(null); // ncm sendo explicado
   const [explicacoesMap, setExplicacoesMap] = useState<Record<string, any>>({});
 
-  // Persist state to localStorage (survives tab switch + process kill)
-  // Salva tudo de uma vez no pagehide (mais eficiente que salvar a cada mudança)
+  // 🔒 Persistência IMEDIATA — salva a cada mudança de estado, não só no
+  // pagehide/visibilitychange. Isso garante que mesmo se o Chrome descartar
+  // a tab sem disparar eventos, o estado sobrevive ao recarregamento.
+  
+  // descricao: salva a cada keystroke (feito no onChange abaixo)
+  // searchResult, selectedNcm, selectedState: salva em useEffect
   useEffect(() => {
-    const handlePageHide = () => {
+    localStorage.setItem('ai_search_result', JSON.stringify(searchResult));
+  }, [searchResult]);
+  
+  useEffect(() => {
+    localStorage.setItem('ai_search_selected', JSON.stringify(selectedNcm));
+  }, [selectedNcm]);
+  
+  useEffect(() => {
+    localStorage.setItem('ai_search_state', selectedState);
+  }, [selectedState]);
+  
+  // Extra safety: save everything on pagehide AND visibilitychange
+  // (belt-and-suspenders — the immediate saves above are the primary defense)
+  useEffect(() => {
+    const saveAll = () => {
       localStorage.setItem('ai_search_result', JSON.stringify(searchResult));
       localStorage.setItem('ai_search_selected', JSON.stringify(selectedNcm));
       localStorage.setItem('ai_search_state', selectedState);
       localStorage.setItem('ai_search_desc', descricao);
     };
-    window.addEventListener('pagehide', handlePageHide);
-    return () => window.removeEventListener('pagehide', handlePageHide);
+    window.addEventListener('pagehide', saveAll);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) saveAll();
+    });
+    return () => {
+      window.removeEventListener('pagehide', saveAll);
+      document.removeEventListener('visibilitychange', saveAll);
+    };
   }, [searchResult, selectedNcm, selectedState, descricao]);
 
   // Cost per NCM detail click by plan
@@ -129,8 +153,10 @@ const AiSearch = () => {
     }
     setLoading(true);
     setError(null);
-    setSearchResult(null);
-    setSelectedNcm(null);
+    // Não limpa searchResult aqui — mantém resultados anteriores visíveis
+    // enquanto carrega. Só substitui quando a nova busca retornar.
+    // Isso evita que a página "desapareça" se o usuário trocar de aba
+    // durante o carregamento.
     setSelectedState("");
 
     try {
@@ -354,7 +380,7 @@ const AiSearch = () => {
                           placeholder="Ex: Blusa feminina de manga longa, 100% algodão, para uso casual" 
                           className="rounded-xl h-14 border-2 border-slate-200 font-medium text-base pl-4 pr-4 focus:border-red-500 focus:ring-4 focus:ring-red-100 transition-all" 
                           value={descricao} 
-                          onChange={(e) => setDescricao(e.target.value)} 
+                          onChange={(e) => { const v = e.target.value; setDescricao(v); localStorage.setItem('ai_search_desc', v); }} 
                         />
                       </div>
                     </div>

@@ -523,7 +523,7 @@ const MODULES = [
     desc: "Compare dois códigos NCM lado a lado. Volume, valor, países destino — tudo cruzado.",
     icon: Zap, color: "#F59E0B",
     features: ["Dual Compare", "Gráficos", "Timeline", "Exportar"],
-    to: "/ncm-comparison",
+
   },
   {
     title: "Alertas em Tempo Real",

@@ -589,7 +589,7 @@ const postTools: Record<
 > = {
   "classificacao-ncm-guia-completo": [
     { title: "Classificador NCM com IA", desc: "Classifique produtos automaticamente em segundos.", route: "/landing/ncm-classifier", icon: Sparkles, color: "#D80E16" },
-    { title: "Comparador de NCM", desc: "Compare códigos NCM lado a lado com alíquotas.", route: "/ncm-comparison", icon: ArrowRight, color: "#8b5cf6" },
+
     { title: "AI Search", desc: "Busca inteligente por NCM com IA.", route: "/ai-search", icon: Sparkles, color: "#06b6d4" },
   ],
   "calcular-imposto-importacao-brasil": [

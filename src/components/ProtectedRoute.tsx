@@ -21,6 +21,12 @@ export function ProtectedRoute({ children, requireAdmin = false, requireEmailCon
     return localStorage.getItem("tradexa_had_session") === "true";
   });
 
+  // Persist "email was confirmed" — prevents flicker/unmount during
+  // token refresh when email_confirmed_at might be briefly unavailable
+  const [hadEmailConfirmed, setHadEmailConfirmed] = useState(() => {
+    return localStorage.getItem("tradexa_email_confirmed") === "true";
+  });
+
   // Once we confirm a valid profile, remember it
   useEffect(() => {
     if (profile && !loading && !hadSession) {
@@ -29,11 +35,21 @@ export function ProtectedRoute({ children, requireAdmin = false, requireEmailCon
     }
   }, [profile, loading, hadSession]);
 
-  // Clear hadSession on explicit sign-out
+  // Once email is confirmed, remember it so re-auth doesn't nuke children
+  useEffect(() => {
+    if (emailConfirmed && !loading && !hadEmailConfirmed) {
+      localStorage.setItem("tradexa_email_confirmed", "true");
+      setHadEmailConfirmed(true);
+    }
+  }, [emailConfirmed, loading, hadEmailConfirmed]);
+
+  // Clear hadSession + hadEmailConfirmed on explicit sign-out
   useEffect(() => {
     const handler = () => {
       localStorage.removeItem("tradexa_had_session");
+      localStorage.removeItem("tradexa_email_confirmed");
       setHadSession(false);
+      setHadEmailConfirmed(false);
     };
     window.addEventListener("session-expiring", handler);
     return () => window.removeEventListener("session-expiring", handler);
@@ -47,8 +63,16 @@ export function ProtectedRoute({ children, requireAdmin = false, requireEmailCon
   }
 
   if (!profile) {
-    localStorage.removeItem("tradexa_had_session");
-    setHadSession(false);
+    // ⚠️ NUNCA chame setState durante render — causa React error #301 (loop infinito)
+    // Agendamos a limpeza pra depois do render com setTimeout
+    if (hadSession || hadEmailConfirmed) {
+      setTimeout(() => {
+        localStorage.removeItem("tradexa_had_session");
+        localStorage.removeItem("tradexa_email_confirmed");
+        setHadSession(false);
+        setHadEmailConfirmed(false);
+      }, 0);
+    }
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
@@ -79,7 +103,9 @@ export function ProtectedRoute({ children, requireAdmin = false, requireEmailCon
   }
 
   // Email confirmation check for paid features
-  if (requireEmailConfirmed && !emailConfirmed) {
+  // 🔧 Use hadEmailConfirmed as fallback — if user was previously confirmed,
+  // keep children mounted during token refresh (prevents page reset on tab switch)
+  if (requireEmailConfirmed && !emailConfirmed && !hadEmailConfirmed) {
     return (
       <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center p-4">
         <div className="text-center max-w-md">

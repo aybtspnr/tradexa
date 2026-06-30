@@ -52,8 +52,9 @@ export async function getCached(url: string, ttl = 3600000): Promise<any> {
   const data = await res.json();
   const entry = { data, ts: Date.now() };
   memCache.set(url, entry);
+  const ssStore = getLSCache();
   ssStore[url] = entry;
-  setSSCache(ssStore);
+  setLSCache(ssStore);
   return data;
 }
 
@@ -79,8 +80,9 @@ export async function postCached(url: string, body: any, ttl = 300000): Promise<
   const data = await res.json();
   const entry = { data, ts: Date.now() };
   memCache.set(key, entry);
-  ssStore[key] = entry;
-  setSSCache(ssStore);
+  const store = getLSCache();
+  store[key] = entry;
+  setLSCache(store);
   return data;
 }
 

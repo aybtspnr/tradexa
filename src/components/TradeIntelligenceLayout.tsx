@@ -143,7 +143,7 @@ const TradeIntelligenceLayout = ({
     {
       title: "Global",
       items: [
-        { to: "/ncm-comparison", icon: BarChart3, label: "Comparar NCMs" },
+
         { to: "/cross-data-comparison", icon: Globe, label: "Cross-Data" },
         { to: "/secoes/brasil-eua", icon: Globe, label: "Brasil ↔ EUA" },
       ],

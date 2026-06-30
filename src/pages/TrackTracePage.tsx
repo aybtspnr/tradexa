@@ -198,7 +198,7 @@ export default function TrackTracePage() {
     }
 
     const vsrc = map.getSource("vessels") as maplibregl.GeoJSONSource;
-    if (vsrc) vsrc.setData({ type: "FeatureCollection", features: fv.map(v => ({ type: "Feature", geometry: { type: "Point", coordinates: [v.lng, v.lat] }, properties: { mmsi: v.mmsi, name: v.name.trim(), speed: v.speed, heading: v.heading, destination: v.destination.trim(), eta: v.eta, callsign: v.callsign, shipType: v.shipType } })) });
+    if (vsrc) vsrc.setData({ type: "FeatureCollection", features: fv.map(v => ({ type: "Feature", geometry: { type: "Point", coordinates: [v.lng, v.lat] }, properties: { mmsi: v.mmsi, name: (v.name || "").trim(), speed: v.speed, heading: v.heading, destination: (v.destination || "").trim(), eta: v.eta || "", callsign: v.callsign || "", shipType: v.shipType } })) });
 
     const fsrc = map.getSource("flights") as maplibregl.GeoJSONSource;
     if (fsrc) fsrc.setData({ type: "FeatureCollection", features: ff.map(f => ({ type: "Feature", geometry: { type: "Point", coordinates: [f.lng, f.lat] }, properties: { callsign: f.callsign, alt: f.alt, heading: f.heading, speed_knots: f.speed_knots, model: f.model, icao24: f.icao24, registration: f.registration } })) });
@@ -210,7 +210,7 @@ export default function TrackTracePage() {
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           {selType === "vessel" ? <>
-            <Ship className="w-5 h-5 text-cyan-600" /><h3 className="font-bold text-lg truncate">{(selected as Vessel).name.trim()}</h3></> : <>
+            <Ship className="w-5 h-5 text-cyan-600" /><h3 className="font-bold text-lg truncate">{((selected as Vessel).name || "").trim()}</h3></> : <>
             <Plane className="w-5 h-5 text-red-600" /><h3 className="font-bold text-lg">{(selected as CargoFlight).callsign}</h3></>
           }
         </div>
@@ -222,8 +222,8 @@ export default function TrackTracePage() {
           <div><span className="text-gray-500">MMSI</span><p className="font-mono text-xs">{(selected as Vessel).mmsi}</p></div>
           <div><span className="text-gray-500">Velocidade</span><p className="font-medium">{(selected as Vessel).speed} knots</p></div>
           <div><span className="text-gray-500">Direção</span><p className="font-medium">{(selected as Vessel).heading}°</p></div>
-          <div className="col-span-2"><span className="text-gray-500">Destino</span><p className="font-medium">{(selected as Vessel).destination.trim() || "Não informado"}</p></div>
-          <div className="col-span-2"><span className="text-gray-500">Previsão</span><p className="font-medium">{(selected as Vessel).eta.trim() || "Não informado"}</p></div>
+          <div className="col-span-2"><span className="text-gray-500">Destino</span><p className="font-medium">{((selected as Vessel).destination || "").trim() || "Não informado"}</p></div>
+          <div className="col-span-2"><span className="text-gray-500">Previsão</span><p className="font-medium">{((selected as Vessel).eta || "").trim() || "Não informado"}</p></div>
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-3 text-sm">

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { comexstat } from "@/services/comexstat";
 import {
   Select,
   SelectContent,
@@ -43,7 +44,6 @@ interface MirrorData {
 
 const CENSUS_KEY = import.meta.env.VITE_CENSUS_API_KEY || "";
 const CENSUS_BASE = "https://api.census.gov/data/timeseries/intltrade/imports/hs";
-const COMEX_BASE = "https://api-comexstat.mdic.gov.br/general";
 
 /* ── Helpers ── */
 function fmtUSD(n: number): string {
@@ -64,18 +64,7 @@ async function fetchComexstatAnnual(
     filters: [{ filter: "country", values: [countryCode] }],
   };
 
-  const res = await fetch(COMEX_BASE, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
-
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err?.error?.message || `COMEXSTAT ${res.status}`);
-  }
-
-  const data = await res.json();
+  const data = await comexstat.queryGeneral(body);
   const list = data?.data?.list || [];
   for (const r of list) {
     if (r.country || r.metricFOB) {

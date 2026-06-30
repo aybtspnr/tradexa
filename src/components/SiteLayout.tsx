@@ -139,23 +139,22 @@ function SiteFooter() {
             ]},
             { title: "Inteligência", links: [
               { label: "AI Search", href: "/ai-search" },
-              { label: "Smart Rank", href: "/smart-rank" },
+
               { label: "HS Lookup EUA", href: "/hts-lookup" },
-              { label: "NCM Comparison", href: "/ncm-comparison" },
+
               { label: "Tarifário Global", href: "/global-tariff" },
               { label: "Inteligência Comercial", href: "/intelligence" },
-              { label: "Alertas de Tarifas", href: "/tariff-alerts" },
-              { label: "Diretório de Importadores", href: "/importadores" },
+              { label: "Diretório de Importadores", href: "/importadores" }, 
               { label: "Importadores Potenciais", href: "/potential-importers" },
               { label: "Mapa Comercial", href: "/importers-map" },
-              { label: "Comparar Países", href: "/country-comparison" },
-              { label: "Brasil ↔ EUA", href: "/us-trade" },
+
+
               { label: "Análise Avançada", href: "/trade-intelligence" },
               { label: "Supply Chain", href: "/supply-chain" },
               { label: "Notícias", href: "/noticias" },
             ]},
             { title: "Ferramentas", links: [
-              { label: "Simulador de Exportação", href: "/export-simulator" },
+
               { label: "Calculadora Incoterms", href: "/ferramentas/calculadora-incoterms" },
               { label: "Calculadora ACC/ACE", href: "/ferramentas/calculadora-acc-ace" },
               { label: "Calculadora de Drawback", href: "/ferramentas/calculadora-drawback" },
@@ -166,7 +165,7 @@ function SiteFooter() {
               { label: "Simulador de Acordos", href: "/ferramentas/simulador-acordos-comerciais" },
               { label: "Calculadora de Carbono", href: "/ferramentas/calculadora-carbono" },
               { label: "Calendário Aduaneiro", href: "/calendario-aduaneiro" },
-              { label: "Calendário Sazonal", href: "/seasonal-calendar" },
+
               { label: "Mapa de Frete", href: "/maritime-freight-map" },
               { label: "Track & Trace", href: "/track-trace" },
               { label: "Rastreamento de Carga", href: "/rastreamento" },

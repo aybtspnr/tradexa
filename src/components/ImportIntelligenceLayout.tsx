@@ -115,7 +115,7 @@ const ImportIntelligenceLayout = ({ children, title }: ImportIntelligenceLayoutP
       title: "Global",
       items: [
         { to: "/trade-intelligence", icon: Globe, label: "Trade Intelligence" },
-        { to: "/ncm-comparison", icon: BarChart3, label: "Comparar NCMs" },
+
         { to: "/cross-data-comparison", icon: Globe, label: "Cross-Data" },
       ],
     },

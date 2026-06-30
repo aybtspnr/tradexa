@@ -25,6 +25,7 @@ export interface FeatureAccessResult {
   label: string;
   lockedByPlan: boolean;
   lockedByQuota: boolean;
+  loading: boolean;
 }
 
 export function useFeatureAccess(featureKey: string): FeatureAccessResult {

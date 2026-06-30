@@ -14,6 +14,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import PageHeader from "@/components/PageHeader";
 import { TrxaButton, TrxaCard, TrxaKpi } from "@/components/premium";
 import { supabase } from "@/integrations/supabase/client";
+import { cachedInvoke } from "@/lib/cached-invoke";
 import { showError } from "@/utils/toast";
 
 const UF_OPTIONS = [
@@ -86,7 +87,7 @@ export default function CitySearch() {
     setLoading(true);
     try {
       const fn = tipo === "EXP" ? "export-data" : "import-data";
-      const { data, error } = await supabase.functions.invoke(fn, {
+      const { data, error } = await cachedInvoke(fn, {
         body: { tipo, modo: "dados", uf: selectedUf, ncm: "", pais: "", via: "", anoDe: "2025", anoAte: "2025", mesDe: "10", mesAte: "12" },
       });
       if (error) throw error;
@@ -145,7 +146,7 @@ export default function CitySearch() {
     try {
       const fn = tipo === "EXP" ? "export-data" : "import-data";
       // Fetch data for this UF to extract city-specific metrics
-      const { data, error } = await supabase.functions.invoke(fn, {
+      const { data, error } = await cachedInvoke(fn, {
         body: {
           tipo,
           modo: "dados",
@@ -290,7 +291,7 @@ export default function CitySearch() {
 
     try {
       const fn = tipo === "EXP" ? "export-data" : "import-data";
-      const { data, error } = await supabase.functions.invoke(fn, {
+      const { data, error } = await cachedInvoke(fn, {
         body: {
           tipo,
           modo: "buscar_cnpjs",

@@ -17,17 +17,24 @@ export function RoutePersistence() {
   const navigate = useNavigate();
   const { profile, loading } = useAuth();
 
-  // Salva a rota atual no pagehide (tab sendo descartada)
+  // Salva a rota atual no pagehide (tab sendo descartada) e no
+  // visibilitychange (tab indo pra background — defesa extra contra
+  // Chrome memory saver que pode descartar sem pagehide)
   useEffect(() => {
-    const handlePageHide = () => {
+    const saveRoute = () => {
       const path = location.pathname + location.search;
-      // Só salva rotas protegidas (dashboard)
       if (path.startsWith("/") && !["/login", "/register", "/"].includes(path)) {
         localStorage.setItem(LAST_ROUTE_KEY, path);
       }
     };
-    window.addEventListener("pagehide", handlePageHide);
-    return () => window.removeEventListener("pagehide", handlePageHide);
+    window.addEventListener("pagehide", saveRoute);
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) saveRoute();
+    });
+    return () => {
+      window.removeEventListener("pagehide", saveRoute);
+      document.removeEventListener("visibilitychange", saveRoute);
+    };
   }, [location]);
 
   // Na primeira montagem com perfil carregado, redireciona pra última rota

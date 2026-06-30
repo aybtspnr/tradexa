@@ -17,6 +17,7 @@ import { useSeo } from "@/hooks/use-seo";
 import { useUsage } from "@/hooks/use-usage";
 import { cn } from "@/lib/utils";
 import { getMunicipioNome } from "@/services/ibge";
+import { comexstat } from "@/services/comexstat";
 import { IntelExportData, exportIntelPDF, IntelExportCsv, exportIntelCSV } from "@/services/pdfExport";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, LineChart, Line } from "recharts";
 import { TradeGlobe, MapCity, MapCountry, CityCountryArc, CityCompanyInfo, CityCountryInfo } from "@/components/TradeGlobeLazy";
@@ -284,7 +285,7 @@ async function apiPost(url: string, body: any): Promise<any> {
   } catch { return null; }
 }
 async function searchNcm(text: string): Promise<NcmItem[]> {
-  const d = await apiGet(`/api/proxy/comexstat/tables/ncm?search=${encodeURIComponent(text)}&language=pt`);
+  const d = await comexstat.searchNCM(text);
   return (d?.data?.list || []).slice(0, 10).map((s: any) => ({ code: s.coNcm || "", desc: s.noNCM || "" }));
 }
 async function fetchIntelDetails(ncm: string, month?: string, year?: string, months?: number, minCapital?: number, minConfidence?: number): Promise<IntelDetails | "NETWORK_ERROR" | "NOT_FOUND" | "NO_DATA" | null> {
@@ -369,7 +370,7 @@ async function queryTrade(flow: string, ncms: string[], months: number, ufs: str
   if (ufs.length) filters.push({ filter: "state", values: ufs.map(u => UF_TO_IBGE[u]) });
   const allRows: TradeRow[] = [];
   for (const p of periods) {
-    const r = await apiPost("/api/proxy/comexstat/general", {
+    const r = await comexstat.queryGeneral({
       flow: flow === "import" ? "import" : "export",
       period: p, details: ["ncm", "country"], filters,
     });

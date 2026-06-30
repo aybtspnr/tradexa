@@ -60,6 +60,10 @@
       "destination": "https://ocivkbocmywinwqmaqac.supabase.co/functions/v1/us-census-trade"
     },
     {
+      "source": "/api/export-data-vps",
+      "destination": "http://129.121.98.20:5051/api/export-data"
+    },
+    {
       "source": "/api/hts-search",
       "destination": "http://129.121.98.20:5054/api/hts-search"
     },
@@ -145,7 +149,7 @@
     },
     {
       "source": "/api/proxy/comexstat/(.*)",
-      "destination": "https://api-comexstat.mdic.gov.br/$1"
+      "destination": "http://129.121.98.20:5057/api/v1/intel/comexstat/$1"
     },
     {
       "source": "/api/proxy/github-geo/(.*)",
@@ -167,14 +171,8 @@
       "source": "/contato",
       "destination": "/contato.html"
     },
-    {
-      "source": "/country-comparison",
-      "destination": "/country-comparison.html"
-    },
-    {
-      "source": "/export-simulator",
-      "destination": "/export-simulator.html"
-    },
+
+
     {
       "source": "/global-tariff",
       "destination": "/global-tariff.html"
@@ -207,10 +205,7 @@
       "source": "/maritime-freight-map",
       "destination": "/maritime-freight-map.html"
     },
-    {
-      "source": "/ncm-comparison",
-      "destination": "/ncm-comparison.html"
-    },
+
     {
       "source": "/pricing",
       "destination": "/pricing.html"
@@ -223,10 +218,7 @@
       "source": "/recursos",
       "destination": "/recursos.html"
     },
-    {
-      "source": "/smart-rank",
-      "destination": "/smart-rank.html"
-    },
+
     {
       "source": "/sobre",
       "destination": "/sobre.html"
@@ -347,10 +339,7 @@
       "source": "/trade-intelligence",
       "destination": "/trade-intelligence.html"
     },
-    {
-      "source": "/us-trade",
-      "destination": "/us-trade.html"
-    },
+
     {
       "source": "/us-trade-intelligence",
       "destination": "/us-trade-intelligence.html"
@@ -467,18 +456,9 @@
       "source": "/tarifario-global",
       "destination": "/global-tariff.html"
     },
-    {
-      "source": "/comparar-paises",
-      "destination": "/country-comparison.html"
-    },
-    {
-      "source": "/ranking-mercados",
-      "destination": "/smart-rank.html"
-    },
-    {
-      "source": "/simulador-exportacao",
-      "destination": "/export-simulator.html"
-    },
+
+
+
     {
       "source": "/cadeia-suprimentos",
       "destination": "/supply-chain.html"
@@ -491,14 +471,8 @@
       "source": "/inteligencia-comercial",
       "destination": "/intelligence.html"
     },
-    {
-      "source": "/comercio-brasil-eua",
-      "destination": "/us-trade.html"
-    },
-    {
-      "source": "/comparar-ncm",
-      "destination": "/ncm-comparison.html"
-    },
+
+
     {
       "source": "/tutorial",
       "destination": "/tutorial/index.html"

@@ -80,14 +80,10 @@ const LandingImportDashboard = lazy(() => import("./pages/landing/ImportDashboar
 const LandingImportSearch = lazy(() => import("./pages/landing/ImportSearchLanding"));
 const LandingImportMap = lazy(() => import("./pages/landing/ImportMapLanding"));
 const LandingExportDashboard = lazy(() => import("./pages/landing/ExportDashboardLanding"));
-const LandingExportOpportunities = lazy(() => import("./pages/landing/ExportOpportunitiesLanding"));
-const LandingGlobalExplorer = lazy(() => import("./pages/landing/GlobalExplorerLanding"));
 const LandingMarketIntelligence = lazy(() => import("./pages/landing/MarketIntelligenceLanding"));
 const LandingPriceArbitrage = lazy(() => import("./pages/landing/PriceArbitrageLanding"));
 const LandingNcmClassifier = lazy(() => import("./pages/landing/NcmClassifierLanding"));
 const LandingTariffCalculator = lazy(() => import("./pages/landing/TariffCalculatorLanding"));
-const LandingSmartAlerts = lazy(() => import("./pages/landing/SmartAlertsLanding"));
-const LandingExportWizard = lazy(() => import("./pages/landing/ExportWizardLanding"));
 const LandingImportadores = lazy(() => import("./pages/landing/ImportadoresLanding"));
 const LandingMaritimeFreight = lazy(() => import("./pages/landing/MaritimeFreightLanding"));
 const LandingMaritimeFreightMap = lazy(() => import("./pages/landing/MaritimeFreightMapLanding"));
@@ -107,33 +103,26 @@ const LandingCalculadoraDrawback = lazy(() => import("./pages/landing/Calculador
 const LandingCalculadoraCarbono = lazy(() => import("./pages/landing/CalculadoraCarbonoLanding"));
 const LandingSimuladorAcordosComerciais = lazy(() => import("./pages/landing/SimuladorAcordosComerciaisLanding"));
 const LandingNoticiasComex = lazy(() => import("./pages/landing/NoticiasComexLanding"));
-const IntelligenceDashboard = lazy(() => import("./pages/IntelligenceDashboard"));
+const IntelligenceHub = lazy(() => import("./pages/IntelligenceHub"));
 
 const LandingVendas = lazy(() => import("./pages/LandingVendas"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
 const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
 const SupplyChainPage = lazy(() => import("./pages/SupplyChainPage"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
-const CountryComparison = lazy(() => import("./pages/CountryComparison"));
-const ExportSimulator = lazy(() => import("./pages/ExportSimulator"));
-const SmartRank = lazy(() => import("./pages/SmartRank"));
-const TariffAlerts = lazy(() => import("./pages/TariffAlerts"));
 const ImportersMap = lazy(() => import("./pages/ImportersMap"));
-const SeasonalCalendar = lazy(() => import("./pages/SeasonalCalendar"));
 const Settings = lazy(() => import("./pages/Settings"));
 const HtsLookup = lazy(() => import("./pages/HtsLookup"));
-const UsTradeOverview = lazy(() => import("./pages/UsTradeOverview"));
 const UsTradeIntelligence = lazy(() => import("./pages/UsTradeIntelligence"));
-const AdminNcmManagement = lazy(() => import("./pages/AdminNcmManagement"));
-const AdminHsManagement = lazy(() => import("./pages/AdminHsManagement"));
+// const AdminNcmManagement removed
+// const AdminHsManagement removed
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminPanelDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const AdminUserManagement = lazy(() => import("./pages/admin/UserManagement"));
 const AdminServiceUsage = lazy(() => import("./pages/admin/ServiceUsage"));
-const AdminActivityLogs = lazy(() => import("./pages/admin/ActivityLogs"));
-const NcmComparison = lazy(() => import("./pages/NcmComparison"));
-const TradeIntelligence = lazy(() => import("./pages/TradeIntelligence"));
-const TradeCountries = lazy(() => import("./pages/trade-intelligence/TradeCountries"));
+// const AdminActivityLogs removed (route /admin/logs deleted)
+// const TradeIntelligence removed (route /trade-intelligence deleted)
+// const TradeCountries removed (route /trade-intelligence/countries deleted)
 const MaritimeFreight = lazy(() => import("./pages/MaritimeFreight"));
 const MaritimeFreightMap = lazy(() => import("./pages/MaritimeFreightMapPage"));
 const GlobalTariffLookup = lazy(() => import("./pages/GlobalTariffLookup"));
@@ -174,6 +163,15 @@ const PrevisaoComexQ3Page = lazy(() => import("./pages/blog/PrevisaoComexQ3Page"
 const TrackTracePage = lazy(() => import("./pages/TrackTracePage"));
 const HyosungPage = lazy(() => import("./pages/HyosungPage"));
 const InteligenciaCnaePage = lazy(() => import("./pages/MercadoInteligenciaPage"));
+
+// Novas páginas do Intelligence Hub
+const ExportImportData = lazy(() => import("./pages/ExportImportData"));
+const TradeNetwork = lazy(() => import("./pages/TradeNetwork"));
+const TradeRoutes = lazy(() => import("./pages/TradeRoutes"));
+const PeriodComparison = lazy(() => import("./pages/PeriodComparison"));
+const NcmExplorer = lazy(() => import("./pages/NcmExplorer"));
+const MarketReport = lazy(() => import("./pages/MarketReport"));
+const NewPlayers = lazy(() => import("./pages/NewPlayers"));
 
 const pageTransition = {
   initial: false,
@@ -353,14 +351,10 @@ function AnimatedRoutes() {
         <Route path="/landing/import-search" element={<AnimatedPage><LandingImportSearch /></AnimatedPage>} />
         <Route path="/landing/import-map" element={<AnimatedPage><LandingImportMap /></AnimatedPage>} />
         <Route path="/landing/export-dashboard" element={<AnimatedPage><LandingExportDashboard /></AnimatedPage>} />
-        <Route path="/landing/export-opportunities" element={<AnimatedPage><LandingExportOpportunities /></AnimatedPage>} />
-        <Route path="/landing/global-explorer" element={<AnimatedPage><LandingGlobalExplorer /></AnimatedPage>} />
         <Route path="/landing/market-intelligence" element={<AnimatedPage><LandingMarketIntelligence /></AnimatedPage>} />
         <Route path="/landing/price-arbitrage" element={<AnimatedPage><LandingPriceArbitrage /></AnimatedPage>} />
         <Route path="/landing/ncm-classifier" element={<AnimatedPage><LandingNcmClassifier /></AnimatedPage>} />
         <Route path="/landing/tariff-calculator" element={<AnimatedPage><LandingTariffCalculator /></AnimatedPage>} />
-        <Route path="/landing/smart-alerts" element={<AnimatedPage><LandingSmartAlerts /></AnimatedPage>} />
-        <Route path="/landing/export-wizard" element={<AnimatedPage><LandingExportWizard /></AnimatedPage>} />
         <Route path="/landing/importadores" element={<AnimatedPage><LandingImportadores /></AnimatedPage>} />
         <Route path="/landing/maritime-freight" element={<AnimatedPage><LandingMaritimeFreight /></AnimatedPage>} />
         <Route path="/landing/maritime-freight-map" element={<AnimatedPage><LandingMaritimeFreightMap /></AnimatedPage>} />
@@ -449,19 +443,17 @@ function AnimatedRoutes() {
         {/* ══════════════════════════════
             ROTAS PROTEGIDAS (com layout + auth)
             ══════════════════════════════ */}
-        <Route path="/country-comparison" element={<ProtectedPage featureKey="country_comparison"><CountryComparison /></ProtectedPage>} />
-        <Route path="/export-simulator" element={<ProtectedPage featureKey="export_simulator"><ExportSimulator /></ProtectedPage>} />
-        <Route path="/smart-rank" element={<ProtectedPage featureKey="smart_rank"><SmartRank /></ProtectedPage>} />
-        <Route path="/tariff-alerts" element={<ProtectedPage featureKey="tariff_alerts"><TariffAlerts /></ProtectedPage>} />
+
+
+
         <Route path="/importers-map" element={<ProtectedPage featureKey="importers_map"><ImportersMap /></ProtectedPage>} />
-        <Route path="/seasonal-calendar" element={<ProtectedPage featureKey="seasonal_calendar"><SeasonalCalendar /></ProtectedPage>} />
-      <Route path="/seasonal-alerts" element={<Navigate to="/seasonal-calendar" replace />} />
+
         <Route path="/dashboard" element={<ProtectedPage><Dashboard /></ProtectedPage>} />
-        <Route path="/intelligence" element={<ProtectedPage featureKey="market_intelligence"><IntelligenceDashboard /></ProtectedPage>} />
+        <Route path="/intelligence" element={<ProtectedPage featureKey="market_intelligence"><IntelligenceHub /></ProtectedPage>} />
         <Route path="/ai-search" element={<ProtectedPage featureKey="ai_search" requireEmailConfirmed><AiSearch /></ProtectedPage>} />
         <Route path="/hs-lookup" element={<Navigate to="/ai-search" replace />} />
         <Route path="/hts-lookup" element={<ProtectedPage featureKey="hts_lookup"><HtsLookup /></ProtectedPage>} />
-        <Route path="/us-trade" element={<ProtectedPage featureKey="us_trade"><UsTradeOverview /></ProtectedPage>} />
+
         <Route path="/us-trade-intelligence" element={<ProtectedPage featureKey="us_trade_intelligence"><UsTradeIntelligence /></ProtectedPage>} />
       <Route path="/price-arbitrage" element={<Navigate to="/importadores" replace />} />
         <Route path="/competitor-intel" element={<Navigate to="/importadores" replace />} />
@@ -473,36 +465,33 @@ function AnimatedRoutes() {
       <Route path="/import-export-data" element={<ProtectedFeature featureKey="import_export_data"><FullScreenPage><InteligenciaCnaePage /></FullScreenPage></ProtectedFeature>} />
       <Route path="/credits" element={<Navigate to="/plans" replace />} />
 
-      <Route path="/export-intelligence" element={<Navigate to="/trade-intelligence" replace />} />
-      <Route path="/export-intelligence/:sub" element={<Navigate to="/trade-intelligence" replace />} />
-      <Route path="/import-intelligence" element={<Navigate to="/trade-intelligence" replace />} />
-      <Route path="/import-intelligence/:sub" element={<Navigate to="/trade-intelligence" replace />} />
+      <Route path="/export-intelligence" element={<Navigate to="/intelligence" replace />} />
+      <Route path="/export-intelligence/:sub" element={<Navigate to="/intelligence" replace />} />
+      <Route path="/import-intelligence" element={<Navigate to="/intelligence" replace />} />
+      <Route path="/import-intelligence/:sub" element={<Navigate to="/intelligence" replace />} />
 
-        <Route path="/ncm-comparison" element={<ProtectedPage featureKey="ncm_comparison"><NcmComparison /></ProtectedPage>} />
-      <Route path="/cross-data-comparison" element={<Navigate to="/trade-intelligence" replace />} />
+
+      <Route path="/cross-data-comparison" element={<Navigate to="/intelligence" replace />} />
       <Route path="/suppliers" element={<Navigate to="/importadores" replace />} />
 
       {/* Portuguese URL aliases for SEO */}
       <Route path="/tarifario-global" element={<Navigate to="/global-tariff" replace />} />
-      <Route path="/comparar-paises" element={<Navigate to="/country-comparison" replace />} />
-      <Route path="/simulador-exportacao" element={<Navigate to="/export-simulator" replace />} />
+
       <Route path="/inteligencia-comercial" element={<Navigate to="/import-export-data" replace />} />
-      <Route path="/ranking-mercados" element={<Navigate to="/smart-rank" replace />} />
+
       <Route path="/cadeia-suprimentos" element={<Navigate to="/supply-chain" replace />} />
-      <Route path="/comparar-ncm" element={<Navigate to="/ncm-comparison" replace />} />
-      <Route path="/comercio-brasil-eua" element={<Navigate to="/us-trade" replace />} />
+
+
       <Route path="/mapa-frete-maritimo" element={<Navigate to="/maritime-freight-map" replace />} />
-        <Route path="/trade-intelligence" element={<ProtectedPage featureKey="trade_intelligence" requireEmailConfirmed><TradeIntelligence /></ProtectedPage>} />
-        <Route path="/trade-intelligence/countries" element={<ProtectedPage featureKey="trade_intelligence" requireEmailConfirmed><TradeCountries /></ProtectedPage>} />
-      <Route path="/trade-balance" element={<Navigate to="/trade-intelligence" replace />} />
+      <Route path="/trade-balance" element={<Navigate to="/intelligence" replace />} />
 
         {/* Admin (protegidas + requireAdmin) */}
         <Route path="/admin" element={<ProtectedPage requireAdmin><AdminPanelDashboard /></ProtectedPage>} />
         <Route path="/admin/users" element={<ProtectedPage requireAdmin><AdminUserManagement /></ProtectedPage>} />
         <Route path="/admin/usage" element={<ProtectedPage requireAdmin><AdminServiceUsage /></ProtectedPage>} />
-        <Route path="/admin/logs" element={<ProtectedPage requireAdmin><AdminActivityLogs /></ProtectedPage>} />
-        <Route path="/admin/ncm" element={<ProtectedPage requireAdmin><AdminNcmManagement /></ProtectedPage>} />
-        <Route path="/admin/hs" element={<ProtectedPage requireAdmin><AdminHsManagement /></ProtectedPage>} />
+        <Route path="/admin/logs" element={<ProtectedPage requireAdmin><AdminDashboard /></ProtectedPage>} />
+        <Route path="/admin/ncm" element={<ProtectedPage requireAdmin><AdminDashboard /></ProtectedPage>} />
+        <Route path="/admin/hs" element={<ProtectedPage requireAdmin><AdminDashboard /></ProtectedPage>} />
         <Route path="/admin/legacy" element={<ProtectedPage requireAdmin><AdminDashboard /></ProtectedPage>} />
 
         <Route path="/settings" element={<ProtectedPage><Settings /></ProtectedPage>} />
@@ -516,10 +505,10 @@ function AnimatedRoutes() {
       <Route path="/export-opportunities" element={<Navigate to="/importadores" replace />} />
       <Route path="/trade-news" element={<Navigate to="/importadores" replace />} />
         <Route path="/global-tariff" element={<ProtectedPage featureKey="global_tariff" requireEmailConfirmed><GlobalTariffLookup /></ProtectedPage>} />
-      <Route path="/market-intelligence" element={<Navigate to="/trade-intelligence" replace />} />
+      <Route path="/market-intelligence" element={<Navigate to="/intelligence" replace />} />
       <Route path="/export-wizard" element={<Navigate to="/ai-search" replace />} />
         <Route path="/potential-importers" element={<ProtectedPage featureKey="potential_importers"><PotentialImporters /></ProtectedPage>} />
-        <Route path="/global-trade" element={<Navigate to="/trade-intelligence" replace />} />
+        <Route path="/global-trade" element={<Navigate to="/intelligence" replace />} />
         <Route path="/importadores" element={<ProtectedPage featureKey="importadores" requireEmailConfirmed><ImportadoresLanding /></ProtectedPage>} />
         <Route path="/importadores-hs/:hs" element={<ProtectedPage featureKey="importadores"><ImportadoresHs /></ProtectedPage>} />
       <Route path="/wizard" element={<Navigate to="/ai-search" replace />} />
@@ -548,6 +537,22 @@ function AnimatedRoutes() {
         <Route path="/tutorial/trade-intelligence" element={<AnimatedPage><TutorialTradeIntelligencePage /></AnimatedPage>} />
         <Route path="/tutorial/importadores" element={<AnimatedPage><TutorialImportadoresPage /></AnimatedPage>} />
         <Route path="/tutorial/calculadora-importacao" element={<AnimatedPage><TutorialCalculadoraPage /></AnimatedPage>} />
+
+        {/* ══════════════════════════════
+            NOVAS ROTAS DO INTELLIGENCE HUB
+            ══════════════════════════════ */}
+        <Route path="/export-import-data" element={<ProtectedPage featureKey="market_intelligence"><ExportImportData /></ProtectedPage>} />
+        <Route path="/trade-network" element={<ProtectedPage featureKey="market_intelligence"><TradeNetwork /></ProtectedPage>} />
+        <Route path="/trade-network/:ncm" element={<ProtectedPage featureKey="market_intelligence"><TradeNetwork /></ProtectedPage>} />
+        <Route path="/trade-routes" element={<ProtectedPage featureKey="market_intelligence"><TradeRoutes /></ProtectedPage>} />
+        <Route path="/trade-routes/:ncm" element={<ProtectedPage featureKey="market_intelligence"><TradeRoutes /></ProtectedPage>} />
+        <Route path="/period-comparison" element={<ProtectedPage featureKey="market_intelligence"><PeriodComparison /></ProtectedPage>} />
+        <Route path="/period-comparison/:ncm" element={<ProtectedPage featureKey="market_intelligence"><PeriodComparison /></ProtectedPage>} />
+        <Route path="/ncm-explorer" element={<ProtectedPage featureKey="market_intelligence"><NcmExplorer /></ProtectedPage>} />
+        <Route path="/market-report" element={<ProtectedPage featureKey="market_intelligence"><MarketReport /></ProtectedPage>} />
+        <Route path="/market-report/:ncm" element={<ProtectedPage featureKey="market_intelligence"><MarketReport /></ProtectedPage>} />
+        <Route path="/new-players" element={<ProtectedPage featureKey="market_intelligence"><NewPlayers /></ProtectedPage>} />
+        <Route path="/new-players/:ncm" element={<ProtectedPage featureKey="market_intelligence"><NewPlayers /></ProtectedPage>} />
 
         <Route path="*" element={<AnimatedPage><NotFoundPage /></AnimatedPage>} />
       </Routes>

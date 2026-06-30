@@ -83,7 +83,7 @@ const personas: Persona[] = [
       "Dificuldade em identificar mercados emergentes",
     ],
     solutionTools: [
-      { name: "Smart Rank", desc: "Ranking de países por oportunidade de exportação", route: "/smart-rank" },
+
       { name: "Trade Intelligence", desc: "Análise de fluxo comercial e tendências", route: "/trade-intelligence" },
       { name: "Mapa de Frete", desc: "Cotações reais entre portos globais", route: "/maritime-freight-map" },
     ],
@@ -139,7 +139,7 @@ const personas: Persona[] = [
       "Necessidade de compliance com múltiplos países",
     ],
     solutionTools: [
-      { name: "NCM Comparison", desc: "Compare códigos e alíquotas entre categorias", route: "/ncm-comparison" },
+
       { name: "Trade Intelligence", desc: "Monitoramento de fluxo de peças globais", route: "/trade-intelligence" },
       { name: "Alertas", desc: "Notificações proativas sobre mudanças regulatórias", route: "/landing/smart-alerts" },
     ],

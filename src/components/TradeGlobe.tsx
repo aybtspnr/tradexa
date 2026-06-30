@@ -186,10 +186,13 @@ function TradeGlobeInner({
             "star-intensity": 0.6,
           });
         } catch (e) { /* */ }
+        // Only mark ready after style is fully loaded — prevents
+        // "Style is not done loading" when addSource fires too early
+        // (e.g. after tab switch / React re-render)
+        mapRef.current = map;
+        setMapReady(true);
       });
       map.addControl(new maplibregl.NavigationControl(), "bottom-right");
-      mapRef.current = map;
-      setMapReady(true);
     } catch (e) {
       console.error("Map init failed:", e);
     }
@@ -202,6 +205,10 @@ function TradeGlobeInner({
   const updateVisuals = useCallback(() => {
     const map = mapRef.current;
     if (!map || !coordsLoaded || !paisCoordsLoaded) return;
+    // Guard against "Style is not done loading" — if the map's style
+    // isn't ready yet (e.g. tab was backgrounded), bail out.
+    // mapReady will trigger a re-run when the style finishes loading.
+    if (!map.isStyleLoaded()) return;
 
     markersRef.current.forEach(m => m.remove());
     markersRef.current = [];
