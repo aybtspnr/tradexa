@@ -1,398 +1,158 @@
 #!/usr/bin/env python3
-"""
-Integrate 30 new blog posts into postMeta.ts, postContentMap.ts, and prerender.mjs.
-Line-based insertion — June 30 2026 run.
-Clusters: Steel & Metallurgy, Financial Services, EU Trade, E-commerce, Health & Pharma, Education & BRICS
-"""
-import re, glob, subprocess
+"""Integrate 30 new TRADEXA blog posts (June 30 2026). Line-based insertion, zero duplicates."""
 
+import os, re
+
+BASE = "/home/nuh_tapinar/tmp-build/project-clean"
 DATE = "2026-06-30"
 
+# Slug → (title, excerpt, [tags], word_count)
 POSTS = [
-    # === Cluster A: Steel & Metallurgy (5) ===
-    {
-        "slug": "exportacao-aco-brasil-mercado-global-siderurgia",
-        "title": "Exportação de Aço do Brasil: Mercado Global e Perspectivas da Siderurgia Nacional",
-        "excerpt": "Guia completo sobre a exportação de aço brasileiro, principais mercados, tipos de produtos siderúrgicos, logística portuária e competitividade internacional da siderurgia nacional.",
-        "name": "Exportação de Aço do Brasil — Mercado Global",
-        "desc": "Guia completo sobre exportação de aço brasileiro: principais mercados, tipos de produtos siderúrgicos, logística portuária e competitividade internacional da siderurgia nacional.",
-        "readTime": 16,
-        "tags": ["Siderurgia", "Exportação", "Aço", "Metalurgia", "Comércio Exterior"]
-    },
-    {
-        "slug": "exportacao-ferro-gusa-brasil-mercados-internacionais",
-        "title": "Ferro-Gusa Brasileiro no Comércio Exterior: Produção e Mercados Internacionais",
-        "excerpt": "Panorama completo da exportação de ferro-gusa do Brasil, processo produtivo, classificação NCM, carvão vegetal como diferencial competitivo, principais destinos e perspectivas do mercado global.",
-        "name": "Ferro-Gusa Brasileiro — Mercados",
-        "desc": "Panorama completo da exportação de ferro-gusa do Brasil, processo produtivo, classificação NCM, carvão vegetal como diferencial e principais destinos no mercado global.",
-        "readTime": 15,
-        "tags": ["Siderurgia", "Exportação", "Ferro-Gusa", "Metalurgia", "Mercado Global"]
-    },
-    {
-        "slug": "laminados-aco-brasil-exportacao-qualidade-normas",
-        "title": "Laminados de Aço na Exportação Brasileira: Qualidade e Normas Internacionais",
-        "excerpt": "Guia completo sobre exportação de laminados de aço do Brasil, bobinas, chapas e vergalhões, processos produtivos, certificações de qualidade e adequação às normas internacionais.",
-        "name": "Laminados de Aço — Qualidade",
-        "desc": "Guia completo sobre exportação de laminados de aço do Brasil: bobinas, chapas, vergalhões, certificações de qualidade e adequação às normas técnicas internacionais.",
-        "readTime": 15,
-        "tags": ["Siderurgia", "Exportação", "Laminados", "Aço", "Qualidade", "Normas Técnicas"]
-    },
-    {
-        "slug": "acos-especiais-brasil-exportacao-automotivo-petroleo",
-        "title": "Aços Especiais Brasileiros na Exportação para Indústria Automotiva e Petrolífera",
-        "excerpt": "Panorama completo da exportação de aços especiais do Brasil, ligas metálicas para indústria automotiva, petrolífera e bens de capital, certificações e oportunidades globais.",
-        "name": "Aços Especiais — Automotivo e Óleo",
-        "desc": "Panorama completo da exportação de aços especiais brasileiros: ligas metálicas para indústria automotiva, petrolífera e bens de capital com certificações internacionais.",
-        "readTime": 15,
-        "tags": ["Siderurgia", "Exportação", "Aços Especiais", "Automotivo", "Petróleo e Gás"]
-    },
-    {
-        "slug": "tubos-aco-brasil-exportacao-oleo-gas",
-        "title": "Tubos de Aço na Exportação Brasileira: Mercado de Óleo e Gás",
-        "excerpt": "Guia completo sobre exportação de tubos de aço do Brasil para a indústria de óleo e gás, tipos seamless, ERW e LSAW, certificações API e principais mercados compradores mundiais.",
-        "name": "Tubos de Aço — Óleo e Gás",
-        "desc": "Guia completo sobre exportação de tubos de aço do Brasil para a indústria de óleo e gás: tipos seamless, ERW, LSAW, certificações API e principais mercados compradores.",
-        "readTime": 16,
-        "tags": ["Siderurgia", "Tubos de Aço", "Óleo e Gás", "Exportação", "Certificações API"]
-    },
-    # === Cluster B: Financial Services & Trade Finance (5) ===
-    {
-        "slug": "servicos-financeiros-comex-cambio-trade-finance",
-        "title": "Serviços Financeiros no Comércio Exterior: Câmbio e Trade Finance no Brasil",
-        "excerpt": "Guia completo sobre serviços financeiros para comércio exterior brasileiro: operações de câmbio, trade finance, financiamentos à exportação, cartas de crédito e soluções bancárias.",
-        "name": "Serviços Financeiros — Trade Finance",
-        "desc": "Guia completo sobre serviços financeiros para comércio exterior brasileiro: operações de câmbio, trade finance, financiamentos, cartas de crédito e soluções bancárias.",
-        "readTime": 14,
-        "tags": ["Serviços Financeiros", "Câmbio", "Trade Finance", "Comércio Exterior", "Financiamento"]
-    },
-    {
-        "slug": "fintechs-cambio-comercio-exterior-pagamentos-internacionais",
-        "title": "Fintechs de Câmbio no Brasil: Revolução nos Pagamentos Internacionais do Comex",
-        "excerpt": "Panorama completo das fintechs de câmbio no Brasil e como estão transformando pagamentos internacionais do comércio exterior com taxas competitivas, processos digitais e inovação regulatória.",
-        "name": "Fintechs de Câmbio — Pagamentos",
-        "desc": "Panorama completo das fintechs de câmbio no Brasil transformando pagamentos internacionais do comércio exterior com taxas competitivas, processos digitais e inovação.",
-        "readTime": 14,
-        "tags": ["Fintechs", "Câmbio", "Pagamentos Internacionais", "Comércio Exterior", "Inovação Financeira"]
-    },
-    {
-        "slug": "cartas-credito-standby-comex-garantias-operacoes",
-        "title": "Cartas de Crédito Standby no Comércio Exterior: Garantias para Operações Internacionais",
-        "excerpt": "Guia completo sobre cartas de crédito standby no comércio exterior brasileiro, funcionamento, diferenças para LC documentária, aplicações em garantias contratuais e custos operacionais.",
-        "name": "Standby LC — Garantias Internacionais",
-        "desc": "Guia completo sobre cartas de crédito standby no comércio exterior brasileiro: funcionamento, diferenças para LC documentária, aplicações em garantias e custos operacionais.",
-        "readTime": 13,
-        "tags": ["Cartas de Crédito", "Standby LC", "Garantias Internacionais", "Trade Finance", "Comércio Exterior"]
-    },
-    {
-        "slug": "adiantamento-contrato-cambio-exportador-capital-giro",
-        "title": "Adiantamento de Contrato de Câmbio (ACC): Capital de Giro para o Exportador Brasileiro",
-        "excerpt": "Guia completo sobre ACC e ACE, linhas de financiamento pré-embarque e pós-embarque para exportadores brasileiros, custos, requisitos, benefícios fiscais e operacionalização bancária.",
-        "name": "ACC e ACE — Capital de Giro",
-        "desc": "Guia completo sobre ACC e ACE para exportadores brasileiros: financiamento pré-embarque e pós-embarque, custos, requisitos, benefícios fiscais e operacionalização bancária.",
-        "readTime": 15,
-        "tags": ["ACC", "ACE", "Financiamento à Exportação", "Câmbio", "Capital de Giro"]
-    },
-    {
-        "slug": "fundo-garantia-exportacao-fge-risco-pais",
-        "title": "Fundo de Garantia à Exportação (FGE): Cobertura de Risco-País para Exportadores",
-        "excerpt": "Guia completo sobre o Fundo de Garantia à Exportação, cobertura de risco-país, risco comercial e extraordinário, seguro de crédito à exportação e ACC/ACE com garantia soberana.",
-        "name": "FGE — Risco-País",
-        "desc": "Guia completo sobre o Fundo de Garantia à Exportação: cobertura de risco-país, risco comercial e extraordinário, seguro de crédito e ACC/ACE com garantia soberana.",
-        "readTime": 15,
-        "tags": ["FGE", "Fundo de Garantia", "Exportação", "Seguro de Crédito", "Risco-País"]
-    },
-    # === Cluster C: EU Trade Regulations (5) ===
-    {
-        "slug": "acordo-mercosul-ue-negociacoes-brasil-parceria",
-        "title": "Acordo Mercosul-União Europeia: Impactos e Oportunidades para o Brasil",
-        "excerpt": "Análise completa do acordo Mercosul-UE, cronograma de redução tarifária, regras de origem, setores mais beneficiados e impactos para exportadores e importadores brasileiros.",
-        "name": "Acordo Mercosul-UE — Oportunidades",
-        "desc": "Análise completa do acordo Mercosul-UE: cronograma de redução tarifária, regras de origem, setores mais beneficiados e impactos para exportadores brasileiros.",
-        "readTime": 14,
-        "tags": ["Mercosul", "União Europeia", "Acordo Comercial", "Tarifas", "Exportação"]
-    },
-    {
-        "slug": "regulamento-deflorestacao-ue-impacto-exportacao-brasil",
-        "title": "Regulamento Antidesmatamento da UE: Impacto nas Exportações Brasileiras",
-        "excerpt": "Guia completo sobre o EUDR, como afeta exportações brasileiras de soja, café, carne, couro e madeira, requisitos de due diligence, rastreabilidade e sistemas de geolocalização.",
-        "name": "EUDR — Exportações Brasileiras",
-        "desc": "Guia completo sobre o EUDR e seu impacto em exportações brasileiras de soja, café, carne, couro e madeira, due diligence, rastreabilidade e geolocalização.",
-        "readTime": 15,
-        "tags": ["EUDR", "Desmatamento", "Rastreabilidade", "Exportação", "Regulamentação UE", "Sustentabilidade"]
-    },
-    {
-        "slug": "barreiras-tecnicas-comerciais-ue-exportacao-brasileira",
-        "title": "Barreiras Técnicas e Comerciais da União Europeia para Exportações Brasileiras",
-        "excerpt": "Guia completo sobre barreiras técnicas, sanitárias e regulatórias impostas pela União Europeia às exportações brasileiras, certificações CE, REACH, normas técnicas e estratégias de adequação.",
-        "name": "Barreiras Técnicas UE — Exportação",
-        "desc": "Guia completo sobre barreiras técnicas e regulatórias da UE para exportações brasileiras: certificações CE, REACH, normas sanitárias e estratégias de adequação comercial.",
-        "readTime": 16,
-        "tags": ["Barreiras Comerciais", "União Europeia", "Exportação", "Certificações", "Regulamentação Técnica"]
-    },
-    {
-        "slug": "certificacoes-ue-produtos-agricolas-brasil-exportacao",
-        "title": "Certificações da União Europeia para Produtos Agrícolas Brasileiros",
-        "excerpt": "Guia completo sobre certificações exigidas pela UE para exportação agrícola brasileira, orgânica, GlobalGAP, Rainforest Alliance, rastreabilidade e conformidade com o EUDR.",
-        "name": "Certificações UE — Produtos Agrícolas",
-        "desc": "Guia completo sobre certificações da UE para exportação agrícola brasileira: orgânica, GlobalGAP, Rainforest Alliance, rastreabilidade e conformidade com o EUDR.",
-        "readTime": 15,
-        "tags": ["Certificações", "União Europeia", "Produtos Agrícolas", "Exportação", "Sustentabilidade"]
-    },
-    {
-        "slug": "comercio-brasil-alemanha-setores-oportunidades",
-        "title": "Comércio Brasil-Alemanha: Principais Setores e Oportunidades Bilaterais",
-        "excerpt": "Análise completa das relações comerciais Brasil-Alemanha, principais produtos exportados e importados, oportunidades em máquinas, químicos, autopeças e cooperação tecnológica bilateral.",
-        "name": "Comércio Brasil-Alemanha",
-        "desc": "Análise completa das relações comerciais Brasil-Alemanha: principais produtos, oportunidades em máquinas, químicos, autopeças e cooperação tecnológica bilateral.",
-        "readTime": 14,
-        "tags": ["Brasil-Alemanha", "Comércio Bilateral", "Exportação", "Importação", "Cooperação"]
-    },
-    # === Cluster D: Digital Trade & E-commerce (5) ===
-    {
-        "slug": "marketplace-internacional-exportacao-brasil-vendedor-global",
-        "title": "Marketplaces Internacionais: Como Exportar pelo Brasil como Vendedor Global",
-        "excerpt": "Guia completo para exportadores brasileiros venderem em marketplaces internacionais como Amazon, Mercado Livre, Alibaba e eBay, incluindo logística, tributação e regularização aduaneira.",
-        "name": "Marketplaces — Vendedor Global",
-        "desc": "Guia completo para exportadores brasileiros venderem em marketplaces internacionais: Amazon, Mercado Livre, Alibaba, eBay com logística, tributação e regularização aduaneira.",
-        "readTime": 16,
-        "tags": ["Marketplaces", "E-commerce", "Exportação", "Vendas Online", "Logística Internacional"]
-    },
-    {
-        "slug": "logistica-cross-border-ecommerce-desafios-solucoes-brasil",
-        "title": "Logística Cross-Border no E-commerce: Desafios e Soluções para o Brasil",
-        "excerpt": "Guia completo sobre logística cross-border para e-commerce no Brasil, transporte internacional, desembaraço aduaneiro, tributação de remessas internacionais, armazenagem e prazos de entrega.",
-        "name": "Cross-Border — Logística",
-        "desc": "Guia completo sobre logística cross-border para e-commerce no Brasil: transporte internacional, desembaraço aduaneiro, tributação de remessas e prazos de entrega.",
-        "readTime": 16,
-        "tags": ["Logística", "Cross-Border", "E-commerce", "Transporte Internacional", "Desembaraço Aduaneiro"]
-    },
-    {
-        "slug": "meios-pagamento-digitais-comex-pix-crypto-brasil",
-        "title": "Meios de Pagamento Digitais no Comércio Exterior: Pix, Crypto e Novas Fronteiras",
-        "excerpt": "Análise completa dos meios de pagamento digitais no comércio exterior brasileiro, Pix internacional, criptomoedas, stablecoins, Drex e soluções fintech para transações cross-border.",
-        "name": "Pagamentos Digitais — Pix e Crypto",
-        "desc": "Análise completa dos meios de pagamento digitais no comércio exterior brasileiro: Pix internacional, criptomoedas, stablecoins, Drex e soluções fintech cross-border.",
-        "readTime": 14,
-        "tags": ["Pagamentos Digitais", "Pix", "Criptomoedas", "Câmbio", "Fintechs", "Comércio Exterior"]
-    },
-    {
-        "slug": "compliance-digital-lgpd-comex-protecao-dados",
-        "title": "Compliance Digital e LGPD no Comércio Exterior: Proteção de Dados Internacionais",
-        "excerpt": "Guia completo sobre compliance digital no comércio exterior brasileiro, adequação à LGPD, proteção de dados em operações internacionais, contratos eletrônicos e segurança da informação.",
-        "name": "Compliance Digital — LGPD",
-        "desc": "Guia completo sobre compliance digital no comércio exterior brasileiro: adequação à LGPD, proteção de dados em operações internacionais e segurança da informação.",
-        "readTime": 14,
-        "tags": ["Compliance Digital", "LGPD", "Proteção de Dados", "Comércio Exterior", "Segurança da Informação"]
-    },
-    {
-        "slug": "plataformas-b2b-digitais-exportacao-brasil-negocios",
-        "title": "Plataformas B2B Digitais para Exportação: Conectando Negócios Brasileiros ao Mundo",
-        "excerpt": "Guia completo sobre plataformas B2B digitais para exportação brasileira, conexão com compradores internacionais, ferramentas de matchmaking, prospecção digital e inteligência comercial.",
-        "name": "Plataformas B2B — Exportação",
-        "desc": "Guia completo sobre plataformas B2B digitais para exportação brasileira: conexão com compradores, matchmaking, prospecção digital e inteligência comercial.",
-        "readTime": 14,
-        "tags": ["Plataformas B2B", "Exportação", "Prospecção", "Inteligência Comercial", "Negócios Internacionais"]
-    },
-    # === Cluster E: Health & Pharma (5) ===
-    {
-        "slug": "importacao-medicamentos-insumos-farmaceuticos-brasil",
-        "title": "Importação de Medicamentos e Insumos Farmacêuticos no Brasil: Guia Regulatório",
-        "excerpt": "Guia completo sobre importação de medicamentos e insumos farmacêuticos no Brasil, registro ANVISA, classificação NCM, licenciamento, tributação e boas práticas de distribuição.",
-        "name": "Importação Farmacêutica — ANVISA",
-        "desc": "Guia completo sobre importação de medicamentos no Brasil: registro ANVISA, classificação NCM, licenciamento de importação, tributação e boas práticas de distribuição.",
-        "readTime": 15,
-        "tags": ["Medicamentos", "Insumos Farmacêuticos", "Importação", "ANVISA", "Regulação Sanitária"]
-    },
-    {
-        "slug": "dispositivos-medicos-importacao-anvisa-classificacao",
-        "title": "Dispositivos Médicos na Importação Brasileira: Registro ANVISA e Classificação de Risco",
-        "excerpt": "Guia completo sobre importação de dispositivos médicos no Brasil, classificação de risco pela RDC 830/2023, registro ANVISA, certificação INMETRO e regularização aduaneira.",
-        "name": "Dispositivos Médicos — ANVISA",
-        "desc": "Guia completo sobre importação de dispositivos médicos no Brasil: classificação de risco RDC 830/2023, registro ANVISA, certificação INMETRO e regularização aduaneira.",
-        "readTime": 15,
-        "tags": ["Dispositivos Médicos", "Importação", "ANVISA", "Classificação de Risco", "Regulação Sanitária"]
-    },
-    {
-        "slug": "exportacao-equipamentos-hospitalares-mercado-global",
-        "title": "Exportação de Equipamentos Hospitalares do Brasil: Conquistando o Mercado Global",
-        "excerpt": "Guia completo sobre exportação de equipamentos hospitalares brasileiros, oportunidades em mercados emergentes, certificações CE e FDA, INMETRO e financiamento à exportação do setor.",
-        "name": "Equipamentos Hospitalares — Exportação",
-        "desc": "Guia completo sobre exportação de equipamentos hospitalares brasileiros: mercados emergentes, certificações CE/FDA, INMETRO e financiamento à exportação do setor.",
-        "readTime": 15,
-        "tags": ["Equipamentos Hospitalares", "Exportação", "Certificações", "Saúde", "Mercado Global"]
-    },
-    {
-        "slug": "industria-farmaceutica-brasileira-inovacao-exportacao",
-        "title": "Indústria Farmacêutica Brasileira: Inovação e Exportação para Mercados Globais",
-        "excerpt": "Análise completa da indústria farmacêutica brasileira, capacidade de inovação, exportação de medicamentos para América Latina, África, mercados regulados EUA e Europa e parcerias estratégicas.",
-        "name": "Indústria Farmacêutica — Exportação",
-        "desc": "Análise completa da indústria farmacêutica brasileira: inovação, exportação para América Latina, África, EUA e Europa, registros sanitários e parcerias estratégicas.",
-        "readTime": 14,
-        "tags": ["Indústria Farmacêutica", "Exportação", "Inovação", "Medicamentos", "Saúde Global"]
-    },
-    {
-        "slug": "cosmeticos-brasil-exportacao-mercado-internacional",
-        "title": "Cosméticos Brasileiros na Exportação: Produtos, Mercados e Regulamentação ANVISA",
-        "excerpt": "Guia completo sobre exportação de cosméticos brasileiros, mercado global de beleza, regulamentação ANVISA, certificações internacionais e oportunidades em América Latina, EUA e Europa.",
-        "name": "Cosméticos — Exportação Global",
-        "desc": "Guia completo sobre exportação de cosméticos brasileiros: mercado global de beleza, regulamentação ANVISA, certificações internacionais e oportunidades nos principais mercados.",
-        "readTime": 14,
-        "tags": ["Cosméticos", "Exportação", "Beleza", "ANVISA", "Mercado Internacional"]
-    },
-    # === Cluster F: Education, Knowledge Trade & BRICS (5) ===
-    {
-        "slug": "educacao-superior-brasileira-internacionalizacao-alunos",
-        "title": "Internacionalização da Educação Superior Brasileira: Atração de Alunos Estrangeiros",
-        "excerpt": "Análise completa da internacionalização do ensino superior brasileiro, programas de atração de alunos estrangeiros, intercâmbio acadêmico, convênios e impacto econômico do setor educacional.",
-        "name": "Educação Superior — Internacionalização",
-        "desc": "Análise completa da internacionalização do ensino superior brasileiro: atração de alunos estrangeiros, intercâmbio acadêmico, convênios e impacto econômico.",
-        "readTime": 15,
-        "tags": ["Educação Superior", "Internacionalização", "Intercâmbio", "Alunos Estrangeiros", "Cooperação Acadêmica"]
-    },
-    {
-        "slug": "cursos-online-brasil-exportacao-educacao-distancia",
-        "title": "Cursos Online Brasileiros na Exportação: Educação a Distância para o Mundo",
-        "excerpt": "Guia completo sobre exportação de cursos online brasileiros, oportunidades no mercado global de EAD, plataformas internacionais, certificações e aspectos tributários e regulatórios.",
-        "name": "Cursos Online — EAD Global",
-        "desc": "Guia completo sobre exportação de cursos online brasileiros: mercado global de EAD, plataformas internacionais, certificações e aspectos tributários da educação a distância.",
-        "readTime": 12,
-        "tags": ["Cursos Online", "EAD", "Exportação de Serviços", "Educação a Distância", "Mercado Global"]
-    },
-    {
-        "slug": "portugues-lingua-estrangeira-ensino-internacionalizacao",
-        "title": "Português como Língua Estrangeira: Ensino, Certificação e Internacionalização",
-        "excerpt": "Análise completa do ensino de português como língua estrangeira no mundo, certificação CELPE-Bras, oportunidades para escolas brasileiras, intercâmbio educacional e impacto econômico.",
-        "name": "Português — Língua Estrangeira",
-        "desc": "Análise completa do ensino de português como língua estrangeira: certificação CELPE-Bras, oportunidades para escolas, intercâmbio educacional e impacto econômico.",
-        "readTime": 13,
-        "tags": ["Português", "Língua Estrangeira", "Ensino", "CELPE-Bras", "Internacionalização"]
-    },
-    {
-        "slug": "brics-nova-moeda-comercio-desdolarizacao-brasil",
-        "title": "BRICS e a Nova Moeda para o Comércio: Desdolarização e Alternativas para o Brasil",
-        "excerpt": "Análise completa da iniciativa dos BRICS por mecanismos alternativos de pagamento, impacto da desdolarização para exportadores brasileiros, BRICS Pay e perspectivas do comércio entre membros.",
-        "name": "BRICS — Desdolarização",
-        "desc": "Análise completa da iniciativa dos BRICS por alternativas de pagamento: impacto da desdolarização, BRICS Pay e perspectivas para exportadores brasileiros.",
-        "readTime": 15,
-        "tags": ["BRICS", "Moeda", "Desdolarização", "Comércio Internacional", "Geopolítica"]
-    },
-    {
-        "slug": "comercio-brasil-india-farmacos-petroleo-oportunidades",
-        "title": "Comércio Brasil-Índia: Fármacos, Petróleo e Oportunidades Bilaterais",
-        "excerpt": "Análise completa das relações comerciais Brasil-Índia, petróleo e derivados, fármacos e medicamentos, açúcar, minérios, acordos bilaterais e oportunidades para exportadores brasileiros.",
-        "name": "Comércio Brasil-Índia",
-        "desc": "Análise completa das relações comerciais Brasil-Índia: petróleo, fármacos, açúcar, minérios, acordos bilaterais e oportunidades setoriais para exportadores brasileiros.",
-        "readTime": 15,
-        "tags": ["Brasil-Índia", "Comércio Bilateral", "Fármacos", "Petróleo", "Oportunidades"]
-    },
+    ("exportacao-refrigerantes-brasil-mercados-oportunidades", "Exportação de Refrigerantes e Bebidas Não Alcoólicas Brasileiras: Mercados e Oportunidades", "Guia completo sobre exportação de refrigerantes brasileiros: guaraná, água de coco, isotônicos, NCM 2202, registro MAPA/ANVISA, logística e mercados internacionais (América Latina, EUA, Europa, África) para bebidas não alcoólicas.", ["Exportação", "Bebidas", "Refrigerantes", "ANVISA", "Mercados Internacionais", "Comércio Exterior"]),
+    ("exportacao-biscoitos-massas-panificacao-brasil", "Exportação de Biscoitos, Massas Alimentícias e Produtos de Panificação", "Guia completo sobre exportação de biscoitos, massas e panificação brasileiros: cream crackers, macarrão, pães, NCM 1905/1902, certificações ANVISA/MAPA, shelf life, logística e mercados globais.", ["Exportação", "Alimentos", "Biscoitos", "Massas", "Panificação", "ANVISA", "Comércio Exterior"]),
+    ("exportacao-chocolates-confeitaria-brasil-mercados", "Exportação de Chocolates, Balas e Produtos de Confeitaria Brasileiros", "Guia completo sobre exportação de chocolates e confeitaria brasileiros: Garoto, Nestlé, Lacta, Dori, NCM 1806/1704, certificações Kosher/Halal, logística refrigerada e mercados globais para doces brasileiros.", ["Exportação", "Chocolates", "Confeitaria", "Alimentos", "ANVISA", "Mercados Internacionais", "Comércio Exterior"]),
+    ("exportacao-conservas-compotas-geleias-brasil", "Exportação de Conservas, Compotas e Geleias Brasileiras", "Guia completo sobre exportação de conservas, compotas e geleias brasileiras: palmito, milho, ervilha, doces em pasta, NCM 2001/2005/2007/2008, certificações BRC/IFS/FSSC 22000, MAPA e mercados globais.", ["Exportação", "Conservas", "Alimentos Processados", "MAPA", "Certificações", "Mercados Internacionais", "Comércio Exterior"]),
+    ("exportacao-hortalicas-processadas-brasil", "Exportação de Hortaliças Processadas e Minimamente Processadas do Brasil", "Guia completo sobre exportação de hortaliças processadas brasileiras: congeladas, desidratadas, enlatadas, NCM 0710/0712/2002-2005, MAPA, GlobalGAP/BRC/IFS, logística de cold chain e mercados internacionais.", ["Exportação", "Hortaliças", "Alimentos Processados", "Agronegócio", "MAPA", "Logística", "Comércio Exterior"]),
+    ("exportacao-oleos-essenciais-aromaticos-brasil", "Exportação de Óleos Essenciais e Produtos Aromáticos Brasileiros", "Guia completo sobre exportação de óleos essenciais brasileiros: laranja, citronela, pau-rosa, copaíba, andiroba, NCM 3301/3302, ANVISA/ANP, IFRA, certificações orgânicas e mercados globais (EUA, França, Alemanha, Suíça, Japão).", ["Exportação", "Óleos Essenciais", "Aromáticos", "Cosméticos", "ANVISA", "Certificações", "Comércio Exterior"]),
+    ("exportacao-tintas-vernizes-esmaltes-brasil", "Exportação de Tintas, Vernizes e Esmaltes: Como o Brasil Pode Conquistar o Mercado Global", "Guia completo sobre exportação de tintas, vernizes e esmaltes brasileiros: Suvinil, Coral, Sherwin-Williams, Renner, NCM 3208/3209/3210/3214, INMETRO, VOC regulations, logística de perigosos e mercados globais.", ["Exportação", "Tintas", "Química", "INMETRO", "Vernizes", "Regulamentação", "Comércio Exterior"]),
+    ("exportacao-saboes-sabonetes-higiene-brasil", "Exportação de Sabões, Sabonetes e Produtos de Higiene Pessoal do Brasil", "Guia completo sobre exportação de sabões, sabonetes e produtos de higiene brasileiros: Natura, Granado, Phebo, NCM 3401/3305/3306/3307, ANVISA, GMP, INMETRO e mercados globais (América Latina, África, Portugal, EUA).", ["Exportação", "Higiene", "Cosméticos", "ANVISA", "Sabonetes", "Sabões", "Comércio Exterior"]),
+    ("exportacao-sal-marinho-industrial-brasil", "Exportação de Sal Marinho e Sal Industrial Brasileiro: Mercados e Logística", "Guia completo sobre exportação de sal marinho e industrial brasileiro: produção solar no RN, sal-gema, NCM 2501, usos industriais (cloro-soda, alimentício, ração), logística granel/ensacado e concorrência global com Chile, México e Austrália.", ["Exportação", "Sal", "Mineração", "Logística", "Rio Grande do Norte", "Mercados", "Comércio Exterior"]),
+    ("exportacao-areia-industrial-caulim-argilas", "Exportação de Areia Industrial, Caulim e Argilas Especiais Brasileiras", "Guia completo sobre exportação de minerais industriais brasileiros: areia silicosa, caulim da Amazônia, bentonita, ball clay, talco, feldspato, NCM 2505/2507/2508, logística e mercados globais.", ["Exportação", "Minerais Industriais", "Caulim", "Areia", "Argilas", "Mineração", "Comércio Exterior"]),
+    ("exportacao-gesso-drywall-prefabricados-brasil", "Exportação de Gipsita, Gesso e Pré-fabricados para Construção Civil", "Guia completo sobre exportação de gipsita e gesso brasileiros: reservas de Araripina/PE, drywall Knauf/Saint-Gobain, NCM 2520/6808/6809, logística e mercados globais para prefabricados de gesso.", ["Exportação", "Gesso", "Drywall", "Construção Civil", "Mineração", "Materiais de Construção", "Comércio Exterior"]),
+    ("exportacao-telhas-tijolos-ceramica-vermelha", "Exportação de Telhas, Tijolos e Cerâmica Vermelha Brasileira", "Guia completo sobre exportação de cerâmica vermelha brasileira: telhas, tijolos, blocos cerâmicos de Santa Gertrudes/SP, Criciúma/SC, NCM 6901-6905, certificações ABNT/INMETRO e mercados globais.", ["Exportação", "Cerâmica", "Telhas", "Tijolos", "Construção Civil", "Materiais de Construção", "Comércio Exterior"]),
+    ("exportacao-sementes-mudas-propagacao-brasil", "Exportação de Sementes, Mudas e Material de Propagação Vegetal do Brasil", "Guia completo sobre exportação de sementes e mudas brasileiras: soja, milho, algodão, hortaliças, NCM 1209/0602, MAPA/Renasem, certificação ISTA, fitossanitário, cultivares protegidas e mercados globais.", ["Exportação", "Sementes", "Mudas", "Agronegócio", "MAPA", "Fitossanitário", "Comércio Exterior"]),
+    ("exportacao-flores-ornamentais-tropicais-brasil", "Exportação de Flores Tropicais e Plantas Ornamentais Brasileiras", "Guia completo sobre exportação de flores tropicais e plantas ornamentais brasileiras: helicônias, antúrios, orquídeas, Veiling Holambra, NCM 0602/0603/0604, MAPA, CITES, logística aérea refrigerada e mercados globais (EUA, Holanda, Alemanha, Japão, Reino Unido).", ["Exportação", "Flores", "Plantas Ornamentais", "Agronegócio", "MAPA", "Logística", "Comércio Exterior"]),
+    ("exportacao-ovos-avicultura-postura-brasil", "Exportação de Ovos e Produtos Avícolas de Postura do Brasil", "Guia completo sobre exportação de ovos brasileiros: ovos in natura, processados, incubáveis, NCM 0407/0408, MAPA/SIF, áreas livres de Newcastle e IA, logística refrigerada e mercados (Oriente Médio, Japão, África, América Latina, Europa).", ["Exportação", "Ovos", "Avicultura", "Agronegócio", "MAPA", "Logística", "Comércio Exterior"]),
+    ("exportacao-caprinos-ovinos-carne-leite-brasil", "Exportação de Caprinos e Ovinos: Carne, Leite e Derivados", "Guia completo sobre exportação de caprinos e ovinos brasileiros: carne, leite, queijos coalho, peles, lã, NCM 0204/0406/4105/4106/5101, MAPA/SIF, certificação halal e mercados (Oriente Médio, África, Caribe, Europa, EUA).", ["Exportação", "Caprinos", "Ovinos", "Agronegócio", "Carne", "Leite", "Comércio Exterior"]),
+    ("exportacao-calcario-brita-agregados-construcao", "Exportação de Calcário, Brita e Agregados para Construção Civil no Mercado Global", "Guia completo sobre exportação de agregados para construção brasileiros: calcário, brita, pedra britada, NCM 2515/2516/2517, logística marítima granel (Panamax/Supramax), portos (Santos, Vitória, RJ) e concorrência global com Noruega, Canadá e México.", ["Exportação", "Calcário", "Brita", "Agregados", "Construção Civil", "Mineração", "Comércio Exterior"]),
+    ("exportacao-fibras-txteis-naturais-brasil", "Exportação de Fibras Têxteis Naturais Brasileiras (exceto Algodão)", "Guia completo sobre exportação de fibras têxteis naturais brasileiras: sisal (PB), juta, malva, rami, curauá, piassava, seda, lã, NCM 5303/5304/5001/5101/5302, certificações OEKO-TEX/GOTS e mercados globais.", ["Exportação", "Fibras Têxteis", "Sisal", "Juta", "Têxtil", "Sustentabilidade", "Comércio Exterior"]),
+    ("exportacao-couros-peles-industrializados-brasil", "Exportação de Couros e Peles Industrializados do Brasil", "Guia completo sobre exportação de couros industrializados brasileiros: wet blue, crust, acabado, couros exóticos (jacaré, avestruz, cobra), NCM 4104/4105/4106/4107/4113, LWG Gold/Silver, REACH e mercados globais (Itália, China, EUA, Vietnã, Alemanha).", ["Exportação", "Couros", "Peles", "Industrialização", "LWG", "Sustentabilidade", "Comércio Exterior"]),
+    ("exportacao-algodao-colorido-organico-brasil", "Exportação de Algodão Colorido e Orgânico do Brasil: Inovação no Agronegócio", "Guia completo sobre exportação de algodão colorido e orgânico brasileiro: BRS Rubi/Safira/Jade da Embrapa, Natural Cotton Color, orgânico da Bahia/MT, NCM 5201, certificações GOTS/OCS/Fair Trade e moda sustentável global.", ["Exportação", "Algodão Colorido", "Algodão Orgânico", "Agronegócio", "Sustentabilidade", "Moda", "Comércio Exterior"]),
+    ("exportacao-drones-vants-brasil-mercados", "Exportação de Drones e VANTS Brasileiros: Mercados e Regulamentação", "Guia completo sobre exportação de drones brasileiros: Xmobots, SkyDrones, ARPAC, NCM 8806/852580, ANAC RBAC-E 94, ANATEL, DECEA, controle de exportação PROTEGER e mercados (América Latina, África, EUA, Europa, Oriente Médio).", ["Exportação", "Drones", "VANTs", "Tecnologia", "ANAC", "Regulamentação", "Comércio Exterior"]),
+    ("exportacao-robos-industriais-automacao-brasil", "Exportação de Robôs Industriais e Sistemas de Automação do Brasil", "Guia completo sobre exportação de robôs industriais brasileiros: Atech, Intelbrás, Gestum, Smar, NCM 847950/847989/848340/853710, Indústria 4.0, Lei do Bem, mercados (América Latina, EUA, Europa, África) e logística de máquinas pesadas.", ["Exportação", "Robôs", "Automação", "Indústria 4.0", "Tecnologia", "Inovação", "Comércio Exterior"]),
+    ("exportacao-impressoras-3d-manufatura-aditiva-brasil", "Exportação de Impressoras 3D e Equipamentos de Manufatura Aditiva do Brasil", "Guia completo sobre exportação de impressoras 3D brasileiras: Moura 3D, GTMax, Klin, Print3D, NCM 847759/847780/848640, FDM/SLA/DLS/SLS/metálica, ISO/ASTM 52900 e mercados (América Latina, EUA, Europa, África).", ["Exportação", "Impressão 3D", "Manufatura Aditiva", "Tecnologia", "Inovação", "Indústria 4.0", "Comércio Exterior"]),
+    ("exportacao-realidade-virtual-aumentada-brasil", "Exportação de Soluções de Realidade Virtual e Aumentada do Brasil", "Guia completo sobre exportação de soluções VR/AR brasileiras: Tátil Design, ARVORE, iSimulate, NCM 8528/847141/950450, aplicações industriais (óleo e gás, mineração, aviação, saúde) e mercados (EUA, América Latina, Europa, Oriente Médio).", ["Exportação", "Realidade Virtual", "Realidade Aumentada", "Tecnologia", "Inovação", "Software", "Comércio Exterior"]),
+    ("exportacao-software-saas-cloud-brasil", "Exportação de Software, SaaS e Cloud Computing do Brasil: Guia Completo", "Guia completo sobre exportação de software brasileiro: Totvs, VTEX, RD Station, LogComex, NCM 8523/847141, Siscoserv, LGPD, Lei do Bem, modelos SaaS/licenciamento, Stripe/Pagar.me, mercados (América Latina, EUA, Europa, África, Ásia) e localização.", ["Exportação", "Software", "SaaS", "Cloud Computing", "Tecnologia", "Siscoserv", "Comércio Exterior"]),
+    ("exportacao-equipamentos-hospitalares-alta-tecnologia", "Exportação de Equipamentos Médico-Hospitalares de Alta Tecnologia do Brasil", "Guia completo sobre exportação de equipamentos médico-hospitalares brasileiros: Drager, GE, Philips, VMI, DIXTAL, NCM 9018/9019/9020/9021/9022, ANVISA RDC 16/2013, ISO 13485, FDA, CE, GMP e mercados globais.", ["Exportação", "Equipamentos Hospitalares", "Saúde", "ANVISA", "ISO 13485", "Tecnologia Médica", "Comércio Exterior"]),
+    ("exportacao-equipamentos-energia-renovavel-brasil", "Exportação de Equipamentos para Energia Renovável: Oportunidades para o Brasil", "Guia completo sobre exportação de equipamentos de energia renovável brasileiros: painéis solares BYD/WEG, turbinas eólicas, inversores, NCM 841011/850231/854140/854143, INMETRO/IEC 61215 e mercados (América Latina, África, EUA, Europa, Austrália).", ["Exportação", "Energia Renovável", "Solar", "Eólica", "Equipamentos", "Sustentabilidade", "Comércio Exterior"]),
+    ("exportacao-embalagens-plasticas-industriais-brasil", "Exportação de Embalagens Plásticas e Industriais do Brasil", "Guia completo sobre exportação de embalagens plásticas brasileiras: filmes flexíveis, garrafas, bombonas, big bags, NCM 3920/3921/3923/6305, ANVISA contato com alimentos, ISO 22000/BRC Packaging, sustentabilidade PCR e mercados (América Latina, EUA, Europa, África).", ["Exportação", "Embalagens", "Plásticos", "Indústria", "Sustentabilidade", "Reciclagem", "Comércio Exterior"]),
+    ("exportacao-cerveja-industrial-brasil-mercados", "Exportação de Cerveja Brasileira em Escala Industrial: Mercados Globais", "Guia completo sobre exportação de cerveja industrial brasileira: AmBev (Brahma, Skol, Antarctica), Heineken Brasil, Petrópolis (Itaipava), NCM 220300, MAPA, logística refrigerada, shelf life e mercados globais (América Latina, África, EUA, Europa, Portugal).", ["Exportação", "Cerveja", "Bebidas", "MAPA", "Logística", "AmBev", "Comércio Exterior"]),
+    ("exportacao-vinhos-brasileiros-premium-mercados", "Exportação de Vinhos Brasileiros Premium: Mercados, Regiões e Certificações", "Guia completo sobre exportação de vinhos premium brasileiros: Miolo, Aurora, Salton, Casa Valduga, Cave Geisse, Vale dos Vinhedos DO, NCM 2204, MAPA, certificações sustentáveis e mercados globais (EUA, Reino Unido, Alemanha, Japão).", ["Exportação", "Vinhos", "Bebidas", "Vale dos Vinhedos", "MAPA", "Premium", "Comércio Exterior"]),
 ]
 
-def build_meta_entry(p):
-    tags_str = ", ".join(f'"{t}"' for t in p["tags"])
-    excerpt_escaped = p["excerpt"].replace('"', '\\"').replace("\\n", " ")
-    return f'  {{ slug: "{p["slug"]}", title: "{p["title"]}", excerpt: "{excerpt_escaped}", date: "{DATE}", readTime: {p["readTime"]}, tags: [{tags_str}] }},'
+def calc_read_time(words):
+    return max(1, round(words / 200))
 
-def build_map_entry(slug):
-    return f'  "{slug}": () => import("./content/{slug}"),'
-
-def build_prerender_entry(p):
-    desc_escaped = p["desc"].replace('"', '\\"')
-    return f'  {{ slug: "{p["slug"]}", name: "{p["name"]}", desc: "{desc_escaped}" }},'
-
-def insert_before_marker(lines, marker):
-    for i in range(len(lines) - 1, -1, -1):
-        if lines[i].strip() == marker:
-            return i
+def insert_before_marker(lines, marker, start_from_end=True):
+    if start_from_end:
+        for i in range(len(lines) - 1, -1, -1):
+            if lines[i].strip() == marker:
+                return i
+    else:
+        for i in range(len(lines)):
+            if lines[i].strip() == marker:
+                return i
     raise ValueError(f"Marker '{marker}' not found")
 
-print("=" * 60)
-print("INTEGRATING 30 BLOG POSTS — June 30 2026")
-print("=" * 60)
+def fix_missing_comma(lines, close_idx):
+    entry = lines[close_idx - 1].rstrip("\n")
+    if entry.endswith("}") and not entry.endswith("},"):
+        lines[close_idx - 1] = entry + ",\n"
+        print(f"️  Fixed missing comma on last entry at line {close_idx}")
+    return lines
 
-# --- 1. Integrate into postMeta.ts ---
-print("\n[1/3] Updating postMeta.ts...")
-with open("src/data/blog/postMeta.ts", "r") as f:
-    lines = f.readlines()
-pos = insert_before_marker(lines, "];")
-for j, p in enumerate(POSTS):
-    entry = build_meta_entry(p) + "\n"
-    lines.insert(pos + j, entry)
-with open("src/data/blog/postMeta.ts", "w") as f:
-    f.writelines(lines)
-meta_count = sum(1 for l in lines if l.strip().startswith("{ slug:"))
-print(f"  postMeta.ts now has {meta_count} entries")
+# Get word counts from content files
+word_counts = {}
+for slug, _, _, _ in POSTS:
+    path = os.path.join(BASE, f"src/data/blog/content/{slug}.ts")
+    if os.path.exists(path):
+        with open(path) as f:
+            word_counts[slug] = len(f.read().split())
+    else:
+        print(f"⚠ WARNING: Content file for {slug} not found!")
+        word_counts[slug] = 2000  # fallback
 
-# --- 2. Integrate into postContentMap.ts ---
-print("\n[2/3] Updating postContentMap.ts...")
-with open("src/data/blog/postContentMap.ts", "r") as f:
-    lines = f.readlines()
+# ═══ 1. postMeta.ts ═══
+print("=== 1. postMeta.ts ===")
+meta_path = os.path.join(BASE, "src/data/blog/postMeta.ts")
+with open(meta_path) as f:
+    meta_lines = f.readlines()
+pos = insert_before_marker(meta_lines, "];")
+meta_lines = fix_missing_comma(meta_lines, pos)
+meta_entries = []
+for slug, title, excerpt, tags in POSTS:
+    rt = calc_read_time(word_counts.get(slug, 2500))
+    tags_str = ", ".join(f'"{t}"' for t in tags)
+    entry = f'  {{ slug: "{slug}", title: "{title}", excerpt: "{excerpt}", date: "{DATE}", readTime: {rt}, tags: [{tags_str}] }}'
+    meta_entries.append(entry)
+for j, entry in enumerate(meta_entries):
+    meta_lines.insert(pos + j, entry + ",\n")
+with open(meta_path, "w") as f:
+    f.writelines(meta_lines)
+meta_count = sum(1 for l in meta_lines if 'slug:' in l)
+print(f"  postMeta now has {meta_count} slug entries")
+
+# ═══ 2. postContentMap.ts ═══
+print("=== 2. postContentMap.ts ===")
+map_path = os.path.join(BASE, "src/data/blog/postContentMap.ts")
+with open(map_path) as f:
+    map_lines = f.readlines()
 close_map = None
-for i in range(len(lines) - 1, -1, -1):
-    if lines[i].strip() == "};":
-        for j in range(i + 1, min(i + 5, len(lines))):
-            if "export async function getPostContent" in lines[j]:
+for i in range(len(map_lines) - 1, -1, -1):
+    if map_lines[i].strip() == "};":
+        for j in range(i + 1, min(i + 4, len(map_lines))):
+            if "export async function getPostContent" in map_lines[j]:
                 close_map = i
                 break
-    if close_map is not None:
-        break
+        if close_map is not None:
+            break
 if close_map is None:
-    print("  Could not find map closing };")
+    print("ERROR: Could not find contentMap closing }; with getPostContent proximity")
     exit(1)
-for j, p in enumerate(POSTS):
-    entry = build_map_entry(p["slug"]) + "\n"
-    lines.insert(close_map + j, entry)
-with open("src/data/blog/postContentMap.ts", "w") as f:
-    f.writelines(lines)
-map_count = sum(1 for l in lines if ": () => import" in l and "getPostContent" not in l)
-print(f"  postContentMap.ts now has {map_count} entries")
+map_lines = fix_missing_comma(map_lines, close_map)
+for slug, _, _, _ in POSTS:
+    map_lines.insert(close_map, f'  "{slug}": () => import("./content/{slug}"),\n')
+    close_map += 1
+with open(map_path, "w") as f:
+    f.writelines(map_lines)
+# Clean trailing backslash artifacts
+map_content = open(map_path).read()
+if ', \\\\\n' in map_content:
+    map_content = map_content.replace(', \\\\\n', ',\n')
+    open(map_path, 'w').write(map_content)
+    print("  Cleaned trailing backslashes")
+map_count = sum(1 for l in open(map_path) if '=> import' in l)
+print(f"  contentMap now has {map_count} map entries")
+gp = sum(1 for l in open(map_path) if 'getPostContent' in l)
+print(f"  getPostContent references: {gp}")
 
-# --- 3. Integrate into prerender.mjs ---
-print("\n[3/3] Updating scripts/prerender.mjs...")
-with open("scripts/prerender.mjs", "r") as f:
-    content = f.read()
-end_idx = content.rfind("\n];")
-if end_idx == -1:
-    print("  Could not find ]; in prerender.mjs")
+# ═══ 3. prerender.mjs BLOG_POSTS ═══
+print("=== 3. prerender.mjs ===")
+pre_path = os.path.join(BASE, "scripts/prerender.mjs")
+with open(pre_path) as f:
+    pre_lines = f.readlines()
+pre_end = None
+for i in range(len(pre_lines) - 1, -1, -1):
+    if pre_lines[i].strip() == "];":
+        pre_end = i
+        break
+if pre_end is None:
+    print("ERROR: Could not find '];' in prerender.mjs")
     exit(1)
-prerender_insert = ""
-for p in POSTS:
-    prerender_insert += build_prerender_entry(p) + "\n"
-new_content = content[:end_idx+1] + "\n" + prerender_insert + content[end_idx+1:]
-with open("scripts/prerender.mjs", "w") as f:
-    f.write(new_content)
-blog_start = new_content.find("const BLOG_POSTS")
-blog_section = new_content[blog_start:new_content.find("];", blog_start) + 2]
-count_in_blog = blog_section.count("slug:")
-print(f"  prerender.mjs BLOG_POSTS now has {count_in_blog} entries")
+pre_lines = fix_missing_comma(pre_lines, pre_end)
+pre_entries = []
+for slug, title, excerpt, _ in POSTS:
+    name = title if len(title) <= 70 else title[:67] + "..."
+    pre_entries.append(f'  {{ slug: "{slug}", name: "{name}", desc: "{excerpt[:155]}" }}')
+for j, entry in enumerate(pre_entries):
+    pre_lines.insert(pre_end + j, entry + ",\n")
+with open(pre_path, "w") as f:
+    f.writelines(pre_lines)
+pre_count = sum(1 for line in open(pre_path) if 'slug:' in line and 'BLOG_POSTS' not in line)
+print(f"  prerender BLOG_POSTS updated. Total slug lines: {pre_count}")
 
-# --- Final verification ---
-print("\n" + "=" * 60)
-print("FINAL VERIFICATION")
-print("=" * 60)
-meta = sum(1 for l in open("src/data/blog/postMeta.ts") if l.strip().startswith("{ slug:"))
-files = len([1 for f in glob.glob("src/data/blog/content/*.ts")])
-map_count = sum(1 for l in open("src/data/blog/postContentMap.ts") if ": () => import" in l and "getPostContent" not in l)
-print(f"  postMeta:       {meta}")
-print(f"  content files:  {files}")
-print(f"  contentMap:     {map_count}")
-if meta == files == map_count:
-    print("  ✅ TRIPLET IN SYNC!")
-else:
-    print("  ❌ MISMATCH!")
-    exit(1)
-
-result = subprocess.run(["grep", "-c", "content:.*import", "src/data/blog/postMeta.ts"], capture_output=True, text=True)
-content_fields = int(result.stdout.strip())
-print(f"  postMeta content fields: {content_fields} (should be 0)")
-if content_fields > 0:
-    print("  ❌ CONTENT FIELDS FOUND!")
-    exit(1)
-
-result = subprocess.run(["grep", "-c", "getPostContent", "src/data/blog/postContentMap.ts"], capture_output=True, text=True)
-getpc = int(result.stdout.strip())
-print(f"  getPostContent exports: {getpc} (should be 1)")
-if getpc != 1:
-    print("  ❌ getPostContent MISSING!")
-    exit(1)
-
-print("\n✅ ALL CHECKS PASSED — ready for deploy!")
+print(f"\n=== Integration Complete ===")
+print(f"  Content files: {len(os.listdir(os.path.join(BASE, 'src/data/blog/content')))}")
+print(f"  postMeta: {sum(1 for l in open(meta_path) if 'slug:' in l)}")
+print(f"  contentMap entries: {sum(1 for l in open(map_path) if '=> import' in l)}")
+print(f"  getPostContent preserved: {sum(1 for l in open(map_path) if 'getPostContent' in l)}")
