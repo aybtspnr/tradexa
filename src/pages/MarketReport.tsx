@@ -23,6 +23,7 @@ import { useUsage } from "@/hooks/use-usage";
 import { supabase } from "@/integrations/supabase/client";
 import PageHeader from "@/components/PageHeader";
 import { GlassKpi, GlassCard } from "@/components/GlassKpi";
+import GlobalMarketSection from "@/components/intel/GlobalMarketSection";
 import { cn } from "@/lib/utils";
 import { showError, showSuccess } from "@/utils/toast";
 import { saveSearchHistory } from "@/hooks/use-search-history";

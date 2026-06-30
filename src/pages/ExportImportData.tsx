@@ -19,6 +19,7 @@ import { useUsage } from "@/hooks/use-usage";
 import { supabase } from "@/integrations/supabase/client";
 import PageHeader from "@/components/PageHeader";
 import { GlassKpi, GlassCard } from "@/components/GlassKpi";
+import GlobalMarketSection from "@/components/intel/GlobalMarketSection";
 import { cn } from "@/lib/utils";
 import { showError, showSuccess } from "@/utils/toast";
 import { saveSearchHistory } from "@/hooks/use-search-history";
@@ -1115,6 +1116,11 @@ export default function ExportImportData() {
               </GlassCard>
             </TabsContent>
           </Tabs>
+
+          {/* ── Global Market Share ── */}
+          {searchNcm && (
+            <GlobalMarketSection ncm={searchNcm.replace(/[.\s]/g, "").slice(0, 4)} year={parseInt(anoAte) || 2025} />
+          )}
 
           {/* ── Data source footer ── */}
           <div className="text-center">
