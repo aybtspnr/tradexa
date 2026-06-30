@@ -132,6 +132,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         return;
       }
 
+      // Se já temos profile (usuário já está logado), não precisa mostrar loading
+      // para eventos tipo SIGNED_IN que podem disparar ao revalidar sessão
+      if (profile && event !== 'SIGNED_OUT') {
+        if (session?.user) {
+          setEmailConfirmed(!!session.user.email_confirmed_at || !!session.user.confirmed_at);
+        }
+        return;
+      }
+
       beginLoading();
 
       if (session?.user) {

@@ -106,19 +106,28 @@ export default function Dashboard() {
         }
       });
 
-    // 2. Tariff countries from VPS
+    // 2a. Tariff countries from VPS (detalhado com counts)
     fetch("/api/vps/tariffs/countries")
       .then(r => r.json())
-      .then((data: any[]) => {
+      .then((vpsData: any[]) => {
         if (!cancelled) {
-          setTariffCountries(data.length);
-          setTopTariffCountries(data.sort((a: any, b: any) => (b.tariff_count || 0) - (a.tariff_count || 0)).slice(0, 5));
+          setTopTariffCountries(vpsData.slice(0, 5));
+        }
+      })
+      .catch(() => {});
+
+    // 2b. CTS tariff countries from local data (cobertura total 30 países)
+    fetch("/cts_tariffs_summary.json")
+      .then(r => r.json())
+      .then((ctsData: any[]) => {
+        if (!cancelled) {
+          setTariffCountries(ctsData.length);
         }
       })
       .catch(() => {
         if (!cancelled) {
-          setTariffCountries(0);
-          errs.push("Tarifas");
+          // Fallback: usar VPS count se CTS falhar
+          setTariffCountries(null);
         }
       });
 

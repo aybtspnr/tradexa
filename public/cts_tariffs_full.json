@@ -1,0 +1,216 @@
+{
+  "source": "WTO CTS",
+  "total_countries": 30,
+  "countries": [
+    {
+      "country": "Argentina",
+      "iso3": "ARG",
+      "hs_version": "HS02",
+      "tariff_lines": 9866,
+      "unique_hs6": 5224
+    },
+    {
+      "country": "Australia",
+      "iso3": "AUS",
+      "hs_version": "HS12",
+      "tariff_lines": 6119,
+      "unique_hs6": 5204
+    },
+    {
+      "country": "Bolivia",
+      "iso3": "BOL",
+      "hs_version": "HS07",
+      "tariff_lines": 6437,
+      "unique_hs6": 5051
+    },
+    {
+      "country": "Brazil",
+      "iso3": "BRA",
+      "hs_version": "HS07",
+      "tariff_lines": 10688,
+      "unique_hs6": 5051
+    },
+    {
+      "country": "Canada",
+      "iso3": "CAN",
+      "hs_version": "HS12",
+      "tariff_lines": 9370,
+      "unique_hs6": 5237
+    },
+    {
+      "country": "Chile",
+      "iso3": "CHL",
+      "hs_version": "HS17",
+      "tariff_lines": 7109,
+      "unique_hs6": 5387
+    },
+    {
+      "country": "China",
+      "iso3": "CHN",
+      "hs_version": "HS02",
+      "tariff_lines": 7351,
+      "unique_hs6": 5224
+    },
+    {
+      "country": "Colombia",
+      "iso3": "COL",
+      "hs_version": "HS17",
+      "tariff_lines": 6061,
+      "unique_hs6": 5399
+    },
+    {
+      "country": "Costa Rica",
+      "iso3": "CRI",
+      "hs_version": "HS07",
+      "tariff_lines": 5709,
+      "unique_hs6": 5051
+    },
+    {
+      "country": "Ecuador",
+      "iso3": "ECU",
+      "hs_version": "HS17",
+      "tariff_lines": 6858,
+      "unique_hs6": 5387
+    },
+    {
+      "country": "Egypt",
+      "iso3": "EGY",
+      "hs_version": "HS17",
+      "tariff_lines": 6157,
+      "unique_hs6": 5385
+    },
+    {
+      "country": "European Union",
+      "iso3": "EUN",
+      "hs_version": "HS02",
+      "tariff_lines": 10324,
+      "unique_hs6": 5224
+    },
+    {
+      "country": "Hong Kong",
+      "iso3": "HKG",
+      "hs_version": "HS17",
+      "tariff_lines": 5794,
+      "unique_hs6": 5387
+    },
+    {
+      "country": "India",
+      "iso3": "IND",
+      "hs_version": "HS07",
+      "tariff_lines": 5368,
+      "unique_hs6": 5051
+    },
+    {
+      "country": "Israel",
+      "iso3": "ISR",
+      "hs_version": "HS17",
+      "tariff_lines": 9208,
+      "unique_hs6": 5387
+    },
+    {
+      "country": "Japan",
+      "iso3": "JPN",
+      "hs_version": "HS02",
+      "tariff_lines": 7678,
+      "unique_hs6": 5224
+    },
+    {
+      "country": "Mexico",
+      "iso3": "MEX",
+      "hs_version": "HS07",
+      "tariff_lines": 6251,
+      "unique_hs6": 5051
+    },
+    {
+      "country": "Norway",
+      "iso3": "NOR",
+      "hs_version": "HS12",
+      "tariff_lines": 6354,
+      "unique_hs6": 5205
+    },
+    {
+      "country": "Panama",
+      "iso3": "PAN",
+      "hs_version": "HS12",
+      "tariff_lines": 6663,
+      "unique_hs6": 5205
+    },
+    {
+      "country": "Paraguay",
+      "iso3": "PRY",
+      "hs_version": "HS12",
+      "tariff_lines": 5661,
+      "unique_hs6": 5205
+    },
+    {
+      "country": "Peru",
+      "iso3": "PER",
+      "hs_version": "HS17",
+      "tariff_lines": 5546,
+      "unique_hs6": 5387
+    },
+    {
+      "country": "Russia",
+      "iso3": "RUS",
+      "hs_version": "HS07",
+      "tariff_lines": 11570,
+      "unique_hs6": 5052
+    },
+    {
+      "country": "South Africa",
+      "iso3": "ZAF",
+      "hs_version": "HS17",
+      "tariff_lines": 6242,
+      "unique_hs6": 5387
+    },
+    {
+      "country": "South Korea",
+      "iso3": "KOR",
+      "hs_version": "HS07",
+      "tariff_lines": 11803,
+      "unique_hs6": 5052
+    },
+    {
+      "country": "Switzerland",
+      "iso3": "CHE",
+      "hs_version": "HS07",
+      "tariff_lines": 8472,
+      "unique_hs6": 5050
+    },
+    {
+      "country": "Thailand",
+      "iso3": "THA",
+      "hs_version": "HS07",
+      "tariff_lines": 6118,
+      "unique_hs6": 5051
+    },
+    {
+      "country": "Turkey",
+      "iso3": "TUR",
+      "hs_version": "HS02",
+      "tariff_lines": 12496,
+      "unique_hs6": 5224
+    },
+    {
+      "country": "UAE",
+      "iso3": "ARE",
+      "hs_version": "HS17",
+      "tariff_lines": 5543,
+      "unique_hs6": 5387
+    },
+    {
+      "country": "United States",
+      "iso3": "USA",
+      "hs_version": "HS07",
+      "tariff_lines": 11673,
+      "unique_hs6": 5067
+    },
+    {
+      "country": "Uruguay",
+      "iso3": "URY",
+      "hs_version": "HS17",
+      "tariff_lines": 9245,
+      "unique_hs6": 5387
+    }
+  ]
+}

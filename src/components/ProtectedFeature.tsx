@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useFeatureAccess } from "@/hooks/use-feature-access";
 import { UpgradePrompt } from "./UpgradePrompt";
 
@@ -16,8 +16,25 @@ interface ProtectedFeatureProps {
 export function ProtectedFeature({ featureKey, children, inline = true }: ProtectedFeatureProps) {
   const { canAccess, lockedByPlan, upgradePlan, label, loading } = useFeatureAccess(featureKey);
 
+  // Persist "had access" across loading cycles so tab wake-up doesn't nuke children
+  const storageKey = `tradexa_feature_${featureKey}`;
+  const [hadAccess, setHadAccess] = useState(() => {
+    return localStorage.getItem(storageKey) === "true";
+  });
+
+  // Once access is confirmed, remember it
+  useEffect(() => {
+    if (canAccess && !loading && !hadAccess) {
+      localStorage.setItem(storageKey, "true");
+      setHadAccess(true);
+    }
+  }, [canAccess, loading, hadAccess, storageKey]);
+
   if (loading) {
-    return null;
+    // First-ever load (no cached access) — show nothing
+    if (!hadAccess) return null;
+    // Re-auth loading — keep children mounted
+    return <>{children}</>;
   }
 
   if (!canAccess) {

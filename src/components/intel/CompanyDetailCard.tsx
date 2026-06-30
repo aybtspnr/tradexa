@@ -39,6 +39,10 @@ export interface CompanyData {
   telefone?: string;
   email?: string;
   endereco?: string;
+  comercio_por_pais?: {
+    import?: { cod_pais: string; nome_pais: string; vl_fob: number; kg_liquido: number }[];
+    export?: { cod_pais: string; nome_pais: string; vl_fob: number; kg_liquido: number }[];
+  };
 }
 
 export interface PartnerInfo {
@@ -67,6 +71,7 @@ interface Props {
   fmtCnpj: (c: string | undefined) => string;
   ncm?: string;
   cityCountryNames?: string[];
+  cityFreight?: number;
 }
 
 // Portuguese → English country name mapping for partner filtering
@@ -157,7 +162,7 @@ function DetailField({ icon: Icon, label, value, color }: {
 export const CompanyDetailCard: React.FC<Props> = ({
   company: c, scoreInfo, tab, cityUf, cityName,
   portInfo, transportMode, showOppositeData,
-  onViewOnMap, fmtUSD, fmtKg, fmtCnpj, ncm, cityCountryNames,
+  onViewOnMap, fmtUSD, fmtKg, fmtCnpj, ncm, cityCountryNames, cityFreight,
 }) => {
   const [expanded, setExpanded] = useState(false);
   const [partners, setPartners] = useState<PartnerInfo[] | null>(null);
@@ -278,6 +283,12 @@ export const CompanyDetailCard: React.FC<Props> = ({
               <span className="text-slate-300">|</span>
               <span>{getTransportLabel(portInfo.via_name)}</span>
               <span className="text-slate-300 ml-auto font-mono">{fmtKg(portInfo.kg)}</span>
+              {cityFreight != null && cityFreight > 0 && (
+                <>
+                  <span className="text-slate-300">|</span>
+                  <span className="text-amber-600 font-semibold">Frete: {fmtUSD(cityFreight)}</span>
+                </>
+              )}
             </div>
           ) : transportMode ? (
             <div className="flex items-center gap-1.5 mt-1.5 text-[10px] text-slate-400">
@@ -405,6 +416,41 @@ export const CompanyDetailCard: React.FC<Props> = ({
                     <div className="flex justify-between"><span className="text-slate-500">Exp. FOB:</span><span className="font-semibold text-emerald-600">{fmtUSD(c.city_trade.export_fob)}</span></div>
                     <div className="flex justify-between"><span className="text-slate-500">Imp. KG:</span><span className="font-semibold text-slate-600">{fmtKg(c.city_trade.import_kg)}</span></div>
                     <div className="flex justify-between"><span className="text-slate-500">Exp. KG:</span><span className="font-semibold text-slate-600">{fmtKg(c.city_trade.export_kg)}</span></div>
+                  </div>
+                </div>
+              )}
+
+              {/* Comércio por País */}
+              {c.comercio_por_pais && (
+                <div className="mt-3 bg-slate-50 rounded-lg p-3 border border-slate-100">
+                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1">
+                    <Globe className="h-3 w-3" /> Países com Comércio
+                  </h4>
+                  <div className="space-y-1.5">
+                    {c.comercio_por_pais.import && c.comercio_por_pais.import.length > 0 && (
+                      <>
+                        <p className="text-[9px] font-bold uppercase tracking-wider text-blue-500 mt-2 first:mt-0">Importação</p>
+                        {c.comercio_por_pais.import.slice(0, 8).map((p, i) => (
+                          <div key={i} className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-white transition-colors border border-transparent">
+                            <span className="text-xs text-slate-600 font-semibold truncate flex-1">{p.nome_pais}</span>
+                            <span className="text-[10px] text-slate-400 font-mono">{fmtKg(p.kg_liquido)}</span>
+                            <span className="text-[10px] font-bold text-blue-600 font-mono w-20 text-right">{fmtUSD(p.vl_fob)}</span>
+                          </div>
+                        ))}
+                      </>
+                    )}
+                    {c.comercio_por_pais.export && c.comercio_por_pais.export.length > 0 && (
+                      <>
+                        <p className="text-[9px] font-bold uppercase tracking-wider text-emerald-500 mt-2">Exportação</p>
+                        {c.comercio_por_pais.export.slice(0, 8).map((p, i) => (
+                          <div key={i} className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-white transition-colors border border-transparent">
+                            <span className="text-xs text-slate-600 font-semibold truncate flex-1">{p.nome_pais}</span>
+                            <span className="text-[10px] text-slate-400 font-mono">{fmtKg(p.kg_liquido)}</span>
+                            <span className="text-[10px] font-bold text-emerald-600 font-mono w-20 text-right">{fmtUSD(p.vl_fob)}</span>
+                          </div>
+                        ))}
+                      </>
+                    )}
                   </div>
                 </div>
               )}

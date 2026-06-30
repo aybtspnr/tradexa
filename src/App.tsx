@@ -20,6 +20,7 @@ const AiSearch = lazy(() => import("./pages/AiSearch"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { RoutePersistence } from "@/components/RoutePersistence";
 
 const ServicesIndex = lazy(() => import("./pages/services/ServicesIndexPage"));
 const ServiceImport = lazy(() => import("./pages/services/ImportIntelligencePage"));
@@ -175,7 +176,7 @@ const HyosungPage = lazy(() => import("./pages/HyosungPage"));
 const InteligenciaCnaePage = lazy(() => import("./pages/MercadoInteligenciaPage"));
 
 const pageTransition = {
-  initial: { opacity: 0, y: 8 },
+  initial: false,
   animate: { opacity: 1, y: 0 },
   exit: { opacity: 0, y: -8 },
   transition: { duration: 0.3, ease: "easeInOut" },
@@ -216,6 +217,7 @@ function ProtectedPage({ children, requireAdmin = false, requireEmailConfirmed =
   const inner = (
     <>
       <PageViewTracker />
+      <RoutePersistence />
       {featureKey ? (
         <ProtectedFeature featureKey={featureKey}>
           <AppLayout>
@@ -271,14 +273,7 @@ function App() {
         <UsageProvider>
           <Router>
           <ScrollToTop />
-          <Suspense fallback={
-            <div className="flex h-screen w-screen items-center justify-center bg-white">
-              <div className="flex flex-col items-center gap-3">
-                <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D80E16] border-t-transparent" />
-                <p className="text-sm font-medium text-slate-500">Carregando...</p>
-              </div>
-            </div>
-          }>
+          <Suspense fallback={<div className="min-h-screen bg-white" />}>
             <ErrorBoundary>
               <AnimatedRoutes />
             </ErrorBoundary>

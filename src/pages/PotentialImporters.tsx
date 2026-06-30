@@ -24,22 +24,11 @@ import { calculateCost } from "@/lib/usage-costs";
 const API_EDGE_FN = "importadores-api";
 
 async function apiFetch(path: string) {
-  // Try Supabase Edge Function first (proxies HTTPS → VPS)
+  // Direct Vercel rewrite to VPS Intel API (HTTPS proxy)
   try {
-    const { data, error } = await supabase.functions.invoke(API_EDGE_FN, {
-      body: { path },
-    });
-    // Only return if we got valid data without error
-    if (!error && data && !data.error && !data.message) return data;
-  } catch {}
-  // Fallback: VPS direct via Vercel proxy (HTTPS → VPS HTTP)
-  try {
-    const url = `/api/vps/importadores${path}`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`VPS ${res.status}`);
-    const json = await res.json();
-    // Don't return error responses
-    if (json && !json.error) return json;
+    const url = `/api/intel/importadores${path}`;
+    const res = await fetch(url, { signal: AbortSignal.timeout(10000) });
+    if (res.ok) return res.json();
   } catch {}
   return null;
 }

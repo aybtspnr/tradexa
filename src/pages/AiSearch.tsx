@@ -56,20 +56,42 @@ const AiSearch = () => {
   const { profile } = useAuth();
   const { usage, loading: usageLoading, consume, consumePercent, consumeAiQuery, percentUsed, isAtLimit, plan } = useUsage();
   
+  // Restore state from sessionStorage (survives tab switches)
   const [loading, setLoading] = useState(false);
   const [searchResult, setSearchResult] = useState<{
     sugestoes: AiNcmSuggestion[];
     confianca_geral?: "alta" | "media" | "baixa";
     total_sugestoes?: number;
     cadastrados_no_banco?: number;
-  } | null>(null);
-  const [selectedNcm, setSelectedNcm] = useState<AiNcmSuggestion | null>(null);
+  } | null>(() => {
+    try { return JSON.parse(localStorage.getItem('ai_search_result') || 'null'); } catch { return null; }
+  });
+  const [selectedNcm, setSelectedNcm] = useState<AiNcmSuggestion | null>(() => {
+    try { return JSON.parse(localStorage.getItem('ai_search_selected') || 'null'); } catch { return null; }
+  });
   const [error, setError] = useState<string | null>(null);
-  const [selectedState, setSelectedState] = useState<string>("");
-  const [descricao, setDescricao] = useState("");
+  const [selectedState, setSelectedState] = useState<string>(() => {
+    return localStorage.getItem('ai_search_state') || "";
+  });
+  const [descricao, setDescricao] = useState<string>(() => {
+    return localStorage.getItem('ai_search_desc') || "";
+  });
   const [ncmCount, setNcmCount] = useState<number | null>(null);
   const [explicandoNcm, setExplicandoNcm] = useState<string | null>(null); // ncm sendo explicado
   const [explicacoesMap, setExplicacoesMap] = useState<Record<string, any>>({});
+
+  // Persist state to localStorage (survives tab switch + process kill)
+  // Salva tudo de uma vez no pagehide (mais eficiente que salvar a cada mudança)
+  useEffect(() => {
+    const handlePageHide = () => {
+      localStorage.setItem('ai_search_result', JSON.stringify(searchResult));
+      localStorage.setItem('ai_search_selected', JSON.stringify(selectedNcm));
+      localStorage.setItem('ai_search_state', selectedState);
+      localStorage.setItem('ai_search_desc', descricao);
+    };
+    window.addEventListener('pagehide', handlePageHide);
+    return () => window.removeEventListener('pagehide', handlePageHide);
+  }, [searchResult, selectedNcm, selectedState, descricao]);
 
   // Cost per NCM detail click by plan
   const detailCost = plan === "business" ? 0 : plan === "growth" ? 2 : 5;
@@ -121,13 +143,13 @@ const AiSearch = () => {
         return;
       }
 
-      const { data, error: funcError } = await supabase.functions.invoke('ai-ncm-search', {
-        body: { descricao: descricao }
+      const resp = await fetch('/api/ai-ncm-search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ descricao: descricao })
       });
-
-      if (funcError) throw new Error(funcError.message || "Erro na comunicação com o servidor");
-      if (!data) throw new Error("Resposta vazia do servidor");
-      if (data.error) throw new Error(data.error);
+      const data = await resp.json();
+      if (!resp.ok || data.error) throw new Error(data.error || "Erro na comunicação com o servidor");
 
       if (data.sugestoes && Array.isArray(data.sugestoes) && data.sugestoes.length > 0) {
         setSearchResult(data);
@@ -171,13 +193,13 @@ const AiSearch = () => {
 
     setExplicandoNcm(sug.ncm);
     try {
-      const { data, error: funcError } = await supabase.functions.invoke('ai-ncm-search', {
-        body: { explicar_ncm: sug.ncm }
+      const resp = await fetch('/api/ai-ncm-search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ explicar_ncm: sug.ncm })
       });
-
-      if (funcError || !data || data.error) {
-        throw new Error(data?.error || "Erro ao carregar explicação");
-      }
+      const data = await resp.json();
+      if (!resp.ok || data.error) throw new Error(data?.error || "Erro ao carregar explicação");
 
       // Salva no cache e atualiza selectedNcm
       const explData = { explicacao: data.explicacao, exemplos: data.exemplos, nao_inclui: data.nao_inclui };
@@ -242,7 +264,9 @@ const AiSearch = () => {
     return rate.toFixed(2) + "%";
   };
 
-  if (usageLoading) {
+  // Se já temos resultados em cache, não bloqueia com spinner mesmo se usageLoading
+  // (evita "reset visual" quando a aba volta de background)
+  if (usageLoading && !searchResult) {
     return (
       
         <div className="flex items-center justify-center py-20">

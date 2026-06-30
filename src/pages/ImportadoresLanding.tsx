@@ -79,20 +79,11 @@ const COUNTRY_FLAGS: Record<string, string> = {
   "Korea": "🇰🇷", "Kuwait": "🇰🇼", "Iraq": "🇮🇶", "Morocco": "🇲🇦",
 };
 
-const API_EDGE_FN = "importadores-api";
-
 async function apiFetch(path: string) {
-  // Use Supabase client invoke (auto-handles auth)
+  // Direct Vercel rewrite to VPS Intel API (HTTPS proxy)
   try {
-    const { data, error } = await supabase.functions.invoke(API_EDGE_FN, {
-      body: { path },
-    });
-    if (!error && data) return data;
-  } catch {}
-  // Fallback: VPS direct (HTTP — only works in dev/localhost)
-  try {
-    const url = `/api/vps/importadores${path}`;
-    const res = await fetch(url);
+    const url = `/api/intel/importadores${path}`;
+    const res = await fetch(url, { signal: AbortSignal.timeout(10000) });
     if (res.ok) return res.json();
   } catch {}
   return null;

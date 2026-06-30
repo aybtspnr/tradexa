@@ -48,6 +48,7 @@ interface Props {
   countries: CityCountryData[];
   ports: CityPortData[];
   flowType: "import" | "export";
+  freight?: number;
   onCountryClick?: (codPais: string) => void;
   fmtUSD: (n: number) => string;
   fmtKg: (n: number) => string;
@@ -66,7 +67,7 @@ export const CityDetailPanel: React.FC<Props> = ({
   open, onClose, cityName, cityUf, cityCodMun,
   fob, kg, ops, avgPrice, ncmAvgPrice,
   companyCount, topCompanies, countries, ports,
-  flowType, onCountryClick, fmtUSD, fmtKg,
+  flowType, freight, onCountryClick, fmtUSD, fmtKg,
 }) => {
   const [activeTab, setActiveTab] = useState<TabKey>("countries");
 
@@ -119,7 +120,7 @@ export const CityDetailPanel: React.FC<Props> = ({
                 </button>
               </div>
               {/* KPIs */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mt-3">
                 <div className="bg-white/10 rounded-lg px-2 py-1.5">
                   <p className="text-[9px] uppercase tracking-wider text-white/60 font-semibold">FOB</p>
                   <p className="text-sm font-bold">{fmtUSD(fob)}</p>
@@ -135,6 +136,10 @@ export const CityDetailPanel: React.FC<Props> = ({
                 <div className="bg-white/10 rounded-lg px-2 py-1.5">
                   <p className="text-[9px] uppercase tracking-wider text-white/60 font-semibold">Preço/kg</p>
                   <p className="text-sm font-bold">{avgPrice ? `$${avgPrice.toFixed(2)}` : "-"}</p>
+                </div>
+                <div className="bg-white/10 rounded-lg px-2 py-1.5">
+                  <p className="text-[9px] uppercase tracking-wider text-white/60 font-semibold">Frete</p>
+                  <p className="text-sm font-bold">{freight != null && freight > 0 ? fmtUSD(freight) : "-"}</p>
                 </div>
               </div>
             </div>

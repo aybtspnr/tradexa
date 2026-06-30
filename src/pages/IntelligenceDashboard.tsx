@@ -167,6 +167,48 @@ export default function IntelligenceDashboard() {
   const [countryPage, setCountryPage] = useState(1);
   const COUNTRY_PER_PAGE = 25;
 
+  // Persist state on tab discard
+  const stateRef = useRef({ tab, step, ncmSearch, selectedNcm, ncmPage, countrySearch, countryPage });
+  stateRef.current = { tab, step, ncmSearch, selectedNcm, ncmPage, countrySearch, countryPage };
+
+  useEffect(() => {
+    const handlePageHide = () => {
+      const s = stateRef.current;
+      localStorage.setItem('tradexa_intel_state', JSON.stringify({
+        tab: s.tab, step: s.step, ncmSearch: s.ncmSearch,
+        selectedNcm: s.selectedNcm, ncmPage: s.ncmPage,
+        countrySearch: s.countrySearch, countryPage: s.countryPage,
+      }));
+    };
+    window.addEventListener('pagehide', handlePageHide);
+    return () => {
+      window.removeEventListener('pagehide', handlePageHide);
+      const s = stateRef.current;
+      localStorage.setItem('tradexa_intel_state', JSON.stringify({
+        tab: s.tab, step: s.step, ncmSearch: s.ncmSearch,
+        selectedNcm: s.selectedNcm, ncmPage: s.ncmPage,
+        countrySearch: s.countrySearch, countryPage: s.countryPage,
+      }));
+    };
+  }, []);
+
+  // Restore state on mount
+  useEffect(() => {
+    const raw = localStorage.getItem('tradexa_intel_state');
+    if (raw) {
+      try {
+        const saved = JSON.parse(raw);
+        if (saved.tab) setTab(saved.tab);
+        if (saved.step) setStep(saved.step);
+        if (saved.ncmSearch) setNcmSearch(saved.ncmSearch);
+        if (saved.selectedNcm) setSelectedNcm(saved.selectedNcm);
+        if (saved.ncmPage) setNcmPage(saved.ncmPage);
+        if (saved.countrySearch) setCountrySearch(saved.countrySearch);
+        if (saved.countryPage) setCountryPage(saved.countryPage);
+      } catch {}
+    }
+  }, []);
+
   // ─── Load trade data ───
   useEffect(() => {
     const ts = Date.now();

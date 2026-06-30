@@ -51,7 +51,7 @@ interface TradeSummary {
 }
 interface CityTrade {
   nome_mun: string; uf: string; vl_fob: number;
-  cod_mun?: string; kg_liquido?: number; ops?: number;
+  cod_mun?: string; kg_liquido?: number; ops?: number; vl_frete?: number;
 }
 interface IntelCompany {
   nome: string; cnae: string; cnae_desc: string;
@@ -81,6 +81,10 @@ interface IntelCompany {
   telefone?: string;
   email?: string;
   endereco?: string;
+  comercio_por_pais?: {
+    import?: { cod_pais: string; nome_pais: string; vl_fob: number; kg_liquido: number }[];
+    export?: { cod_pais: string; nome_pais: string; vl_fob: number; kg_liquido: number }[];
+  };
 }
 interface IntelDetails {
   ncm: string;
@@ -258,8 +262,15 @@ function fmtCnpj(c: string | undefined) {
 const cityNameCache = new Map<string, string>();
 async function resolveCityName(code: string): Promise<string> {
   if (cityNameCache.has(code)) return cityNameCache.get(code)!;
-  try { const name = await getMunicipioNome(code); cityNameCache.set(code, name); return name; }
-  catch { return code; }
+  // Strip state prefix (UF) if present: "MS5208305" → "5208305"
+  const cleanCode = code.replace(/^[A-Z]{2}/, '');
+  try {
+    const name = await getMunicipioNome(cleanCode);
+    cityNameCache.set(code, name);
+    return name;
+  } catch {
+    return code;
+  }
 }
 
 /* ═══ API ═══ */
@@ -725,13 +736,16 @@ export default function MercadoInteligenciaPage() {
             setError("Erro ao carregar dados. Tente novamente.");
           }
         } else {
-          // Resolve city names
+          // Resolve city names from API response (has nome_mun already!)
           if (result.empresas) {
-            const codes = [...new Set(Object.keys(result.empresas).map(k => k.split("_")[1]).filter(Boolean))];
             const resolved = new Map<string, string>();
-            await Promise.all(codes.map(async c => {
-              try { resolved.set(c, await resolveCityName(c)); } catch { resolved.set(c, c); }
-            }));
+            // Extract names from import + export city data
+            const allCities = [...(result.import?.cities || []), ...(result.export?.cities || [])];
+            for (const c of allCities) {
+              if (c.cod_mun && c.nome_mun) {
+                resolved.set(String(c.cod_mun), c.nome_mun);
+              }
+            }
             setCityNames(resolved);
           }
           setDetails(result);
@@ -1802,6 +1816,8 @@ export default function MercadoInteligenciaPage() {
                                     const cityKg = cityTrade?.kg_liquido;
                                     const cityPrice = cityKg && cityKg > 0 ? g.tradeFob / cityKg : null;
                                     const cityOps = cityTrade?.ops;
+                                    const cityFreight = cityTrade?.vl_frete;
+                                    const cityFreightKg = cityFreight && cityKg && cityKg > 0 ? cityFreight / cityKg : null;
                                     return (
                                       <div className="flex items-center gap-2 flex-wrap">
                                         {cityPrice ? (
@@ -1818,6 +1834,18 @@ export default function MercadoInteligenciaPage() {
                                           <span className="text-slate-500">Operações:</span>{' '}
                                           <span className="text-slate-800 font-semibold">{cityOps != null && cityOps > 0 ? `${cityOps}x` : '-'}</span>
                                         </span>
+                                        {cityFreight != null && cityFreight > 0 && (
+                                          <span className="text-xs font-semibold" title="Frete total">
+                                            <span className="text-slate-500">Frete:</span>{' '}
+                                            <span className="font-mono text-amber-600 font-bold">{fmtUSD(cityFreight)}</span>
+                                          </span>
+                                        )}
+                                        {cityFreightKg != null && cityFreightKg > 0 && (
+                                          <span className="text-xs font-semibold" title="Frete por kg">
+                                            <span className="text-slate-500">Frete/kg:</span>{' '}
+                                            <span className="font-mono text-amber-600 font-bold">US$ {cityFreightKg.toFixed(4)}</span>
+                                          </span>
+                                        )}
                                       </div>
                                     );
                                   })()}
@@ -1974,6 +2002,7 @@ export default function MercadoInteligenciaPage() {
                                 const portInfo = cityPorts?.[g.codMun]?.[0] || null;
                                 const tm = getCityTransportMode(g.codMun);
                                 const showOpposite = !cityPorts?.[g.codMun] && (cityPortsOpposite?.[g.codMun] || cityModalOpposite?.[g.codMun]);
+                                const cityTrade = flowCities.find(ct => ct.cod_mun === g.codMun);
                                 return (
                                   <CompanyDetailCard
                                     key={ci}
@@ -1995,6 +2024,7 @@ export default function MercadoInteligenciaPage() {
                                     fmtCnpj={fmtCnpj}
                                     ncm={ncms[0]?.code?.replace(/\D/g, "") || undefined}
                                     cityCountryNames={cityCountriesList.map(cc => cc.nome_pais).filter(Boolean)}
+                                    cityFreight={cityTrade?.vl_frete}
                                   />
                                 );
                               })}
@@ -2659,6 +2689,7 @@ export default function MercadoInteligenciaPage() {
             countries={cityCountriesList}
             ports={cityPortsList}
             flowType={tab}
+            freight={city.vl_frete}
             onCountryClick={(codPais) => {
               setCityPanelOpen(false);
               setSelectedCity(null);

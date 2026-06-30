@@ -1,7 +1,7 @@
 // Supabase Edge Function: Proxy for Importadores API
 // Solves Mixed Content: HTTPS frontend → HTTPS edge function → HTTP VPS
 
-const VPS_API = "http://129.121.98.20:5051/api/importadores";
+const VPS_API = "http://129.121.98.20:5057/api/intel/importadores";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",

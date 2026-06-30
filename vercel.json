@@ -1,6 +1,6 @@
 {
   "installCommand": "npm install --legacy-peer-deps",
-  "buildCommand": "echo 'BUILD_SIG=v13' && node scripts/extract-blog-content.mjs && node scripts/generate-sitemap.js && vite build && node scripts/prerender.mjs && node scripts/indexnow-submit.js",
+  "buildCommand": "echo 'BUILD_SIG=v14' && node scripts/extract-blog-content.mjs && vite build && node scripts/prerender.mjs",
   "outputDirectory": "dist",
   "rewrites": [
     {
@@ -58,14 +58,6 @@
     {
       "source": "/api/us-census-trade",
       "destination": "https://ocivkbocmywinwqmaqac.supabase.co/functions/v1/us-census-trade"
-    },
-    {
-      "source": "/api/deepseek-proxy",
-      "destination": "https://ocivkbocmywinwqmaqac.supabase.co/functions/v1/deepseek-proxy"
-    },
-    {
-      "source": "/api/subscribe",
-      "destination": "https://ocivkbocmywinwqmaqac.supabase.co/functions/v1/send-email"
     },
     {
       "source": "/api/hts-search",

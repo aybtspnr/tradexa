@@ -8,10 +8,12 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { showError, showSuccess } from "@/utils/toast";
 import { motion } from "framer-motion";
-import { ArrowRight, Eye, EyeOff, Lock, Mail, UserPlus } from "lucide-react";
+import { ArrowRight, Eye, EyeOff, Lock, Mail, UserPlus, Wrench } from "lucide-react";
 import Logo from "@/components/Logo";
 import { trackEvent } from "@/lib/analytics";
 import { useSeo } from "@/hooks/use-seo";
+
+const MAINTENANCE = import.meta.env.VITE_MAINTENANCE_MODE === "true";
 
 const Login = () => {
   useSeo({
@@ -34,8 +36,23 @@ const Login = () => {
     setLoading(true);
     try {
       if (!email || !password) throw new Error("Preencha todos os campos.");
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
+
+      // Maintenance mode — only admins can log in
+      if (MAINTENANCE && data.user) {
+        const { data: profile } = await supabase
+          .from("profiles")
+          .select("role")
+          .eq("id", data.user.id)
+          .single();
+
+        if (!profile || profile.role !== "admin") {
+          await supabase.auth.signOut();
+          throw new Error("Plataforma em manutenção. Apenas administradores podem acessar no momento. Tente novamente mais tarde.");
+        }
+      }
+
       trackEvent("Login", { email_domain: email.split("@")[1] });
       showSuccess("Bem-vindo!");
       setTimeout(() => navigate(redirect), 1000);
@@ -91,6 +108,20 @@ const Login = () => {
             </div>
 
             <form onSubmit={handleLogin} className="space-y-4">
+              {MAINTENANCE && (
+                <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-center">
+                  <div className="mb-2 flex justify-center">
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100">
+                      <Wrench className="h-5 w-5 text-amber-600" />
+                    </div>
+                  </div>
+                  <h3 className="text-sm font-bold text-amber-800">Plataforma em manutenção</h3>
+                  <p className="mt-1 text-xs text-amber-600">
+                    Apenas administradores podem acessar no momento. Voltamos em breve!
+                  </p>
+                </div>
+              )}
+
               <div className="space-y-2">
                 <label className="text-xs font-bold text-slate-600 uppercase tracking-wider">E-mail</label>
                 <div className="relative">

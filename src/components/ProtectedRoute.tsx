@@ -1,6 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "@/hooks/use-auth";
+import { Wrench } from "lucide-react";
+
+const MAINTENANCE = import.meta.env.VITE_MAINTENANCE_MODE === "true";
 
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -9,16 +12,66 @@ interface ProtectedRouteProps {
 }
 
 export function ProtectedRoute({ children, requireAdmin = false, requireEmailConfirmed = false }: ProtectedRouteProps) {
-  const { profile, loading, emailConfirmed } = useAuth();
+  const { profile, loading, emailConfirmed, signOut } = useAuth();
   const location = useLocation();
+  const [sessionExpiring, setSessionExpiring] = useState(false);
+
+  // Persist "had session" across unmounts so tab wake-up doesn't nuke the page
+  const [hadSession, setHadSession] = useState(() => {
+    return localStorage.getItem("tradexa_had_session") === "true";
+  });
+
+  // Once we confirm a valid profile, remember it
+  useEffect(() => {
+    if (profile && !loading && !hadSession) {
+      localStorage.setItem("tradexa_had_session", "true");
+      setHadSession(true);
+    }
+  }, [profile, loading, hadSession]);
+
+  // Clear hadSession on explicit sign-out
+  useEffect(() => {
+    const handler = () => {
+      localStorage.removeItem("tradexa_had_session");
+      setHadSession(false);
+    };
+    window.addEventListener("session-expiring", handler);
+    return () => window.removeEventListener("session-expiring", handler);
+  }, []);
 
   if (loading) {
-    // Apenas renderiza os filhos sem indicador visual — loading é silencioso
+    // First-ever load (no cached session) — show nothing
+    if (!hadSession) return null;
+    // Re-authenticating (tab wake-up) — keep children mounted
     return <>{children}</>;
   }
 
   if (!profile) {
+    localStorage.removeItem("tradexa_had_session");
+    setHadSession(false);
     return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  // Maintenance mode — only admins can access
+  if (MAINTENANCE && profile.role !== "admin") {
+    signOut();
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white flex items-center justify-center p-4">
+        <div className="text-center max-w-md">
+          <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center mx-auto mb-6">
+            <Wrench className="w-8 h-8 text-amber-500" />
+          </div>
+          <h1 className="text-2xl font-black text-slate-900 mb-3">
+            Plataforma em manutenção
+          </h1>
+          <p className="text-slate-600 leading-relaxed mb-4">
+            Estamos realizando melhorias na plataforma. Apenas administradores podem acessar no momento. 
+            Voltamos em breve!
+          </p>
+          <p className="text-sm text-slate-400">Agradecemos pela compreensão.</p>
+        </div>
+      </div>
+    );
   }
 
   if (requireAdmin && profile.role !== "admin") {
@@ -53,7 +106,18 @@ export function ProtectedRoute({ children, requireAdmin = false, requireEmailCon
 
   return (
     <>
-      {/* Session expiry warning modal removido — timeout silencioso */}
+      {/* Session expiry warning banner */}
+      {sessionExpiring && (
+        <div className="fixed top-0 left-0 right-0 z-[9999] bg-amber-500 text-black px-4 py-3 text-center text-sm font-bold animate-pulse">
+          ⚠️ Sua sessão expirará em 1 minuto por inatividade. 
+          <button 
+            onClick={() => setSessionExpiring(false)} 
+            className="ml-3 underline hover:no-underline"
+          >
+            Continuar
+          </button>
+        </div>
+      )}
       {children}
     </>
   );

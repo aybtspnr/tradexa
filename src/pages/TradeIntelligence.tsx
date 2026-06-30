@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -138,6 +138,41 @@ export default function TradeIntelligence() {
   const [loading, setLoading] = useState(false);
   const [badgeFormat, setBadgeFormat] = useState<'8' | '4' | 'none' | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  // Save state on tab discard (pagehide)
+  useEffect(() => {
+    const handlePageHide = () => {
+      if (data) {
+        localStorage.setItem('tradexa_ti_search', searchNcm);
+        localStorage.setItem('tradexa_ti_data', JSON.stringify(data));
+        localStorage.setItem('tradexa_ti_badge', badgeFormat || '');
+      }
+    };
+    window.addEventListener('pagehide', handlePageHide);
+
+    // Also save on unmount (SPA navigation away)
+    return () => {
+      window.removeEventListener('pagehide', handlePageHide);
+      if (data) {
+        localStorage.setItem('tradexa_ti_search', searchNcm);
+        localStorage.setItem('tradexa_ti_data', JSON.stringify(data));
+      }
+    };
+  }, [searchNcm, data, badgeFormat]);
+
+  // Restore state on mount
+  useEffect(() => {
+    const savedSearch = localStorage.getItem('tradexa_ti_search');
+    const savedData = localStorage.getItem('tradexa_ti_data');
+    const savedBadge = localStorage.getItem('tradexa_ti_badge');
+    if (savedSearch) setSearchNcm(savedSearch);
+    if (savedData) {
+      try { setData(JSON.parse(savedData)); } catch {}
+    }
+    if (savedBadge) setBadgeFormat(savedBadge as '8' | '4' | 'none');
+    // Clear consumed cache to avoid stale redirects
+    localStorage.removeItem('tradexa_last_route');
+  }, []);
 
   const handleSearch = async () => {
     if (!searchNcm.trim()) return;
