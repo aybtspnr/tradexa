@@ -1,21 +1,46 @@
 "use client";
-
+import { useState, useEffect } from "react";
+import { useSeo } from "@/hooks/use-seo";
 import { Card, CardContent } from "@/components/ui/card";
-import { Flag } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Loader2 } from "lucide-react";
+
+const API = "/api/intel";
 
 export default function HubEua() {
+  useSeo({ title: "Comércio Brasil-EUA — TradeXA" });
+  const [exchangeRate, setExchangeRate] = useState<number | null>(null);
+  const [brazil, setBrazil] = useState<any>(null);
+
+  useEffect(() => {
+    Promise.all([
+      fetch(`${API}/global/bcb/exchange-rate`).then(r => r.json()),
+      fetch(`${API}/global/worldbank/country/BRA`).then(r => r.json()),
+    ]).then(([cambio, br]) => {
+      setExchangeRate(cambio?.value || null);
+      setBrazil(br);
+    }).catch(() => {});
+  }, []);
+
   return (
-    <div className="p-6">
-      <Card className="border-slate-200 shadow-sm">
-        <div className="h-1 bg-gradient-to-r from-red-500 to-blue-500" />
-        <CardContent className="p-8 flex flex-col items-center justify-center text-center">
-          <Flag className="w-12 h-12 text-slate-300 mb-4" />
-          <h3 className="text-lg font-bold text-slate-700 mb-2">Comércio EUA</h3>
-          <p className="text-sm text-slate-500 max-w-md">
-            Inteligência comercial focada nos Estados Unidos: tarifas, acordos e tendências de mercado.
-          </p>
-        </CardContent>
-      </Card>
+    <div className="p-4 md:p-6 space-y-4 max-w-4xl mx-auto">
+      <h2 className="text-xl font-bold">🇺🇸 Comércio Brasil-EUA</h2>
+      <p className="text-sm text-slate-500">Indicadores bilaterais com os Estados Unidos</p>
+
+      <div className="grid md:grid-cols-2 gap-3">
+        <Card><CardContent className="p-4">
+          <div className="text-xs text-slate-500 mb-1">Câmbio USD/BRL</div>
+          <div className="text-2xl font-bold">{exchangeRate ? `R$ ${exchangeRate.toFixed(3)}` : "—"}</div>
+          <Badge variant="outline" className="mt-1">BCB</Badge>
+        </CardContent></Card>
+        <Card><CardContent className="p-4">
+          <div className="text-xs text-slate-500 mb-1">Exportações Brasil</div>
+          <div className="text-2xl font-bold text-green-600">{brazil?.exports ? `$${(brazil.exports / 1e9).toFixed(1)}B` : "—"}</div>
+          <Badge variant="outline" className="mt-1">World Bank</Badge>
+        </CardContent></Card>
+      </div>
+
+      <p className="text-xs text-slate-400 mt-4">Dados em breve: importação/exportação bilateral via US Census API</p>
     </div>
   );
 }
