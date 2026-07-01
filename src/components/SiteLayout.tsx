@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight, ChevronRight, Sparkles, ChevronDown, Menu, X,
   Search, Globe, BarChart3, TrendingUp, Map, Database,
-  Package, BellRing, Zap, Shield, Activity, Ship, Navigation, Briefcase,
+  Package, BellRing, Zap, Shield, Activity, Ship, Navigation, Briefcase, Building2, Radio,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo3D } from "@/components/Logo3D";
@@ -36,6 +36,10 @@ function SiteHeader() {
     { label: "Diretório Importadores", href: "/landing/importadores", icon: <Database className="w-4 h-4" />, color: "#ef4444", desc: "Milhões de empresas por HS" },
     { label: "Mapa de Frete Marítimo", href: "/maritime-freight-map", icon: <Ship className="w-4 h-4" />, color: "#D80E16", desc: "Rotas e cotações interativas no mapa" },
     { label: "Supply Chain Map", href: "/supply-chain", icon: <Activity className="w-4 h-4" />, color: "#1e3a5f", desc: "Mapa logístico global ao vivo" },
+    { label: "Perfil Global Empresa", href: "/company-global-profile", icon: <Building2 className="w-4 h-4" />, color: "#8b5cf6", desc: "CNPJ com contexto global" },
+    { label: "Radar de Concorrência", href: "/radar-concorrencia", icon: <Radio className="w-4 h-4" />, color: "#D80E16", desc: "Concorrentes por NCM e mercado" },
+    { label: "Comparador Global", href: "/global-trade-comparison", icon: <Globe className="w-4 h-4" />, color: "#3b82f6", desc: "Brasil vs China, EUA e Alemanha" },
+    { label: "NCM Global Dashboard", href: "/ncm-global-dashboard", icon: <BarChart3 className="w-4 h-4" />, color: "#10b981", desc: "Dashboard com dados globais" },
   ];
 
   return (
@@ -152,6 +156,10 @@ function SiteFooter() {
               { label: "Análise Avançada", href: "/trade-intelligence" },
               { label: "Supply Chain", href: "/supply-chain" },
               { label: "Notícias", href: "/noticias" },
+              { label: "Perfil Global Empresa", href: "/company-global-profile" },
+              { label: "Radar de Concorrência", href: "/radar-concorrencia" },
+              { label: "Comparador Global", href: "/global-trade-comparison" },
+              { label: "NCM Global Dashboard", href: "/ncm-global-dashboard" },
             ]},
             { title: "Ferramentas", links: [
 

@@ -167,13 +167,13 @@ const CATEGORIES: Category[] = [
         ],
         color: "#8b5cf6",
         actionRoute: "/company-global-profile",
-        landingRoute: "",
+        landingRoute: "/landing/company-global-profile",
         badge: "Novo",
       },
       {
         icon: Radio, title: "Radar de Concorrência",
         shortDesc: "Identifique concorrentes por NCM e mercado",
-        longDesc: "Descubra quem são os exportadores brasileiros para cada NCM, para quais países vendem e qual o market share de cada concorrente. Dados reais da COMEXSTAT.",
+        longDesc: "Descubra quem são os exportadores brasileiros para cada NCM, para quais países vendem e qual o market share de cada concorrente. Dados reais de comércio exterior.",
         features: [
           { name: "Concorrentes", desc: "Ranking por score" },
           { name: "Mercados", desc: "Destinos por país" },
@@ -181,7 +181,7 @@ const CATEGORIES: Category[] = [
         ],
         color: "#D80E16",
         actionRoute: "/radar-concorrencia",
-        landingRoute: "",
+        landingRoute: "/landing/radar-concorrencia",
         badge: "Novo",
       },
       {
@@ -195,7 +195,7 @@ const CATEGORIES: Category[] = [
         ],
         color: "#3b82f6",
         actionRoute: "/global-trade-comparison",
-        landingRoute: "",
+        landingRoute: "/landing/global-trade-comparison",
         badge: "Novo",
       },
       {
@@ -209,7 +209,7 @@ const CATEGORIES: Category[] = [
         ],
         color: "#10b981",
         actionRoute: "/ncm-global-dashboard",
-        landingRoute: "",
+        landingRoute: "/landing/ncm-global-dashboard",
         badge: "Novo",
       },
     ],

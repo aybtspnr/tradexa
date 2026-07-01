@@ -103,6 +103,10 @@ const LandingCalculadoraDrawback = lazy(() => import("./pages/landing/Calculador
 const LandingCalculadoraCarbono = lazy(() => import("./pages/landing/CalculadoraCarbonoLanding"));
 const LandingSimuladorAcordosComerciais = lazy(() => import("./pages/landing/SimuladorAcordosComerciaisLanding"));
 const LandingNoticiasComex = lazy(() => import("./pages/landing/NoticiasComexLanding"));
+const LandingCompanyGlobalProfile = lazy(() => import("./pages/landing/CompanyGlobalProfileLanding"));
+const LandingRadarConcorrencia = lazy(() => import("./pages/landing/RadarConcorrenciaLanding"));
+const LandingGlobalTradeComparison = lazy(() => import("./pages/landing/GlobalTradeComparisonLanding"));
+const LandingNcmGlobalDashboard = lazy(() => import("./pages/landing/NcmGlobalDashboardLanding"));
 const IntelligenceHub = lazy(() => import("./pages/IntelligenceHub"));
 
 const LandingVendas = lazy(() => import("./pages/LandingVendas"));
@@ -360,6 +364,10 @@ function AnimatedRoutes() {
         <Route path="/landing/ncm-classifier" element={<AnimatedPage><LandingNcmClassifier /></AnimatedPage>} />
         <Route path="/landing/tariff-calculator" element={<AnimatedPage><LandingTariffCalculator /></AnimatedPage>} />
         <Route path="/landing/importadores" element={<AnimatedPage><LandingImportadores /></AnimatedPage>} />
+        <Route path="/landing/company-global-profile" element={<AnimatedPage><LandingCompanyGlobalProfile /></AnimatedPage>} />
+        <Route path="/landing/radar-concorrencia" element={<AnimatedPage><LandingRadarConcorrencia /></AnimatedPage>} />
+        <Route path="/landing/global-trade-comparison" element={<AnimatedPage><LandingGlobalTradeComparison /></AnimatedPage>} />
+        <Route path="/landing/ncm-global-dashboard" element={<AnimatedPage><LandingNcmGlobalDashboard /></AnimatedPage>} />
         <Route path="/landing/maritime-freight" element={<AnimatedPage><LandingMaritimeFreight /></AnimatedPage>} />
         <Route path="/landing/maritime-freight-map" element={<AnimatedPage><LandingMaritimeFreightMap /></AnimatedPage>} />
         <Route path="/landing/track-trace" element={<AnimatedPage><LandingTrackTrace /></AnimatedPage>} />
