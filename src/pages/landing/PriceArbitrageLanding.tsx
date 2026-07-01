@@ -11,7 +11,7 @@ export default function PriceArbitrageLanding() {
       subtitle="Price Arbitrage"
       heroDesc="Compare preços de produtos entre mercados globais e identifique oportunidades de compra e venda com margens reais."
       seoTitle="Arbitragem de Preços Globais — Compare Mercados | TRADEXA"
-      seoDescription="Compare preços de produtos entre 130+ países e descubra oportunidades de arbitragem com margens reais. Dados oficiais de comércio exterior."
+      seoDescription="Compare preços de produtos entre 130+ países e descubra oportunidades de arbitragem com margens reais. Dados de comércio exterior."
       features={[
         { name: "Comparação global", desc: "Preços médios de milhares de produtos em 130+ países." },
         { name: "Cálculo de margem", desc: "Impostos, frete, seguro e custos operacionais embutidos." },

@@ -47,9 +47,9 @@ const CATEGORIES: Category[] = [
       {
         icon: BarChart3, title: "Export Import Data",
         shortDesc: "Dados completos de importação/exportação por NCM",
-        longDesc: "Acesse dados oficiais COMEXSTAT com registros verificáveis de importação e exportação. Filtre por NCM, país, estado e período. Exporte para CSV e Excel.",
+        longDesc: "Acesse dados completos de importação e exportação com registros verificáveis. Filtre por NCM, país, estado e período. Exporte para CSV e Excel.",
         features: [
-          { name: "Dados oficiais", desc: "COMEXSTAT + BOLs reais" },
+          { name: "Dados de referência", desc: "Registros atualizados" },
           { name: "Empresas com score", desc: "Ranking por evidência" },
           { name: "Gráficos interativos", desc: "Evolução, países, portos" },
         ],

@@ -309,7 +309,7 @@ export default function OpportunityRadar() {
           Radar de Oportunidades
         </h1>
         <p className="text-sm text-slate-600">
-          Cruza volume de importadores com tarifas baixas e dados COMEXSTAT para identificar os melhores mercados para exportar.
+          Cruza volume de importadores com tarifas baixas e dados de comércio exterior para identificar os melhores mercados para exportar.
         </p>
       </div>
 
@@ -445,7 +445,7 @@ export default function OpportunityRadar() {
                 <h3 className="text-sm font-bold text-slate-800">
                   Exportações Brasileiras — HS {selectedChapter}
                 </h3>
-                <Badge variant="secondary" className="text-[10px]">COMEXSTAT</Badge>
+                <Badge variant="secondary" className="text-[10px]">Exportações</Badge>
               </div>
               <ResponsiveContainer width="100%" height={200}>
                 <BarChart data={chapterTradeData[selectedChapter].slice(0, 8)} layout="vertical" margin={{ left: 0, right: 20 }}>

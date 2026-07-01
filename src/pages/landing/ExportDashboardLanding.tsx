@@ -21,8 +21,8 @@ export default function ExportDashboardLanding() {
       ]}
       sections={[
         {
-          title: "Dados Oficiais",
-          content: "Nossa base de exportação é alimentada diretamente por dados atualizados do governo brasileiro, processados e enriquecidos com análises de IA.",
+          title: "Dados de Exportação",
+           content: "Nossa base de exportação é alimentada por dados atualizados, processados e enriquecidos com análises de IA.",
           bullets: ["Registros individuais de exportação", "Dados atualizados mensalmente", "Classificação NCM com 8 dígitos"]
         },
       {
@@ -32,7 +32,7 @@ export default function ExportDashboardLanding() {
         },
       {
           title: "Como usar no seu negócio",
-          content: "O Dashboard de Exportação da TRADEXA é a ferramenta ideal para exportadores que querem entender o mercado antes de tomar decisões. Com ele você descobre quais produtos brasileiros estão em alta no mercado internacional, quais países estão aumentando suas importações do Brasil e qual o preço médio praticado em cada destino. A ferramenta permite filtrar por NCM, país de destino, estado brasileiro exportador e período, gerando dashboards interativos com evolução temporal, market share e sazonalidade. Para empresas que já exportam, é uma forma de monitorar a concorrência e identificar tendências de preço. Para quem quer começar a exportar, ajuda a escolher o produto e o mercado com maior potencial, baseado em dados reais e não em suposições. Os dados são processados a partir de registros oficiais de exportação brasileira e organizados de forma intuitiva, sem necessidade de conhecimento técnico em análise de dados."
+          content: "O Dashboard de Exportação da TRADEXA é a ferramenta ideal para exportadores que querem entender o mercado antes de tomar decisões. Com ele você descobre quais produtos brasileiros estão em alta no mercado internacional, quais países estão aumentando suas importações do Brasil e qual o preço médio praticado em cada destino. A ferramenta permite filtrar por NCM, país de destino, estado brasileiro exportador e período, gerando dashboards interativos com evolução temporal, market share e sazonalidade. Para empresas que já exportam, é uma forma de monitorar a concorrência e identificar tendências de preço. Para quem quer começar a exportar, ajuda a escolher o produto e o mercado com maior potencial, baseado em dados reais e não em suposições. Os dados são processados a partir de registros de exportação brasileira e organizados de forma intuitiva, sem necessidade de conhecimento técnico em análise de dados."
         }
       ]}
       ctaRoute="/export-intelligence"

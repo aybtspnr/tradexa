@@ -410,7 +410,7 @@ export default function HubEua() {
             </p>
           )}
           <p className="text-[10px] text-slate-400 mt-3 italic">
-            Fonte: MDIC/ComexStat • Dados de referência {globalTrade?.summary?.year_reference || 2023}
+            Dados de referência {globalTrade?.summary?.year_reference || 2023}
           </p>
         </CardContent>
       </Card>

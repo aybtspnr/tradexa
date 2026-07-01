@@ -251,7 +251,7 @@ export default function PrecificacaoExportacaoPage() {
                     <div>
                       <p className="text-sm font-bold text-blue-800">Preços de referência</p>
                       <p className="text-xs text-blue-600">
-                        Dados compilados de fontes públicas (comércio exterior, OEC World, UN Comtrade). Preços FOB médios observados em 2024-2025.
+                        Preços FOB médios observados em 2024-2025.
                         Para análises detalhadas com dados em tempo real por país e comprador, consulte nossa Pesquisa de Mercado.
                       </p>
                     </div>

@@ -577,7 +577,7 @@ const UsTradeIntelligence = () => {
 
   useSeo({
     title: "Inteligencia EUA — HTS, ImportInfo e Census",
-    description: "Dados comerciais dos Estados Unidos: tarifas HTS, dados de importacao (BOLs) e estatisticas do US Census Bureau.",
+    description: "Dados comerciais dos Estados Unidos: tarifas HTS, dados de importacao (BOLs) e estatisticas comerciais.",
     canonical: "https://www.tradexa.com.br/us-trade-intelligence",
   });
 
@@ -785,7 +785,7 @@ const UsTradeIntelligence = () => {
       <div className="w-full space-y-6">
         <PageHeader
           title="Inteligencia EUA"
-          subtitle="Tarifas HTS, dados de importacao (ImportInfo BOLs) e estatisticas do US Census Bureau em um so lugar."
+          subtitle="Tarifas HTS, dados de importacao (ImportInfo BOLs) e estatisticas comerciais em um so lugar."
           variant="red"
           badges={[
             { label: "US HTS", icon: <Globe className="w-3 h-3 mr-1" /> },
@@ -1462,7 +1462,7 @@ const UsTradeIntelligence = () => {
                 Inteligencia EUA
               </h2>
               <p className="text-sm font-medium text-slate-400 max-w-lg mx-auto leading-relaxed mb-6">
-                Consulte tarifas HTS, dados de importacao (BOLs) e estatisticas do US Census Bureau.
+                Consulte tarifas HTS, dados de importacao (BOLs) e estatisticas comerciais.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto">
                 {[

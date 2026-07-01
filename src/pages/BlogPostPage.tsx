@@ -656,7 +656,7 @@ const postTools: Record<
   ],
   "balanca-comercial-brasileira-2026": [
     { title: "Trade Intelligence", desc: "Acompanhe dados reais de exportação e importação.", route: "/landing/import-dashboard", icon: BarChart3, color: "#D80E16" },
-    { title: "Inteligência Comercial", desc: "Dashboard completo com dados atualizados MDIC.", route: "/intelligence", icon: BarChart3, color: "#10b981" },
+    { title: "Inteligência Comercial", desc: "Dashboard completo com dados atualizados.", route: "/intelligence", icon: BarChart3, color: "#10b981" },
     { title: "Smart Rank", desc: "Descubra oportunidades por país.", route: "/landing/export-opportunities", icon: TrendingUp, color: "#8b5cf6" },
   ],
   "portos-brasil-infraestrutura-logistica": [
@@ -696,7 +696,7 @@ const postTools: Record<
     { title: "Tarifário Global", desc: "Consulte alíquotas atualizadas.", route: "/global-tariff", icon: Globe, color: "#10b981" },
   ],
   "principais-produtos-exportados-brasil-2026": [
-    { title: "Trade Intelligence", desc: "Dados oficiais de exportação.", route: "/trade-intelligence", icon: BarChart3, color: "#10b981" },
+    { title: "Trade Intelligence", desc: "Dados de exportação.", route: "/trade-intelligence", icon: BarChart3, color: "#10b981" },
     { title: "Smart Rank", desc: "Oportunidades por país e produto.", route: "/landing/export-opportunities", icon: TrendingUp, color: "#8b5cf6" },
   ],
   "como-saber-ncm-produto": [

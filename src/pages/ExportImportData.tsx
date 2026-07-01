@@ -478,9 +478,9 @@ export default function ExportImportData() {
     <div className="space-y-6 p-6">
       <PageHeader
         title="Exportação vs Importação"
-        subtitle="Compare dados oficiais de exportação e importação brasileira por NCM — COMEXSTAT"
+        subtitle="Compare exportação e importação brasileira por NCM"
         badges={[
-          { label: "DADOS OFICIAIS", className: "bg-emerald-500/20 text-emerald-300" },
+          
           { label: "MDIC / COMEXSTAT", className: "bg-sky-500/20 text-sky-300" },
         ]}
         variant="default"
@@ -1125,7 +1125,7 @@ export default function ExportImportData() {
           {/* ── Data source footer ── */}
           <div className="text-center">
             <p className="text-[10px] text-slate-500">
-              Fonte: MDIC / COMEXSTAT — Dados oficiais do comércio exterior brasileiro.
+              Dados de comércio exterior brasileiro.
               Atualizado mensalmente.
             </p>
           </div>

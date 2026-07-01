@@ -440,7 +440,7 @@ export default function TradeRoutes() {
     description:
       "Visualize rotas comerciais entre países para qualquer NCM. Explore origens, destinos e volumes por rota comercial.",
     keywords:
-      "rotas comerciais, fluxo de comércio, rotas exportação, rotas importação, comexstat, origem destino, NCM",
+      "rotas comerciais, fluxo de comércio, rotas exportação, rotas importação, origem destino, NCM",
   });
 
   /* ── Close suggestions on outside click ── */
@@ -855,7 +855,7 @@ export default function TradeRoutes() {
         subtitle="Visualize rotas comerciais entre países para qualquer NCM — origens, destinos e volumes por rota"
         badges={[
           { label: "ROTAS COMERCIAIS", className: "bg-emerald-500/20 text-emerald-300" },
-          { label: "COMEXSTAT", className: "bg-sky-500/20 text-sky-300" },
+          { label: "Exportação", className: "bg-sky-500/20 text-sky-300" },
         ]}
         variant="default"
       />
@@ -1227,7 +1227,7 @@ export default function TradeRoutes() {
           {/* ── Data source footer ── */}
           <div className="text-center">
             <p className="text-[10px] text-slate-500">
-              Fonte: MDIC / COMEXSTAT — Dados oficiais do comércio exterior brasileiro.
+              Dados de comércio exterior brasileiro.
               Rotas ordenadas por valor FOB.
             </p>
           </div>

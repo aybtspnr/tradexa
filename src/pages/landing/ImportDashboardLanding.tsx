@@ -9,11 +9,11 @@ export default function ImportDashboardLanding() {
       color="#10b981"
       title="Trade Intelligence"
       subtitle="Import & Export Data"
-      heroDesc="Dados oficiais de importação e exportação brasileira em um dashboard unificado. Cruze informações de comércio exterior com filtros avançados."
+      heroDesc="Dados de importação e exportação brasileira em um dashboard unificado. Cruze informações de comércio exterior com filtros avançados."
       seoTitle="Trade Intelligence — Dashboard de Importação e Exportação | TRADEXA"
-      seoDescription="Dados oficiais de importação e exportação brasileira em dashboard unificado. Cruze informações com filtros por NCM, país, estado e período. Atualizado mensalmente."
+      seoDescription="Dados de importação e exportação brasileira em dashboard unificado. Cruze informações com filtros por NCM, país, estado e período. Atualizado mensalmente."
       features={[
-        { name: "Dados oficiais SISCOMEX", desc: "Registros de importação e exportação com CNPJ, NCM, país, valor FOB, frete e peso." },
+        { name: "Dados de importação e exportação", desc: "Registros de importação e exportação com CNPJ, NCM, país, valor FOB, frete e peso." },
         { name: "Filtros combinados", desc: "NCM, país, estado, porto, período e faixa de valor em uma única busca." },
         { name: "Evolução temporal", desc: "Gráficos interativos mensais, trimestrais e anuais desde 2018." },
         { name: "Market share", desc: "Participação de cada fornecedor e país no total, com tendências." },

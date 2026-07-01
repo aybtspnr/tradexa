@@ -254,7 +254,7 @@ export default function CompanyGlobalProfile() {
                 <div className="text-center p-3 rounded-xl bg-blue-50">
                   <p className="text-[10px] font-bold text-blue-600 uppercase">Fonte</p>
                   <p className="text-xs font-bold text-blue-700 uppercase break-words">
-                    {company.source === "comexstat" ? "COMEXSTAT" :
+                    {company.source === "comexstat" ? "Importação" :
                      company.source === "bol" ? "BOL" :
                      company.source === "relationship" ? "Relação" :
                      company.source === "cluster" ? "Cluster" : company.source}

@@ -294,7 +294,7 @@ export default function HubRankings() {
       {errors.length > 0 && (
         <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 flex items-center gap-2 text-sm text-amber-800">
           <AlertTriangle className="w-4 h-4 shrink-0" />
-          <span>Algumas fontes de dados não responderam: {errors.join(", ")}</span>
+          <span>Algumas consultas não responderam: {errors.join(", ")}</span>
         </div>
       )}
 

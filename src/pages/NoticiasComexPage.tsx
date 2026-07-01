@@ -1003,7 +1003,7 @@ export default function NoticiasComexPage() {
             </h1>
             <p className="text-lg text-[#5E6278] max-w-2xl mx-auto">
               Acompanhe as ultimas noticias de tarifas, acordos comerciais,
-              regulamentacao aduaneira, mercados e cambio. Fontes oficiais e
+              regulamentacao aduaneira, mercados e cambio. Fontes atualizadas e
               curadoria especializada para importadores e exportadores.
             </p>
             {ultimaAtualizacao && (
@@ -1154,7 +1154,7 @@ export default function NoticiasComexPage() {
           >
             <Info className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm font-bold text-blue-800">Fontes oficiais</p>
+              <p className="text-sm font-bold text-blue-800">Fontes</p>
               <p className="text-xs text-blue-600">
                 As notícias são compiladas de fontes atualizadas e confiáveis:
                 MDIC, SECEX, Camara do Comercio Exterior, JOTA, EXAME e Portal

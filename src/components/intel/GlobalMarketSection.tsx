@@ -125,7 +125,7 @@ export default function GlobalMarketSection({ ncm, year = 2025, className }: Pro
           <h3 className="text-sm font-bold text-slate-200">Mercado Global</h3>
         </div>
         <Badge variant="outline" className="text-[10px] text-slate-400 border-slate-600">
-          BCB · World Bank · COMEXSTAT
+          Dados de referência
         </Badge>
       </div>
 

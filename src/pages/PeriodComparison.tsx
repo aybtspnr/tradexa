@@ -319,7 +319,7 @@ export default function PeriodComparison() {
   useSeo({
     title: `Comparador de Períodos — ${direction === "export" ? "Exportação" : "Importação"} | TRADEXA`,
     description: `Compare dados ${direction === "export" ? "de exportação" : "de importação"} brasileira entre períodos distintos por NCM. Veja evolução, sazonalidade e crescimento.`,
-    keywords: "comparador períodos, exportação, importação, evolução, sazonalidade, comércio exterior, TRADEXA, NCM, comexstat",
+    keywords: "comparador períodos, exportação, importação, evolução, sazonalidade, comércio exterior, TRADEXA, NCM",
   });
 
   /* ── Close suggestions on outside click ── */
@@ -543,8 +543,6 @@ export default function PeriodComparison() {
         title="Comparador de Períodos"
         subtitle="Compare dados comerciais brasileiros entre períodos distintos. Analise evolução, sazonalidade e crescimento ano a ano."
         badges={[
-          { label: "DADOS OFICIAIS", className: "bg-emerald-500/20 text-emerald-300" },
-          { label: "MDIC / COMEXSTAT", className: "bg-sky-500/20 text-sky-300" },
           { label: "COMPARAÇÃO PERÍODOS", className: "bg-violet-500/20 text-violet-300" },
         ]}
         variant="default"
@@ -1297,8 +1295,7 @@ export default function PeriodComparison() {
           {/* ── Data source footer ── */}
           <div className="text-center">
             <p className="text-[10px] text-slate-500">
-              Fonte: MDIC / COMEXSTAT — Dados oficiais do comércio exterior brasileiro.
-              Atualizado mensalmente. Período A: {periodALabel} | Período B: {periodBLabel}.
+              Dados atualizados mensalmente. Período A: {periodALabel} | Período B: {periodBLabel}.
             </p>
           </div>
         </motion.div>

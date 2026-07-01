@@ -176,7 +176,7 @@ export default function HubDashboard() {
           </p>
         </div>
         <div className="text-xs text-slate-400 bg-slate-50 px-3 py-1.5 rounded-lg border">
-          Dados: BCB · World Bank · COMEXSTAT
+          Dados de referência
         </div>
       </div>
 
@@ -278,7 +278,7 @@ export default function HubDashboard() {
 
       {/* Data Sources */}
       <div className="text-[10px] text-slate-400 text-center border-t pt-4">
-        Fontes: BCB (SGS), World Bank (API), COMEXSTAT (MDIC), US Census Bureau
+        Fontes de referência
       </div>
     </div>
   );

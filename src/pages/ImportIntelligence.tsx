@@ -149,7 +149,7 @@ const ImportIntelligence = () => {
   return (
     <ImportIntelligenceLayout title="Dashboard">
       <div className="space-y-6">
-        <PageHeader title="Import Intelligence" subtitle="Dados oficiais de importação brasileira" variant="blue" />
+        <PageHeader title="Import Intelligence" subtitle="Dados de importação brasileira" variant="blue" />
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <Card className="border-none shadow-xl rounded-2xl overflow-hidden bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-700 text-white cursor-pointer" onClick={() => navigate("/import-intelligence/search")}>

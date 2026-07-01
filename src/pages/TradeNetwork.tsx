@@ -387,7 +387,7 @@ export default function TradeNetwork() {
     <div className="space-y-6 p-6">
       <PageHeader
         title="Conexões Comerciais"
-        subtitle="Visualize a rede de parceiros comerciais do Brasil por NCM — dados oficiais COMEXSTAT"
+        subtitle="Visualize a rede de parceiros comerciais do Brasil por NCM — dados de comércio exterior"
         badges={[
           { label: "REDE COMERCIAL", className: "bg-sky-500/20 text-sky-300" },
           { label: "BRA", className: "bg-emerald-500/20 text-emerald-300" },
@@ -503,7 +503,7 @@ export default function TradeNetwork() {
             </h3>
             <p className="text-slate-400 text-xs max-w-md mx-auto">
               Digite um código NCM para visualizar as conexões comerciais do Brasil com seus
-              parceiros ao redor do mundo — dados oficiais de importação e exportação.
+              parceiros ao redor do mundo — dados de importação e exportação.
             </p>
           </div>
         </GlassCard>
@@ -934,7 +934,7 @@ export default function TradeNetwork() {
           {/* ── Data source footer ── */}
           <div className="text-center">
             <p className="text-[10px] text-slate-500">
-              Fonte: MDIC / COMEXSTAT — Dados oficiais do comércio exterior brasileiro.
+              Dados de comércio exterior brasileiro.
               Atualizado mensalmente.
             </p>
           </div>

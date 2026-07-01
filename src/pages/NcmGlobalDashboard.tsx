@@ -56,7 +56,7 @@ export default function NcmGlobalDashboard() {
   useSeo({
     title: "NCM Global Dashboard — TRADEXA",
     description: "Dashboard completo para qualquer NCM com dados de market share global, indicadores macroeconômicos e comparativo competitivo.",
-    keywords: "NCM dashboard, market share global, comércio exterior, indicadores, BCB, World Bank, COMEXSTAT, tradexa",
+    keywords: "NCM dashboard, market share global, comércio exterior, indicadores, tradexa",
   });
 
   const [ncm, setNcm] = useState("");
@@ -237,7 +237,7 @@ export default function NcmGlobalDashboard() {
       // Footer
       doc.setFontSize(7);
       doc.setTextColor(140, 140, 140);
-      doc.text("TRADEXA Market Intelligence  •  Fonte: BCB, World Bank, COMEXSTAT  •  tradexa.com.br", W / 2, 282, { align: "center" });
+      doc.text("TRADEXA Market Intelligence  •  tradexa.com.br", W / 2, 282, { align: "center" });
 
       doc.save(`tradexa-ncm-dashboard-${ncm.replace(/\D/g, "").slice(0, 6)}-${Date.now()}.pdf`);
     } catch (e) {
@@ -356,7 +356,7 @@ export default function NcmGlobalDashboard() {
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-sm font-bold text-slate-800">Top Parceiros Comerciais</h3>
-                  <Badge variant="secondary" className="text-[10px]">COMEXSTAT</Badge>
+                  <Badge variant="secondary" className="text-[10px]">Referência</Badge>
                 </div>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={partners.slice(0, 8)} layout="vertical" margin={{ left: 0, right: 15 }}>

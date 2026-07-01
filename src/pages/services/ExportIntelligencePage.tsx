@@ -11,7 +11,7 @@ export default function ExportIntelligencePage() {
       ctaRoute="/export-intelligence"
       ctaText="Acessar Dashboard"
       features={[
-        {"icon": "Database", "title": "Dados Oficiais", "desc": "Registros de exportação com destino, produto e valor."},
+        {"icon": "Database", "title": "Dados Completos", "desc": "Registros de exportação com destino, produto e valor."},
         {"icon": "Search", "title": "Busca por Destino", "desc": "Encontre os principais compradores de cada produto por país."},
         {"icon": "BarChart3", "title": "Tendências", "desc": "Analise crescimento de mercados e sazonalidade por produto."},
         {"icon": "MapPin", "title": "Mapa Global", "desc": "Visualize para onde o Brasil exporta cada produto no mundo."},

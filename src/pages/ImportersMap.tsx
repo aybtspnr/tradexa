@@ -186,8 +186,8 @@ function fmtKg(v: number): string {
 export default function ImportersMap() {
   useSeo({
     title: "Mapa Comercial — Comércio Global do Brasil",
-    description: "Visualize países, estados e cidades que mais exportam e importam com o Brasil. Dados oficiais de comércio exterior com mapa interativo.",
-    keywords: "mapa comércio exterior, exportação Brasil, importação Brasil, comexstat, tradexa",
+description: "Visualize países, estados e cidades que mais exportam e importam com o Brasil. Dados de comércio exterior.
+    keywords: "mapa comércio exterior, exportação Brasil, importação Brasil, comércio exterior, tradexa",
   });
 
   const { consume } = useUsage();

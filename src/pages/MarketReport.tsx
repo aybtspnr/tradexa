@@ -270,7 +270,7 @@ export default function MarketReport() {
       "@type": "WebPage",
       name: "Relatório de Mercado — TRADEXA",
       description:
-        "Relatório completo de análise de mercado para qualquer NCM. Dados oficiais do COMEXSTAT/MDIC.",
+        "Relatório completo de análise de mercado para qualquer NCM. Dados de comércio exterior.",
       provider: {
         "@type": "Organization",
         name: "TRADEXA",
@@ -480,7 +480,7 @@ export default function MarketReport() {
             "@type": "WebPage",
             name: "Relatório de Mercado — TRADEXA",
             description:
-              "Relatório completo de análise de mercado para qualquer NCM. Dados oficiais do COMEXSTAT/MDIC.",
+              "Relatório completo de análise de mercado para qualquer NCM. Dados de comércio exterior.",
             provider: {
               "@type": "Organization",
               name: "TRADEXA",
@@ -491,9 +491,9 @@ export default function MarketReport() {
 
       <PageHeader
         title="Relatório de Mercado"
-        subtitle="Análise completa de mercado para qualquer NCM — importação, exportação, preços e tendências com dados oficiais COMEXSTAT"
+        subtitle="Análise completa de mercado para qualquer NCM — importação, exportação, preços e tendências com dados COMEXSTAT"
         badges={[
-          { label: "DADOS OFICIAIS", className: "bg-emerald-500/20 text-emerald-300" },
+          
           { label: "MDIC / COMEXSTAT", className: "bg-sky-500/20 text-sky-300" },
         ]}
         variant="default"
@@ -1175,7 +1175,7 @@ export default function MarketReport() {
                         {ncmDescription && ` — ${ncmDescription}`}
                       </p>
                       <p className="text-[10px] text-slate-500 print:text-slate-400 mt-0.5">
-                        Período: {mesDe}/{anoDe} a {mesAte}/{anoAte} | Fonte: MDIC/COMEXSTAT
+                        Período: {mesDe}/{anoDe} a {mesAte}/{anoAte} | 
                       </p>
                     </div>
                     <Button
@@ -1282,7 +1282,7 @@ export default function MarketReport() {
                   <div className="mt-6 pt-4 border-t border-slate-700/30 print:border-slate-300">
                     <p className="text-[9px] text-slate-500 print:text-slate-400 text-center">
                       Relatório gerado em {new Date().toLocaleDateString("pt-BR")} às {new Date().toLocaleTimeString("pt-BR")}.
-                      Fonte: MDIC / COMEXSTAT — Dados oficiais do comércio exterior brasileiro.
+                      
                       TRADEXA Market Intelligence.
                     </p>
                   </div>
@@ -1294,7 +1294,7 @@ export default function MarketReport() {
           {/* ── Data source footer ── */}
           <div className="text-center">
             <p className="text-[10px] text-slate-500">
-              Fonte: MDIC / COMEXSTAT — Dados oficiais do comércio exterior brasileiro.
+              
               Atualizado mensalmente.
             </p>
           </div>

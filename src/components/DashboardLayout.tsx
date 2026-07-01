@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Activity,
@@ -51,6 +51,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 
 interface DashboardLayoutProps {
@@ -90,10 +91,10 @@ const NAV_GROUPS: NavGroup[] = [
     items: [
       { to: "/ai-search", icon: Sparkles, label: "Classificar NCM/HS" },
       { to: "/hts-lookup", icon: Search, label: "Código HTS EUA" },
-
-
-
-
+      { to: "/ncm-comparison", icon: BarChart3, label: "Comparar NCMs" },
+      { to: "/export-simulator", icon: Calculator, label: "Simular Exportação" },
+      { to: "/smart-rank", icon: Trophy, label: "Smart Rank" },
+      { to: "/tariff-alerts", icon: Bell, label: "Alertas de Tarifas" },
       { to: "/global-tariff", icon: Percent, label: "Alíquotas por País" },
     ],
   },
@@ -103,6 +104,7 @@ const NAV_GROUPS: NavGroup[] = [
     items: [
       { to: "/importadores", icon: Building2, label: "Diretório de Importadores" },
       { to: "/potential-importers", icon: Building2, label: "Importadores Potenciais" },
+      { to: "/importers-map", icon: Globe, label: "Mapa de Importadores" },
     ],
   },
   {
@@ -110,12 +112,11 @@ const NAV_GROUPS: NavGroup[] = [
     label: "Análise",
     items: [
       { to: "/intelligence", icon: BarChart3, label: "Inteligência Comercial" },
-      { to: "/import-export-data", icon: BarChart3, label: "Export Import Data" },
-
-
+      { to: "/intelligence#alertas", icon: Bell, label: "Alertas Inteligentes" },
+      { to: "/country-comparison", icon: ArrowLeftRight, label: "Comparar Países" },
+      { to: "/us-trade", icon: ArrowLeftRight, label: "Brasil ↔ EUA" },
       { to: "/trade-intelligence", icon: BrainCircuit, label: "Análise Avançada" },
-      { to: "/importers-map", icon: Globe, label: "Mapa Comercial" },
-
+      { to: "/seasonal-calendar", icon: Calendar, label: "Calendário Sazonal" },
     ],
   },
   {
@@ -168,6 +169,30 @@ const DashboardLayout = ({ children, title, subtitle }: DashboardLayoutProps) =>
     account: true,
     admin: true,
   });
+  const [alertCount, setAlertCount] = useState(0);
+
+  // Poll unread alert count
+  const loadAlertCount = useCallback(async () => {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+      const { data, error } = await supabase
+        .from("user_alerts")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", user.id)
+        .eq("read", false)
+        .eq("dismissed", false);
+      if (!error) setAlertCount(data?.length || 0);
+    } catch {
+      // Table may not exist yet
+    }
+  }, []);
+
+  useEffect(() => {
+    loadAlertCount();
+    const interval = setInterval(loadAlertCount, 30000); // poll every 30s
+    return () => clearInterval(interval);
+  }, [loadAlertCount]);
 
   const toggleGroup = (key: string) => {
     setOpenGroups((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -191,7 +216,7 @@ const DashboardLayout = ({ children, title, subtitle }: DashboardLayoutProps) =>
   };
 
   const NavButton = ({ to, icon: Icon, label, badge, locked, onClick }: NavItem & { onClick?: () => void }) => {
-    const isActive = location.pathname === to;
+    const isActive = location.pathname === to || (to.includes('#') && location.pathname + location.hash === to);
 
     if (locked) {
       const content = (
@@ -239,6 +264,11 @@ const DashboardLayout = ({ children, title, subtitle }: DashboardLayoutProps) =>
         {!sidebarCollapsed && (
           <span className="text-[13px] truncate flex-1 text-left">{label}</span>
         )}
+        {label === "Alertas Inteligentes" && alertCount > 0 && !sidebarCollapsed && (
+          <Badge className="bg-red-500 text-white text-[9px] px-1.5 min-w-[18px] h-4 flex items-center justify-center rounded-full">
+            {alertCount > 99 ? "99+" : alertCount}
+          </Badge>
+        )}
         {showBadge && (
           <Badge className={cn(
             "text-[7px] font-black uppercase px-1.5 py-0 rounded-md shrink-0",
@@ -253,7 +283,12 @@ const DashboardLayout = ({ children, title, subtitle }: DashboardLayoutProps) =>
       return (
         <Tooltip delayDuration={0}>
           <TooltipTrigger asChild>{content}</TooltipTrigger>
-          <TooltipContent side="right" className="font-bold text-xs bg-white text-slate-900 border-slate-200 shadow-lg">{label}</TooltipContent>
+          <TooltipContent side="right" className="font-bold text-xs bg-white text-slate-900 border-slate-200 shadow-lg">
+            {label}
+            {label === "Alertas Inteligentes" && alertCount > 0 && (
+              <Badge className="ml-2 bg-red-500 text-white text-[8px] px-1">{alertCount}</Badge>
+            )}
+          </TooltipContent>
         </Tooltip>
       );
     }

@@ -27,7 +27,7 @@ export default function NoticiasComexLanding() {
           bullets: [
             "Curadoria especializada por profissionais de comex",
             "Foco no impacto pratico para operacoes brasileiras",
-            "Fontes oficiais: MDIC, SECEX, Camara do Comercio, Portal SISCOMEX",
+            "Fontes atualizadas: principais órgãos e portais de comércio exterior",
           ],
         },
         {

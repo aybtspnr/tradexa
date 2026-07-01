@@ -117,7 +117,7 @@ const BLOCKS: BentoBlockData[] = [
     id: "plataforma",
     icon: Globe,
     title: "Plataforma de Inteligência de Mercado para Comércio Exterior",
-    description: "A TRADEXA unifica dados oficiais de comércio exterior de 31 países, classificação fiscal com IA, diretório global de importadores e logística ao vivo em.",
+    description: "A TRADEXA unifica dados de comércio exterior de 31 países, classificação fiscal com IA, diretório global de importadores e logística ao vivo.",
     color: "#D80E16",
     bgClass: "bg-white border-[#D80E16]/[0.10]",
     spanClass: "md:col-span-2 md:row-span-1",

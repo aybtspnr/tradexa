@@ -97,7 +97,7 @@ export default function SobrePage() {
               { value: 31, suffix: "", label: "Países com tarifas oficiais", icon: Globe, color: "#10b981" },
               { value: 3800000, suffix: "+", label: "Importadores no diretório", icon: Database, color: "#D80E16" },
               { value: 8700, suffix: "+", label: "Códigos NCM/HS cadastrados", icon: Search, color: "#8b5cf6" },
-              { value: 12, suffix: "M+", label: "Registros SISCOMEX processados", icon: BarChart3, color: "#06b6d4" },
+              { value: 12, suffix: "M+", label: "Registros processados", icon: BarChart3, color: "#06b6d4" },
             ].map((stat, i) => (
               <motion.div key={i} variants={fadeUp} className="p-6 rounded-2xl bg-white border border-black/[0.04]">
                 <div className="w-10 h-10 rounded-xl mx-auto mb-3 flex items-center justify-center" style={{ background: stat.color + "15" }}>
@@ -126,7 +126,7 @@ export default function SobrePage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { icon: Target, title: "Precisão", text: "Cada número na plataforma é rastreável até sua fonte oficial. Zero estimativas. Zero dados inventados.", color: "#D80E16" },
+              { icon: Target, title: "Precisão", text: "Cada número na plataforma é rastreável e verificável. Zero estimativas. Zero dados inventados.", color: "#D80E16" },
               { icon: Zap, title: "Velocidade", text: "Consultas que levariam horas em sistemas tradicionais são respondidas em segundos. Classificação IA de NCM em tempo real.", color: "#f59e0b" },
               { icon: ShieldCheck, title: "Confiança", text: "Metodologia auditável. Relatórios com fontes e datas de atualização. Conformidade LGPD.", color: "#10b981" },
               { icon: TrendingUp, title: "Crescimento", text: "Nossos clientes descobrem mercados que não estavam no radar. De cafés especiais para a Ásia a autopeças para o México.", color: "#8b5cf6" },
@@ -157,7 +157,7 @@ export default function SobrePage() {
             {[
               { icon: Search, title: "Classificador IA", desc: "Descreva o produto, a IA classifica em segundos", route: "/landing/ncm-classifier", color: "#D80E16" },
               { icon: Globe, title: "Tarifário 31 Países", desc: "Alíquotas oficiais OMC + VAT", route: "/landing/tariff-calculator", color: "#f59e0b" },
-              { icon: BarChart3, title: "Trade Intelligence", desc: "Dados SISCOMEX completos", route: "/landing/import-dashboard", color: "#10b981" },
+              { icon: BarChart3, title: "Trade Intelligence", desc: "Dados completos", route: "/landing/import-dashboard", color: "#10b981" },
               { icon: TrendingUp, title: "Smart Rank", desc: "Ranking de países por oportunidade", route: "/landing/export-opportunities", color: "#8b5cf6" },
               { icon: Database, title: "Diretório Importadores", desc: "3.8M+ empresas mundiais", route: "/landing/importadores", color: "#ef4444" },
               { icon: Ship, title: "Frete Marítimo", desc: "Cotações FCL/LCL entre portos", route: "/landing/maritime-freight", color: "#0ea5e9" },

@@ -456,7 +456,6 @@ const HtsLookup = () => {
           badges={[
             { label: "US HTS", icon: <Globe className="w-3 h-3 mr-1" /> },
             { label: "35.496 registros", icon: <Hash className="w-3 h-3 mr-1" /> },
-            { label: "Dados Oficiais", icon: <CheckCircle2 className="w-3 h-3 mr-1" />, className: "bg-emerald-400/30 text-emerald-200" },
           ]}
         />
 

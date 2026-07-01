@@ -124,7 +124,7 @@ export default function MunicipalIntelligence() {
               subtitle="Ranking das cidades brasileiras que mais exportam. Selecione um estado e clique em Buscar para começar."
               variant="blue"
               badges={[
-                { label: "Dados Oficiais", icon: <Factory className="w-3 h-3 mr-1" /> },
+                
               ]}
             />
 

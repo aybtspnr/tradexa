@@ -1,8 +1,14 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
+import HubAlertas from "@/components/HubAlertas";
+import HubNcm from "@/components/HubNcm";
+import HubSimulador from "@/components/HubSimulador";
+import HubRankings from "@/components/HubRankings";
+import HubEua from "@/components/HubEua";
+import HubAdmin from "@/components/HubAdmin";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,7 +21,7 @@ import {
   Globe, TrendingUp, TrendingDown, DollarSign, Package,
   Ship, Plane, Truck, BarChart3, Search, Hash,
   MapPin, Loader2, ChevronDown, ChevronUp, X,
-  Anchor, ArrowRight, List, Layers
+  Anchor, ArrowRight, List, Layers, Bell
 } from "lucide-react";
 
 /* ═══════════════════ TYPES ═══════════════════ */
@@ -121,8 +127,8 @@ function StepNav({steps,active,onChange}:{steps:readonly typeof STEPS[number][];
 export default function IntelligenceDashboard() {
   useSeo({
     title: "Inteligência Comercial — comércio exterior 2026",
-    description: "Dashboard completo de comércio exterior brasileiro com dados de importação, exportação, frete e análise por países, NCMs e municípios. Dados oficiais MDIC.",
-    keywords: "inteligência comercial, comércio exterior, importação, exportação, comex stat, dados MDIC, análise de mercado",
+    description: "Dashboard completo de comércio exterior brasileiro com dados de importação, exportação, frete e análise por países, NCMs e municípios.",
+    keywords: "inteligência comercial, comércio exterior, importação, exportação, análise de mercado",
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "WebApplication",
@@ -134,6 +140,26 @@ export default function IntelligenceDashboard() {
     },
   });
   const navigate = useNavigate();
+  const location = useLocation();
+  const hash = location.hash.replace('#', '');
+  const hubHashes = ['ncm', 'simulador', 'rankings', 'eua', 'admin', 'alertas'];
+  const isHub = hubHashes.includes(hash);
+  const hubLabel: Record<string, string> = {
+    alertas: 'Alertas Inteligentes',
+    ncm: 'Detalhamento NCM',
+    simulador: 'Simulador de Custos',
+    rankings: 'Rankings',
+    eua: 'Brasil ↔ EUA',
+    admin: 'Admin',
+  };
+  const hubIcon: Record<string, string> = {
+    alertas: '🔔',
+    ncm: '🔍',
+    simulador: '🧮',
+    rankings: '🏆',
+    eua: '🌎',
+    admin: '⚙️',
+  };
 
   const [data, setData] = useState<ComexData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -167,57 +193,13 @@ export default function IntelligenceDashboard() {
   const [countryPage, setCountryPage] = useState(1);
   const COUNTRY_PER_PAGE = 25;
 
-  // Persist state on tab discard
-  const stateRef = useRef({ tab, step, ncmSearch, selectedNcm, ncmPage, countrySearch, countryPage });
-  stateRef.current = { tab, step, ncmSearch, selectedNcm, ncmPage, countrySearch, countryPage };
-
-  useEffect(() => {
-    const handlePageHide = () => {
-      const s = stateRef.current;
-      localStorage.setItem('tradexa_intel_state', JSON.stringify({
-        tab: s.tab, step: s.step, ncmSearch: s.ncmSearch,
-        selectedNcm: s.selectedNcm, ncmPage: s.ncmPage,
-        countrySearch: s.countrySearch, countryPage: s.countryPage,
-      }));
-    };
-    window.addEventListener('pagehide', handlePageHide);
-    return () => {
-      window.removeEventListener('pagehide', handlePageHide);
-      const s = stateRef.current;
-      localStorage.setItem('tradexa_intel_state', JSON.stringify({
-        tab: s.tab, step: s.step, ncmSearch: s.ncmSearch,
-        selectedNcm: s.selectedNcm, ncmPage: s.ncmPage,
-        countrySearch: s.countrySearch, countryPage: s.countryPage,
-      }));
-    };
-  }, []);
-
-  // Restore state on mount
-  useEffect(() => {
-    const raw = localStorage.getItem('tradexa_intel_state');
-    if (raw) {
-      try {
-        const saved = JSON.parse(raw);
-        if (saved.tab) setTab(saved.tab);
-        if (saved.step) setStep(saved.step);
-        if (saved.ncmSearch) setNcmSearch(saved.ncmSearch);
-        if (saved.selectedNcm) setSelectedNcm(saved.selectedNcm);
-        if (saved.ncmPage) setNcmPage(saved.ncmPage);
-        if (saved.countrySearch) setCountrySearch(saved.countrySearch);
-        if (saved.countryPage) setCountryPage(saved.countryPage);
-      } catch {}
-    }
-  }, []);
-
   // ─── Load trade data ───
   useEffect(() => {
     const ts = Date.now();
-    const isValid = (d: any): d is ComexData =>
-      d && typeof d === 'object' && d.meta && typeof d.meta.period === 'string' && d.export && d.import;
     fetch(`/api/comex-intelligence?_=${ts}`)
       .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-      .then(d => { if (isValid(d)) setData(d); else throw new Error(); })
-      .catch(() => { fetch(`/data/comex_intelligence.json?_=${ts}`).then(r=>r.json()).then(d => { if (isValid(d)) setData(d); else throw new Error(); }).catch(()=>setData(null)).finally(()=>setLoading(false)); })
+      .then(setData)
+      .catch(() => { fetch(`/data/comex_intelligence.json?_=${ts}`).then(r=>r.json()).then(setData).catch(()=>setData(null)).finally(()=>setLoading(false)); })
       .finally(()=>setLoading(false));
   }, []);
 
@@ -286,12 +268,35 @@ export default function IntelligenceDashboard() {
 
 
 
+  if (isAlertas) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 py-3">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-red-500 to-amber-500 flex items-center justify-center shadow-md shadow-red-200">
+                <Bell className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <h1 className="text-sm font-black text-slate-800">Alertas Inteligentes</h1>
+                <p className="text-[10px] text-slate-500">Monitoramento em tempo real</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <HubAlertas />
+        </div>
+      </div>
+    );
+  }
+
   if (loading) {
     return <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="text-center"><Loader2 className="w-8 h-8 animate-spin text-red-500 mx-auto mb-3"/><p className="text-sm text-slate-600">Carregando dados...</p></div>
     </div>;
   }
-  if (!data?.meta || !data?.export || !data?.import) {
+  if (!data) {
     return <div className="min-h-screen bg-gray-50 flex items-center justify-center"><p className="text-slate-600 font-medium">Dados indisponíveis</p></div>;
   }
 

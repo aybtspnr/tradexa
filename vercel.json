@@ -160,10 +160,6 @@
       "destination": "https://ocivkbocmywinwqmaqac.supabase.co/storage/v1/object/public/$1"
     },
     {
-      "source": "/data/(.*)",
-      "destination": "http://129.121.98.20:5055/data/$1"
-    },
-    {
       "source": "/casos-de-uso",
       "destination": "/casos-de-uso.html"
     },

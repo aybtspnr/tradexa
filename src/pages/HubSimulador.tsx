@@ -142,9 +142,9 @@ export default function HubSimulador() {
   useSeo({
     title: "Simulador de Exportação — TRADEXA",
     description:
-      "Simule cenários de exportação: calcule valores FOB estimados, tarifas de destino, tributos e custos totais com base em dados históricos do Comex Stat.",
+      "Simule cenários de exportação: calcule valores FOB estimados, tarifas de destino, tributos e custos totais com base em dados históricos.",
     keywords:
-      "simulador, exportação, fob, tarifas, ncm, comex stat, comércio exterior, tradexa",
+      "simulador, exportação, fob, tarifas, ncm, comércio exterior, tradexa",
   });
 
   /* ── Form State ── */
@@ -513,7 +513,7 @@ export default function HubSimulador() {
           Simulador de Exportação
         </h1>
         <p className="text-sm text-slate-500 mt-1">
-          Estime valores FOB, tarifas de destino e tributos com base em dados reais do Comex Stat
+          Estime valores FOB, tarifas de destino e tributos com base em dados reais
         </p>
       </div>
 
@@ -710,7 +710,7 @@ export default function HubSimulador() {
               Calculando simulação...
             </p>
             <p className="text-xs text-slate-400 mt-1">
-              Consultando dados do Comex Stat e tarifas internacionais
+              Consultando dados e tarifas internacionais
             </p>
           </div>
         </div>
@@ -748,7 +748,7 @@ export default function HubSimulador() {
             <ResultCard
               label="Preço Médio (US$/kg)"
               value={`US$ ${result.avgPricePerKg.toFixed(4).replace(".", ",")}`}
-              sub="Média histórica Comex Stat"
+              sub="Média histórica de preços"
               icon={DollarSign}
               color="bg-blue-500"
             />
@@ -870,7 +870,7 @@ export default function HubSimulador() {
               <div className="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-100">
                 <p className="text-[10px] text-slate-500 leading-relaxed">
                   <strong>Notas:</strong> O valor FOB estimado é calculado com base no preço médio
-                  histórico do NCM no Comex Stat. Tarifas são obtidas da base WTO CTS (Consolidated
+                  histórico do NCM. Tarifas são obtidas de base internacional (WTO CTS — Consolidated
                   Tariff Schedule, dados de 31 países). Tributos de exportação brasileiros são
                   tipicamente 0% — isenções aplicáveis. Custos de frete e seguro não estão incluídos.
                   Consulte um despachante aduaneiro para cálculos definitivos.

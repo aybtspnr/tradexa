@@ -362,7 +362,7 @@ export default function CitySearch() {
                 title="Pesquisa por Cidade"
                 subtitle="Selecione um estado brasileiro para descobrir as cidades que mais exportam ou importam."
                 variant="trxa"
-                badges={[{ label: "Dados Oficiais", icon: <Factory className="w-3 h-3 mr-1" /> }]}
+                badges={[{ label: "Referência", icon: <Factory className="w-3 h-3 mr-1" /> }]}
               />
 
               <div className="flex items-center gap-2 mb-2">

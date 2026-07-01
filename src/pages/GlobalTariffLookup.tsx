@@ -125,7 +125,7 @@ function saveHistory(entry: HistoryEntry) {
 
 // ═══════════════════ COMPONENT ═══════════════════
 export default function GlobalTariffLookup() {
-  useSeo({ title: "Alíquotas por País — Tarifário Global", description: "Alíquotas de importação, VAT, ranking e simulação de custos para 31 países. Dados oficiais atualizados.", keywords: "alíquota, tarifa, VAT, imposto importação" });
+  useSeo({ title: "Alíquotas por País — Tarifário Global", description: "Alíquotas de importação, VAT, ranking e simulação de custos para 31 países. Dados atualizados.", keywords: "alíquota, tarifa, VAT, imposto importação" });
 
   const { consume } = useUsage();
 

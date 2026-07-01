@@ -128,7 +128,7 @@ const PILLARS: PillarData[] = [
       { value: "31", label: "Países" },
     ],
     features: [
-      { icon: Globe, text: "Dados oficiais de importação e exportação de 31 países" },
+      { icon: Globe, text: "Dados de importação e exportação de 31 países" },
       { icon: BarChart3, text: "Tarifas, alíquotas e acordos comerciais atualizados" },
       { icon: Globe, text: "Diretório com 3.8M+ importadores globais por código HS" },
     ],
@@ -217,7 +217,7 @@ export function WhatIsTradexaSection() {
             {" "}— em uma plataforma
           </h2>
           <p className="text-base md:text-lg text-[#5E6278] max-w-2xl mx-auto leading-relaxed">
-            A TRADEXA conecta dados oficiais de comércio exterior, classificação
+            A TRADEXA conecta dados de comércio exterior, classificação
             fiscal com IA e serviços operacionais integrados.{" "}
             <span className="font-semibold text-[#0F111A]">
               Da pesquisa de mercado ao desembaraço aduaneiro.

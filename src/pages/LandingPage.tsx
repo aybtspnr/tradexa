@@ -176,7 +176,7 @@ export default function LandingPage() {
           
           <Badge className="mb-6 glow-btn bg-[#D80E16]/10 text-[#D80E16] border border-[#D80E16]/20 font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full">
             <Sparkles className="w-3.5 h-3.5 mr-1.5 inline" />
-            Dados Oficiais em Tempo Real
+            Inteligência em Tempo Real
           </Badge>
 
           <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-slate-900">
@@ -267,7 +267,7 @@ export default function LandingPage() {
 
           <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }} className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: Database, title: "Dados Oficiais", desc: "Base do Ministério da Indústria e Comércio integrada diretamente. Exportação/importação sem delay." },
+              { icon: Database, title: "Dados Consolidados", desc: "Dados de importação e exportação brasileira consolidados e prontos para análise. Consultas rápidas sem depender de sistemas externos." },
               { icon: Bot, title: "Análise com IA", desc: "IA avançada analisa seus dados automaticamente. Insights, tendências e recomendações em segundos." },
               { icon: MapPin, title: "Mapa Interativo", desc: "Visualize quais municípios exportam/importam cada produto. Clique nos pontos para detalhes." },
               { icon: Layers, title: "Comparação NCM", desc: "Cruze dois códigos NCM lado a lado. Compare volume, valor, países e períodos." },
@@ -492,7 +492,7 @@ function ModuleCard({ title, desc, icon: Icon, color, features, to }: typeof MOD
 const MODULES = [
   {
     title: "Exportação Intelligence",
-    desc: "Dados oficiais de exportação brasileira por NCM, país, UF e município. Filtros avançados e análise IA.",
+    desc: "Dados de exportação brasileira por NCM, país, UF e município. Filtros avançados e análise IA.",
     icon: TrendingUp, color: "#D80E16",
     features: ["NCM Search", "Mapa de Municípios", "Alertas", "Relatórios IA"],
     to: "/export-intelligence",
