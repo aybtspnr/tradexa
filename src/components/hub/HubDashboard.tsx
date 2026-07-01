@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
+import { Link } from "react-router-dom";
 import {
   TrendingUp, TrendingDown, DollarSign, Globe, Building2,
   Loader2, AlertTriangle, Hash, BarChart3, Percent,
-  Sparkles, ArrowUpRight,
+  Sparkles, ArrowUpRight, Radio, Briefcase,
 } from "lucide-react";
 import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -274,6 +275,52 @@ export default function HubDashboard() {
         <QuickStat label="Exportações Total" value={brazilData?.exports ? formatNumber(brazilData.exports) : "—"} />
         <QuickStat label="Importações Total" value={brazilData?.imports ? formatNumber(brazilData.imports) : "—"} />
         <QuickStat label="Balança Comercial" value={brazilData?.exports && brazilData?.imports ? formatNumber(brazilData.exports - brazilData.imports) : "—"} />
+      </div>
+
+      {/* Quick Access — Novas Ferramentas */}
+      <div>
+        <h3 className="text-sm font-bold text-[#0F111A] mb-3 flex items-center gap-2">
+          <Sparkles className="w-4 h-4 text-amber-500" />
+          Acesso Rápido
+        </h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <Link to="/company-global-profile" className="block group">
+            <div className="bg-white rounded-xl border p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 hover:border-violet-200">
+              <div className="w-9 h-9 rounded-lg bg-violet-50 flex items-center justify-center mb-2">
+                <Building2 className="w-4 h-4 text-violet-600" />
+              </div>
+              <div className="text-[13px] font-bold text-[#0F111A] group-hover:text-violet-600 transition-colors">Perfil Global</div>
+              <div className="text-[10px] text-slate-500 mt-0.5">CNPJ com contexto global</div>
+            </div>
+          </Link>
+          <Link to="/radar-concorrencia" className="block group">
+            <div className="bg-white rounded-xl border p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 hover:border-red-200">
+              <div className="w-9 h-9 rounded-lg bg-red-50 flex items-center justify-center mb-2">
+                <Radio className="w-4 h-4 text-red-600" />
+              </div>
+              <div className="text-[13px] font-bold text-[#0F111A] group-hover:text-red-600 transition-colors">Radar Concorrência</div>
+              <div className="text-[10px] text-slate-500 mt-0.5">Concorrentes por NCM</div>
+            </div>
+          </Link>
+          <Link to="/global-trade-comparison" className="block group">
+            <div className="bg-white rounded-xl border p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 hover:border-blue-200">
+              <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center mb-2">
+                <Globe className="w-4 h-4 text-blue-600" />
+              </div>
+              <div className="text-[13px] font-bold text-[#0F111A] group-hover:text-blue-600 transition-colors">Comparador Global</div>
+              <div className="text-[10px] text-slate-500 mt-0.5">Brasil vs China, EUA, DEU</div>
+            </div>
+          </Link>
+          <Link to="/ncm-global-dashboard" className="block group">
+            <div className="bg-white rounded-xl border p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 hover:border-emerald-200">
+              <div className="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center mb-2">
+                <BarChart3 className="w-4 h-4 text-emerald-600" />
+              </div>
+              <div className="text-[13px] font-bold text-[#0F111A] group-hover:text-emerald-600 transition-colors">NCM Dashboard</div>
+              <div className="text-[10px] text-slate-500 mt-0.5">Análise global do NCM</div>
+            </div>
+          </Link>
+        </div>
       </div>
 
       {/* Data Sources */}

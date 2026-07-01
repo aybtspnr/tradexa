@@ -238,6 +238,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.tradexa.com.br/landing/company-global-profile</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.tradexa.com.br/landing/comparador-portos</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -257,6 +263,12 @@
   </url>
   <url>
     <loc>https://www.tradexa.com.br/landing/gerador-documentos</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/landing/global-trade-comparison</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -316,6 +328,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.tradexa.com.br/landing/ncm-global-dashboard</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.tradexa.com.br/landing/noticias-comex</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -329,6 +347,12 @@
   </url>
   <url>
     <loc>https://www.tradexa.com.br/landing/price-arbitrage</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/landing/radar-concorrencia</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
