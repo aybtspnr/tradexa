@@ -107,12 +107,14 @@ const LandingCompanyGlobalProfile = lazy(() => import("./pages/landing/CompanyGl
 const LandingRadarConcorrencia = lazy(() => import("./pages/landing/RadarConcorrenciaLanding"));
 const LandingGlobalTradeComparison = lazy(() => import("./pages/landing/GlobalTradeComparisonLanding"));
 const LandingNcmGlobalDashboard = lazy(() => import("./pages/landing/NcmGlobalDashboardLanding"));
+const LandingPortActivity = lazy(() => import("./pages/landing/PortActivityLanding"));
 const IntelligenceHub = lazy(() => import("./pages/IntelligenceHub"));
 
 const LandingVendas = lazy(() => import("./pages/LandingVendas"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
 const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
 const SupplyChainPage = lazy(() => import("./pages/SupplyChainPage"));
+const GlobalPortActivity = lazy(() => import("./pages/GlobalPortActivity"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const ImportersMap = lazy(() => import("./pages/ImportersMap"));
 const Settings = lazy(() => import("./pages/Settings"));
@@ -130,7 +132,6 @@ const AdminServiceUsage = lazy(() => import("./pages/admin/ServiceUsage"));
 const MaritimeFreight = lazy(() => import("./pages/MaritimeFreight"));
 const MaritimeFreightMap = lazy(() => import("./pages/MaritimeFreightMapPage"));
 const GlobalTariffLookup = lazy(() => import("./pages/GlobalTariffLookup"));
-const PortIntelligence = lazy(() => import("./pages/PortIntelligence"));
 const PotentialImporters = lazy(() => import("./pages/PotentialImporters"));
 const ImportadoresHs = lazy(() => import("./pages/ImportadoresHs"));
 const ImportadoresLanding = lazy(() => import("./pages/ImportadoresLanding"));
@@ -368,6 +369,7 @@ function AnimatedRoutes() {
         <Route path="/landing/radar-concorrencia" element={<AnimatedPage><LandingRadarConcorrencia /></AnimatedPage>} />
         <Route path="/landing/global-trade-comparison" element={<AnimatedPage><LandingGlobalTradeComparison /></AnimatedPage>} />
         <Route path="/landing/ncm-global-dashboard" element={<AnimatedPage><LandingNcmGlobalDashboard /></AnimatedPage>} />
+        <Route path="/landing/port-activity" element={<AnimatedPage><LandingPortActivity /></AnimatedPage>} />
         <Route path="/landing/maritime-freight" element={<AnimatedPage><LandingMaritimeFreight /></AnimatedPage>} />
         <Route path="/landing/maritime-freight-map" element={<AnimatedPage><LandingMaritimeFreightMap /></AnimatedPage>} />
         <Route path="/landing/track-trace" element={<AnimatedPage><LandingTrackTrace /></AnimatedPage>} />
@@ -404,6 +406,7 @@ function AnimatedRoutes() {
             SUPPLY CHAIN VISIBILITY
             ══════════════════════════════ */}
         <Route path="/supply-chain" element={<AnimatedPage><SupplyChainPage /></AnimatedPage>} />
+        <Route path="/port-activity" element={<AnimatedPage><GlobalPortActivity /></AnimatedPage>} />
         <Route path="/track-trace" element={<AnimatedPage><TrackTracePage /></AnimatedPage>} />
 
         {/* ══════════════════════════════
@@ -512,7 +515,7 @@ function AnimatedRoutes() {
         <Route path="/freight-calculator" element={<Navigate to="/maritime-freight-map" replace />} />
         <Route path="/maritime_freight" element={<Navigate to="/maritime-freight-map" replace />} />
         <Route path="/route-optimizer" element={<Navigate to="/maritime-freight-map" replace />} />
-        <Route path="/port-intelligence" element={<ProtectedPage featureKey="port_intelligence"><PortIntelligence /></ProtectedPage>} />
+        <Route path="/port-intelligence" element={<Navigate to="/port-activity" replace />} />
         <Route path="/tariff-simulator" element={<Navigate to="/global-tariff" replace />} />
       <Route path="/export-opportunities" element={<Navigate to="/importadores" replace />} />
       <Route path="/trade-news" element={<Navigate to="/importadores" replace />} />

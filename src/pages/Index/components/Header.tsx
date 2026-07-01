@@ -13,7 +13,7 @@ import {
 import Logo from "@/components/Logo";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { PremiumButton } from "@/components/premium";
-import { serviceLinks, infoLinks } from "../landingData";
+import { serviceLinks, toolGroups } from "../landingData";
 
 interface HeaderProps {
   scrolled: boolean;
@@ -95,20 +95,28 @@ export function Header({ scrolled, onScrollToSection }: HeaderProps) {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="text-sm font-bold text-slate-600 hover:text-red-600 gap-2">
-                  Informações
+                  Ferramentas
                   <ChevronDown className="w-4 h-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                {infoLinks.map((link) => (
-                  <DropdownMenuItem 
-                    key={link.route}
-                    onClick={() => navigate(link.route)}
-                    className="cursor-pointer gap-3 py-3"
-                  >
-                    <link.icon className="w-4 h-4 text-red-600" />
-                    <span className="font-bold text-sm">{link.label}</span>
-                  </DropdownMenuItem>
+              <DropdownMenuContent className="w-72">
+                {toolGroups.map((group, gi) => (
+                  <div key={group.label}>
+                    {gi > 0 && <div className="h-px bg-slate-100 my-1" />}
+                    <div className="px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-slate-500">
+                      {group.label}
+                    </div>
+                    {group.items.map((item) => (
+                      <DropdownMenuItem 
+                        key={item.route}
+                        onClick={() => navigate(item.route)}
+                        className="cursor-pointer gap-3 py-2.5"
+                      >
+                        <item.icon className="w-4 h-4 text-red-600" />
+                        <span className="font-bold text-sm">{item.label}</span>
+                      </DropdownMenuItem>
+                    ))}
+                  </div>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
@@ -169,19 +177,24 @@ export function Header({ scrolled, onScrollToSection }: HeaderProps) {
                 </div>
               </div>
 
-              {/* Info Section */}
+              {/* Ferramentas Section */}
               <div>
-                <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3">Informações</h4>
+                <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3">Ferramentas</h4>
                 <div className="space-y-2">
-                  {infoLinks.map((link) => (
-                    <button
-                      key={link.route}
-                      onClick={() => { navigate(link.route); setMobileMenuOpen(false); }}
-                      className="flex items-center gap-3 w-full text-left py-2"
-                    >
-                      <link.icon className="w-4 h-4 text-red-600" />
-                      <span className="text-sm font-bold text-slate-600">{link.label}</span>
-                    </button>
+                  {toolGroups.map((group) => (
+                    <div key={group.label} className="mb-2">
+                      <p className="text-[10px] font-black uppercase tracking-wider text-slate-400 px-1 mb-1">{group.label}</p>
+                      {group.items.map((item) => (
+                        <button
+                          key={item.route}
+                          onClick={() => { navigate(item.route); setMobileMenuOpen(false); }}
+                          className="flex items-center gap-3 w-full text-left py-2"
+                        >
+                          <item.icon className="w-4 h-4 text-red-600" />
+                          <span className="text-sm font-bold text-slate-600">{item.label}</span>
+                        </button>
+                      ))}
+                    </div>
                   ))}
                 </div>
               </div>

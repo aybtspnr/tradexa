@@ -9,6 +9,8 @@ import {
   BellRing,
   Flag,
   Shield,
+  Calculator,
+  Percent,
 } from "lucide-react";
 
 /* ═══════════════════ TYPES ═══════════════════ */
@@ -39,6 +41,8 @@ const TABS: HubTab[] = [
   { id: "rankings", label: "Rankings", icon: Award },
   { id: "alertas", label: "Alertas", icon: BellRing },
   { id: "eua", label: "EUA", icon: Flag },
+  { id: "landing-cost", label: "Landing Cost", icon: Calculator },
+  { id: "tarifas", label: "Tarifas WITS", icon: Percent },
   { id: "admin", label: "Admin", icon: Shield, requireAdmin: true },
 ];
 

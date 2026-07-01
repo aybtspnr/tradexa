@@ -16,6 +16,8 @@ const HubRankings = lazy(() => import("@/pages/HubRankings"));
 const HubAlertas = lazy(() => import("@/pages/HubAlerts"));
 const HubEua = lazy(() => import("@/pages/HubEua"));
 const HubAdmin = lazy(() => import("@/pages/HubAdmin"));
+const LandingCostTab = lazy(() => import("@/components/hub/LandingCostTab"));
+const WitsTariffsTab = lazy(() => import("@/components/hub/WitsTariffsTab"));
 
 /* ═══════════════════ TAB COMPONENT MAP ═══════════════════ */
 
@@ -28,6 +30,8 @@ const TAB_COMPONENTS: Record<string, React.LazyExoticComponent<React.ComponentTy
   alertas: HubAlertas,
   eua: HubEua,
   admin: HubAdmin,
+  "landing-cost": LandingCostTab,
+  tarifas: WitsTariffsTab,
 };
 
 const DEFAULT_TAB = "dashboard";

@@ -1,7 +1,8 @@
 import { 
   Ship, Truck, Globe, Package, Warehouse, ShoppingCart, 
   Zap, Truck as TruckIcon, Layers, FileText, Building2, 
-  ArrowLeftRight, CreditCard, BarChart3, Box, Calculator, Percent
+  ArrowLeftRight, CreditCard, BarChart3, Box, Calculator, Percent,
+  Navigation, Activity, Anchor, Radar, TrendingUp
 } from "lucide-react";
 
 export const stats = [
@@ -286,7 +287,34 @@ export const serviceLinks = [
   { label: "Fulfillment", route: "/services/fulfillment", icon: Warehouse },
   { label: "Representação", route: "/services/representation", icon: Building2 },
   { label: "Envios Pequenos", route: "/services/small-shipments", icon: Box },
-  { label: "Caminhoneiros", route: "/services/trucker", icon: Truck },
+];
+
+export const toolGroups = [
+  {
+    label: "Logística & Tracking",
+    items: [
+      { label: "Track & Trace", route: "/track-trace", icon: Navigation },
+      { label: "Supply Chain Map", route: "/supply-chain", icon: Activity },
+      { label: "Frete Marítimo", route: "/maritime-freight-map", icon: Ship },
+      { label: "Global Port Activity", route: "/port-activity", icon: Anchor },
+    ],
+  },
+  {
+    label: "Inteligência de Mercado",
+    items: [
+      { label: "Export Import Data", route: "/export-import-data", icon: BarChart3 },
+      { label: "Perfil Global Empresa", route: "/company-global-profile", icon: Building2 },
+      { label: "Radar de Concorrência", route: "/radar-concorrencia", icon: Radar },
+      { label: "Comparador Global", route: "/global-trade-comparison", icon: ArrowLeftRight },
+    ],
+  },
+  {
+    label: "Dados & Tarifas",
+    items: [
+      { label: "Tarifas Globais", route: "/global-tariff", icon: Percent },
+      { label: "NCM Global Dashboard", route: "/ncm-global-dashboard", icon: BarChart3 },
+    ],
+  },
 ];
 
 export const infoLinks = [

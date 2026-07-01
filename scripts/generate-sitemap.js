@@ -60,11 +60,6 @@ function getStaticPages() {
   let m;
   while ((m = routeRegex.exec(appContent)) !== null) allRoutes.add(m[1]);
 
-  // Navigate targets (redirects)
-  const navTargets = new Set();
-  const navRegex = /<Navigate[^>]*to="([^"]*)"/g;
-  while ((m = navRegex.exec(appContent)) !== null) navTargets.add(m[1]);
-
   // Routes that redirect or are aliases — should NOT be indexed
   const REDIRECT_ROUTES = new Set([
     "/about",            // → /sobre
@@ -102,7 +97,14 @@ function getStaticPages() {
     "/cadeia-suprimentos", // redirect via vercel.json → /supply-chain
     "/mapa-frete-maritimo", // redirect via vercel.json → /maritime-freight-map
     "/tarifario-global",  // redirect via vercel.json → /global-tariff
+    "/port-intelligence", // redirect via App.tsx → /port-activity
   ]);
+
+  // Routes that have Navigate as element (redirect sources) — should NOT be indexed
+  const redirectSources = new Set();
+  const redirectSrcRegex = /<Route\s+path="([^"]*)"[^>]*element={<Navigate[^>]*\/>/g;
+  let r;
+  while ((r = redirectSrcRegex.exec(appContent)) !== null) redirectSources.add(r[1]);
 
   // Filter
   const pages = [];
@@ -120,7 +122,7 @@ function getStaticPages() {
     if (route.includes("/forgot-password")) continue;
     if (route === "/login") continue;
     if (route === "/register") continue;
-    if (navTargets.has(route)) continue; // Navigate redirect
+    if (redirectSources.has(route)) continue; // pages that are just redirects
     if (REDIRECT_ROUTES.has(route)) continue; // alias/redirect pages
     pages.push(route);
   }

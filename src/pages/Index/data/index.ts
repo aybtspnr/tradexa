@@ -286,7 +286,6 @@ export const serviceLinks = [
   { label: "Fulfillment", route: "/services/fulfillment", icon: Warehouse },
   { label: "Representação", route: "/services/representation", icon: Building2 },
   { label: "Envios Pequenos", route: "/services/small-shipments", icon: Box },
-  { label: "Caminhoneiros", route: "/services/trucker", icon: Truck },
 ];
 
 export const infoLinks = [

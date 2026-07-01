@@ -10,6 +10,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.tradexa.com.br/ai-search</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.tradexa.com.br/blog</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>daily</changefreq>
@@ -154,6 +160,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.tradexa.com.br/global-tariff</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.tradexa.com.br/global-trade-comparison</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -196,6 +208,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.tradexa.com.br/import-export-data</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/importadores</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.tradexa.com.br/importers-map</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -203,6 +227,12 @@
   </url>
   <url>
     <loc>https://www.tradexa.com.br/inteligencia-mercado</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/intelligence</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -340,6 +370,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.tradexa.com.br/landing/port-activity</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.tradexa.com.br/landing/precificacao-exportacao</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -400,6 +436,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.tradexa.com.br/maritime-freight-map</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.tradexa.com.br/market-report</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -436,7 +478,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.tradexa.com.br/port-intelligence</loc>
+    <loc>https://www.tradexa.com.br/plans</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tradexa.com.br/port-activity</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -634,6 +682,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.tradexa.com.br/supply-chain</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.tradexa.com.br/team</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -665,12 +719,6 @@
   </url>
   <url>
     <loc>https://www.tradexa.com.br/track-trace</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.tradexa.com.br/trade-balance</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

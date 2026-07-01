@@ -379,6 +379,20 @@ const CATEGORIES: Category[] = [
         actionRoute: "/ferramentas/comparador-portos",
         landingRoute: "/landing/comparador-portos",
       },
+      {
+        icon: Globe, title: "Global Port Activity",
+        shortDesc: "Navios nos portos do mundo ao vivo — AIS tracking",
+        longDesc: "Acompanhe em tempo real a movimentação de navios de carga em 3.629 portos do mundo. Dados AIS ao vivo: atracados, fundeados, aproximando, clima no porto e nível de congestionamento. Filtre por país, busque portos específicos e veja detalhes de cada embarcação.",
+        features: [
+          { name: "3.629 portos", desc: "Todos os portos de carga do mundo monitorados" },
+          { name: "Ao vivo via AIS", desc: "Milhares de navios rastreados em tempo real" },
+          { name: "Clima + congestionamento", desc: "Condições do porto com % de ocupação" },
+        ],
+        color: "#D80E16",
+        actionRoute: "/port-activity",
+        landingRoute: "/landing/port-activity",
+        badge: "Novo",
+      },
     ],
   },
   {

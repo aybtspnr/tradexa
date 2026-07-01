@@ -55,7 +55,7 @@ const footerColumns = [
       { label: "Mapa de Frete", href: "/maritime-freight-map" },
       { label: "Track & Trace", href: "/track-trace" },
       { label: "Rastreamento de Carga", href: "/rastreamento" },
-      { label: "Port Intelligence EUA", href: "/port-intelligence" },
+      { label: "Global Port Activity", href: "/port-activity" },
     ],
   },
   {
