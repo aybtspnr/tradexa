@@ -9,7 +9,7 @@
  * - Exchange rate (BCB PTAX)
  */
 
-const API_BASE = '/api/v1/intel/simulate';
+const API_BASE = '/api/intel/simulate';
 
 export interface LandingCostInputs {
   ncm: string;

@@ -27,7 +27,7 @@
 const API_BASE =
   (typeof process !== "undefined" &&
     (process.env as Record<string, string | undefined>).NEXT_PUBLIC_API_URL) ||
-  "/api/v1";
+  "/api/intel";
 
 // ---------------------------------------------------------------------------
 // Tipos
