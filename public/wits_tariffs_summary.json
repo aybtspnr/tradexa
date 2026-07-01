@@ -1,0 +1,802 @@
+[
+  {
+    "country": "United States",
+    "iso3": "840",
+    "hs6": 5511
+  },
+  {
+    "country": "Canada",
+    "iso3": "124",
+    "hs6": 5492
+  },
+  {
+    "country": "Georgia",
+    "iso3": "268",
+    "hs6": 5395
+  },
+  {
+    "country": "Mauritius",
+    "iso3": "480",
+    "hs6": 5393
+  },
+  {
+    "country": "New Zealand",
+    "iso3": "554",
+    "hs6": 5391
+  },
+  {
+    "country": "Panama",
+    "iso3": "591",
+    "hs6": 5391
+  },
+  {
+    "country": "Myanmar",
+    "iso3": "104",
+    "hs6": 5390
+  },
+  {
+    "country": "Hong Kong, China",
+    "iso3": "344",
+    "hs6": 5389
+  },
+  {
+    "country": "Malaysia",
+    "iso3": "458",
+    "hs6": 5389
+  },
+  {
+    "country": "Albania",
+    "iso3": "008",
+    "hs6": 5388
+  },
+  {
+    "country": "Algeria",
+    "iso3": "012",
+    "hs6": 5388
+  },
+  {
+    "country": "Angola",
+    "iso3": "024",
+    "hs6": 5388
+  },
+  {
+    "country": "Anguila",
+    "iso3": "660",
+    "hs6": 5388
+  },
+  {
+    "country": "Argentina",
+    "iso3": "032",
+    "hs6": 5388
+  },
+  {
+    "country": "Armenia",
+    "iso3": "051",
+    "hs6": 5388
+  },
+  {
+    "country": "Australia",
+    "iso3": "036",
+    "hs6": 5388
+  },
+  {
+    "country": "Azerbaijan",
+    "iso3": "031",
+    "hs6": 5388
+  },
+  {
+    "country": "Bahrain",
+    "iso3": "048",
+    "hs6": 5388
+  },
+  {
+    "country": "Bangladesh",
+    "iso3": "050",
+    "hs6": 5388
+  },
+  {
+    "country": "Barbados",
+    "iso3": "052",
+    "hs6": 5388
+  },
+  {
+    "country": "Belize",
+    "iso3": "084",
+    "hs6": 5388
+  },
+  {
+    "country": "Benin",
+    "iso3": "204",
+    "hs6": 5388
+  },
+  {
+    "country": "Bermuda",
+    "iso3": "060",
+    "hs6": 5388
+  },
+  {
+    "country": "Bhutan",
+    "iso3": "064",
+    "hs6": 5388
+  },
+  {
+    "country": "Bolivia",
+    "iso3": "068",
+    "hs6": 5388
+  },
+  {
+    "country": "Bosnia and Herzegovina",
+    "iso3": "070",
+    "hs6": 5388
+  },
+  {
+    "country": "Botswana",
+    "iso3": "072",
+    "hs6": 5388
+  },
+  {
+    "country": "Brazil",
+    "iso3": "076",
+    "hs6": 5388
+  },
+  {
+    "country": "Brunei",
+    "iso3": "096",
+    "hs6": 5388
+  },
+  {
+    "country": "Burkina Faso",
+    "iso3": "854",
+    "hs6": 5388
+  },
+  {
+    "country": "Burundi",
+    "iso3": "108",
+    "hs6": 5388
+  },
+  {
+    "country": "Cambodia",
+    "iso3": "116",
+    "hs6": 5388
+  },
+  {
+    "country": "Cameroon",
+    "iso3": "120",
+    "hs6": 5388
+  },
+  {
+    "country": "Cape Verde",
+    "iso3": "132",
+    "hs6": 5388
+  },
+  {
+    "country": "Chile",
+    "iso3": "152",
+    "hs6": 5388
+  },
+  {
+    "country": "China",
+    "iso3": "156",
+    "hs6": 5388
+  },
+  {
+    "country": "Colombia",
+    "iso3": "170",
+    "hs6": 5388
+  },
+  {
+    "country": "Comoros",
+    "iso3": "174",
+    "hs6": 5388
+  },
+  {
+    "country": "Cook Islands",
+    "iso3": "184",
+    "hs6": 5388
+  },
+  {
+    "country": "Costa Rica",
+    "iso3": "188",
+    "hs6": 5388
+  },
+  {
+    "country": "Cote d'Ivoire",
+    "iso3": "384",
+    "hs6": 5388
+  },
+  {
+    "country": "Cuba",
+    "iso3": "192",
+    "hs6": 5388
+  },
+  {
+    "country": "Dominica",
+    "iso3": "212",
+    "hs6": 5388
+  },
+  {
+    "country": "Dominican Republic",
+    "iso3": "214",
+    "hs6": 5388
+  },
+  {
+    "country": "East Timor",
+    "iso3": "626",
+    "hs6": 5388
+  },
+  {
+    "country": "Ecuador",
+    "iso3": "218",
+    "hs6": 5388
+  },
+  {
+    "country": "Egypt, Arab Rep.",
+    "iso3": "818",
+    "hs6": 5388
+  },
+  {
+    "country": "El Salvador",
+    "iso3": "222",
+    "hs6": 5388
+  },
+  {
+    "country": "Ethiopia(excludes Eritrea)",
+    "iso3": "231",
+    "hs6": 5388
+  },
+  {
+    "country": "European Union",
+    "iso3": "918",
+    "hs6": 5388
+  },
+  {
+    "country": "Fiji",
+    "iso3": "242",
+    "hs6": 5388
+  },
+  {
+    "country": "Fm Sudan",
+    "iso3": "736",
+    "hs6": 5388
+  },
+  {
+    "country": "French Polynesia",
+    "iso3": "258",
+    "hs6": 5388
+  },
+  {
+    "country": "Gambia, The",
+    "iso3": "270",
+    "hs6": 5388
+  },
+  {
+    "country": "Ghana",
+    "iso3": "288",
+    "hs6": 5388
+  },
+  {
+    "country": "Gibraltar",
+    "iso3": "292",
+    "hs6": 5388
+  },
+  {
+    "country": "Guatemala",
+    "iso3": "320",
+    "hs6": 5388
+  },
+  {
+    "country": "Guinea",
+    "iso3": "324",
+    "hs6": 5388
+  },
+  {
+    "country": "Guinea-Bissau",
+    "iso3": "624",
+    "hs6": 5388
+  },
+  {
+    "country": "Guyana",
+    "iso3": "328",
+    "hs6": 5388
+  },
+  {
+    "country": "Haiti",
+    "iso3": "332",
+    "hs6": 5388
+  },
+  {
+    "country": "Honduras",
+    "iso3": "340",
+    "hs6": 5388
+  },
+  {
+    "country": "Iceland",
+    "iso3": "352",
+    "hs6": 5388
+  },
+  {
+    "country": "India",
+    "iso3": "356",
+    "hs6": 5388
+  },
+  {
+    "country": "Indonesia",
+    "iso3": "360",
+    "hs6": 5388
+  },
+  {
+    "country": "Israel",
+    "iso3": "376",
+    "hs6": 5388
+  },
+  {
+    "country": "Jamaica",
+    "iso3": "388",
+    "hs6": 5388
+  },
+  {
+    "country": "Japan",
+    "iso3": "392",
+    "hs6": 5388
+  },
+  {
+    "country": "Jordan",
+    "iso3": "400",
+    "hs6": 5388
+  },
+  {
+    "country": "Kazakhstan",
+    "iso3": "398",
+    "hs6": 5388
+  },
+  {
+    "country": "Kenya",
+    "iso3": "404",
+    "hs6": 5388
+  },
+  {
+    "country": "Kiribati",
+    "iso3": "296",
+    "hs6": 5388
+  },
+  {
+    "country": "Korea, Rep.",
+    "iso3": "410",
+    "hs6": 5388
+  },
+  {
+    "country": "Kuwait",
+    "iso3": "414",
+    "hs6": 5388
+  },
+  {
+    "country": "Kyrgyz Republic",
+    "iso3": "417",
+    "hs6": 5388
+  },
+  {
+    "country": "Lao PDR",
+    "iso3": "418",
+    "hs6": 5388
+  },
+  {
+    "country": "Lesotho",
+    "iso3": "426",
+    "hs6": 5388
+  },
+  {
+    "country": "Liberia",
+    "iso3": "430",
+    "hs6": 5388
+  },
+  {
+    "country": "Libya",
+    "iso3": "434",
+    "hs6": 5388
+  },
+  {
+    "country": "Macao",
+    "iso3": "446",
+    "hs6": 5388
+  },
+  {
+    "country": "Macedonia, FYR",
+    "iso3": "807",
+    "hs6": 5388
+  },
+  {
+    "country": "Madagascar",
+    "iso3": "450",
+    "hs6": 5388
+  },
+  {
+    "country": "Malawi",
+    "iso3": "454",
+    "hs6": 5388
+  },
+  {
+    "country": "Maldives",
+    "iso3": "462",
+    "hs6": 5388
+  },
+  {
+    "country": "Mali",
+    "iso3": "466",
+    "hs6": 5388
+  },
+  {
+    "country": "Mauritania",
+    "iso3": "478",
+    "hs6": 5388
+  },
+  {
+    "country": "Micronesia, Fed. Sts.",
+    "iso3": "583",
+    "hs6": 5388
+  },
+  {
+    "country": "Moldova",
+    "iso3": "498",
+    "hs6": 5388
+  },
+  {
+    "country": "Mongolia",
+    "iso3": "496",
+    "hs6": 5388
+  },
+  {
+    "country": "Montenegro",
+    "iso3": "499",
+    "hs6": 5388
+  },
+  {
+    "country": "Morocco",
+    "iso3": "504",
+    "hs6": 5388
+  },
+  {
+    "country": "Mozambique",
+    "iso3": "508",
+    "hs6": 5388
+  },
+  {
+    "country": "Namibia",
+    "iso3": "516",
+    "hs6": 5388
+  },
+  {
+    "country": "Nepal",
+    "iso3": "524",
+    "hs6": 5388
+  },
+  {
+    "country": "Nicaragua",
+    "iso3": "558",
+    "hs6": 5388
+  },
+  {
+    "country": "Niger",
+    "iso3": "562",
+    "hs6": 5388
+  },
+  {
+    "country": "Nigeria",
+    "iso3": "566",
+    "hs6": 5388
+  },
+  {
+    "country": "Norway",
+    "iso3": "578",
+    "hs6": 5388
+  },
+  {
+    "country": "Oman",
+    "iso3": "512",
+    "hs6": 5388
+  },
+  {
+    "country": "Pakistan",
+    "iso3": "586",
+    "hs6": 5388
+  },
+  {
+    "country": "Palau",
+    "iso3": "585",
+    "hs6": 5388
+  },
+  {
+    "country": "Papua New Guinea",
+    "iso3": "598",
+    "hs6": 5388
+  },
+  {
+    "country": "Paraguay",
+    "iso3": "600",
+    "hs6": 5388
+  },
+  {
+    "country": "Peru",
+    "iso3": "604",
+    "hs6": 5388
+  },
+  {
+    "country": "Philippines",
+    "iso3": "608",
+    "hs6": 5388
+  },
+  {
+    "country": "Qatar",
+    "iso3": "634",
+    "hs6": 5388
+  },
+  {
+    "country": "Russian Federation",
+    "iso3": "643",
+    "hs6": 5388
+  },
+  {
+    "country": "Rwanda",
+    "iso3": "646",
+    "hs6": 5388
+  },
+  {
+    "country": "Saint Pierre and Miquelon",
+    "iso3": "666",
+    "hs6": 5388
+  },
+  {
+    "country": "Samoa",
+    "iso3": "882",
+    "hs6": 5388
+  },
+  {
+    "country": "Sao Tome and Principe",
+    "iso3": "678",
+    "hs6": 5388
+  },
+  {
+    "country": "Saudi Arabia",
+    "iso3": "682",
+    "hs6": 5388
+  },
+  {
+    "country": "Senegal",
+    "iso3": "686",
+    "hs6": 5388
+  },
+  {
+    "country": "Serbia, FR(Serbia/Montenegro)",
+    "iso3": "891",
+    "hs6": 5388
+  },
+  {
+    "country": "Seychelles",
+    "iso3": "690",
+    "hs6": 5388
+  },
+  {
+    "country": "Sierra Leone",
+    "iso3": "694",
+    "hs6": 5388
+  },
+  {
+    "country": "Singapore",
+    "iso3": "702",
+    "hs6": 5388
+  },
+  {
+    "country": "Solomon Islands",
+    "iso3": "090",
+    "hs6": 5388
+  },
+  {
+    "country": "South Africa",
+    "iso3": "710",
+    "hs6": 5388
+  },
+  {
+    "country": "Sri Lanka",
+    "iso3": "144",
+    "hs6": 5388
+  },
+  {
+    "country": "St. Kitts and Nevis",
+    "iso3": "659",
+    "hs6": 5388
+  },
+  {
+    "country": "Swaziland",
+    "iso3": "748",
+    "hs6": 5388
+  },
+  {
+    "country": "Switzerland",
+    "iso3": "756",
+    "hs6": 5388
+  },
+  {
+    "country": "Taiwan, China",
+    "iso3": "158",
+    "hs6": 5388
+  },
+  {
+    "country": "Tanzania",
+    "iso3": "834",
+    "hs6": 5388
+  },
+  {
+    "country": "Thailand",
+    "iso3": "764",
+    "hs6": 5388
+  },
+  {
+    "country": "Togo",
+    "iso3": "768",
+    "hs6": 5388
+  },
+  {
+    "country": "Tonga",
+    "iso3": "776",
+    "hs6": 5388
+  },
+  {
+    "country": "Turkey",
+    "iso3": "792",
+    "hs6": 5388
+  },
+  {
+    "country": "Uganda",
+    "iso3": "800",
+    "hs6": 5388
+  },
+  {
+    "country": "Ukraine",
+    "iso3": "804",
+    "hs6": 5388
+  },
+  {
+    "country": "United Arab Emirates",
+    "iso3": "784",
+    "hs6": 5388
+  },
+  {
+    "country": "United Kingdom",
+    "iso3": "826",
+    "hs6": 5388
+  },
+  {
+    "country": "Uruguay",
+    "iso3": "858",
+    "hs6": 5388
+  },
+  {
+    "country": "Uzbekistan",
+    "iso3": "860",
+    "hs6": 5388
+  },
+  {
+    "country": "Vanuatu",
+    "iso3": "548",
+    "hs6": 5388
+  },
+  {
+    "country": "Venezuela",
+    "iso3": "862",
+    "hs6": 5388
+  },
+  {
+    "country": "Vietnam",
+    "iso3": "704",
+    "hs6": 5388
+  },
+  {
+    "country": "Zambia",
+    "iso3": "894",
+    "hs6": 5388
+  },
+  {
+    "country": "Zimbabwe",
+    "iso3": "716",
+    "hs6": 5388
+  },
+  {
+    "country": "Belarus",
+    "iso3": "112",
+    "hs6": 5387
+  },
+  {
+    "country": "Iran, Islamic Rep.",
+    "iso3": "364",
+    "hs6": 5387
+  },
+  {
+    "country": "Lebanon",
+    "iso3": "422",
+    "hs6": 5387
+  },
+  {
+    "country": "Liechtenstein",
+    "iso3": "438",
+    "hs6": 5387
+  },
+  {
+    "country": "Nauru",
+    "iso3": "520",
+    "hs6": 5304
+  },
+  {
+    "country": "Cayman Islands",
+    "iso3": "136",
+    "hs6": 5224
+  },
+  {
+    "country": "Trinidad and Tobago",
+    "iso3": "780",
+    "hs6": 5210
+  },
+  {
+    "country": "Aruba",
+    "iso3": "533",
+    "hs6": 5205
+  },
+  {
+    "country": "Congo, Dem. Rep.",
+    "iso3": "180",
+    "hs6": 5205
+  },
+  {
+    "country": "Grenada",
+    "iso3": "308",
+    "hs6": 5205
+  },
+  {
+    "country": "Netherlands Antilles",
+    "iso3": "530",
+    "hs6": 5205
+  },
+  {
+    "country": "St. Lucia",
+    "iso3": "662",
+    "hs6": 5205
+  },
+  {
+    "country": "Syrian Arab Republic",
+    "iso3": "760",
+    "hs6": 5205
+  },
+  {
+    "country": "Tajikistan",
+    "iso3": "762",
+    "hs6": 5205
+  },
+  {
+    "country": "Wallis and Futura Isl.",
+    "iso3": "876",
+    "hs6": 5205
+  },
+  {
+    "country": "Antigua and Barbuda",
+    "iso3": "028",
+    "hs6": 5052
+  },
+  {
+    "country": "Gabon",
+    "iso3": "266",
+    "hs6": 5052
+  },
+  {
+    "country": "Montserrat",
+    "iso3": "500",
+    "hs6": 5052
+  },
+  {
+    "country": "St. Vincent and the Grenadines",
+    "iso3": "670",
+    "hs6": 5052
+  },
+  {
+    "country": "Suriname",
+    "iso3": "740",
+    "hs6": 5052
+  }
+]

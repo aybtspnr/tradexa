@@ -59,7 +59,7 @@ export default function HubDashboard() {
         fetch(`${API}/worldbank/country/BRA`).then(r => r.json()),
         fetch(`${API}/market-share/3004?year=2025`).then(r => r.json()),
         fetch("https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados/ultimos/30?formato=json").then(r => r.json()),
-        fetch("/cts_tariffs_summary.json").then(r => r.json()),
+        fetch("/wits_tariffs_summary.json").then(r => r.json()),
       ]);
 
       if (cancelled) return;

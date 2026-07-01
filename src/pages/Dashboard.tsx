@@ -48,7 +48,7 @@ interface RecentSearch {
 /* ── Constants ── */
 const QUICK_ACTIONS: QuickAction[] = [
   { to: "/ai-search", icon: Sparkles, label: "Classificar NCM", desc: "IA classifica qualquer produto", color: "#D80E16" },
-  { to: "/global-tariff", icon: Percent, label: "Alíquotas", desc: "Tarifas de 30+ países", color: "#2563EB" },
+  { to: "/global-tariff", icon: Percent, label: "Alíquotas", desc: "Tarifas de 160+ países", color: "#2563EB" },
   { to: "/importadores", icon: Building2, label: "Importadores", desc: "730K+ empresas globais", color: "#059669" },
   { to: "/maritime-freight-map", icon: Ship, label: "Frete Marítimo", desc: "Cotações CN→BR / BR→US", color: "#D97706" },
   { to: "/track-trace", icon: Navigation, label: "Track & Trace", desc: "Navios e aviões ao vivo", color: "#0891B2" },
@@ -154,12 +154,21 @@ export default function Dashboard() {
       })
       .catch(() => {});
 
-    // 2b. CTS tariff countries from local data (cobertura total 30 países)
-    fetch("/cts_tariffs_summary.json")
+    // 2b. WITS tariff countries from local data (cobertura total 160 países)
+    fetch("/wits_tariffs_summary.json")
       .then(r => r.json())
-      .then((ctsData: any[]) => {
+      .then((witsData: any[]) => {
         if (!cancelled) {
-          setTariffCountries(ctsData.length);
+          setTariffCountries(witsData.length);
+          // Use WITS data for top countries too if VPS fails
+          if (topTariffCountries.length === 0) {
+            setTopTariffCountries(
+              witsData.slice(0, 5).map((c: any) => ({
+                country: c.country,
+                tariff_count: c.hs6,
+              }))
+            );
+          }
         }
       })
       .catch(() => {

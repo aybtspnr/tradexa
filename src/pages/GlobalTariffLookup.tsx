@@ -12,39 +12,12 @@ import { Badge } from "@/components/ui/badge";
 import PageHeader from "@/components/PageHeader";
 import { useSeo } from "@/hooks/use-seo";
 import { useUsage } from "@/hooks/use-usage";
-import { lookupCTSTariff, lookupCTSTariffDetails, getCTSCountryCounts } from "@/services/ctsTariffs";
+import { searchWits, compareWits, getCountries, type WitsTariffItem, type WitsCompareItem } from "@/services/witsTariffs";
 // ═══════════════════ CONSTANTS ═══════════════════
 const VAT_URL = "https://ocivkbocmywinwqmaqac.supabase.co/storage/v1/object/public/trade-data/world_vat_rates.json";
 const HISTORY_KEY = "global_tariff_history";
 
-const COUNTRIES = [
-  { code: "ARG", name: "Argentina", flag: "🇦🇷" }, { code: "AUS", name: "Austrália", flag: "🇦🇺" },
-  { code: "BOL", name: "Bolívia", flag: "🇧🇴" }, { code: "BRA", name: "Brasil", flag: "🇧🇷" },
-  { code: "CAN", name: "Canadá", flag: "🇨🇦" }, { code: "CHL", name: "Chile", flag: "🇨🇱" },
-  { code: "CHN", name: "China", flag: "🇨🇳" }, { code: "COL", name: "Colômbia", flag: "🇨🇴" },
-  { code: "CRI", name: "Costa Rica", flag: "🇨🇷" }, { code: "ECU", name: "Equador", flag: "🇪🇨" },
-  { code: "EGY", name: "Egito", flag: "🇪🇬" }, { code: "EU", name: "União Europeia", flag: "🇪🇺" },
-  { code: "HKG", name: "Hong Kong", flag: "🇭🇰" }, { code: "IND", name: "Índia", flag: "🇮🇳" },
-  { code: "ISR", name: "Israel", flag: "🇮🇱" }, { code: "JPN", name: "Japão", flag: "🇯🇵" },
-  { code: "KOR", name: "Coreia do Sul", flag: "🇰🇷" }, { code: "MEX", name: "México", flag: "🇲🇽" },
-  { code: "NOR", name: "Noruega", flag: "🇳🇴" }, { code: "PAN", name: "Panamá", flag: "🇵🇦" },
-  { code: "PER", name: "Peru", flag: "🇵🇪" }, { code: "PRY", name: "Paraguai", flag: "🇵🇾" },
-  { code: "RUS", name: "Rússia", flag: "🇷🇺" }, { code: "ZAF", name: "África do Sul", flag: "🇿🇦" },
-  { code: "CHE", name: "Suíça", flag: "🇨🇭" }, { code: "THA", name: "Tailândia", flag: "🇹🇭" },
-  { code: "TUR", name: "Turquia", flag: "🇹🇷" }, { code: "ARE", name: "Emirados Árabes", flag: "🇦🇪" },
-  { code: "USA", name: "EUA", flag: "🇺🇸" }, { code: "URY", name: "Uruguai", flag: "🇺🇾" },
-];
-
-const CODE_TO_CTS: Record<string, string> = {
-  ARG: "Argentina", AUS: "Australia", BOL: "Bolivia", BRA: "Brazil", CAN: "Canada",
-  CHL: "Chile", CHN: "China", COL: "Colombia", CRI: "Costa Rica", ECU: "Ecuador",
-  EGY: "Egypt", EU: "European Union", HKG: "Hong Kong, China", IND: "India",
-  ISR: "Israel", JPN: "Japan", KOR: "South Korea", MEX: "Mexico", NOR: "Norway",
-  PAN: "Panama", PER: "Peru", PRY: "Paraguay", RUS: "Russian Federation",
-  ZAF: "South Africa", CHE: "Switzerland", THA: "Thailand", TUR: "Türkiye",
-  ARE: "United Arab Emirates", USA: "United States of America", URY: "Uruguay",
-  GBR: "United Kingdom",
-};
+// Countries will be loaded dynamically from WITS API
 
 const VAT_COUNTRY_MAP: Record<string, string> = {
   "United Arab Emirates": "UAE", "United States of America": "USA",
@@ -142,6 +115,8 @@ export default function GlobalTariffLookup() {
   const [sectorFilter, setSectorFilter] = useState<Sector>("all");
   const [sortOrder, setSortOrder] = useState<SortOrder>("none");
   const [countryCounts, setCountryCounts] = useState<Record<string, number>>({});
+  const [witsCountries, setWitsCountries] = useState<WitsCountryInfo[]>([]);
+  const [witsLoading, setWitsLoading] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [vatData, setVatData] = useState<VatInfo[]>([]);
@@ -150,32 +125,31 @@ export default function GlobalTariffLookup() {
   const [selectedHsRate, setSelectedHsRate] = useState<number | null>(null);
   const [bestHs, setBestHs] = useState(""); const [bestLoading, setBestLoading] = useState(false); const [bestRanking, setBestRanking] = useState<CountryRank[]>([]);
 
-  const destCountry = COUNTRIES.find((c) => c.code === destination);
+  const destCountry = witsCountries.find((c) => c.iso3 === destination) ? { code: destination, name: witsCountries.find(c => c.iso3 === destination)!.nome, flag: "" } : null;
 
-  // Load VAT + CTS country counts on mount
+  // Load VAT + WITS countries on mount
   useEffect(() => {
     fetch(VAT_URL).then(r => r.json()).then(setVatData).catch(() => {});
-    getCTSCountryCounts().then(counts => {
-      // Map CTS country names back to our codes
-      const ctsToCode: Record<string, string> = {};
-      for (const [code, name] of Object.entries(CODE_TO_CTS)) ctsToCode[name] = code;
-      const map: Record<string, number> = {};
-      for (const [name, count] of Object.entries(counts)) {
-        const code = ctsToCode[name];
-        if (code) map[code] = count;
-      }
-      setCountryCounts(map);
-    }).catch(() => {});
+    fetch("/wits_tariffs_summary.json")
+      .then(r => r.json())
+      .then((list: any[]) => {
+        setWitsCountries(list.map(c => ({ iso3: c.iso3, nome: c.country, linhas: c.hs6 })));
+        const map: Record<string, number> = {};
+        for (const c of list) map[c.iso3] = c.hs6 || 0;
+        setCountryCounts(map);
+        setWitsLoading(false);
+      })
+      .catch(() => setWitsLoading(false));
   }, []);
 
   const maxCount = Math.max(...Object.values(countryCounts), 1);
 
   const countryVat = useMemo(() => {
-    const ctsName = CODE_TO_CTS[destination] || "";
-    const vatLookupName = VAT_COUNTRY_MAP[ctsName] || ctsName;
-    const name = destCountry?.name?.toLowerCase() || "";
+    if (!destCountry) return null;
+    const vatLookupName = VAT_COUNTRY_MAP[destCountry.name] || destCountry.name;
+    const name = destCountry.name?.toLowerCase() || "";
     return vatData.find(v => v.Country?.toLowerCase() === vatLookupName.toLowerCase() || v.Country?.toLowerCase().includes(name)) || null;
-  }, [vatData, destCountry, destination]);
+  }, [vatData, destCountry]);
 
   const stats = useMemo(() => {
     const rates = tariffs.map(t => {
@@ -247,18 +221,18 @@ export default function GlobalTariffLookup() {
       const ok = await consume("search");
       if (!ok) { setError("Créditos insuficientes. Faça upgrade."); setLoading(false); return; }
 
-      const ctsCountry = CODE_TO_CTS[destination];
-      if (!ctsCountry) throw new Error("País não mapeado");
+      const witsCountry = witsCountries.find(c => c.iso3 === destination);
+      if (!witsCountry) throw new Error("País não mapeado no WITS");
       if (query.length < 2) throw new Error("Digite pelo menos 2 dígitos");
-      const hsPrefix = query.length >= 4 ? query.slice(0, 4) : query.slice(0, 2);
-      const details = await lookupCTSTariffDetails(ctsCountry, hsPrefix);
-      if (details.length === 0) throw new Error("Nenhuma tarifa encontrada.");
-      // Convert to TariffItem format: derive sector from HS chapter (01-24=Ag, 25-99=Non-Ag)
-      const items: TariffItem[] = details.map(d => {
+      const results = await searchWits(query, 200);
+      // Filter by destination country and convert to TariffItem format
+      const countryResults = results.filter(r => r.pais_iso3 === destination);
+      if (countryResults.length === 0) throw new Error("Nenhuma tarifa encontrada para este país.");
+      const items: TariffItem[] = countryResults.map(d => {
         const ch = parseInt(d.hs_code.slice(0, 2), 10);
         const sector = (ch >= 1 && ch <= 24) ? "Ag" : "Non-Ag";
-        const rateStr = `${d.rate}`;
-        return { hs_code: d.hs_code, description: hs2Name(d.hs_code), base_duty: rateStr, final_duty: rateStr, sector };
+        const rate = d.tariff_applied ?? d.tariff_mfn ?? 0;
+        return { hs_code: d.hs_code, description: d.descricao || hs2Name(d.hs_code), base_duty: `${rate}`, final_duty: `${rate}`, sector };
       });
       items.sort((a, b) => a.hs_code.localeCompare(b.hs_code));
       setTariffs(items); setTotalTariffs(items.length);
@@ -277,19 +251,26 @@ export default function GlobalTariffLookup() {
       if (!ok) { setError("Créditos insuficientes. Faça upgrade."); setBestLoading(false); return; }
 
       if (query.length < 2) throw new Error("Digite pelo menos 2 dígitos");
-      const hsPrefix = query.length >= 4 ? query.slice(0, 4) : query.slice(0, 2);
-      const promises = COUNTRIES.map(async (c) => {
-        const ctsName = CODE_TO_CTS[c.code]; if (!ctsName) return null;
-        try {
-          const { rate, hasData } = await lookupCTSTariff(ctsName, hsPrefix);
-          if (!hasData || rate <= 0) return null;
-          const { rate: adjRate } = getEffTariff(c.code, rate);
-          return { code: c.code, name: c.name, flag: c.flag, avgRate: adjRate, minRate: adjRate, maxRate: adjRate, count: 1 } as CountryRank;
-        } catch { return null; }
-      });
-      const results = (await Promise.all(promises)).filter(Boolean) as CountryRank[];
-      results.sort((a, b) => a.avgRate - b.avgRate); setBestRanking(results);
-      if (results.length === 0) setError("Nenhum país com tarifas.");
+      // Use WITS compare to get tariff ranking across countries
+      const compareResults = await compareWits(query, 50);
+      const items: CountryRank[] = compareResults
+        .filter(r => (r.tariff_applied ?? r.tariff_mfn ?? 0) > 0)
+        .map(r => {
+          const rate = r.tariff_applied ?? r.tariff_mfn ?? 0;
+          const { rate: adjRate } = getEffTariff(r.pais_iso3, rate);
+          return {
+            code: r.pais_iso3,
+            name: r.pais_nome,
+            flag: "",
+            avgRate: adjRate,
+            minRate: adjRate,
+            maxRate: adjRate,
+            count: 1
+          } as CountryRank;
+        });
+      items.sort((a, b) => a.avgRate - b.avgRate);
+      setBestRanking(items);
+      if (items.length === 0) setError("Nenhum país com tarifas.");
     } catch (e: any) { setError(e.message || "Erro"); }
     finally { setBestLoading(false); }
   }
@@ -298,8 +279,8 @@ export default function GlobalTariffLookup() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <PageHeader title="Alíquotas por País" subtitle="Alíquotas de importação, VAT, ranking e simulação para 31 países"
-        badges={[{ label: "31 Países", icon: <Globe className="w-3 h-3 mr-1" /> },{ label: "140K Tarifas", icon: <Hash className="w-3 h-3 mr-1" /> },{ label: "Alíquotas", icon: <BadgeCheck className="w-3 h-3 mr-1" /> }]} />
+      <PageHeader title="Alíquotas por País" subtitle="Alíquotas de importação, VAT, ranking e simulação para 160+ países"
+        badges={[{ label: "160+ Países", icon: <Globe className="w-3 h-3 mr-1" /> },{ label: "860K+ Tarifas", icon: <Hash className="w-3 h-3 mr-1" /> },{ label: "Alíquotas", icon: <BadgeCheck className="w-3 h-3 mr-1" /> }]} />
 
       <div className="max-w-6xl mx-auto px-4 py-6">
         {/* ════ TABS ════ */}
@@ -320,15 +301,15 @@ export default function GlobalTariffLookup() {
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-5">
             <label className="text-sm font-bold text-slate-700 flex items-center gap-2 mb-3"><MapPin className="w-4 h-4 text-red-500" /> Selecione o país de destino</label>
             <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-10 gap-2">
-              {COUNTRIES.map((c) => {
-                const cnt = countryCounts[c.code] || 0;
+              {witsCountries.map((c) => {
+                const cnt = countryCounts[c.iso3] || 0;
                 const heatClass = cnt > 0 && maxCount > 0 ? heatColor(cnt, maxCount) : "";
                 return (
-                  <button key={c.code} onClick={() => setDestination(c.code)}
+                  <button key={c.iso3} onClick={() => setDestination(c.iso3)}
                     className={`flex flex-col items-center gap-1 p-2.5 rounded-xl border-2 transition-all text-center
-                      ${c.code === destination ? "border-red-300 bg-red-50 shadow-md shadow-red-100 scale-105 z-10" : `border-slate-100 bg-white hover:border-slate-300 hover:bg-slate-50 hover:shadow-sm`}`}>
-                    <span className="text-2xl">{c.flag}</span>
-                    <span className={`text-[10px] font-semibold leading-tight ${c.code === destination ? "text-red-700" : "text-slate-600"}`}>{c.name}</span>
+                      ${c.iso3 === destination ? "border-red-300 bg-red-50 shadow-md shadow-red-100 scale-105 z-10" : `border-slate-100 bg-white hover:border-slate-300 hover:bg-slate-50 hover:shadow-sm`}`}>
+                    <span className="text-xl">🌍</span>
+                    <span className={`text-[10px] font-semibold leading-tight ${c.iso3 === destination ? "text-red-700" : "text-slate-600"}`}>{c.nome}</span>
                     {cnt > 0 && <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full ${heatClass}`}>{fmt(cnt)}</span>}
                   </button>
                 );
