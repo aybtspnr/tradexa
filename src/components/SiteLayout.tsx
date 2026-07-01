@@ -31,6 +31,7 @@ function SiteHeader() {
     { label: "Track & Trace", href: "/track-trace", icon: <Navigation className="w-4 h-4" />, color: "#D80E16", desc: "Navios e aviões ao vivo" },
     { label: "Tarifário Global", href: "/landing/tariff-calculator", icon: <Globe className="w-4 h-4" />, color: "#f59e0b", desc: "Alíquotas em 31 países" },
     { label: "Trade Intelligence", href: "/landing/import-dashboard", icon: <BarChart3 className="w-4 h-4" />, color: "#10b981", desc: "Dados de importação e exportação" },
+    { label: "Export Import Data", href: "/export-import-data", icon: <BarChart3 className="w-4 h-4" />, color: "#0ea5e9", desc: "Importação/exportação por NCM" },
     { label: "Smart Rank", href: "/landing/export-opportunities", icon: <TrendingUp className="w-4 h-4" />, color: "#8b5cf6", desc: "Ranking de países" },
     { label: "Mapa de Importadores", href: "/landing/import-map", icon: <Map className="w-4 h-4" />, color: "#06b6d4", desc: "Geolocalização de operações" },
     { label: "Diretório Importadores", href: "/landing/importadores", icon: <Database className="w-4 h-4" />, color: "#ef4444", desc: "Milhões de empresas por HS" },
@@ -148,6 +149,7 @@ function SiteFooter() {
 
               { label: "Tarifário Global", href: "/global-tariff" },
               { label: "Inteligência Comercial", href: "/intelligence" },
+              { label: "Export Import Data", href: "/export-import-data" },
               { label: "Diretório de Importadores", href: "/importadores" }, 
               { label: "Importadores Potenciais", href: "/potential-importers" },
               { label: "Mapa Comercial", href: "/importers-map" },

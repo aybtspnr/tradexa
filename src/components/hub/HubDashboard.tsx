@@ -283,7 +283,7 @@ export default function HubDashboard() {
           <Sparkles className="w-4 h-4 text-amber-500" />
           Acesso Rápido
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
           <Link to="/company-global-profile" className="block group">
             <div className="bg-white rounded-xl border p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 hover:border-violet-200">
               <div className="w-9 h-9 rounded-lg bg-violet-50 flex items-center justify-center mb-2">
@@ -318,6 +318,15 @@ export default function HubDashboard() {
               </div>
               <div className="text-[13px] font-bold text-[#0F111A] group-hover:text-emerald-600 transition-colors">NCM Dashboard</div>
               <div className="text-[10px] text-slate-500 mt-0.5">Análise global do NCM</div>
+            </div>
+          </Link>
+          <Link to="/export-import-data" className="block group">
+            <div className="bg-white rounded-xl border p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 hover:border-sky-200">
+              <div className="w-9 h-9 rounded-lg bg-sky-50 flex items-center justify-center mb-2">
+                <BarChart3 className="w-4 h-4 text-sky-600" />
+              </div>
+              <div className="text-[13px] font-bold text-[#0F111A] group-hover:text-sky-600 transition-colors">Export Import Data</div>
+              <div className="text-[10px] text-slate-500 mt-0.5">Importação/exportação por NCM</div>
             </div>
           </Link>
         </div>
