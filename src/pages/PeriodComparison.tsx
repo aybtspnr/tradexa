@@ -26,6 +26,7 @@ import { GlassCard } from "@/components/GlassKpi";
 import { cn } from "@/lib/utils";
 import { showError, showSuccess } from "@/utils/toast";
 import { AVAILABLE_YEARS } from "@/lib/utils";
+import GlobalMarketSection from "@/components/intel/GlobalMarketSection";
 
 /* ═══════════════════ TYPES ═══════════════════ */
 
@@ -1285,6 +1286,13 @@ export default function PeriodComparison() {
               </GlassCard>
             </TabsContent>
           </Tabs>
+
+          {/* ── Global Market Context ── */}
+          {searchNcm.replace(/\D/g, "").length >= 4 && (
+            <div className="mt-6">
+              <GlobalMarketSection ncm={searchNcm.replace(/\D/g, "").slice(0, 6)} />
+            </div>
+          )}
 
           {/* ── Data source footer ── */}
           <div className="text-center">

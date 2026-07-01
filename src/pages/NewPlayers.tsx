@@ -24,6 +24,7 @@ import { cn } from "@/lib/utils";
 import { showError, showSuccess } from "@/utils/toast";
 import { saveSearchHistory } from "@/hooks/use-search-history";
 import { AVAILABLE_YEARS } from "@/lib/utils";
+import GlobalMarketSection from "@/components/intel/GlobalMarketSection";
 
 /* ═══════════════════ TYPES ═══════════════════ */
 
@@ -1069,6 +1070,13 @@ export default function NewPlayers() {
             <strong className="text-slate-300">{formatNcmCode(searchNcm.replace(/\D/g, ""))}</strong>{" "}
             no período selecionado. Tente um NCM diferente ou expanda o período.
           </p>
+        </div>
+      )}
+
+      {/* ── Global Market Context ── */}
+      {searchNcm.replace(/\D/g, "").length >= 4 && (
+        <div className="mt-6">
+          <GlobalMarketSection ncm={searchNcm.replace(/\D/g, "").slice(0, 6)} />
         </div>
       )}
     </div>

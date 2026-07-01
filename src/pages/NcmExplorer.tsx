@@ -14,6 +14,7 @@ import PageHeader from "@/components/PageHeader";
 import { GlassKpi, GlassCard } from "@/components/GlassKpi";
 import { cn } from "@/lib/utils";
 import { comexstat } from "@/services/comexstat";
+import GlobalMarketSection from "@/components/intel/GlobalMarketSection";
 
 /* ═══════════════════ TYPES ═══════════════════ */
 
@@ -1195,6 +1196,13 @@ export default function NcmExplorer() {
                   </div>
                 </div>
               </GlassCard>
+            )}
+
+            {/* ── Global Market Context ── */}
+            {selectedNcm && (
+              <div className="mt-8">
+                <GlobalMarketSection ncm={selectedNcm.replace(/\D/g, "").slice(0, 6)} />
+              </div>
             )}
           </motion.div>
         )}

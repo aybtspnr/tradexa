@@ -21,6 +21,7 @@ import { GlassKpi, GlassCard } from "@/components/GlassKpi";
 import { cn } from "@/lib/utils";
 import { showError, showSuccess } from "@/utils/toast";
 import { saveSearchHistory } from "@/hooks/use-search-history";
+import GlobalMarketSection from "@/components/intel/GlobalMarketSection";
 
 /* ═══════════════════ TYPES ═══════════════════ */
 
@@ -1215,6 +1216,13 @@ export default function TradeRoutes() {
               </div>
             )}
           </div>
+
+          {/* ── Global Market Context ── */}
+          {searchNcm.replace(/\D/g, "").length >= 4 && (
+            <div className="mt-6">
+              <GlobalMarketSection ncm={searchNcm.replace(/\D/g, "").slice(0, 6)} />
+            </div>
+          )}
 
           {/* ── Data source footer ── */}
           <div className="text-center">
