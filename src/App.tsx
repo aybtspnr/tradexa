@@ -174,6 +174,8 @@ const MarketReport = lazy(() => import("./pages/MarketReport"));
 const NewPlayers = lazy(() => import("./pages/NewPlayers"));
 const CompanyGlobalProfile = lazy(() => import("./pages/CompanyGlobalProfile"));
 const RadarConcorrencia = lazy(() => import("./pages/RadarConcorrencia"));
+const GlobalTradeComparison = lazy(() => import("./pages/GlobalTradeComparison"));
+const NcmGlobalDashboard = lazy(() => import("./pages/NcmGlobalDashboard"));
 
 const pageTransition = {
   initial: false,
@@ -559,6 +561,10 @@ function AnimatedRoutes() {
         <Route path="/company-global-profile/:cnpj" element={<ProtectedPage featureKey="market_intelligence"><CompanyGlobalProfile /></ProtectedPage>} />
         <Route path="/radar-concorrencia" element={<ProtectedPage featureKey="market_intelligence"><RadarConcorrencia /></ProtectedPage>} />
         <Route path="/radar-concorrencia/:ncm" element={<ProtectedPage featureKey="market_intelligence"><RadarConcorrencia /></ProtectedPage>} />
+        <Route path="/global-trade-comparison" element={<ProtectedPage featureKey="market_intelligence"><GlobalTradeComparison /></ProtectedPage>} />
+        <Route path="/global-trade-comparison/:ncm" element={<ProtectedPage featureKey="market_intelligence"><GlobalTradeComparison /></ProtectedPage>} />
+        <Route path="/ncm-global-dashboard" element={<ProtectedPage featureKey="market_intelligence"><NcmGlobalDashboard /></ProtectedPage>} />
+        <Route path="/ncm-global-dashboard/:ncm" element={<ProtectedPage featureKey="market_intelligence"><NcmGlobalDashboard /></ProtectedPage>} />
 
         <Route path="*" element={<AnimatedPage><NotFoundPage /></AnimatedPage>} />
       </Routes>
